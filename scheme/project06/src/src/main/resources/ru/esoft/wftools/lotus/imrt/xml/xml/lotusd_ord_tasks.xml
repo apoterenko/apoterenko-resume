@@ -1,0 +1,329 @@
+<table>
+	<name>
+		lotusd_ord_tasks
+	</name>
+	<entity>
+		ld_task:287
+	</entity>
+	<description>
+		ОРД - задачи
+	</description>
+	<path>
+		ОРД/Задачи
+	</path>
+	<columns>
+		<column>
+			<name>ld_ord_ts_id</name>
+			<primary>true</primary>
+			<notNull>true</notNull>
+			<type>integer</type>
+			<description>первичный ключ (создан при импорте внешней БД)</description>
+		</column>
+		<column>
+			<name>ld_ord_ts_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<description>предыдущий первичный ключ</description>
+		</column>
+		<column>
+			<name>ld_ord_ts_ds_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_ord_docs</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>null</sql>
+			<description>внешний ключ на таблицу lotusd_ord_docs</description>
+		</column>
+		<column>
+			<name>ld_ord_ts_ds_unid</name>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{parent}</sql>
+			<description>внешний уникальный ключ на таблицу lotusd_ord_docs</description>
+		</column>
+		<column>
+			<name>ld_ord_ts_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ord_ts_type</name>
+			<type>text</type>
+			<typeId>true</typeId>
+			<sql>{form}</sql>
+			<description>название формы lotusd_ord_tasks</description>
+		</column>
+		<column>
+			<name>ld_ord_ts_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>ld_ord_ts_path</name>
+			<type>text</type>
+			<sql>{path}</sql>
+			<description>абсолютный путь к файлу</description>
+		</column>
+		<column>
+			<name>Contents</name>
+			<type>text</type>
+			<comment>Текстовка задачи</comment>
+		</column>
+		<column>
+			<name>ExtraDocs</name>
+			<type>text</type>
+			<comment>Текстовка с описанием дополнительных документов к этой задаче</comment>
+		</column>
+		<column>
+			<name>Ex_Comments</name>
+			<type>text</type>
+			<comment>Комментарии по исполнению документа</comment>
+		</column>
+		<column>
+			<name>Result</name>
+			<type>text</type>
+			<comment>Текстовка с результатом исполнения задачи</comment>
+		</column>
+		<column>
+			<name>ToDoType</name>
+			<type>text</type>
+			<comment>Название задачи</comment>
+		</column>
+		<column>
+			<name>DocItems</name>
+			<type>text[]</type>
+			<multi>true</multi>
+			<comment>Пункты документа (в свободном формате), под исполнение которых создана данная задача</comment>
+		</column>
+		<column>
+			<name>Status</name>
+			<type>text</type>
+			<nativeColumnType>varchar(4)</nativeColumnType>
+			<comment>Статус задачи: 1."D" – черновик. 2. "W" – выполняется. 3. "Cont" – задача продлена.
+				4. "B" – задача снята. 5. "Comp" – завершено. 6. "U" – срок задачи истек.
+			</comment>
+		</column>
+		<!--БЛОК ПОДРАЗДЕЛЕНИЕ-ИСПОЛНИТЕЛЬ-->
+		<column>
+			<name>ld_ord_ts_de_ord_ts_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_ord_tasks</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_ord_tasks_division_executive</group>
+			<description>внешний ключ на таблицу lotusd_ord_tasks</description>
+		</column>
+		<column>
+			<name>ld_ord_ts_de_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_ord_tasks_division_executive</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ord_ts_de_ord_ts_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<group>lotusd_ord_tasks_division_executive</group>
+			<description>внешний уникальный ключ на таблицу lotusd_ord_tasks</description>
+		</column>
+		<column>
+			<name>ld_ord_ts_de_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_ord_tasks_division_executive</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>actMainOrg</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_ord_tasks_division_executive</group>
+			<comment>Исполнители задачи, название подразделения-исполнителя</comment>
+		</column>
+		<column>
+			<name>actMainContact</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_ord_tasks_division_executive</group>
+			<comment>Исполнители задачи, ФИО исполнителя</comment>
+		</column>
+		<!--БЛОК ПОДРАЗДЕЛЕНИЕ-СОИСПОЛНИТЕЛЬ-->
+		<column>
+			<name>ld_ord_ts_dce_ord_ts_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_ord_tasks</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_ord_tasks_division_co_executive</group>
+			<description>внешний ключ на таблицу lotusd_ord_tasks</description>
+		</column>
+		<column>
+			<name>ld_ord_ts_dce_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_ord_tasks_division_co_executive</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ord_ts_dce_ord_ts_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<group>lotusd_ord_tasks_division_co_executive</group>
+			<description>внешний уникальный ключ на таблицу lotusd_ord_tasks</description>
+		</column>
+		<column>
+			<name>ld_ord_ts_dce_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_ord_tasks_division_co_executive</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>actMainOrgCo</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_ord_tasks_division_co_executive</group>
+			<comment>Соисполнители задачи, название подразделения-исполнителя</comment>
+		</column>
+		<column>
+			<name>actMainContactCo</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_ord_tasks_division_co_executive</group>
+			<comment>Соисполнители задачи, ФИО исполнителя</comment>
+		</column>
+		<!---->
+		<column>
+			<name>Exec_ControlFlag</name>
+			<type>boolean</type>
+			<comment>Флаг: задача поставлена на контроль. «1», если да</comment>
+		</column>
+		<column>
+			<name>ExecDate</name>
+			<type>date</type>
+			<comment>Срок исполнения</comment>
+		</column>
+		<column>
+			<name>ExecDate_Fact</name>
+			<type>date</type>
+			<comment>Фактическая дата исполнения задачи</comment>
+		</column>
+		<column>
+			<name>Ex_Status</name>
+			<type>text</type>
+			<comment>Отметка о выполнении задачи – продление задачи, перенос сроков, срыв сроков и так далее.</comment>
+		</column>
+		<column>
+			<name>Ex_IsStoped</name>
+			<type>boolean</type>
+			<comment>Флаг: задача снята с исполнения и более не актуальна. «1», если да</comment>
+		</column>
+		<column>
+			<name>Ex_StopDate</name>
+			<type>date</type>
+			<comment>Дата снятия задачи</comment>
+		</column>
+		<column>
+			<name>Ex_IsExt</name>
+			<type>boolean</type>
+			<comment>Флаг: задача продлена. «1», если да</comment>
+		</column>
+		<column>
+			<name>Ex_ExtDate</name>
+			<type>date</type>
+			<comment>Когда была продлена задача</comment>
+		</column>
+		<column>
+			<name>Ex_ExtPeriod</name>
+			<type>date</type>
+			<comment>Срок продления (фактически – новый срок исполнения)</comment>
+		</column>
+		<column>
+			<name>TaskList</name>
+			<type>text</type>
+			<comment>Отчеты об исполнении задачи от различных исполнителей (текстовка)</comment>
+		</column>
+		<column>
+			<name>Ex_StopPerson</name>
+			<type>text</type>
+			<comment>ФИО снявшего задачу</comment>
+		</column>
+		<column>
+			<name>Ex_ExtPerson</name>
+			<type>text</type>
+			<comment>ФИО продлившего задачу</comment>
+		</column>
+		<column>
+			<name>Ex_ExtStatus</name>
+			<type>text</type>
+			<comment>Отметка о выполнении продленного мероприятия</comment>
+		</column>
+		<column>
+			<name>CheckInDate</name>
+			<type>date</type>
+			<comment>Дата постановка на контроль</comment>
+		</column>
+		<column>
+			<name>CheckInName</name>
+			<type>text</type>
+			<comment>ФИО поставившего на контроль</comment>
+		</column>
+		<column>
+			<name>CheckOutDate</name>
+			<type>timestamp with time zone</type>
+			<comment>Дата снятия с контроля</comment>
+		</column>
+		<column>
+			<name>CheckOutName</name>
+			<type>text</type>
+			<comment>ФИО снявшего с контроля</comment>
+		</column>
+	</columns>
+</table>

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>qiwi.jira</groupId>
+	<artifactId>qiwi-jira</artifactId>
+	<name>${project.artifactId}</name>
+	<version>1.1.10-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<url>http://jira.osmp.ru</url>
+
+	<organization>
+		<name>QIWI</name>
+	</organization>
+
+
+	<properties>
+		<jira.version>4.4.4</jira.version>
+		<jira.data.version>4.4</jira.data.version>
+		<testng.version>6.4</testng.version>
+		<project.build.sourceEncoding description="disables maven warning">UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding description="disables maven warning">UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<modules>
+		<!-- plugins -->
+		<module>plugins</module>
+
+		<!-- support -->
+		<module>persistence</module>
+		<module>security</module>
+		<module>specific</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.atlassian.jira</groupId>
+				<artifactId>atlassian-jira</artifactId>
+				<version>${jira.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>qiwi.jira</groupId>
+				<artifactId>qiwi-jira-persistence</artifactId>
+				<version>${project.parent.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>qiwi.jira</groupId>
+				<artifactId>qiwi-jira-security</artifactId>
+				<version>${project.parent.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>qiwi.jira</groupId>
+				<artifactId>qiwi-jira-specific</artifactId>
+				<version>${project.parent.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.atlassian.jira</groupId>
+				<artifactId>jira-func-tests</artifactId>
+				<version>${jira.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.testng</groupId>
+				<artifactId>testng</artifactId>
+				<version>${testng.version}</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.atlassian.jira</groupId>
+			<artifactId>atlassian-jira</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>http://maven.osmp.ru/nexus/content/groups/public</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>snapshots</id>
+			<url>http://maven.osmp.ru/nexus/content/repositories/snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<url>http://maven.osmp.ru/nexus/content/groups/public</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>analyze-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>analyze-only</goal>
+						</goals>
+						<configuration>
+							<failOnWarning>false</failOnWarning>
+							<ignoreNonCompile>true</ignoreNonCompile>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

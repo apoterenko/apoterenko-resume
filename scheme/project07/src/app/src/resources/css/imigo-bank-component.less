@@ -1,0 +1,413 @@
+@import "imigo-utils";
+@import "imigo-icon";
+@import "imigo-constant";
+
+.build-button(
+	@name: 'bank-balance',
+	@border-color: @imigo-basic-turquoise-color,
+	@color: @imigo-basic-turquoise-color,
+	@padding-left: 10,
+	@padding-right: 10,
+	@font-size: 16,
+	@height: 34px
+);
+.imigo-bank-balance-button {
+	line-height: 34px;
+	overflow: hidden;
+}
+
+.build-button(
+	@name: 'bank-apply',
+	@border-color: @imigo-basic-gold-color,
+	@color: @imigo-basic-gold-color,
+	@padding-left: 20,
+	@padding-right: 20,
+	@padding-top: 5,
+	@padding-bottom: 5
+);
+
+.build-label(
+	@name: 'bank-withdrawal-policy',
+	@color: @imigo-basic-turquoise-color,
+	@cursor: pointer,
+	@font-size: 20
+);
+
+.build-label(
+	@name: 'bank-history',
+	@color: @imigo-basic-turquoise-color,
+	@cursor: pointer
+);
+
+.build-label(
+	@name: 'bank-withdrawal-description',
+	@color: @imigo-basic-turquoise-color
+);
+
+.build-label(
+	@name: 'bank-card',
+	@color: @imigo-basic-turquoise-color
+);
+
+.build-label(
+	@name: 'bank-withdrawal-actual',
+	@color: #00e600,
+	@font-size: 20
+);
+
+.build-label(
+	@name: 'bank-premium-description',
+	@color: @imigo-basic-brown-color,
+	@font-size: 12
+);
+
+.build-label(
+	@name: 'bank-premium-title',
+	@color: @imigo-basic-bright-color,
+	@font-size: 42
+);
+
+.build-label(
+	@name: 'bank-payment-title',
+	@color: @imigo-basic-bright-color,
+	@font-size: 22
+);
+.imigo-bank-payment-title-label, .imigo-bank-payment-title-label-wrapper {
+	border-bottom: 1px solid @imigo-basic-brown-color;
+	.imigo-bank-payment-title-label {
+		border-bottom: none;
+	}
+}
+
+.build-label(
+	@name: 'bank-payment-common',
+	@color: @imigo-basic-turquoise-color,
+	@font-size: 20
+);
+
+.build-label(
+	@name: 'bank-withdrawal-sum',
+	@color: @imigo-basic-turquoise-color,
+	@font-size: 20
+);
+
+.build-label(
+	@name: 'bank-payment-sum',
+	@color: @imigo-basic-bright-color,
+	@font-size: 20
+);
+
+.build-label(
+	@name: 'bank-history-paging',
+	@color: @imigo-basic-turquoise-color
+);
+
+.build-label(
+	@name: 'bank-premium-account',
+	@color: @imigo-basic-gold-color,
+	@font-size: 18
+);
+
+.build-label(
+	@name: 'bank-premium-offer-imi',
+	@color: @imigo-basic-bright-color,
+	@font-size: 22
+);
+
+.build-label(
+	@name: 'bank-premium-saving',
+	@color: @imigo-basic-bright-color
+);
+
+.build-label(
+	@name: 'bank-premium-subscription',
+	@color: @imigo-basic-bright-color,
+	@font-size: 18
+);
+
+.build-label(
+	@name: 'bank-premium-special',
+	@color: #fafff8,
+	@font-family: @imigo-basic-bold-font,
+	@font-size: 26
+);
+.imigo-bank-premium-special-label {
+	background: -webkit-linear-gradient(#fff, #e5ffde, #79b871);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+}
+
+.build-label(
+	@name: 'bank-premium-offer-period',
+	@color: @imigo-basic-gold-color,
+	@font-size: 22
+);
+
+.build-label(
+	@name: 'bank-paid',
+	@color: @imigo-basic-bright-color,
+	@font-size: 18
+);
+
+.build-label(
+	@name: 'bank-premium-count-at-period',
+	@color: @imigo-basic-brown-color,
+	@font-size: 12
+);
+
+.build-label(
+	@name: 'bank-payment-rate',
+	@color: @imigo-basic-turquoise-color,
+	@font-size: 11,
+	@font-style: italic
+);
+
+.build-label(
+	@name: 'bank-payment-type',
+	@color: @imigo-basic-turquoise-color,
+	@font-size: 11,
+	@padding-top: 2
+);
+
+.build-label(
+	@name: 'bank-histoty-operation',
+	@color: @imigo-basic-bright-color,
+	@font-size: 16
+);
+.imigo-bank-histoty-operation-label {
+	line-height: 32px;
+	&:hover > * {
+		font-family: @imigo-basic-bold-font;
+	}
+}
+
+.build-label (
+	@name: 'payment-title',
+	@color: @imigo-basic-bright-color,
+	@font-size: 20
+);
+
+.build-image(
+	@name: 'bank-paypal',
+	@background-image: @imigo-icon-paypal-small-background-image,
+	@width: @imigo-icon-paypal-small-width,
+	@height: @imigo-icon-paypal-small-height
+);
+
+.build-image(
+	@name: 'bank-visa',
+	@background-image: @imigo-icon-visa-small-background-image,
+	@width: @imigo-icon-visa-small-width,
+	@height: @imigo-icon-visa-small-height
+);
+.imigo-bank-visa-image {transform: scale(.8)}
+
+.build-image(
+	@name: 'bank-big-visa',
+	@background-image: @imigo-icon-visa-big-background-image,
+	@width: @imigo-icon-visa-big-width,
+	@height: @imigo-icon-visa-big-height
+);
+
+.build-image(
+	@name: 'bank-card-chip',
+	@background-image: @imigo-icon-card-chip-background-image,
+	@width: @imigo-icon-card-chip-width,
+	@height: @imigo-icon-card-chip-height
+);
+
+.imigo-bank-payment-zone {
+
+	.build-input(
+		@border-color: @imigo-basic-turquoise-color,
+		@color: @imigo-basic-bright-color,
+		@font-size: 16,
+		@height: 36,
+		@padding: 8
+	);
+
+	input {
+		.build-imigo-placeholder(@font-style: italic, @color: @imigo-basic-turquoise-color, @font-size: 13);
+	}
+
+	.imigo-search-combo {
+		&.selectize-control {
+			&.single {
+				.selectize-input {
+					height: 36px;
+				}
+			}
+		}
+	}
+}
+
+.imigo-bank-payment-zone-original {
+
+	.imigo-bank-payment-common-label {
+		white-space: nowrap;
+	}
+}
+
+.imigo-bank-history-zone {
+	.imigo-card-price-imi-image {
+		height: 16px;
+		background-size: contain;
+	}
+}
+
+.imigo-bank-premium-offer-zone {
+	background-color: #000e14;
+}
+
+.imigo-bank-premium-special-offer-zone {
+	background-color: #00060a;
+}
+
+.imigo-bank-premium-special-offer-inner-zone {
+	border-top: 2px solid @imigo-basic-gold-color;
+}
+
+.imigo-bank-premium-description-label {
+	line-height: 12px;
+}
+
+.imigo-bank-imi-currency-image {
+	height: 24px;
+}
+
+.imigo-bank-premium-offer-zone-wrapper2 {
+	.imigo-imi-currency-image {
+		background-size: cover;
+	}
+}
+
+.imigo-payment-dialog {
+	background-color: @imigo-basic-dark-color;
+	border: 1px solid @imigo-basic-turquoise-color;
+
+	.selectize-input {
+		color: @imigo-basic-bright-color;
+	}
+}
+
+.imigo-bank-cred-card {
+	background-color: @imigo-basic-dark-color;
+	border: 1px solid @imigo-basic-turquoise-color;
+	.build-border-radius (@radius: 20);
+}
+
+input.imigo-bank-payment-checkbox {
+	cursor: pointer;
+}
+
+.imigo-bank-payment-type-wrapper {
+	cursor: pointer;
+	* {
+		cursor: pointer;
+	}
+	&.selected {
+		background-color: #223031;
+	}
+}
+
+.imigo-bank-card-empty-placeholder {
+	background-color: #4d6f76;
+}
+
+// Media queries
+.build-bank-controls (@max-width, @bank-common-label-font-size, @bank-premium-title-label-font-size, @bank-common-button-font-size,
+	@bank-bank-premium-description-label-font-size, @bank-premium-special-label-font-size, @bank-premium-subscription-line-height,
+	@bank-imi-currency-image-height, @bank-payment-type-label-font-size) {
+	@media (max-width: @max-width) {
+		.imigo-view {
+			.imigo-bank-premium-title-label {
+				font-size: @bank-premium-title-label-font-size;
+			}
+
+			.imigo-bank-premium-offer-period-label, .imigo-bank-premium-account-label,
+				.imigo-bank-premium-offer-imi-label, .imigo-bank-payment-title-label,
+				.imigo-bank-payment-common-label, .imigo-bank-paid-label {
+				font-size: @bank-common-label-font-size;
+			}
+
+			.imigo-bank-premium-subscription-label {
+				line-height: @bank-premium-subscription-line-height;
+
+				span {
+					font-size: @bank-common-label-font-size;
+				}
+			}
+
+			.imigo-bank-premium-description-label {
+				font-size: @bank-bank-premium-description-label-font-size;
+			}
+
+			.imigo-bank-apply-button, .imigo-bank-premium-saving-label, .imigo-profile-return-button, .imigo-bank-withdrawal-description-label {
+				font-size: @bank-common-button-font-size;
+			}
+
+			.imigo-bank-premium-special-label {
+				font-size: @bank-premium-special-label-font-size;
+			}
+			.imigo-bank-balance-button {
+				font-size: @bank-common-label-font-size;
+			}
+
+			.imigo-bank-imi-currency-image {
+				height: @bank-imi-currency-image-height;
+			}
+
+			.imigo-bank-payment-type-label {
+				font-size: @bank-payment-type-label-font-size;
+			}
+		}
+	}
+}
+
+.build-bank-controls (
+	@max-width: @imigo-1280-width,
+	@bank-common-label-font-size: 16px,
+	@bank-premium-title-label-font-size: 34px,
+	@bank-common-button-font-size: 12px,
+	@bank-bank-premium-description-label-font-size: 11px,
+	@bank-premium-special-label-font-size: 22px,
+	@bank-premium-subscription-line-height: 16px,
+	@bank-imi-currency-image-height: 20px,
+	@bank-payment-type-label-font-size: 11px
+);
+
+.build-bank-controls (
+	@max-width: @imigo-1024-width,
+	@bank-common-label-font-size: 14px,
+	@bank-premium-title-label-font-size: 32px,
+	@bank-common-button-font-size: 11px,
+	@bank-bank-premium-description-label-font-size: 10px,
+	@bank-premium-special-label-font-size: 18px,
+	@bank-premium-subscription-line-height: 14px,
+	@bank-imi-currency-image-height: 18px,
+	@bank-payment-type-label-font-size: 11px
+);
+
+.build-bank-controls (
+	@max-width: @imigo-900-width,
+	@bank-common-label-font-size: 12px,
+	@bank-premium-title-label-font-size: 30px,
+	@bank-common-button-font-size: 10px,
+	@bank-bank-premium-description-label-font-size: 9px,
+	@bank-premium-special-label-font-size: 16px,
+	@bank-premium-subscription-line-height: 12px,
+	@bank-imi-currency-image-height: 16px,
+	@bank-payment-type-label-font-size: 10px
+);
+
+.build-bank-controls (
+	@max-width: @imigo-800-width,
+	@bank-common-label-font-size: 11px,
+	@bank-premium-title-label-font-size: 26px,
+	@bank-common-button-font-size: 9px,
+	@bank-bank-premium-description-label-font-size: 9px,
+	@bank-premium-special-label-font-size: 14px,
+	@bank-premium-subscription-line-height: 12px,
+	@bank-imi-currency-image-height: 14px,
+	@bank-payment-type-label-font-size: 10px
+);

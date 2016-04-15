@@ -1,0 +1,164 @@
+.build-percent-size(@name) {
+	@tag-percent-w-name: ~'ui-w-@{name}p';
+	@tag-percent-h-name: ~'ui-h-@{name}p';
+	@percentValue: ~'@{name}%';
+
+	[@{tag-percent-w-name}] {width: @percentValue;}
+	[@{tag-percent-h-name}] {height: @percentValue; &[ui-lh-c] {line-height: @percentValue;}}
+}
+
+.build-size(@name) {
+	@tag-w-name: ~'ui-w-@{name}';
+	@tag-h-name: ~'ui-h-@{name}';
+	@value: ~'@{name}px';
+
+	[@{tag-w-name}] {width: @value;}
+	[@{tag-h-name}] {height: @value; &[ui-lh-c] {line-height: @value;}}
+}
+
+.build-sizes(@counter) when (@counter >= 0) {
+	.build-size(@counter);
+	.build-sizes((@counter - 4));
+}
+
+.build-percent-sizes(@counter) when (@counter >= 0) {
+	.build-percent-size(@counter);
+	.build-percent-sizes((@counter - 1));
+}
+
+.build-sizes(400);
+.build-percent-sizes(100);
+
+/*******************/
+/**   UI LAYOUT   **/
+/*******************/
+.ui-layout {
+
+	/*****************************/
+	/**    UI POSITION LAYOUT   **/
+	/*****************************/
+	[ui-rel] {
+		position: relative;
+	}
+
+	[ui-abs] {
+		position: absolute;
+	}
+
+	[ui-abs-vb] {
+		bottom: 0;
+	}
+
+	[ui-abs-hr] {
+		right: 0;
+	}
+
+	/**************************/
+	/**    UI SIZES LAYOUT   **/
+	/**************************/
+	[ui-full] {
+		width: 100%;
+		height: 100%;
+	}
+
+	[ui-full-w] {
+		width: 100%;
+	}
+
+	[ui-full-h] {
+		height: 100%;
+	}
+
+	[ui-half-h] {
+		height: 50%;
+	}
+
+	/**************************/
+	/**   UI COLUMN LAYOUT   **/
+	/**************************/
+	[ui-column], [ui-row] {
+		display: table;
+	}
+
+	[ui-column] > * {
+		display: table-cell;
+	}
+
+	[ui-row] > * {
+		display: table-row;
+	}
+
+	/**************************/
+	/**   UI ALIGN LAYOUT    **/
+	/**************************/
+
+	// vertical center
+	[ui-vc-align] {
+		vertical-align: middle;
+	}
+
+	// vertical bottom
+	[ui-vb-align] {
+		vertical-align: bottom;
+	}
+
+	// vertical top
+	[ui-vt-align] {
+		vertical-align: top;
+	}
+
+	// horizontal left
+	[ui-hl-align] {
+		text-align: left;
+	}
+
+	// horizontal center
+	[ui-hc-align] {
+		text-align: center;
+	}
+
+	// horizontal right
+	[ui-hr-align] {
+		text-align: right;
+	}
+
+	[ui-bl-hr-align] {
+		display: block;
+		float: right;
+	}
+
+	[ui-bl-hl-align] {
+		display: block;
+		float: left;
+	}
+
+	[ui-fl-content] {
+		overflow: hidden;
+	}
+
+	[ui-fl-content] > * {
+		float: left;
+	}
+
+	/**************************/
+	/**    UI AUTO LAYOUT    **/
+	/**************************/
+	[ui-auto] {
+		margin: auto;
+	}
+
+	/**************************/
+	/**   UI DISPLAY LAYOUT  **/
+	/**************************/
+	[ui-inline-block] {
+		display: inline-block;
+	}
+
+	[ui-block] {
+		display: block;
+	}
+
+	[ui-zone] {
+		overflow: hidden;
+	}
+}

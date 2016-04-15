@@ -1,0 +1,20 @@
+pngnq -s 1 -n 16 -f cancel_icon.png
+pngnq -s 1 -n 16 -f chat_icon.png
+pngnq -s 1 -n 16 -f friend_icon.png
+pngnq -s 1 -n 16 -f heart_icon.png
+pngnq -s 1 -n 16 -f +_icon.png
+pngnq -s 1 -n 16 -f imi_ad_icon.png
+pngnq -s 1 -n 16 -f search_icon.png
+pngnq -s 1 -n 16 -f work_icon.png
+pngnq -s 1 -n 16 -f logo2.png
+pngnq -s 1 -n 16 -f logo.png
+pngnq -s 1 -n 16 -f next.png
+pngnq -s 1 -n 16 -f +_photo.png
+pngnq -s 1 -n 16 -f friend_gif.png
+pngnq -s 1 -n 16 -f work_gif.png
+pngnq -s 1 -n 16 -f rom_gif.png
+pngnq -s 1 -n 16 -f prev.png
+
+pngnq -s 1 -n 256 -f full_planet.png
+pngnq -s 1 -n 256 -f planet.png
+pngnq -s 1 -n 256 -f shine.png

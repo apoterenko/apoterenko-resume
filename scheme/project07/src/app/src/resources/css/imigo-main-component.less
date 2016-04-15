@@ -1,0 +1,44 @@
+@import "imigo-utils";
+@import "imigo-icon";
+@import "imigo-constant";
+
+.build-image(
+	@name: 'main-card-plus',
+	@background-image: @imigo-icon-plus-background-image,
+	@background-size: contain,
+	@width: @imigo-icon-plus-background-image-mini-width,
+	@height: @imigo-icon-plus-background-image-mini-height,
+	@cursor: pointer
+);
+
+.build-label(
+	@name: 'main-alert-premium',
+	@color: @imigo-basic-gold-color,
+	@font-size: 22
+);
+
+.build-image(
+	@name: 'main-icon',
+	@background-size: contain
+);
+.imigo-main-icon-image {
+	&.imigo-main-icon-friends {
+		background-image: @imigo-icon-friends2-background-image;
+		background-size: 55%;
+	}
+	&.imigo-main-icon-work {
+		background-image: @imigo-icon-work2-background-image;
+	}
+	&.imigo-main-icon-romance {
+		background-image: @imigo-icon-romance2-background-image;
+	}
+}
+
+.imigo-main-card-placeholder {
+	.imigo-forward-button, .imigo-backward-button {
+		background-size: 70%;
+	}
+	.imigo-loupe-image {
+		cursor: pointer;
+	}
+}

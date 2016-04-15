@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+  <html data-ng-app="adminApp">
+  <head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Admin Room</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/app.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.5.8/css/ngDialog-theme-default.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.5.8/css/ngDialog.min.css"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" ui-sref="ads">Ads</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a ui-sref="/">Home</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row top-buffer">
+        <div class="col-xs-8 col-xs-offset-2">
+          <div ui-view></div> <!-- This is where our views will load -->
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+      IMIGO={};
+      defineCdnUrl = function (path, prefix) {
+        IMIGO.CDN_PATH = path;
+        IMIGO.CDN_PREFIX = prefix;
+      };
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-resource.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.5.8/js/ngDialog.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="js/services.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script src="/dist/cdn_config.js?_dc=1.3.0-snapshot-0"></script>
+  </body>
+</html>

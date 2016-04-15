@@ -1,0 +1,1818 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.4\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: app/search/search.tpl.html:65
+msgid "..."
+msgstr "..."
+
+#: app/profile/profile.tpl.html:77
+msgid "{{accessbileCharCount}} characters left"
+msgstr "Осталось символов: {{accessbileCharCount}}"
+
+#: app/profile/profile.tpl.html:51
+msgid "{{age()}} years"
+msgstr "{{age()}} лет"
+
+#: app/main/main.tpl.html:249
+msgid "{{desk.card.accessbileCharCount}} characters left"
+msgstr "Осталось символов: {{desk.card.accessbileCharCount}}"
+
+#: app/bank/bank.tpl.html:473 app/bank/bank.tpl.html:496
+msgid "{{imiAtWeek}} IMI per week"
+msgstr "{{imiAtWeek}} IMI в неделю"
+
+#: app/bank/bank.tpl.html:477 app/bank/bank.tpl.html:500
+msgid "{{percentSaving}}% off"
+msgstr "{{percentSaving}}% экономии"
+
+#: app/bank/bank.tpl.html:188
+msgid "*IMIGO.ME will charge a 20% commission for exchange services."
+msgstr "*IMIGO.ME взимает комиссию в размере 20% за услугу обмена ."
+
+#: app/main/main.tpl.html:61
+msgid ""
+"<a ui-sref=\"search({category: category(type)})\" class=\"imigo-card-nav-"
+"label\">Find</a> a friend or <a ng-click=\"onCreate(type)\" class=\"imigo-"
+"card-nav-label\">offer</a> friendship for <a ui-sref=\"bank\" class=\"imigo-"
+"card-nav2-label imigo-underline\">IMI</a>."
+msgstr ""
+"<a ui-sref=\"search({category: category(type)})\" class=\"imigo-card-nav-"
+"label\">Приобретите</a> друга или <a ng-click=\"onCreate(type)\" class="
+"\"imigo-card-nav-label\">предложите</a> свое общение за <a ui-sref=\"bank\" "
+"class=\"imigo-card-nav2-label imigo-underline\">IMI</a>"
+
+#: app/main/main.tpl.html:60
+msgid ""
+"<a ui-sref=\"search({category: category(type)})\" class=\"imigo-card-nav-"
+"label\">Find</a> a professional or <a ng-click=\"onCreate(type)\" class="
+"\"imigo-card-nav-label\">offer</a> your services for <a ui-sref=\"bank\" "
+"class=\"imigo-card-nav2-label imigo-underline\">IMI</a>."
+msgstr ""
+"<a ui-sref=\"search({category: category(type)})\" class=\"imigo-card-nav-"
+"label\">Найдите</a> специалиста или <a ng-click=\"onCreate(type)\" class="
+"\"imigo-card-nav-label\">предложите</a> свои услуги за <a ui-sref=\"bank\" "
+"class=\"imigo-card-nav2-label imigo-underline\">IMI</a>"
+
+#: app/main/main.tpl.html:59
+msgid ""
+"<a ui-sref=\"search({category: category(type)})\" class=\"imigo-card-nav-"
+"label\">Find</a> love or <a ng-click=\"onCreate(type)\" class=\"imigo-card-"
+"nav-label\">offer</a> romance for <a ui-sref=\"bank\" class=\"imigo-card-"
+"nav2-label imigo-underline\">IMI</a>."
+msgstr ""
+"<a ui-sref=\"search({category: category(type)})\" class=\"imigo-card-nav-"
+"label\">Найдите</a> любовь или <a ng-click=\"onCreate(type)\" class=\"imigo-"
+"card-nav-label\">предложите</a> свое общение за <a ui-sref=\"bank\" class="
+"\"imigo-card-nav2-label imigo-underline\">IMI</a>"
+
+#: app/chat/chat.tpl.html:111
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> accepted "
+"the offer."
+msgstr ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> принял(а) "
+"предложение."
+
+#: app/chat/chat.tpl.html:113
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> canceled "
+"the deal."
+msgstr ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> отменил "
+"сделку."
+
+#: app/chat/chat.tpl.html:114
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> has "
+"completed the deal."
+msgstr ""
+"Сделка с <span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> "
+"завершена."
+
+#: app/chat/chat.tpl.html:104
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> offered "
+"services in the \"{{message.category === 'friendship' ? 'Friendship' : "
+"(message.category === 'professional' ? 'Professional' : 'Romance')}}\" "
+"category. Cost of service: {{message.price}} IMI, duration of deal ({{$m."
+"durationUnit(message) === 'hour' ? 'hours' : 'days'}}): {{message.duration}}."
+msgstr ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> "
+"предложил(а) свои услуги в категории \"{{message.category === 'friendship' ? "
+"'Дружба' : (message.category === 'professional' ? 'Работа' : "
+"'Романтика')}}\". Стоимость услуги: {{message.price}} IMI, срок исполнения "
+"({{$m.durationUnit(message) === 'hour' ? 'часов' : 'дней'}}): {{message."
+"duration}}."
+
+#: app/chat/chat.tpl.html:112
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> refused "
+"the offer."
+msgstr ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> отклонил "
+"предложение."
+
+#: app/chat/chat.tpl.html:105
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> wants to "
+"purchase your services in the \"{{message.category === 'friendship' ? "
+"'Friendship' : (message.category === 'professional' ? 'Professional' : "
+"'Romance')}}\" category. Cost of service: {{message.price}} IMI, duration of "
+"deal ({{$m.durationUnit(message) === 'hour' ? 'hours' : 'days'}}): {{message."
+"duration}}."
+msgstr ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> хочет "
+"приобрести ваши услуги в категории \"{{message.category === 'friendship' ? "
+"'Дружба' : (message.category === 'professional' ? 'Работа' : "
+"'Романтика')}}\". Стоимость услуги: {{message.price}} IMI, срок исполнения "
+"({{$m.durationUnit(message) === 'hour' ? 'часов' : 'дней'}}): {{message."
+"duration}}."
+
+#: app/bank/bank.tpl.html:469
+msgid "1 MONTH"
+msgstr "МЕСЯЦ"
+
+#: app/bank/bank.tpl.html:450
+msgid "1 WEEK"
+msgstr "НЕДЕЛЯ"
+
+#: app/bank/bank.tpl.html:492
+msgid "1 YEAR"
+msgstr "ГОД"
+
+#: app/post-footer.tpl.html:5
+msgid "About"
+msgstr "О сайте"
+
+#: app/about/about.tpl.html:17
+msgid "ABOUT"
+msgstr "О САЙТЕ"
+
+#: app/chat/chat.tpl.html:132
+msgid "accept"
+msgstr "принять"
+
+#: app/error/idpPermission.tpl.html:17
+msgid "Access to your email address is needed to proceed."
+msgstr "Для продолжения необходим доступ к данным об электронной почте."
+
+#: app/bank/bank.tpl.html:461 app/bank/bank.tpl.html:484
+#: app/bank/bank.tpl.html:507 app/bank/bank.tpl.html:539
+msgid "Activate"
+msgstr "Подключить"
+
+#: app/bank/bank.tpl.html:530
+msgid ""
+"ACTIVATE <span class=\"imigo-bank-premium-account-label\">PREMIUM ACCOUNT</"
+"span><br>WITH NO DOWN PAYMENT*"
+msgstr ""
+"ПОДПИСКА НА <span class=\"imigo-bank-premium-account-label\">ПРЕМИУМ "
+"АККАУНТ</span><br>БЕЗ ПЕРВОНАЧАЛЬНОГО ВЗНОСА*"
+
+#: app/profile/profile.tpl.html:25 app/search/search.tpl.html:183
+msgid "activate premium"
+msgstr "подключить premium"
+
+#: app/dictionary.html:31
+msgid "Activate premium account to unlock additional slots."
+msgstr "Активируйте PREMIUM аккаунт, чтобы открыть дополнительные слоты."
+
+#: app/main/main.tpl.html:241
+msgid "Ad text"
+msgstr "Текст объявления"
+
+#: app/report.tpl.html:56
+msgid "Add a comment"
+msgstr "Добавить комментарий"
+
+#: app/profile/profile.tpl.html:138
+msgid "Add a new photo"
+msgstr "Добавить новую фотографию"
+
+#: app/search/search.tpl.html:79
+msgid "Age"
+msgstr "Возраст"
+
+#: app/bank/bank.tpl.html:16
+msgid "Amount of IMI you would like to buy:"
+msgstr "Количество IMI, которое вы хотите купить:"
+
+#: app/bank/bank.tpl.html:98
+msgid "Amount of IMI you would like to withdraw:"
+msgstr "Количество IMI, которое вы хотите вывести:"
+
+#: app/dictionary.html:49
+msgid "ANSWER to: Does deals have time limit?"
+msgstr "У сделок есть ограничение по времени?"
+
+#: app/dictionary.html:65
+msgid "ANSWER to: How premium account differs?"
+msgstr ""
+"Премиум аккаунт увеличивает заметность ваших объявлений в поиске (они будут "
+"показаны в специальном разделе). Кроме того, с премиумом можно иметь пять "
+"активных сделок или объявлений одновременно в каждой категории."
+
+#: app/dictionary.html:66
+msgid "ANSWER to: How to activate premium?"
+msgstr "Как активировать премиум аккаунт?"
+
+#: app/dictionary.html:46
+msgid "ANSWER to: How to become performer and find an order?"
+msgstr ""
+"Чтобы стать исполнителем, выберите категорию и создайте объявление. "
+"Расскажите о себе и своей услуге в поле \"текст объявления\", подберите "
+"подходящую фотографию. Если вы сами хотите найти заказ - на главной странице "
+"нажмите на значок лупы в нужной вам категории. Выберите интересное "
+"объявление Заказчика и предложите ему свои услуги через чат."
+
+#: app/dictionary.html:68
+msgid "ANSWER to: How to fill up my balance?"
+msgstr "Как пополнить баланс?"
+
+#: app/dictionary.html:45
+msgid "ANSWER to: How to get service or find performer?"
+msgstr ""
+"Чтобы подобрать исполнителя, воспользуйтесь поиском - иконкой \"лупы\" над "
+"каждой из категорий. Введите ключевое слово и отфильтруйте исполнителей по "
+"полу, возрасту или карме. Выберите понравившееся объявление и нажмите кнопку "
+"\"Чат\" в нижней части экрана. Лично договоритесь с исполнителем об условиях "
+"и подтвердите сделку (кнопка \"Предложить\")."
+
+#: app/dictionary.html:71
+msgid "ANSWER to: How to withdraw earned money?"
+msgstr ""
+"На стадии бета-тестирования пополнение счета и вывод средств отключены. Мы "
+"обязательно сообщим, когда функция вывода денег заработает."
+
+#: app/dictionary.html:70
+msgid ""
+"ANSWER to: I've made a purchase, but I don't any change in my balance, what "
+"should I do?"
+msgstr ""
+"Если вы получили подтверждение успешного платежа от платежной системы, но "
+"баланс не изменился, подождите некоторое время. Если спустя 15 минут баланс "
+"останется неизменным, обратитесь в Службу поддержки: support@imigo.me"
+
+#: app/dictionary.html:53
+msgid "ANSWER to: imigo.me in beta testing stage. What does it mean?"
+msgstr ""
+"Это значит, что доступ к сайту пока есть только у ограниченного числа "
+"пользователей. Поздравляем, если вы читаете это - вы избранный! Кроме того, "
+"в бета версии отключена возможность покупать виртуальную валюту IMI и "
+"выводить средства."
+
+#: app/dictionary.html:52
+msgid "ANSWER to: In which countries I can access imigo.me?"
+msgstr ""
+"Сейчас imigo.me доступен в России, США и Японии. В дальнейшем мы планируем "
+"расширять географию сервиса."
+
+#: app/dictionary.html:67
+msgid "ANSWER to: Subscription without inital payment - how does it work?"
+msgstr ""
+"Выбрав специальное предложение, вы не будете платить до поступления средств "
+"на счет. При этом премиум аккаунт будет активен. При наличии средств на "
+"счету с вас взимается плата в размере 4 IMI в неделю. Срок действия премиум "
+"аккаунта по этому специальному предложению - 1 год."
+
+#: app/dictionary.html:47
+msgid "ANSWER to: Turns out I can earn real money on imigo.me?"
+msgstr ""
+"Да, так и есть. Заработанные за заказы IMI вы можете обменять на реальные "
+"деньги."
+
+#: app/dictionary.html:51
+msgid "ANSWER to: What I can not do on web site?"
+msgstr ""
+"На сайте запрещено размещать угрозы и враждебные высказывания, "
+"оскорбительные материалы, личную информацию других пользователей. Кроме "
+"того, запрещена любая иная деятельность, преследуемая по закону. Более "
+"подробную информацию вы можете найти в \"Условиях использования\". Если вы "
+"столкнулись с нарушением правил, сообщите об этом, воспользовавшись функцией "
+"\"Отправить жалобу\"."
+
+#: app/dictionary.html:64
+msgid "ANSWER to: What is IMI?"
+msgstr ""
+"IMI - это внутренняя валюта сайта IMIGP.ME. За IMI можно покупать услуги "
+"других пользователей на сайте и приобретать премиум аккаунт. Кроме того, IMI "
+"можно конвертировать в реальные деньги "
+
+#: app/dictionary.html:44
+msgid "ANSWER to: What is IMIGO.ME"
+msgstr ""
+"IMIGO.ME - рынок взаимоотношений, первая площадка, которая позволяет "
+"торговать своим личным временем. Здесь вы сможете завести новых друзей, "
+"найти свою любовь и при этом заработать!"
+
+#: app/dictionary.html:50
+msgid "ANSWER to: What is karma? How to raise it?"
+msgstr ""
+"Карма - оценка вашей надежности как партнера. Карма отдельно считается для "
+"каждой из категорий: Дружбы, Романтики и Работы. Когда вы успешно завершаете "
+"сделку, у вас возрастает положительная карма. Если любая из сторон досрочно "
+"расторгает сделку, то у обеих сторон увеличивается антикарма."
+
+#: app/dictionary.html:69
+msgid "ANSWER to: Which payment systems are supported?"
+msgstr "Какие платежные системы доступны?"
+
+#: app/dictionary.html:48
+msgid ""
+"ANSWER to: Why I need web site, if I can do this in other social networks?"
+msgstr "Зачем мне сайт, если я могу обо всем договориться в соцсетях?"
+
+#: app/dictionary.html:4
+msgid "April"
+msgstr "Апрель"
+
+#: app/main/main.tpl.html:96
+msgid "Are you sure you want to cancel this deal?"
+msgstr "Вы действительно хотите удалить сделку?"
+
+#: app/main/main.tpl.html:99
+msgid "Are you sure you want to delete your ad?"
+msgstr "Вы действительно хотите удалить объявление?"
+
+#: app/dictionary.html:8
+msgid "August"
+msgstr "Август"
+
+#: app/main/MainController.js:153 app/search/SearchController.js:39
+msgid "Back"
+msgstr "Вернуться"
+
+#: app/profile/profile.tpl.html:110
+msgid "back to home page"
+msgstr "назад на главную страницу"
+
+#: app/profile/profile.tpl.html:88
+msgid "Back to search"
+msgstr "Назад к поиску"
+
+#: app/main/main.tpl.html:136
+msgid "cancel the deal"
+msgstr "отменить сделку"
+
+#: app/bank/bank.tpl.html:328
+msgid "Card expiration date"
+msgstr "Срок действия карты"
+
+#: app/chat/chat.tpl.html:186 app/chat/chat.tpl.html:188
+msgid "Category"
+msgstr "Категория"
+
+#: app/dictionary.html:24
+msgid "charisma"
+msgstr "харизма"
+
+#: app/search/search.tpl.html:190
+msgid "clear filter"
+msgstr "очистить форму"
+
+#: app/dictionary.html:13
+msgid "Client"
+msgstr "Заказчик"
+
+#: app/dictionary.html:16
+msgid "Clients"
+msgstr "Заказчики"
+
+#: app/dictionary.html:27 app/video.tpl.html:21
+msgid "close"
+msgstr "закрыть"
+
+#: app/chat/chat.tpl.html:300 app/main/main.tpl.html:147
+msgid "Complete"
+msgstr "Завершить"
+
+#: app/search/search.tpl.html:167
+msgid "Confirmed users"
+msgstr "Подтвержденные пользователи"
+
+#: app/chat/chat.tpl.html:8
+msgid "Contacts"
+msgstr "Контакты"
+
+#: app/about/about.tpl.html:51
+msgid "CONTACTS"
+msgstr "КОНТАКТЫ"
+
+#: app/dictionary.html:26
+msgid "cost / day"
+msgstr "цена / день"
+
+#: app/dictionary.html:25
+msgid "cost / hour"
+msgstr "цена / час"
+
+#: app/bank/bank.tpl.html:381
+msgid "Country"
+msgstr "Страна"
+
+#: app/main/main.tpl.html:35
+msgid "Create a new ad"
+msgstr "Создать новое объявление"
+
+#: app/bank/bank.tpl.html:312
+msgid "Credit card number"
+msgstr "Номер кредитной карты"
+
+#: app/bank/bank.tpl.html:87
+msgid "Credit/Debet card"
+msgstr "Банковская карта"
+
+#: app/bank/history/history.tpl.html:25
+msgid "Date"
+msgstr "Дата"
+
+#: app/registration/registration.tpl.html:14
+msgid "Date of birth"
+msgstr "Дата рождения"
+
+#: app/chat/chat.tpl.html:287 app/main/main.tpl.html:130
+msgid "Days"
+msgstr "Дней"
+
+#: app/dictionary.html:12
+msgid "December"
+msgstr "Декабрь"
+
+#: app/main/main.tpl.html:193
+msgid "delete this ad"
+msgstr "удалить объявление"
+
+#: app/profile/profile.tpl.html:104
+msgid "discuss the deal"
+msgstr "обсудить сделку"
+
+#: app/profile/profile.tpl.html:96 app/search/search.tpl.html:323
+msgid "Discuss the deal"
+msgstr "Обсудить сделку"
+
+#: app/dictionary.html:38
+msgid "Does deals have time limit?"
+msgstr "У сделок есть ограничение по времени?"
+
+#: app/dictionary.html:23
+msgid "efficiency"
+msgstr "продуктивность"
+
+#: app/bank/bank.tpl.html:214
+msgid "Email"
+msgstr "Email"
+
+#: app/bank/bank.tpl.html:113 app/bank/bank.tpl.html:114
+#: app/bank/bank.tpl.html:31 app/bank/bank.tpl.html:32
+msgid "Enter the amount"
+msgstr "Сумма (IMI)"
+
+#: app/bank/bank.tpl.html:368 app/bank/bank.tpl.html:369
+msgid "Enter the credit card holder's name"
+msgstr "Введите владельца кредитной карты"
+
+#: app/chat/chat.tpl.html:225 app/chat/chat.tpl.html:226
+msgid "Enter the price"
+msgstr "Введите цену"
+
+#: app/dictionary.html:85
+msgid "Error activation of subscription."
+msgstr "Ошибка при активации подписки."
+
+#: app/dictionary.html:76
+msgid "Error! Slots limit exceeded"
+msgstr "Ошибка! Превышено количество свободных слотов"
+
+#: app/dictionary.html:75
+msgid "Error! The picture is too large"
+msgstr "Ошибка! Размер картинки слишком большой"
+
+#: app/dictionary.html:2
+msgid "February"
+msgstr "Февраль"
+
+#: app/about/about.tpl.html:53
+msgid "Feel free to contact us by email: support@imigo.me"
+msgstr ""
+"Если при использовании сайта у вас возникли проблемы, напишите нам: "
+"support@imigo.me"
+
+#: app/main/main.tpl.html:316
+msgid "Fill the Price and Text fields"
+msgstr "Заполните поля \"Цена\" и \"Текст объявления\""
+
+#: app/video.tpl.html:12
+msgid "Find out how it works:"
+msgstr ""
+"Пожалуйста, посмотрите короткое видео и узнайте, как пользоваться нашим "
+"сайтом:"
+
+#: app/report.tpl.html:17
+msgid "Fraud"
+msgstr "Мошенничество"
+
+#: app/help/help.tpl.html:13
+msgid "Frequently Asked Questions"
+msgstr "Часто задаваемые вопросы"
+
+#: app/main/main.tpl.html:28 app/profile/profile.tpl.html:163
+msgid "Friendship"
+msgstr "Дружба"
+
+#: app/error/errorEmail.tpl.html:31
+msgid ""
+"Go to General and set your new primary email address. After that you can try "
+"to <a class=\"imigo-card-nav2-label imigo-underline\" href=\"/#/login"
+"\">login</a> again."
+msgstr ""
+"Далее в меню “Общие” отредактируйте свой адрес электронной почты. После "
+"этого вы сможете <a class=\"imigo-card-nav2-label imigo-underline\" href=\"/"
+"#/login\">авторизоваться на IMIGO.ME.</a>"
+
+#: app/error/errorEmail.tpl.html:29
+msgid "Go to your Facebook Settings."
+msgstr "На вашей странице Facebook зайдите в “Настройки”."
+
+#: app/error/errorEmail.tpl.html:22
+msgid "Go to your VK Settings."
+msgstr "На вашей странице VK зайдите в “Мои Настройки”."
+
+#: app/report.tpl.html:37
+msgid "Harassment, profanity"
+msgstr "Оскорбления, ненормативная лексика"
+
+#: app/post-footer.tpl.html:7
+msgid "Help"
+msgstr "Помощь"
+
+#: app/help/help.tpl.html:10
+msgid "HELP"
+msgstr "ПОМОЩЬ"
+
+#: app/footer.tpl.html:52
+msgid "Home"
+msgstr "На главную"
+
+#: app/chat/chat.tpl.html:205 app/chat/chat.tpl.html:206
+msgid "How many days?"
+msgstr "Дни"
+
+#: app/chat/chat.tpl.html:214 app/chat/chat.tpl.html:215
+msgid "How many hours?"
+msgstr "Часы"
+
+#: app/dictionary.html:56
+msgid "How premium account differs?"
+msgstr "Что дает премиум аккаунт?"
+
+#: app/dictionary.html:57
+msgid "How to activate premium?"
+msgstr "Как активировать премиум аккаунт?"
+
+#: app/error/dictionary.html:2
+msgid "How to add my email?"
+msgstr "Как добавить электронную почту?"
+
+#: app/dictionary.html:35
+msgid "How to become performer and find an order?"
+msgstr "Как стать исполнителем и найти заказ?"
+
+#: app/dictionary.html:59
+msgid "How to fill up my balance?"
+msgstr "Как пополнить баланс?"
+
+#: app/dictionary.html:34
+msgid "How to get service or find performer?"
+msgstr "Как заказать услугу и найти исполнителя?"
+
+#: app/dictionary.html:62
+msgid "How to withdraw earned money?"
+msgstr "Как вывести средства, заработанные в imigo.me?"
+
+#: app/dictionary.html:18
+msgid "humor"
+msgstr "юмор"
+
+#: app/registration/registration.tpl.html:60
+msgid ""
+"I accept <span class=\"imigo-underline\" ng-click="
+"\"onSelectCondition()\">the Terms of use</span> and agree to <span class="
+"\"imigo-underline\" ng-click=\"onSelectPolitics()\">the privacy policy</"
+"span> IMIGO.ME"
+msgstr ""
+"Я принимаю <span class=\"imigo-underline\" ng-click="
+"\"onSelectCondition()\">Условия пользования</span> и соглашаюсь с <span "
+"class=\"imigo-underline\" ng-click=\"onSelectPolitics()\">политикой "
+"конфиденциальности</span> IMIGO.ME"
+
+#: app/dictionary.html:61
+msgid ""
+"I've made a purchase, but I don't any change in my balance, what should I do?"
+msgstr "Я совершил платеж, но баланс IMI не увеличился, что делать?"
+
+#: app/footer.tpl.html:36
+msgid "IMI balance"
+msgstr "баланс IMI"
+
+#: app/bank/bank.tpl.html:423
+msgid ""
+"IMI is the virtual currency of IMIGO.ME. 1 IMI equals 1 Euro. Use IMI to "
+"purchase premium account and finance your deals."
+msgstr ""
+"IMI - виртуальная валюта IMIGO.ME. 1 IMI равен 1 Евро. Используйте IMI, "
+"чтобы оплачивать сделки или премиум аккаунт."
+
+#: app/bank/bank.tpl.html:93
+msgid "IMI WITHDRAWAL"
+msgstr "ВЫВОД IMI"
+
+#: app/dictionary.html:82
+msgid "IMI withdrawal successful."
+msgstr "Операция вывода IMI успешно завершена."
+
+#: app/dictionary.html:42
+msgid "imigo.me in beta testing stage. What does it mean?"
+msgstr "imigo.me находится в стадии бета-тестирования. Что это значит?"
+
+#: app/dictionary.html:41
+msgid "In which countries I can access imigo.me?"
+msgstr "В каких странах доступен imigo.me?"
+
+#: app/dictionary.html:73
+msgid "infinity"
+msgstr ""
+
+#: app/dictionary.html:17
+msgid "initiative"
+msgstr "инициатива"
+
+#: app/dictionary.html:19
+msgid "intelligence"
+msgstr "интеллект"
+
+#: app/bank/bank.tpl.html:189
+msgid "It can take up to 15 days to process your withdrawal request."
+msgstr "Срок зачисления средств до 15 дней с момента подачи заявки."
+
+#: app/dictionary.html:1
+msgid "January"
+msgstr "Январь"
+
+#: app/dictionary.html:7
+msgid "July"
+msgstr "Июль"
+
+#: app/dictionary.html:6
+msgid "June"
+msgstr "Июнь"
+
+#: app/chat/chat.tpl.html:358 app/profile/profile.tpl.html:172
+#: app/profile/profile.tpl.html:60 app/search/search.tpl.html:256
+msgid "karma"
+msgstr "карма"
+
+#: app/search/search.tpl.html:121
+msgid "Karma"
+msgstr "Карма"
+
+#: app/dictionary.html:77
+msgid "language"
+msgstr "Изменить язык"
+
+#: app/registration/registration.tpl.html:53 app/search/search.tpl.html:156
+msgid "Language"
+msgstr "Язык"
+
+#: app/chat/chat.tpl.html:369 app/search/search.tpl.html:310
+msgid "level in this category"
+msgstr "уровень в этой категории"
+
+#: app/login/login.tpl.html:6
+msgid "LOG IN WITH"
+msgstr "ВОЙДИТЕ ЧЕРЕЗ"
+
+#: app/error/dictionary.html:3
+msgid "Login with another social network"
+msgstr "Войти через другую социальную сеть"
+
+#: app/bank/history/history.tpl.html:82
+msgid "Manage payments"
+msgstr "Управление платежами"
+
+#: app/dictionary.html:3
+msgid "March"
+msgstr "Март"
+
+#: common/services/alert.js:102
+msgid "Maximum is {{value}}."
+msgstr "Ошибка! Должно быть не более {{value}}."
+
+#: app/dictionary.html:5
+msgid "May"
+msgstr "Май"
+
+#: app/footer.tpl.html:14
+msgid "Messages"
+msgstr "Сообщения"
+
+#: app/bank/bank.tpl.html:132 app/bank/bank.tpl.html:50
+msgid "minimal sum"
+msgstr "минимальная сумма"
+
+#: common/services/alert.js:97
+msgid "Minimum is {{value}}."
+msgstr "Ошибка! Должно быть не менее {{value}}."
+
+#: app/registration/registration.tpl.html:20
+msgid "month"
+msgstr "месяц"
+
+#: app/bank/bank.tpl.html:337
+msgid "Month"
+msgstr "Месяц"
+
+#: app/bank/bank.tpl.html:362 app/registration/registration.tpl.html:6
+msgid "Name"
+msgstr "Имя"
+
+#: app/chat/chat.tpl.html:356 app/profile/profile.tpl.html:170
+#: app/profile/profile.tpl.html:58 app/search/search.tpl.html:254
+msgid "negative karma"
+msgstr "антикарма"
+
+#: app/main/main.tpl.html:116
+msgid "no"
+msgstr "нет"
+
+#: app/search/search.tpl.html:348
+msgid "No results."
+msgstr "Нет данных."
+
+#: app/chat/chat.tpl.html:267
+msgid "Nothing selected."
+msgstr "Ничего не выбрано."
+
+#: app/dictionary.html:11
+msgid "November"
+msgstr "Ноябрь"
+
+#: app/dictionary.html:10
+msgid "October"
+msgstr "Октябрь"
+
+#: app/report.tpl.html:27
+msgid "Offensive or illegal content"
+msgstr "Незаконное содержание"
+
+#: app/chat/chat.tpl.html:231 app/chat/chat.tpl.html:234
+msgid "Offer"
+msgstr "Предложить"
+
+#: app/main/main.tpl.html:309
+msgid "Open chat"
+msgstr "Открыть чат"
+
+#: app/bank/history/history.tpl.html:24
+msgid "Operation"
+msgstr "Операция"
+
+#: app/report.tpl.html:47
+msgid "Other violation (please specify)"
+msgstr "Другое нарушение (просьба указать)"
+
+#: app/about/about.tpl.html:54
+msgid ""
+"Our Address: 3rd Floor, C &amp; H Towers Corner of Great Marlborough and "
+"Greate George Streets Roseau, 00152 Commonwealth of Dominica; +852 8193 1313"
+msgstr ""
+"Наш адрес: 3rd Floor, C &amp; H Towers Corner of Great Marlborough and "
+"Greate George Streets Roseau, 00152 Commonwealth of Dominica; +852 8193 1313"
+
+#: app/login/login.tpl.html:22
+msgid "Our service is confidential. We will not post anything on your page."
+msgstr ""
+"Это конфиденциально. Мы не будем размещать информацию на вашей странице."
+
+#: app/bank/bank.tpl.html:149
+msgid "Payment history"
+msgstr "История платежей"
+
+#: app/bank/bank.tpl.html:258
+msgid "Payment sum"
+msgstr "Сумма платежа"
+
+#: app/bank/bank.tpl.html:196
+msgid "Payment system"
+msgstr "Платёжная система"
+
+#: app/bank/history/history.tpl.html:17
+msgid "PAYMENTS"
+msgstr "СПИСАНИЯ"
+
+#: app/dictionary.html:80
+msgid "per day"
+msgstr "за день"
+
+#: app/dictionary.html:79
+msgid "per hour"
+msgstr "за час"
+
+#: app/dictionary.html:22
+msgid "performance"
+msgstr "производительность"
+
+#: app/dictionary.html:14
+msgid "Performer"
+msgstr "Исполнитель"
+
+#: app/dictionary.html:15
+msgid "Performers"
+msgstr "Исполнители"
+
+#: app/profile/profile.tpl.html:70
+msgid ""
+"Please introduce yourself! This will help other users better understand who "
+"you are and what you're looking for."
+msgstr "Расскажите о себе. Эта информация будет доступна другим пользователям."
+
+#: app/main/main.tpl.html:270
+msgid "Points available to review your partner"
+msgstr "Доступные очки для оценки партнера"
+
+#: app/bank/bank.tpl.html:433
+msgid "Premium account active until:"
+msgstr "Премиум аккаунт оплачен до:"
+
+#: app/bank/bank.tpl.html:436
+msgid "Premium account weekly payment plan active until:"
+msgstr "Премиум аккаунт активен до (IMI списываются еженедельно):"
+
+#: app/search/search.tpl.html:360
+msgid "premium ads"
+msgstr "Премиумные объявления"
+
+#: app/dictionary.html:84
+msgid "Premium subscription activated."
+msgstr "Premium подписка активирована."
+
+#: app/chat/chat.tpl.html:308 app/main/main.tpl.html:174
+#: app/main/main.tpl.html:175 app/main/main.tpl.html:178
+msgid "Price per day"
+msgstr "Цена за день"
+
+#: app/chat/chat.tpl.html:313 app/main/main.tpl.html:163
+#: app/main/main.tpl.html:164 app/main/main.tpl.html:184
+msgid "Price per hour"
+msgstr "Цена за час"
+
+#: app/search/search.tpl.html:100
+msgid "Price range"
+msgstr "Диапазон цен"
+
+#: app/post-footer.tpl.html:11
+msgid "Privacy"
+msgstr "Защита информации"
+
+#: app/main/main.tpl.html:27 app/profile/profile.tpl.html:162
+msgid "Professional"
+msgstr "Работа"
+
+#: app/dictionary.html:21
+msgid "professionalism"
+msgstr "профессионализм"
+
+#: app/footer.tpl.html:6 app/footer.tpl.html:7
+msgid "Profile"
+msgstr "Профиль"
+
+#: app/bank/bank.tpl.html:403 app/bank/bank.tpl.html:405
+#: app/bank/bank.tpl.html:41 app/bank/bank.tpl.html:43
+msgid "Purchase"
+msgstr "Пополнить"
+
+#: app/main/MainController.js:144 app/search/SearchController.js:31
+msgid "Purchase IMI"
+msgstr "Купить IMI"
+
+#: app/bank/bank.tpl.html:11
+msgid "PURCHASE IMI"
+msgstr "КУПИТЬ IMI"
+
+#: app/bank/history/history.tpl.html:14
+msgid "RECEIPTS"
+msgstr "ПОСТУПЛЕНИЯ"
+
+#: app/chat/chat.tpl.html:136
+msgid "refuse"
+msgstr "отказаться"
+
+#: app/search/search.tpl.html:410
+msgid "regular ads"
+msgstr "Стандартные объявления"
+
+#: app/profile/profile.tpl.html:255
+msgid "remove"
+msgstr "удалить"
+
+#: app/chat/chat.tpl.html:381 app/search/search.tpl.html:299
+msgid "report abuse"
+msgstr "отправить жалобу"
+
+#: app/report.tpl.html:9
+msgid "Report this user for"
+msgstr "Жалоба на пользователя"
+
+#: app/main/main.tpl.html:26 app/profile/profile.tpl.html:161
+msgid "Romance"
+msgstr "Романтика"
+
+#: app/search/search.tpl.html:26
+msgid "Search"
+msgstr "Поиск"
+
+#: app/main/main.tpl.html:18
+msgid "Search for an ad"
+msgstr "Поиск объявления"
+
+#: app/chat/chat.tpl.html:145
+msgid "sec."
+msgstr "сек"
+
+#: app/chat/chat.tpl.html:77
+msgid "Select a contact from the list on the left."
+msgstr "Для общения с пользователем выберите контакт в списке слева."
+
+#: app/report.tpl.html:65
+msgid "send"
+msgstr "отправить"
+
+#: app/dictionary.html:9
+msgid "September"
+msgstr "Сентябрь"
+
+#: app/profile/profile.tpl.html:239
+msgid "Set as profile picture"
+msgstr "сделать главной фотографией профиля"
+
+#: app/error/errorEmail.tpl.html:18
+msgid "Set email in Facebook settings."
+msgstr "Привязать электронную почту к Facebook."
+
+#: app/error/errorEmail.tpl.html:17
+msgid "Set email in VK settings."
+msgstr "Привязать электронную почту к VK."
+
+#: app/error/errorEmail.tpl.html:24
+msgid ""
+"Set your new primary email address. After that you can try to <a class="
+"\"imigo-card-nav2-label imigo-underline\" href=\"/#/login\">login</a> again."
+msgstr ""
+"Далее заполните поле “Электронный адрес”. После этого вы сможете <a class="
+"\"imigo-card-nav2-label imigo-underline\" href=\"/#/login\">авторизоваться "
+"на IMIGO.ME.</a>"
+
+#: app/registration/registration.tpl.html:36 app/search/search.tpl.html:33
+msgid "Sex"
+msgstr "Пол"
+
+#: app/dictionary.html:20
+msgid "sex appeal"
+msgstr "сексуальность"
+
+#: app/dictionary.html:95
+msgid "show all"
+msgstr "показать всех"
+
+#: app/search/search.tpl.html:216
+msgid "Show examples"
+msgstr "Показать примеры"
+
+#: app/search/search.tpl.html:58
+msgid "Show those who want"
+msgstr "Показать тех, кто"
+
+#: app/footer.tpl.html:46
+msgid "Sign out"
+msgstr "Выход"
+
+#: app/registration/registration.tpl.html:68
+msgid "Sign up"
+msgstr "Зарегистрироваться"
+
+#: common/services/alert.js:92
+msgid "Size limit is {{value}} characters."
+msgstr "Это поле не может содержать больше {{value}} символов."
+
+#: app/main/main.tpl.html:321 app/main/main.tpl.html:45
+msgid "Slots filled in this category"
+msgstr "Количество заполненных слотов в этой категории"
+
+#: app/bank/bank.tpl.html:521
+msgid "SPECIAL OFFER"
+msgstr "СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ"
+
+#: app/main/main.tpl.html:317
+msgid "Submit"
+msgstr "Разместить"
+
+#: app/dictionary.html:58
+msgid "Subscription without inital payment - how does it work?"
+msgstr ""
+"Подписка на премиум аккаунт без первоначального взноса - как это работает?"
+
+#: app/bank/history/history.tpl.html:26
+msgid "Sum"
+msgstr "Сумма"
+
+#: app/post-footer.tpl.html:9
+msgid "Terms"
+msgstr "Условия использования"
+
+#: app/main/MainController.js:371
+msgid ""
+"Thank you for creating an ad, it is being moderated. You will receive a "
+"message when it’s published."
+msgstr ""
+"Спасибо за создание объявления! Сейчас оно находится на модерации. Когда "
+"объявление пройдет модерацию, вы получите сообщение."
+
+#: app/chat/chat.tpl.html:146
+msgid "The offer has expired."
+msgstr "Предложение сделки истекло."
+
+#: app/search/SearchController.js:23
+msgid ""
+"The price of this deal is {{price}} IMI, but your balance is {{balance}} "
+"IMI. You need to have enough IMI to pay the price before discussing a deal."
+msgstr ""
+"Цена этой услуги - {{price}} IMI, но на вашем счету {{balance}} IMI. Чтобы "
+"обсудить сделку, вам нужно иметь на счету достаточно IMI для оплаты услуги."
+
+#: app/main/MainController.js:136
+msgid ""
+"The price you set is {{price}} IMI, but your balance is {{balance}} IMI. You "
+"need to have enough IMI to pay the price before creating an ad."
+msgstr ""
+"Вы установили цену услуги  {{price}} IMI, но на вашем счету {{balance}} IMI. "
+"Чтобы создать объявление, вам нужно иметь на счету достаточно IMI для оплаты "
+"этой услуги."
+
+#: app/main/main.tpl.html:127
+msgid "Time remaining until the end of the deal"
+msgstr "Осталось времени до конца сделки"
+
+#: app/bank/bank.tpl.html:248
+msgid ""
+"To ensure the security of your payments and prevent any potential fraud the "
+"following rules are appied:<ol><li>Processing withdrawal requests takes up "
+"to 15 days.</li><li>A user requesting a withdrawal must present an ID to "
+"IMIGO.ME administration. The e-mail address specified in the withdrawal "
+"application will be used for communication.</li><li>If there is a good "
+"reason to believe that the money being withdrawn has illegal origin, IMIGO."
+"ME shall be entitled to refuse to refuse the transaction.</li><li>Minimum "
+"withdrawal amount is 20 IMI.</li><li>A 20% commission is applied to all "
+"withdrawals.</li><li>Any other rules and restrictions imposed by your "
+"payment system remain applicable.</li></ol>"
+msgstr ""
+"Для обеспечения безопасности платежей и исключения мошенничества при выводе "
+"средств действует ряд правил и ограничений:\n"
+"\t\t\t\t\t\t\t\t<ol>\n"
+"\t\t\t\t\t\t\t\t\t<li>Срок рассмотрения заявок на вывод средств - 15 дней.</"
+"li>\n"
+"\t\t\t\t\t\t\t\t\t<li>Пользователь, оставивший заявку на вывод средств, "
+"должен предъявить паспорт или иной документ, подтверждающий личность, по "
+"запросу администрации IMIGO.ME. Для связи будет использован адрес "
+"электронной почты, указанный в заявке на вывод средств.</li>\n"
+"\t\t\t\t\t\t\t\t\t<li>Администрация оставляет за собой право отказать в "
+"выводе средств, если есть основания полагать, что они имеют незаконное "
+"происхождение.</li>\n"
+"\t\t\t\t\t\t\t\t\t<li>Минимальная сумма вывода - 20 IMI.</li>\n"
+"\t\t\t\t\t\t\t\t\t<li>При выводе средств взимается комиссия - 20%.</li>\n"
+"\t\t\t\t\t\t\t\t\t<li>Также действуют любые иные правила и ограничения, "
+"накладываемые платежной системой, которую вы выбрали для вывода денег.</li>\n"
+"\t\t\t\t\t\t\t\t</ol>"
+
+#: app/dictionary.html:93
+msgid "to get paid"
+msgstr "хочет заработать"
+
+#: app/dictionary.html:94
+msgid "to pay"
+msgstr "готов заплатить"
+
+#: app/error/dictionary.html:1
+msgid ""
+"To use IMIGO.ME you need an email address associated with your social "
+"network account."
+msgstr ""
+"Для авторизации необходимо, чтобы к вашему аккаунту в социальной сети был "
+"привязан адрес электронной почты."
+
+#: app/error/idpPermission.tpl.html:19
+msgid ""
+"To use IMIGO.ME you need to allow our app to use an email address associated "
+"with your social network account.<br><br>\n"
+"\t\t\t\t\t\t\t\t\t\tPlease do so by going back to the login page, choosing "
+"your favorite social network and accepting the suggested settings. It’s safe "
+"and confidential."
+msgstr ""
+"Чтобы пользоваться IMIGO.ME, вам нужно разрешить нашему приложению получить "
+"данные о вашей электронной почте из социальной сети.<br><br>\n"
+"Чтобы сделать это, вернитесь на страницу авторизации, выберите социальную "
+"сеть и примите предложенные настройки. Это безопасно и полностью "
+"конфиденциально."
+
+#: app/error/errorEmail.tpl.html:27
+msgid ""
+"To use IMIGO.ME you need to associate an email address with your Facebook "
+"account. Use <a class=\"imigo-card-nav2-label imigo-underline\" target="
+"\"_blank\" href=\"https://www.facebook.com/settings?tab=account&amp;"
+"section=email&amp;view\">this</a> Facebook page to do so or navigate "
+"manually following the screenshots below."
+msgstr ""
+"Чтобы пользоваться IMIGO.ME, нужно привязать адрес электронной почты к "
+"вашему аккаунту в Facebook.<br>\n"
+"<br>\n"
+"Перейдите в соответствующее меню Facebook по <a class=\"imigo-card-nav2-"
+"label imigo-underline\" target=\"_blank\" href=\"https://www.facebook.com/"
+"settings?tab=account&amp;section=email&amp;view\">этой ссылке</a> или "
+"следуйте инструкции."
+
+#: app/error/errorEmail.tpl.html:20
+msgid ""
+"To use IMIGO.ME you need to associate an email address with your VK account. "
+"Use <a class=\"imigo-card-nav2-label imigo-underline\" target=\"_blank\" "
+"href=\"http://vk.com/settings\">this</a> VK page to do so or navigate "
+"manually following the screenshots below."
+msgstr ""
+"Чтобы пользоваться IMIGO.ME, нужно привязать адрес электронной почты к "
+"вашему аккаунту VK.<br>\n"
+"<br>\n"
+"Перейдите в соответствующее меню VK по <a class=\"imigo-card-nav2-label "
+"imigo-underline\" target=\"_blank\" href=\"http://vk.com/settings\">этой "
+"ссылке</a> или следуйте инструкции."
+
+#: app/dictionary.html:36
+msgid "Turns out I can earn real money on imigo.me?"
+msgstr "Получается, я могу заработать на imigo.me реальные деньги?"
+
+#: app/search/search.tpl.html:207
+msgid "Use filters to find and contact people."
+msgstr "Используйте фильтры, чтобы найти интересных людей и связаться с ними!"
+
+#: app/post-footer.tpl.html:13
+msgid "Video tour"
+msgstr "Видео экскурсия"
+
+#: app/bank/bank.tpl.html:207
+msgid "Wallet ID or number"
+msgstr "Номер кошелька"
+
+#: app/dictionary.html:90
+msgid "wants to get paid"
+msgstr "хочет заработать"
+
+#: app/dictionary.html:89
+msgid "wants to pay"
+msgstr "готов заплатить"
+
+#: app/video.tpl.html:10
+msgid ""
+"Welcome to IMIGO.ME - the first website that allows you to buy and sell "
+"personal time and relationships!"
+msgstr ""
+"Добро пожаловать на IMIGO.ME - первую площадку для покупки и продажи общения!"
+
+#: app/dictionary.html:40
+msgid "What I can not do on web site?"
+msgstr "Чего нельзя делать на сайте?"
+
+#: app/dictionary.html:55
+msgid "What is IMI?"
+msgstr "Что такое IMI?"
+
+#: app/bank/bank.tpl.html:414
+msgid "WHAT IS IMI?"
+msgstr "ЧТО ТАКОЕ IMI?"
+
+#: app/dictionary.html:33
+msgid "What is IMIGO.ME"
+msgstr "Что такое IMIGO.ME?"
+
+#: app/dictionary.html:39
+msgid "What is karma? How to raise it?"
+msgstr "Что такое карма? Как ее улучшить?"
+
+#: app/dictionary.html:60
+msgid "Which payment systems are supported?"
+msgstr "Какие платежные системы доступны?"
+
+#: app/dictionary.html:37
+msgid "Why I need web site, if I can do this in other social networks?"
+msgstr "Зачем мне сайт, если я могу обо всем договориться в соцсетях?"
+
+#: app/bank/bank.tpl.html:123 app/bank/bank.tpl.html:125
+#: app/bank/bank.tpl.html:221
+msgid "Withdraw"
+msgstr "Вывести"
+
+#: app/bank/bank.tpl.html:169
+msgid "Withdrawal amount"
+msgstr "Сумма вывода"
+
+#: app/bank/bank.tpl.html:140
+msgid "Withdrawal policy"
+msgstr "Правила вывода"
+
+#: common/services/alert.js:71
+msgid ""
+"Woops! Deal offer has expired. Ask your partner to send you a new offer."
+msgstr ""
+"Ой! Срок предложения сделки истек. Попросите партнера отправить вам новое "
+"предложение."
+
+#: app/dictionary.html:83
+msgid "Woops! IMI withdraw failed."
+msgstr "Ой! Операция вывода IMI завершена неуспешно."
+
+#: common/services/alert.js:61
+msgid ""
+"Woops! You can not attempt more than {{maximum}} payments per day. Please "
+"try again tomorrow."
+msgstr ""
+"Ой! Вы не можете совершить больше {{maximum}} попыток оплаты в день. "
+"Пожалуйста, попробуйте заплатить завтра."
+
+#: common/services/alert.js:74
+msgid ""
+"Woops! You can not make a deal, because you already have an active deal with "
+"this person in the {{category}} category."
+msgstr ""
+"Ой! К сожалению, вы не можете заключить эту сделку, так как у вас уже есть "
+"активная сделка с этим человеком в категории {{category}}."
+
+#: common/services/alert.js:68
+msgid "Woops! You don't have enough IMI. Please buy some IMI first."
+msgstr ""
+"Ой! Недостаточно IMI. Пожалуйста, приобретите IMI и попробуйте еще раз."
+
+#: common/services/alert.js:83
+msgid "Woops! You need to be 18 or older."
+msgstr "Ой! Вам должно быть не меньше 18 лет."
+
+#: app/dictionary.html:87
+msgid "Woops! Your payment attempt failed, please try again."
+msgstr "Ой! Произошла ошибка при покупке IMI. Пожалуйста, попробуйте ещё раз."
+
+#: app/registration/registration.tpl.html:31
+msgid "year"
+msgstr "год"
+
+#: app/bank/bank.tpl.html:349
+msgid "Year"
+msgstr "Год"
+
+#: app/main/main.tpl.html:109
+msgid "yes"
+msgstr "да"
+
+#: common/services/alert.js:35
+msgid ""
+"You can not create a new ad because your slot limit is exceeded. Delete "
+"existing ads or complete other deals to free up some slots."
+msgstr ""
+"Вы не можете создать объявление, так как у вас закончились свободные места в "
+"этой категории. Удалите существующие объявления или завершите другие сделки."
+
+#: common/services/alert.js:39
+msgid ""
+"You can not make the deal because your slot limit is exceeded. Delete "
+"existing ads or complete other deals to free up some slots."
+msgstr ""
+"Вы не можете заключить сделку, так как у вас закончились свободные места в "
+"этой категории. Удалите существующие объявления или завершите другие сделки."
+
+#: common/services/alert.js:46
+msgid ""
+"You can not send more than 1000 messages per day. The limit will reset in "
+"{{h}} h {{m}} m."
+msgstr ""
+"Вы не можете послать больше 1000 сообщений в день. Счетчик отправленных "
+"сообщений будет сброшен через: {{h}} ч. {{m}} мин."
+
+#: common/services/alert.js:50
+msgid ""
+"You can not send more than 1000 messages per day. This limit resets every 24 "
+"hours, please come back later."
+msgstr ""
+"Вы не можете послать больше 1000 сообщений в день. Счетчик отправленных "
+"сообщений сбрасывается каждые 24 часа. Пожалуйста, попробуйте отправить "
+"сообщение позже."
+
+#: app/footer.tpl.html:16
+msgid "You have a new message"
+msgstr "У вас новое сообщение"
+
+#: common/services/alert.js:55
+msgid ""
+"You have already created an ad in this category. You will be able to create "
+"another after {{h}} h {{m}} m"
+msgstr ""
+"Вы уже создали объявление в этой категории. Вы сможете создать следующее "
+"после {{h}} ч. {{m}} мин."
+
+#: app/dictionary.html:30
+msgid ""
+"You have reached the maximum number of ads. Activate premium account to "
+"unlock additional slots."
+msgstr ""
+"Вы исчерпали лимит объявлений. Для расширения возможностей подключите "
+"премиум аккаунт."
+
+#: app/chat/chat.tpl.html:107
+msgid ""
+"You offered your services in the \"{{message.category === 'friendship' ? "
+"'Friendship' : (message.category === 'professional' ? 'Professional' : "
+"'Romance')}}\" category to <span ng-bind-html=\"$m.receiver(message) | "
+"singleLineHtml\"></span>. Cost of service: {{message.price}} IMI, duration "
+"of deal ({{$m.durationUnit(message) === 'hour' ? 'hours' : 'days'}}): "
+"{{message.duration}}."
+msgstr ""
+"Вы предложили <span ng-bind-html=\"$m.receiver(message) | singleLineHtml\"></"
+"span> свои услуги в категории \"{{message.category === 'friendship' ? "
+"'Дружба' : (message.category === 'professional' ? 'Работа' : "
+"'Романтика')}}\". Стоимость услуги: {{message.price}} IMI, срок исполнения "
+"({{$m.durationUnit(message) === 'hour' ? 'часов' : 'дней'}}): {{message."
+"duration}}."
+
+#: app/dictionary.html:92
+msgid "You want to get paid"
+msgstr "Вы хотите заработать"
+
+#: app/dictionary.html:91
+msgid "You want to pay"
+msgstr "Вы готовы заплатить"
+
+#: app/chat/chat.tpl.html:108
+msgid ""
+"You want to purchase <span ng-bind-html=\"$m.receiver(message) | "
+"singleLineHtml\"></span>'s services in the \"{{message.category === "
+"'friendship' ? 'Friendship' : (message.category === 'professional' ? "
+"'Professional' : 'Romance')}}\" category. Cost of service: {{message.price}} "
+"IMI, duration of deal ({{$m.durationUnit(message) === 'hour' ? 'hours' : "
+"'days'}}): {{message.duration}}."
+msgstr ""
+"Вы хотите приобрести услуги <span ng-bind-html=\"$m.receiver(message) | "
+"singleLineHtml\"></span> в категории \"{{message.category === 'friendship' ? "
+"'Дружба' : (message.category === 'professional' ? 'Работа' : "
+"'Романтика')}}\". Стоимость услуги: {{message.price}} IMI, срок исполнения "
+"({{$m.durationUnit(message) === 'hour' ? 'часов' : 'дней'}}): {{message."
+"duration}}."
+
+#: app/bank/bank.tpl.html:546
+msgid ""
+"You will not be charged for the first transaction. All subsequent "
+"transactions will have the charge rate of 4 IMI per week for 1 year."
+msgstr ""
+"*Вы не будете платить до поступления средств на счет. При наличии средств на "
+"счету с вас взимается плата в размере 4 IMI в неделю. Срок действия премиум "
+"аккаунта - 1 год."
+
+#: app/dictionary.html:28
+msgid "Your abuse report was successfully sent!"
+msgstr "Сообщение о нарушении было отправлено успешно!"
+
+#: app/main/MainController.js:373
+msgid ""
+"Your ad was successfully submitted! You can submit another Ad in this "
+"category after 30 minutes."
+msgstr ""
+"Ваше объявления было успешно добавлено! Вы можете добавить другое через 30 "
+"минут."
+
+#: app/dictionary.html:29
+msgid "Your advertisement was successfully created!"
+msgstr "Ваше объявление было успешно создано!"
+
+#: app/footer.tpl.html:20
+msgid "Your Friendship level"
+msgstr "Ваш уровень в категории <q>Дружба</q>"
+
+#: app/dictionary.html:86
+msgid ""
+"Your IMI purchase has been successful. Please be aware that it may take "
+"several minutes for your balance to update."
+msgstr ""
+"Вы успешно купили IMI. Имейте в виду, что обновление вашего баланса может "
+"занять несколько минут."
+
+#: app/registration/registration.tpl.html:10
+msgid "your name"
+msgstr "ваше имя"
+
+#: app/chat/chat.tpl.html:167 app/main/main.tpl.html:205
+msgid "Your offer"
+msgstr "Ваше предложение"
+
+#: app/footer.tpl.html:30
+msgid "Your Professional level"
+msgstr "Ваш уровень в категории <q>Работа</q>"
+
+#: app/main/main.tpl.html:227
+msgid "Your role"
+msgstr "Ваша роль"
+
+#: app/footer.tpl.html:25
+msgid "Your Romance level"
+msgstr "Ваш уровень в категории <q>Романтика</q>"
+
+#: app/search/search.tpl.html:355
+msgid "Your search did not match any ads."
+msgstr "По вашему запросу не найдено объявлений."
+
+#~ msgid ""
+#~ "To ensure the security of your payments and prevent any potential fraud "
+#~ "the following rules are appied:\n"
+#~ "\t\t\t\t\t\t\t\t<ol>\n"
+#~ "\t\t\t\t\t\t\t\t\t<li>Processing withdrawal requests takes up to 15 days."
+#~ "</li>\n"
+#~ "\t\t\t\t\t\t\t\t\t<li>A user requesting a withdrawal must present an ID "
+#~ "to IMIGO.ME administration. The e-mail address specified in the "
+#~ "withdrawal application will be used for communication.</li>\n"
+#~ "\t\t\t\t\t\t\t\t\t<li>If there is a good reason to believe that the money "
+#~ "being withdrawn has illegal origin, IMIGO.ME shall be entitled to refuse "
+#~ "to refuse the transaction.</li>\n"
+#~ "\t\t\t\t\t\t\t\t\t<li>Minimum withdrawal amount is 20 IMI.</li>\n"
+#~ "\t\t\t\t\t\t\t\t\t<li>A 20% commission is applied to all withdrawals.</"
+#~ "li>\n"
+#~ "\t\t\t\t\t\t\t\t\t<li>Any other rules and restrictions imposed by your "
+#~ "payment system remain applicable.</li>\n"
+#~ "\t\t\t\t\t\t\t\t</ol>"
+#~ msgstr ""
+#~ "Для обеспечения безопасности платежей и исключения мошенничества при "
+#~ "выводе средств действует ряд правил и ограничений:\n"
+#~ "\t\t\t\t\t\t\t\t<ol>\n"
+#~ "\t\t\t\t\t\t\t\t\t<li>Срок рассмотрения заявок на вывод средств - 15 дней."
+#~ "</li>\n"
+#~ "\t\t\t\t\t\t\t\t\t<li>Пользователь, оставивший заявку на вывод средств, "
+#~ "должен предъявить паспорт или иной документ, подтверждающий личность, по "
+#~ "запросу администрации IMIGO.ME. Для связи будет использован адрес "
+#~ "электронной почты, указанный в заявке на вывод средств.</li>\n"
+#~ "\t\t\t\t\t\t\t\t\t<li>Администрация оставляет за собой право отказать в "
+#~ "выводе средств, если есть основания полагать, что они имеют незаконное "
+#~ "происхождение.</li>\n"
+#~ "\t\t\t\t\t\t\t\t\t<li>Минимальная сумма вывода - 20 IMI.</li>\n"
+#~ "\t\t\t\t\t\t\t\t\t<li>При выводе средств взимается комиссия - 20%.</li>\n"
+#~ "\t\t\t\t\t\t\t\t\t<li>Также действуют любые иные правила и ограничения, "
+#~ "накладываемые платежной системой, которую вы выбрали для вывода денег.</"
+#~ "li>\n"
+#~ "\t\t\t\t\t\t\t\t</ol>"
+
+#~ msgid "friendship"
+#~ msgstr "дружба"
+
+#~ msgid "Gender"
+#~ msgstr "Пол"
+
+#~ msgid ""
+#~ "IMI is the virtual currency of IMIGO.ME. Use IMI to purchase premium "
+#~ "account and finance your deals."
+#~ msgstr ""
+#~ "IMI - виртуальная валюта IMIGO.ME. Используйте IMI, чтобы оплачивать "
+#~ "сделки или премиум аккаунт."
+
+#~ msgid ""
+#~ "<a ui-sref=\"search({category: category(type)})\" class=\"imigo-card-nav-"
+#~ "label\">Find</a> your love or <a ng-click=\"onCreate(type)\" class="
+#~ "\"imigo-card-nav-label\">offer</a> romance for <a ui-sref=\"bank\" class="
+#~ "\"imigo-card-nav2-label imigo-underline\">IMI</a>."
+#~ msgstr ""
+#~ "<a ui-sref=\"search({category: category(type)})\" class=\"imigo-card-nav-"
+#~ "label\">Найдите</a> любовь или <a ng-click=\"onCreate(type)\" class="
+#~ "\"imigo-card-nav-label\">предложите</a> свое общение за <a ui-sref=\"bank"
+#~ "\" class=\"imigo-card-nav2-label imigo-underline\">IMI</a>"
+
+#~ msgid ""
+#~ "<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> "
+#~ "offered services in the \"{{message.category === 'friendship' ? "
+#~ "'Friendship' : (message.category === 'professional' ? 'Professional' : "
+#~ "'Romance')}}\" category. Cost of service: {{message.price}} IMI, "
+#~ "execution time ({{$m.durationUnit(message) === 'hour' ? 'hours' : "
+#~ "'days'}}): {{message.duration}}."
+#~ msgstr ""
+#~ "<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> "
+#~ "предложил(а) свои услуги в категории \"{{message.category === "
+#~ "'friendship' ? 'Дружба' : (message.category === 'professional' ? "
+#~ "'Работа' : 'Романтика')}}\". Стоимость услуги: {{message.price}} IMI, "
+#~ "срок исполнения ({{$m.durationUnit(message) === 'hour' ? 'часов' : "
+#~ "'дней'}}): {{message.duration}}."
+
+#~ msgid ""
+#~ "<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> wants "
+#~ "to purchase your services in the \"{{message.category === 'friendship' ? "
+#~ "'Friendship' : (message.category === 'professional' ? 'Professional' : "
+#~ "'Romance')}}\" category. Cost of service: {{message.price}} IMI, "
+#~ "execution time ({{$m.durationUnit(message) === 'hour' ? 'hours' : "
+#~ "'days'}}): {{message.duration}}."
+#~ msgstr ""
+#~ "<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> хочет "
+#~ "приобрести ваши услуги в категории \"{{message.category === "
+#~ "'friendship' ? 'Дружба' : (message.category === 'professional' ? "
+#~ "'Работа' : 'Романтика')}}\". Стоимость услуги: {{message.price}} IMI, "
+#~ "срок исполнения ({{$m.durationUnit(message) === 'hour' ? 'часов' : "
+#~ "'дней'}}): {{message.duration}}."
+
+#~ msgid "Change language"
+#~ msgstr "Изменить язык"
+
+#~ msgid "clear form"
+#~ msgstr "очистить форму"
+
+#~ msgid "It failed to purchased IMI."
+#~ msgstr "Ошибка покупки IMI."
+
+#~ msgid "It is confidential. We will not post anything on your page."
+#~ msgstr ""
+#~ "Это конфиденциально. Мы не будем размещать информацию на вашей странице."
+
+#~ msgid "Operation withdraw IMI failed."
+#~ msgstr "Операция вывода IMI завершена неуспешно."
+
+#~ msgid "Operation withdraw IMI successfully completed."
+#~ msgstr "Операция вывода IMI успешно завершена."
+
+#~ msgid ""
+#~ "Please tell about yourself! This information will be visible to other "
+#~ "users."
+#~ msgstr ""
+#~ "Расскажите о себе. Эта информация будет доступна другим пользователям."
+
+#~ msgid "Points available to appraise your partner"
+#~ msgstr "Доступные очки для оценки партнера"
+
+#~ msgid "Premium account with weekly payments active until:"
+#~ msgstr "Премиум аккаунт активен до (IMI списываются еженедельно):"
+
+#~ msgid ""
+#~ "To communicate with a user select a contact from the list on the left."
+#~ msgstr "Для общения с пользователем выберите контакт в списке слева."
+
+#~ msgid "Wallet ID"
+#~ msgstr "ИД кошелька"
+
+#~ msgid ""
+#~ "You can not make a deal, because you already have a transaction in the "
+#~ "{{category}} category."
+#~ msgstr ""
+#~ "Вы не можете создать сделку, так как вы уже имеете одну активную в "
+#~ "категории {{category}}."
+
+#~ msgid ""
+#~ "You offered your services in the \"{{message.category === 'friendship' ? "
+#~ "'Friendship' : (message.category === 'professional' ? 'Professional' : "
+#~ "'Romance')}}\" category to <span ng-bind-html=\"$m.receiver(message) | "
+#~ "singleLineHtml\"></span>. Cost of service: {{message.price}} IMI, "
+#~ "execution time ({{$m.durationUnit(message) === 'hour' ? 'hours' : "
+#~ "'days'}}): {{message.duration}}."
+#~ msgstr ""
+#~ "Вы предложили <span ng-bind-html=\"$m.receiver(message) | singleLineHtml"
+#~ "\"></span> свои услуги в категории \"{{message.category === "
+#~ "'friendship' ? 'Дружба' : (message.category === 'professional' ? "
+#~ "'Работа' : 'Романтика')}}\". Стоимость услуги: {{message.price}} IMI, "
+#~ "срок исполнения ({{$m.durationUnit(message) === 'hour' ? 'часов' : "
+#~ "'дней'}}): {{message.duration}}."
+
+#~ msgid ""
+#~ "You want to purchase <span ng-bind-html=\"$m.receiver(message) | "
+#~ "singleLineHtml\"></span>'s services in the \"{{message.category === "
+#~ "'friendship' ? 'Friendship' : (message.category === 'professional' ? "
+#~ "'Professional' : 'Romance')}}\" category. Cost of service: {{message."
+#~ "price}} IMI, execution time ({{$m.durationUnit(message) === 'hour' ? "
+#~ "'hours' : 'days'}}): {{message.duration}}."
+#~ msgstr ""
+#~ "Вы хотите приобрести услуги <span ng-bind-html=\"$m.receiver(message) | "
+#~ "singleLineHtml\"></span> в категории \"{{message.category === "
+#~ "'friendship' ? 'Дружба' : (message.category === 'professional' ? "
+#~ "'Работа' : 'Романтика')}}\". Стоимость услуги: {{message.price}} IMI, "
+#~ "срок исполнения ({{$m.durationUnit(message) === 'hour' ? 'часов' : "
+#~ "'дней'}}): {{message.duration}}."
+
+#~ msgid "Exchange rate: 1 IMI = 1 EUR"
+#~ msgstr "Курс: 1 IMI = 1 EUR"
+
+#~ msgid "HOW DOES IT WORK?"
+#~ msgstr " "
+
+#~ msgid ""
+#~ "IMIGO help people connect. Whether it's collaborating with skilled "
+#~ "professionals, searching for your one true love, or developing a "
+#~ "friendship that lasts a lifetime, IMIGO can make it happen in a snap. Our "
+#~ "fast growing online community and world-class customer service make IMIGO "
+#~ "the perfect foundation for making connections, generating an income, or "
+#~ "improving one's skillset."
+#~ msgstr ""
+#~ "<p>Самое ценное в жизни - время и общение. IMIGO.ME - рынок "
+#~ "взаимоотношений, первая площадка, которая позволяет торговать своим "
+#~ "личным временем. </p>\n"
+#~ "\n"
+#~ "<p>Выбирайте понравившегося человека и договаривайтесь о виртуальном "
+#~ "свидании или личной встрече. Либо продавайте собственное время, "
+#~ "зарабатывайте виртуальную валюту IMI и обменивайте ее на реальные деньги!"
+#~ "</p>\n"
+#~ "\n"
+#~ "<p>Выбрать надежного партнера помогут Карма и Уровень, которые "
+#~ "показывают, как много успешных сделок провел пользователь, и какое "
+#~ "впечатление он произвел.</p>\n"
+#~ "\n"
+#~ "<p>Вы ищете возможность заработать на своем природном обаянии? Разместите "
+#~ "предложение о виртуальном свидании, и, возможно, оно превратится во что-"
+#~ "то большее.</p>\n"
+#~ "\n"
+#~ "<p>Хотите взять урок у мастера каллиграфии? Может быть, подходящее "
+#~ "предложение уже есть в категории “Работа”.</p>\n"
+#~ "\n"
+#~ "<p>Ваши возможности безграничны. Общайтесь и зарабатывайте вместе с IMIGO."
+#~ "ME!</p>"
+
+#~ msgid ""
+#~ "Once the deal has concluded, both parties will be able to rate the "
+#~ "service they received and delivered. This creates a trustworthy community "
+#~ "where the services offered and provided are built upon an honest user "
+#~ "feedback framework."
+#~ msgstr " "
+
+#~ msgid ""
+#~ "Place your advertisement online by filling out a simple form. Or browse "
+#~ "through hundreds of offers already available. Once you find what you're "
+#~ "looking for, you can quickly and easily connect with that person to "
+#~ "arrange the terms of your deal."
+#~ msgstr " "
+
+#~ msgid ""
+#~ "Sign up to either buy or sell. Start by selecting a category: Dating, "
+#~ "Friendship or Work."
+#~ msgstr " "
+
+#~ msgid "*The website will charge 20% commision for exchange services."
+#~ msgstr "*На вывод средств сайтом взимается комиссия в размере 20%."
+
+#~ msgid "back to search"
+#~ msgstr "назад к поиску"
+
+#~ msgid "Card expiry date"
+#~ msgstr "Срок действия карты"
+
+#~ msgid "COMPLAINT TO USER"
+#~ msgstr "ЖАЛОБА НА ПОЛЬЗОВАТЕЛЯ"
+
+#~ msgid "Cost of IMI/day"
+#~ msgstr "Цена IMI/дн"
+
+#~ msgid "Cost of IMI/hour"
+#~ msgstr "Цена IMI/чс"
+
+#~ msgid "deal offer expired"
+#~ msgstr "предложение сделки истекло"
+
+#~ msgid "Enter the credit card holder"
+#~ msgstr "Введите владельца кредитной карты"
+
+#~ msgid ""
+#~ "For any questions please contact us by email: suport@imigo.me "
+#~ "or<br>phone: +852 8193 1313"
+#~ msgstr ""
+#~ "Если при использовании сайта у вас возникли проблемы, напишите нам: "
+#~ "support@imigo.me"
+
+#~ msgid "IMI currency"
+#~ msgstr "Валюта IMI"
+
+#~ msgid "It can take up to 15 days to recieve the money."
+#~ msgstr "Срок зачисления средств до 15 дней с момента подачи заявки."
+
+#~ msgid "It is confidential. We will not post information on your page."
+#~ msgstr ""
+#~ "Это конфиденциально. Мы не будем размещать информацию на вашей странице."
+
+#~ msgid "level category"
+#~ msgstr "уровень категории"
+
+#~ msgid ""
+#~ "Our Address: 3rd Floor, C &amp; H Towers Corner of Great Marlborough and "
+#~ "Greate George Streets Roseau, 00152 Commonwealth of Dominica"
+#~ msgstr ""
+#~ "Наш адрес: 3rd Floor, C &amp; H Towers Corner of Great Marlborough and "
+#~ "Greate George Streets Roseau, 00152 Commonwealth of Dominica"
+
+#~ msgid "Select wallet"
+#~ msgstr "Выбрать кошелек"
+
+#~ msgid "Slots available in this category"
+#~ msgstr ""
+#~ "Количество слотов для сделок и объявлений, доступное в этой категории"
+
+#~ msgid "Subscription activated."
+#~ msgstr "Подписка активирована."
+
+#~ msgid "To communicate with a user select a contact in the list on the left."
+#~ msgstr "Для общения с пользователем выберите контакт в списке слева."
+
+#~ msgid "to discuss the deal"
+#~ msgstr "обсудить сделку"
+
+#~ msgid "To discuss the deal"
+#~ msgstr "Обсудить сделку"
+
+#~ msgid "To empower connect PREMIUM ACCOUNT"
+#~ msgstr "Для расширения возможностей подключите PREMIUM АККАУНТ"
+
+#~ msgid "Validated users"
+#~ msgstr "Подтвержденные пользователи"
+
+#~ msgid "Withdrawal sum"
+#~ msgstr "Сумма вывода"
+
+#~ msgid ""
+#~ "You successfully purchased IMI. Please be notified that it make take "
+#~ "several minutes till your balance is updated."
+#~ msgstr ""
+#~ "Вы успешно купили IMI. Пожалуйста, дождитесь уведомления, это может "
+#~ "занять несколько минут, пока ваш баланс обновляется."
+
+#~ msgid "All"
+#~ msgstr "Все"
+
+#~ msgid "Deal type"
+#~ msgstr "Тип сделки"
+
+#~ msgid ""
+#~ "To use IMIGO.ME you need to associate an email address with your Facebook "
+#~ "account. Use <a class=\"imigo-card-nav2-label imigo-underline\" target="
+#~ "\"_blank\" href=\"https://www.facebook.com/settings?"
+#~ "tab=account&section=email&view\">this</a> Facebook page to do so or "
+#~ "navigate manually following the screenshots below."
+#~ msgstr ""
+#~ "Чтобы пользоваться IMIGO.ME, нужно привязать адрес электронной почты к "
+#~ "вашему аккаунту в Facebook.<br>\n"
+#~ "<br>\n"
+#~ "Перейдите в соответствующее меню Facebook по <a class=\\\"imigo-card-nav2-"
+#~ "label imigo-underline\\\" target=\\\"_blank\\\" href=\\\"https://www."
+#~ "facebook.com/settings?tab=account&section=email&view\\\">этой ссылке</a> "
+#~ "или следуйте инструкции."
+
+#~ msgid ""
+#~ "To use IMIGO.ME you need to associate an email adress with your Facebook "
+#~ "account. Use <a class=\"imigo-card-nav2-label imigo-underline\" target="
+#~ "\"_blank\" href=\"https://www.facebook.com/settings?"
+#~ "tab=account&section=email&view\">this</a> Facebook page to do so or "
+#~ "navigate manually following the screenshots below."
+#~ msgstr ""
+#~ "Чтобы пользоваться IMIGO.ME, нужно привязать адрес электронной почты к "
+#~ "вашему аккаунту в Facebook.<br>\n"
+#~ "<br>\n"
+#~ "Перейдите в соответствующее меню Facebook по <a class=\"imigo-card-nav2-"
+#~ "label imigo-underline\" target=\"_blank\" href=\"https://www.facebook.com/"
+#~ "settings?tab=account&section=email&view\">этой ссылке</a> или следуйте "
+#~ "инструкции."
+
+#~ msgid "Unable to withdraw IMI."
+#~ msgstr "Невозможно вывеси IMI."
+
+#~ msgid "It will be available later"
+#~ msgstr "Будет доступно позже"
+
+#~ msgid "The safer, easier way to pay."
+#~ msgstr "Безопасный, легкий способ оплатить."
+
+#~ msgid "ENTER THROUGH"
+#~ msgstr "ВХОД ЧЕРЕЗ"
+
+#~ msgid "Video excursion"
+#~ msgstr "Видео экскурсия"
+
+#~ msgid "Withdrawal type"
+#~ msgstr "Средство вывода"
+
+#~ msgid "Indecent behavior"
+#~ msgstr "Непристойное поведение"
+
+#~ msgid "Violation of the rules"
+#~ msgstr "Нарушение правил"
+
+#~ msgid "Customers"
+#~ msgstr "Заказчики"
+
+#~ msgid "chat"
+#~ msgstr "чат"

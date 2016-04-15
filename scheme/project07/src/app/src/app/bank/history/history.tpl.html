@@ -1,0 +1,91 @@
+<div ui-column ui-full-w ui-h-10p ng-include="'app/logo.tpl.html'" class="imigo-mini-logo-wrapper"></div>
+<div ui-rel class="imigo-center-panel imigo-panel">
+	<div ui-column ui-full class="imigo-bank-history-zone" ng-show="user">
+		<div>
+			<div ui-w-92></div>
+		</div>
+		<div ui-full>
+			<div ui-rel ui-full-h ui-w-90p>
+				<div ui-row ui-abs ui-full>
+					<div>
+						<div class="imigo-bank-payment-title-label-wrapper">
+							<div ui-inline-block
+								 ng-click="view = 'income'"
+							     class="imigo-bank-payment-title-label imigo-bank-payment-title-first-label">{{'RECEIPTS' | translate}}</div>
+							<div ui-inline-block
+								 ng-click="view = 'debit'"
+							     class="imigo-bank-payment-title-label">{{'PAYMENTS' | translate}}</div>
+						</div>
+					</div>
+					<div>
+						<table ui-full-w cellspacing="0" cellpadding="0" class="imigo-bank-histoty-list-title">
+							<thead>
+								<tr class="imigo-bank-payment-common-label">
+									<td ui-w-45p>{{'Operation' | translate}}</td>
+									<td ui-w-35p>{{'Date' | translate}}</td>
+									<td ui-w-20p ui-hr-align class="imigo-bank-histoty-list-last">{{'Sum' | translate}}</td>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div ui-full>
+						<div ui-rel ui-full>
+							<div ui-abs ui-full>
+								<perfect-scrollbar ui-full
+								                   wheel-propagation="true"
+								                   wheel-speed="10"
+								                   suppress-scroll-x="true"
+								                   min-scrollbar-length="20"
+								                   class="imigo-scroller">
+									<table ui-full cellspacing="0" cellpadding="0">
+										<tbody>
+											<tr class="imigo-bank-histoty-operation-label" ng-repeat="operation in history()">
+												<td ui-w-45p>{{operation.type}}</td> <!-- {{operation.description}} -->
+												<td ui-w-35p>{{operation.date | parseDate}}</td>
+												<td ui-w-20p
+												    ui-vc-align
+												    ui-hr-align
+												    class="imigo-bank-histoty-list-last">
+													{{operation.amount}}<div ui-inline-block class="imigo-card-price-imi-image"></div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</perfect-scrollbar>
+							</div>
+						</div>
+					</div>
+					<!--<div>
+						<div ui-column ui-h-100 class="imigo-bank-histoty-navigation">
+							<div>
+								<div ui-h-16
+								     ui-w-16
+									 ng-click="onBackward()"
+								     class="imigo-backward-button">
+								</div>
+							</div>
+							<div class="imigo-bank-history-paging-label">{{period.from}}</div>
+							<div class="imigo-bank-history-paging-label">{{period.to}}</div>
+							<div>
+								<div ui-h-16
+								     ui-w-16
+								     ng-click="onForward()"
+								     class="imigo-forward-button">
+								</div>
+							</div>
+						</div>
+					</div>-->
+					<div>
+						<a ui-sref="bank">
+							<div ui-h-50
+								 class="imigo-bank-history-label imigo-underline">
+								{{ 'Manage payments' | translate }}
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div ui-column ui-full-w class="imigo-bottom-panel" ng-include="'app/footer.tpl.html'"></div>

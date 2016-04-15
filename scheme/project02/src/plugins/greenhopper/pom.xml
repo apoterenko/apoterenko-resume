@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>qiwi.jira</groupId>
+		<artifactId>qiwi-jira-plugins</artifactId>
+		<version>1.1.10-SNAPSHOT</version>
+	</parent>
+
+	<groupId>qiwi.jira.greenhopper</groupId>
+	<artifactId>qiwi-jira-greenhopper</artifactId>
+	<packaging>pom</packaging>
+
+	<properties>
+		<maven-replacer-plugin-version>1.4.1</maven-replacer-plugin-version>
+		<greenhopper-version>5.8.7</greenhopper-version>
+	</properties>
+
+	<modules>
+		<module>classes</module>
+		<module>extension</module>
+		<module>plugin</module>
+	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.atlassian.jira.plugins</groupId>
+			<artifactId>jira-greenhopper-plugin</artifactId>
+			<version>${greenhopper-version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>qiwi.jira</groupId>
+			<artifactId>qiwi-jira-specific</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.1</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

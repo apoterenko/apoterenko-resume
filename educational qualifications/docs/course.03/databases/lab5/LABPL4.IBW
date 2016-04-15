@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ibdataworks>
+  <Properties>
+    <Title></Title>
+    <Author></Author>
+    <DatabaseName></DatabaseName>
+    <ProjectName></ProjectName>
+    <Company></Company>
+    <Comment></Comment>
+  </Properties>
+  <MetaData>
+    <database>
+      <name>&lt;New Database&gt;</name>
+      <charsetname>NONE</charsetname>
+      <filename></filename>
+      <pagesize>1024</pagesize>
+      <length>-1</length>
+      <version>7</version>
+      <dialect>3</dialect>
+      <isfirebird>0</isfirebird>
+      <table>
+        <name>TABLE_PR_NUJD</name>
+        <filespec></filespec>
+        <column type="simple">
+          <name>ID</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="integer"/>
+        </column>
+        <column type="simple">
+          <name>NAME_PR</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="char">
+            <charsetname>WIN1251</charsetname>
+            <collation></collation>
+            <size>255</size>
+          </datatype>
+        </column>
+        <column type="simple">
+          <name>ADRES</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="char">
+            <charsetname>WIN1251</charsetname>
+            <collation></collation>
+            <size>255</size>
+          </datatype>
+        </column>
+        <column type="simple">
+          <name>RAION</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="char">
+            <charsetname>WIN1251</charsetname>
+            <collation></collation>
+            <size>255</size>
+          </datatype>
+        </column>
+        <constraint type="pk">
+          <name>PK_1</name>
+          <columnlist>
+            <column>ID</column>
+          </columnlist>
+          <ascending>0</ascending>
+          <indexname></indexname>
+        </constraint>
+      </table>
+      <table>
+        <name>TABLE_FIO</name>
+        <filespec></filespec>
+        <column type="simple">
+          <name>ID</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="integer"/>
+        </column>
+        <column type="simple">
+          <name>KOD_PR</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="integer"/>
+        </column>
+        <column type="simple">
+          <name>FIORUC</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="char">
+            <charsetname>WIN1251</charsetname>
+            <collation></collation>
+            <size>255</size>
+          </datatype>
+        </column>
+        <constraint type="pk">
+          <name>PK_101</name>
+          <columnlist>
+            <column>ID</column>
+          </columnlist>
+          <ascending>0</ascending>
+          <indexname></indexname>
+        </constraint>
+        <constraint type="fk">
+          <name>FK_201</name>
+          <columnlist>
+            <column>KOD_PR</column>
+          </columnlist>
+          <ascending>0</ascending>
+          <indexname></indexname>
+          <tablename>TABLE_PR_NUJD</tablename>
+          <deleteAction>0</deleteAction>
+          <updateAction>0</updateAction>
+        </constraint>
+        <constraint type="unique">
+          <name>AK_300</name>
+          <columnlist>
+            <column>KOD_PR</column>
+          </columnlist>
+          <ascending>0</ascending>
+          <indexname></indexname>
+        </constraint>
+      </table>
+      <table>
+        <name>TABLE_PR_MUS</name>
+        <filespec></filespec>
+        <column type="simple">
+          <name>ID</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="integer"/>
+        </column>
+        <column type="simple">
+          <name>NAME_PR</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="char">
+            <charsetname>WIN1251</charsetname>
+            <collation></collation>
+            <size>200</size>
+          </datatype>
+        </column>
+        <column type="simple">
+          <name>CENA_M3</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="float"/>
+        </column>
+        <constraint type="pk">
+          <name>PK_104</name>
+          <columnlist>
+            <column>ID</column>
+          </columnlist>
+          <ascending>0</ascending>
+          <indexname></indexname>
+        </constraint>
+        <constraint type="unique">
+          <name>AK_302</name>
+          <columnlist>
+            <column>NAME_PR</column>
+          </columnlist>
+          <ascending>0</ascending>
+          <indexname></indexname>
+        </constraint>
+      </table>
+      <table>
+        <name>TABLE_TEC</name>
+        <filespec></filespec>
+        <column type="simple">
+          <name>ID</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="integer"/>
+        </column>
+        <column type="simple">
+          <name>ID1</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="integer"/>
+        </column>
+        <column type="simple">
+          <name>ID2</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="integer"/>
+        </column>
+        <column type="simple">
+          <name>KOL_M3</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="integer"/>
+        </column>
+        <column type="simple">
+          <name>CHISLO</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="integer"/>
+        </column>
+        <column type="simple">
+          <name>MESAC</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="integer"/>
+        </column>
+        <column type="simple">
+          <name>GOD</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="integer"/>
+        </column>
+        <column type="simple">
+          <name>KOL_M3_ZAPL</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="integer"/>
+        </column>
+        <constraint type="pk">
+          <name>PK_102</name>
+          <columnlist>
+            <column>ID</column>
+          </columnlist>
+          <ascending>0</ascending>
+          <indexname></indexname>
+        </constraint>
+        <constraint type="fk">
+          <name>FK_202</name>
+          <columnlist>
+            <column>ID1</column>
+          </columnlist>
+          <ascending>0</ascending>
+          <indexname></indexname>
+          <tablename>TABLE_PR_MUS</tablename>
+          <deleteAction>0</deleteAction>
+          <updateAction>0</updateAction>
+        </constraint>
+        <constraint type="fk">
+          <name>FK_203</name>
+          <columnlist>
+            <column>ID2</column>
+          </columnlist>
+          <ascending>0</ascending>
+          <indexname></indexname>
+          <tablename>TABLE_PR_NUJD</tablename>
+          <deleteAction>0</deleteAction>
+          <updateAction>0</updateAction>
+        </constraint>
+      </table>
+      <table>
+        <name>TABLE_FACT</name>
+        <filespec></filespec>
+        <column type="simple">
+          <name>ID</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="integer"/>
+        </column>
+        <column type="simple">
+          <name>ID1</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="integer"/>
+        </column>
+        <column type="simple">
+          <name>GOD</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="integer"/>
+        </column>
+        <column type="simple">
+          <name>FLAG</name>
+          <defaultvalue>false</defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="boolean"/>
+        </column>
+        <column type="simple">
+          <name>V</name>
+          <defaultvalue></defaultvalue>
+          <notnull>1</notnull>
+          <datatype type="integer"/>
+        </column>
+        <constraint type="pk">
+          <name>PK_100</name>
+          <columnlist>
+            <column>ID</column>
+          </columnlist>
+          <ascending>0</ascending>
+          <indexname></indexname>
+        </constraint>
+        <constraint type="fk">
+          <name>FK_200</name>
+          <columnlist>
+            <column>ID1</column>
+          </columnlist>
+          <ascending>0</ascending>
+          <indexname></indexname>
+          <tablename>TABLE_PR_NUJD</tablename>
+          <deleteAction>0</deleteAction>
+          <updateAction>0</updateAction>
+        </constraint>
+      </table>
+    </database>
+  </MetaData>
+  <preferences>
+    <pref-font>
+      <fontobject name="default">
+        <fontdef name="default">
+          <pref-fontdef name="Arial" size="10" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Arial" size="12" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TIBTable">
+        <fontdef name="default">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef size="9.00" name="Tahoma" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="primarykey">
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+        </fontdef>
+        <fontdef name="foreignkey">
+          <pref-fontdef color="$FF" name="Tahoma" size="8.00" fillcolor="$FFFFFF"/>
+          <pref-fontstyle italics="1" bold="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="index">
+          <pref-fontdef color="$808040" name="Tahoma" size="8.00" fillcolor="$FFFFFF"/>
+          <pref-fontstyle italics="1" bold="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="trigger">
+          <pref-fontdef color="$800000" name="Tahoma" size="8.00" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="constraint">
+          <pref-fontdef color="$800000" name="Tahoma" size="8.00" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="script">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="storedproc">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TIBView">
+        <fontdef name="default">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Tahoma" size="9.00" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="trigger">
+          <pref-fontdef color="$800000" name="Arial" size="9" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TIBDomainGroup">
+        <fontdef name="default">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Tahoma" size="9.00" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TIBGeneratorGroup">
+        <fontdef name="default">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Tahoma" size="9.00" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TIBStoredProcGroup">
+        <fontdef name="default">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Tahoma" size="9.00" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TIBRoleGroup">
+        <fontdef name="default">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Tahoma" size="9.00" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TIBGrantGroup">
+        <fontdef name="default">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Tahoma" size="9.00" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TIBUDFGroup">
+        <fontdef name="default">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Tahoma" size="9.00" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TIBExceptionGroup">
+        <fontdef name="default">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Tahoma" size="9.00" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TIBTriggerTemplateGroup">
+        <fontdef name="default">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Tahoma" size="9.00" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TIBStoredProcTemplateGroup">
+        <fontdef name="default">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Tahoma" size="9.00" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TIBScriptTemplateGroup">
+        <fontdef name="default">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Tahoma" size="9.00" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TIBScriptGroup">
+        <fontdef name="default">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Tahoma" size="9.00" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TDBTextBox">
+        <fontdef name="default">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Tahoma" size="9.00" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TDBConnect">
+        <fontdef name="default">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Tahoma" size="9.00" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TDBLine">
+        <fontdef name="default">
+          <pref-inherits>default.default</pref-inherits>
+        </fontdef>
+        <fontdef name="title">
+          <pref-inherits>default.title</pref-inherits>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TDBJoinText">
+        <fontdef name="default">
+          <pref-fontdef size="8.00" color="$0" name="Tahoma" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Tahoma" size="9.00" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TIBScript">
+        <fontdef name="default">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Tahoma" size="9.00" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+      <fontobject name="TIBBLOBFilterGroup">
+        <fontdef name="default">
+          <pref-fontdef name="Tahoma" size="8.00" color="$0" fillcolor="$FFFFFF"/>
+          <pref-fontstyle bold="0" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+        <fontdef name="title">
+          <pref-fontdef name="Tahoma" size="9.00" color="$FFFFFF" fillcolor="$CD6800"/>
+          <pref-fontstyle bold="1" italics="0" underline="0" strikeout="0"/>
+        </fontdef>
+      </fontobject>
+    </pref-font>
+    <pref-schema>
+      <schemaobject name="default">
+        <pref-shadows on="1"/>
+        <pref-normalpen color="$008000" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$FFFF00" style="psSolid" width="3" mode="pmCopy"/>
+        <pref-domaingroups on="0"/>
+        <pref-externaltables on="0"/>
+        <pref-generators on="0"/>
+        <pref-grantgroups on="0"/>
+        <pref-roles on="0"/>
+        <pref-scripts on="0"/>
+        <pref-storedprocedures on="0"/>
+        <pref-textboxes on="0"/>
+        <pref-userdefinedfunctions on="0"/>
+        <pref-views on="0"/>
+        <pref-followlink on="0"/>
+        <pref-tablestoredprocedures on="0"/>
+        <pref-layoutcolor color="$FFFFFF"/>
+        <pref-notnullstring text="NN"/>
+        <pref-ridescriptions on="1"/>
+        <pref-rifullinfo on="0"/>
+        <pref-rimultiline on="0"/>
+        <pref-ricardinality on="0"/>
+      </schemaobject>
+      <schemaobject name="TIBTable">
+        <pref-inherits>default</pref-inherits>
+        <pref-normalpen color="$CD6800" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$80FF" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-notnulls on="1"/>
+        <pref-uniquekeytext text="AK"/>
+        <pref-columntype on="1"/>
+        <pref-columnconstraints on="1"/>
+        <pref-columntypes on="1"/>
+        <pref-foreignkeys on="1"/>
+        <pref-triggers on="1"/>
+        <pref-indexes on="1"/>
+        <pref-domains on="1"/>
+        <pref-tableconstraints on="1"/>
+        <pref-tablestoredprocedures on="1"/>
+        <pref-foreignkeytext text="FK"/>
+      </schemaobject>
+      <schemaobject name="TIBView">
+        <pref-inherits>default</pref-inherits>
+        <pref-normalpen color="$CD6800" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$80FF" style="psSolid" width="1" mode="pmCopy"/>
+      </schemaobject>
+      <schemaobject name="TIBDomainGroup">
+        <pref-inherits>default</pref-inherits>
+        <pref-normalpen color="$CD6800" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$80FF" style="psSolid" width="1" mode="pmCopy"/>
+      </schemaobject>
+      <schemaobject name="TIBGeneratorGroup">
+        <pref-inherits>default</pref-inherits>
+        <pref-normalpen color="$CD6800" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$80FF" style="psSolid" width="1" mode="pmCopy"/>
+      </schemaobject>
+      <schemaobject name="TIBStoredProcGroup">
+        <pref-inherits>default</pref-inherits>
+        <pref-normalpen color="$CD6800" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$80FF" style="psSolid" width="1" mode="pmCopy"/>
+      </schemaobject>
+      <schemaobject name="TIBRoleGroup">
+        <pref-inherits>default</pref-inherits>
+        <pref-normalpen color="$CD6800" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$80FF" style="psSolid" width="1" mode="pmCopy"/>
+      </schemaobject>
+      <schemaobject name="TIBGrantGroup">
+        <pref-inherits>default</pref-inherits>
+        <pref-normalpen color="$CD6800" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$80FF" style="psSolid" width="1" mode="pmCopy"/>
+      </schemaobject>
+      <schemaobject name="TIBUDFGroup">
+        <pref-inherits>default</pref-inherits>
+        <pref-normalpen color="$CD6800" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$80FF" style="psSolid" width="1" mode="pmCopy"/>
+      </schemaobject>
+      <schemaobject name="TIBExceptionGroup">
+        <pref-inherits>default</pref-inherits>
+        <pref-normalpen color="$CD6800" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$80FF" style="psSolid" width="1" mode="pmCopy"/>
+      </schemaobject>
+      <schemaobject name="TIBTriggerTemplateGroup">
+        <pref-inherits>default</pref-inherits>
+        <pref-normalpen color="$CD6800" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$80FF" style="psSolid" width="1" mode="pmCopy"/>
+      </schemaobject>
+      <schemaobject name="TIBStoredProcTemplateGroup">
+        <pref-inherits>default</pref-inherits>
+        <pref-normalpen color="$CD6800" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$80FF" style="psSolid" width="1" mode="pmCopy"/>
+      </schemaobject>
+      <schemaobject name="TIBScriptTemplateGroup">
+        <pref-inherits>default</pref-inherits>
+        <pref-normalpen color="$CD6800" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$80FF" style="psSolid" width="1" mode="pmCopy"/>
+      </schemaobject>
+      <schemaobject name="TIBScriptGroup">
+        <pref-inherits>default</pref-inherits>
+        <pref-normalpen color="$CD6800" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$80FF" style="psSolid" width="1" mode="pmCopy"/>
+      </schemaobject>
+      <schemaobject name="TDBTextBox">
+        <pref-inherits>default</pref-inherits>
+        <pref-normalpen color="$CD6800" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$80FF" style="psSolid" width="1" mode="pmCopy"/>
+      </schemaobject>
+      <schemaobject name="TDBJoinText">
+        <pref-inherits>default</pref-inherits>
+        <pref-shadows on="0"/>
+        <pref-normalpen color="$CD6800" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$80FF" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-ridescriptions on="0"/>
+        <pref-rifullinfo on="0"/>
+        <pref-rimultiline on="0"/>
+      </schemaobject>
+      <schemaobject name="TDBConnect">
+        <pref-inherits>default</pref-inherits>
+        <pref-normalpen color="$CD6800" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$80FF" style="psSolid" width="1" mode="pmCopy"/>
+      </schemaobject>
+      <schemaobject name="TDBLine">
+        <pref-inherits>default</pref-inherits>
+        <pref-normalpen color="$0" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$0" style="psSolid" width="1" mode="pmCopy"/>
+      </schemaobject>
+      <schemaobject name="TIBBLOBFilterGroup">
+        <pref-shadows on="1"/>
+        <pref-normalpen color="$8CD6800" style="psSolid" width="1" mode="pmCopy"/>
+        <pref-selectpen color="$80FF" style="psSolid" width="1" mode="pmCopy"/>
+      </schemaobject>
+    </pref-schema>
+  </preferences>
+  <Schema>
+    <TIBSchema>
+      <ScrollX>0</ScrollX>
+      <ScrollY>0</ScrollY>
+      <Zoom>100</Zoom>
+      <Table>
+        <Name>TABLE_FIO</Name>
+        <datasingledef>
+          <name>TABLE_FIO</name>
+          <namedisplay>
+            <inheritfontcolor>1</inheritfontcolor>
+            <inheritfontname>1</inheritfontname>
+            <inheritfontstyle>1</inheritfontstyle>
+          </namedisplay>
+          <textdisplay>
+            <inheritfontcolor>1</inheritfontcolor>
+            <inheritfontname>1</inheritfontname>
+            <inheritfontstyle>1</inheritfontstyle>
+          </textdisplay>
+        </datasingledef>
+        <PositionX>346</PositionX>
+        <PositionY>21</PositionY>
+        <Hidden>0</Hidden>
+        <Dependent>0</Dependent>
+      </Table>
+      <Table>
+        <Name>TABLE_FACT</Name>
+        <datasingledef>
+          <name>TABLE_FACT</name>
+          <namedisplay>
+            <inheritfontcolor>1</inheritfontcolor>
+            <inheritfontname>1</inheritfontname>
+            <inheritfontstyle>1</inheritfontstyle>
+          </namedisplay>
+          <textdisplay>
+            <inheritfontcolor>1</inheritfontcolor>
+            <inheritfontname>1</inheritfontname>
+            <inheritfontstyle>1</inheritfontstyle>
+          </textdisplay>
+        </datasingledef>
+        <PositionX>446</PositionX>
+        <PositionY>137</PositionY>
+        <Hidden>0</Hidden>
+        <Dependent>0</Dependent>
+      </Table>
+      <Table>
+        <Name>TABLE_PR_MUS</Name>
+        <datasingledef>
+          <name>TABLE_PR_MUS</name>
+          <namedisplay>
+            <inheritfontcolor>1</inheritfontcolor>
+            <inheritfontname>1</inheritfontname>
+            <inheritfontstyle>1</inheritfontstyle>
+          </namedisplay>
+          <textdisplay>
+            <inheritfontcolor>1</inheritfontcolor>
+            <inheritfontname>1</inheritfontname>
+            <inheritfontstyle>1</inheritfontstyle>
+          </textdisplay>
+        </datasingledef>
+        <PositionX>40</PositionX>
+        <PositionY>228</PositionY>
+        <Hidden>0</Hidden>
+        <Dependent>0</Dependent>
+      </Table>
+      <Table>
+        <Name>TABLE_PR_NUJD</Name>
+        <datasingledef>
+          <name>TABLE_PR_NUJD</name>
+          <namedisplay>
+            <inheritfontcolor>1</inheritfontcolor>
+            <inheritfontname>1</inheritfontname>
+            <inheritfontstyle>1</inheritfontstyle>
+          </namedisplay>
+          <textdisplay>
+            <inheritfontcolor>1</inheritfontcolor>
+            <inheritfontname>1</inheritfontname>
+            <inheritfontstyle>1</inheritfontstyle>
+          </textdisplay>
+        </datasingledef>
+        <PositionX>24</PositionX>
+        <PositionY>62</PositionY>
+        <Hidden>0</Hidden>
+        <Dependent>0</Dependent>
+      </Table>
+      <Table>
+        <Name>TABLE_TEC</Name>
+        <datasingledef>
+          <name>TABLE_TEC</name>
+          <namedisplay>
+            <inheritfontcolor>1</inheritfontcolor>
+            <inheritfontname>1</inheritfontname>
+            <inheritfontstyle>1</inheritfontstyle>
+          </namedisplay>
+          <textdisplay>
+            <inheritfontcolor>1</inheritfontcolor>
+            <inheritfontname>1</inheritfontname>
+            <inheritfontstyle>1</inheritfontstyle>
+          </textdisplay>
+        </datasingledef>
+        <PositionX>379</PositionX>
+        <PositionY>298</PositionY>
+        <Hidden>0</Hidden>
+        <Dependent>0</Dependent>
+      </Table>
+      <ConnectionInfo></ConnectionInfo>
+    </TIBSchema>
+  </Schema>
+</ibdataworks>

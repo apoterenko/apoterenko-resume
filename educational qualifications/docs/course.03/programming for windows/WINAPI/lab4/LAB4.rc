@@ -1,0 +1,210 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  22, 17, 230, 55
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "О программе"
+FONT 8, "System"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,159,8,65,11,WS_GROUP
+    LTEXT           "Лабораторная работа №4 по ""Win/PR""",IDC_STATIC,10,8,
+                    135,12
+    LTEXT           "Студент: Потеренко А.Г. ВТ-31. 2005г.",IDC_STATIC,10,22,
+                    134,12
+    LTEXT           "Среда: VC++6.0. (WinApi, С)",IDC_STATIC,10,36,128,12
+END
+
+IDD_VID_IZOBR DIALOG DISCARDABLE  100, 50, 227, 84
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Выбор фигуры для построения"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Нарисовать",IDOK,15,57,96,15
+    PUSHBUTTON      "Отменить",IDCANCEL,117,58,96,14
+    CONTROL         "Нарисовать эллипс",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON,16,14,150,13
+    CONTROL         "Нарисовать окружность",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,16,30,99,10
+    CONTROL         "Нарисовать прямоугольник",IDC_RADIO3,"Button",
+                    BS_AUTORADIOBUTTON,16,44,111,10
+END
+
+IDD_BMP DIALOG DISCARDABLE  100, 50, 212, 68
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Выбор файла для отображения"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,16,41,88,14
+    PUSHBUTTON      "Cancel",IDCANCEL,110,41,88,14
+    LTEXT           "Введите путь или имя файла",IDC_STATIC,15,13,102,12
+    EDITTEXT        IDC_EDIT1,15,26,182,12,ES_AUTOHSCROLL
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 49
+    END
+
+    IDD_VID_IZOBR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 220
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 77
+    END
+
+    IDD_BMP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 205
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 61
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDC_LAB4_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "Панель управления"
+    BEGIN
+        MENUITEM "Выбрать цвет для фигур",      MENU_1
+        MENUITEM "Загрузить файл BMP",          MENU_2
+        MENUITEM "Вывести фигуру",              MENU_3
+        MENUITEM "Выйти",                       MENU_4
+    END
+    POPUP "Справка"
+    BEGIN
+        MENUITEM "О программе...",              IDM_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_LAB4_TITLE          "Лабораторная работа №4"
+    IDC_LAB4_CL             "IDC_LAB4"
+END
+
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""resource.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MY100               ICON    DISCARDABLE     "LAB4.ICO"
+IDI_SMALL               ICON    DISCARDABLE     "SMALL.ICO"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

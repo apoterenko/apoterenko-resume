@@ -1,0 +1,113 @@
+@startuml
+(*) --> "Emit **LoadStoresAction**" as emitLoadStoresAction #25a4f5
+note bottom: You can emit this action immediately after load UI page
+
+emitLoadStoresAction->"Register **LoadStoreAction** to launch using **group** attribute" as registerLoadStoreActionToLaunch #25a4f5
+registerLoadStoreActionToLaunch->"Emit **LoadStoreAction**" as emitLoadStoreAction
+
+(*) --> emitLoadStoreAction #25a4f5
+note bottom: You can emit this action immediately after load UI page
+emitLoadStoreAction->if ""
+                     note right #25a4f5: store.isRunning?
+                     -->[yes] "Emit simple **loadStore**" as emitLoadStore #25a4f5
+                     else
+                     -->[no] "__Async__ load the store" as loadStore #25a4f5
+                     endif
+
+loadStore #25a4f5->emitLoadStore
+loadStore->Waiting #25a4f5
+
+emitLoadStore->if ""
+               note left #79fffa: store.isRunning?
+               -->[yes] (*)
+               else
+               -->[no] "Enable __running__ state" as storeHasBeenStarted #79fffa
+               endif
+storeHasBeenStarted->"Clear previous data from the current store" as clearPreviousDataFromStore #79fffa
+clearPreviousDataFromStore->if ""
+                            note left #79fffa: isGroupContext?
+                            -->[yes] if ""
+                                     note top #79fffa: loadingStores.length == 0?
+                                     -->[yes] "Clear **loadingFailedStores**" as clearLoadingFailedStores #79fffa
+                                     note bottom: Auto remove the previous failed stores
+                                     else
+                                     -->[no] "Add current store to **loadingStores**" as addStoreToQueueOnSuccess #79fffa
+                                     endif
+                            else
+                            -->[no] (*)
+                            endif
+
+clearLoadingFailedStores->addStoreToQueueOnSuccess #79fffa
+addStoreToQueueOnSuccess->(*)
+
+Waiting if ""
+note right #25a4f5: store.isNotRunning?
+-->[yes] if ""
+         note left #25a4f5: store.isLoadedSuccessfully?
+         -->[yes] "Emit **SuccessLoadStoreAction** action" as createSuccessLoadStoreAction #25a4f5
+         note bottom: You can make inheritor of SuccessLoadStoreAction\nand add your custom behaviour
+         else
+         -->[no] "Emit **FailureLoadStoreAction** action" as createFailureLoadStoreAction #d44405
+         note top: You can also make inheritor of FailureLoadStoreAction\nand add your custom behaviour
+         endif
+else
+-->[no] Waiting
+endif
+
+createSuccessLoadStoreAction->if ""
+                              note right #25a4f5: isGroupContext?
+                              -->[yes] if ""
+                                       note left #25a4f5: loadingFailedStores.length > 0?
+                                       -->[yes] "Emit simple **loadStoreDone**" as emitLoadStoreDone #25a4f5
+                                       else
+                                       -->[no] if ""
+                                               note bottom #25a4f5: loadingStores.length === 1?
+                                               -->[yes] "Register simple **loadStoresDone** action to launch" as registerLoadStoresDoneActionToLaunch #25a4f5
+                                               else
+                                               -->[no] emitLoadStoreDone
+                                               endif
+                                       endif
+                              else
+                              -->[no] emitLoadStoreDone
+                              endif
+
+registerLoadStoresDoneActionToLaunch -> emitLoadStoreDone
+emitLoadStoreDone->"Apply loaded data to the current store" as applyLoadedDataToStore #79fffa
+applyLoadedDataToStore->"Disable __running__ state" as storeHasBeenStoppedOnSuccess #79fffa
+storeHasBeenStoppedOnSuccess->if ""
+                              note left #79fffa: isGroupContext?
+                              -->[yes] "Remove current store from **loadingStores**" as removeStoreFromQueueOnSuccess #79fffa
+                              else
+                              -->[no] (*)
+                              endif
+removeStoreFromQueueOnSuccess->"Emit simple **loadStoresDone**" as emitLoadStoresDone #25a4f5
+note bottom: All stores are loaded successfully
+emitLoadStoresDone->(*)
+
+createFailureLoadStoreAction->if ""
+                              note right #d44405: isGroupContext?
+                              -->[yes] if ""
+                                       note left #d44405: loadingFailedStores.length == 0?
+                                       -->[yes] "Register simple **loadStoresFail** action to launch" as registerLoadStoresFailActionToLaunch #d44405
+                                       else
+                                       -->[no] "Emit simple **loadStoreFail**" as emitLoadStoreFail #d44405
+                                       endif
+                              else
+                              -->[no] emitLoadStoreFail
+                              endif
+
+registerLoadStoresFailActionToLaunch -> emitLoadStoreFail
+emitLoadStoreFail->"Disable __running__ state" as storeHasBeenStoppedOnFailed #ff8c5a
+storeHasBeenStoppedOnFailed->if ""
+                             note right #ff8c5a: isGroupContext?
+                             -->[yes] "Remove current store from **loadingStores**" as removeStoreFromQueueOnFailed #ff8c5a
+                             else
+                             -->[no] emitLoadStoreFail
+                             endif
+
+removeStoreFromQueueOnFailed->"Append current store to **loadingFailedStores**" as appendStoreToFailedStores #ff8c5a
+appendStoreToFailedStores->"Emit simple **loadStoresFail**" as emitLoadStoresFail #d44405
+note bottom: There exists at least one unsuccessfully loaded store
+emitLoadStoresFail->(*)
+
+@enduml

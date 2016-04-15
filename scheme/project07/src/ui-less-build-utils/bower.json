@@ -1,0 +1,21 @@
+{
+  "name": "ui-less-build-utils",
+  "homepage": "https://github.com/apoterenko/ui-less-build-utils",
+  "description": "Less UI library for building css library",
+  "keywords": [
+    "gulp",
+    "css",
+    "less",
+    "utils",
+    "build"
+  ],
+  "authors": [
+    "Alexander Poterenko"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "gulpfile.js"
+  ]
+}

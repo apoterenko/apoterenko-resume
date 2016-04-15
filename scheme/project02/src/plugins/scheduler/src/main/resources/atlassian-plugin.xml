@@ -1,0 +1,14 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="QIWI Scheduler Plugin" plugins-version="2">
+	<plugin-info>
+		<description>QIWI Scheduler Plugin</description>
+		<version>${project.version}</version>
+		<vendor name="${project.organization.name}" url="${project.organization.url}"/>
+	</plugin-info>
+
+	<component-import key="pluginScheduler" interface="com.atlassian.sal.api.scheduling.PluginScheduler"/>
+
+	<component key="qiwi-easy-scheduler" class="qiwi.jira.plugins.scheduler.EasySchedulerImpl" public="true">
+		<interface>qiwi.jira.plugins.scheduler.EasyScheduler</interface>
+		<interface>com.atlassian.sal.api.lifecycle.LifecycleAware</interface>
+	</component>
+</atlassian-plugin>

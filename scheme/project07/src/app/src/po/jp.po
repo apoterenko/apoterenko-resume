@@ -1,0 +1,1517 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: app/search/search.tpl.html:65
+msgid "..."
+msgstr "..."
+
+#: app/profile/profile.tpl.html:77
+msgid "{{accessbileCharCount}} characters left"
+msgstr "残り{{accessbileCharCount}}文字"
+
+#: app/profile/profile.tpl.html:51
+msgid "{{age()}} years"
+msgstr "{{age()}}歳"
+
+#: app/main/main.tpl.html:249
+msgid "{{desk.card.accessbileCharCount}} characters left"
+msgstr "残り{{desk.card.accessbileCharCount}}文字"
+
+#: app/bank/bank.tpl.html:446 app/bank/bank.tpl.html:469
+msgid "{{imiAtWeek}} IMI per week"
+msgstr "1週間当たり{{imiAtWeek}} IMI"
+
+#: app/bank/bank.tpl.html:450 app/bank/bank.tpl.html:473
+msgid "{{percentSaving}}% off"
+msgstr "{{percentSaving}}%お得"
+
+#: app/bank/bank.tpl.html:180
+msgid "*IMIGO.ME will charge a 20% commission for exchange services."
+msgstr "＊IMIGO.MEは手数料として、交換サービスの20%を請求します。"
+
+#: app/main/main.tpl.html:61
+msgid ""
+"<a ui-sref=\"search({category: category(type)})\" class=\"imigo-card-nav-"
+"label\">Find</a> a friend or <a ng-click=\"onCreate(type)\" class=\"imigo-"
+"card-nav-label\">offer</a> friendship for <a ui-sref=\"bank\" class=\"imigo-"
+"card-nav2-label imigo-underline\">IMI</a>."
+msgstr ""
+"<a ui-sref=\"bank\" class=\"imigo-card-nav2-label imigo-underline\">IMI</a>を"
+"利用して、友達を<a ui-sref=\"search({category: category(type)})\" class="
+"\"imigo-card-nav-label\">検索</a>、もしくは友情の<a ng-click="
+"\"onCreate(type)\" class=\"imigo-card-nav-label\">提供</a>"
+
+#: app/main/main.tpl.html:60
+msgid ""
+"<a ui-sref=\"search({category: category(type)})\" class=\"imigo-card-nav-"
+"label\">Find</a> a professional or <a ng-click=\"onCreate(type)\" class="
+"\"imigo-card-nav-label\">offer</a> your services for <a ui-sref=\"bank\" "
+"class=\"imigo-card-nav2-label imigo-underline\">IMI</a>."
+msgstr ""
+"<a ui-sref=\"bank\" class=\"imigo-card-nav2-label imigo-underline\">IMI</a>を"
+"利用して、プロェッショナルを<a ui-sref=\"search({category: "
+"category(type)})\" class=\"imigo-card-nav-label\">検索</a>、あるいは貴方の"
+"サービスを<a ng-click=\"onCreate(type)\" class=\"imigo-card-nav-label\">提供"
+"</a>"
+
+#: app/main/main.tpl.html:59
+msgid ""
+"<a ui-sref=\"search({category: category(type)})\" class=\"imigo-card-nav-"
+"label\">Find</a> love or <a ng-click=\"onCreate(type)\" class=\"imigo-card-"
+"nav-label\">offer</a> romance for <a ui-sref=\"bank\" class=\"imigo-card-"
+"nav2-label imigo-underline\">IMI</a>."
+msgstr ""
+"<a ui-sref=\"bank\" class=\"imigo-card-nav2-label imigo-underline\">IMI</a>を"
+"利用して、恋愛を<a ui-sref=\"search({category: category(type)})\" class="
+"\"imigo-card-nav-label\">検索</a>、あるいは恋愛の<a ng-click="
+"\"onCreate(type)\" class=\"imigo-card-nav-label\">提供</a>"
+
+#: app/chat/chat.tpl.html:111
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> accepted "
+"the offer."
+msgstr ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span>さんは申し"
+"出を承諾しました。"
+
+#: app/chat/chat.tpl.html:113
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> canceled "
+"the deal."
+msgstr ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span>さんは取引"
+"をキャンセルしました。"
+
+#: app/chat/chat.tpl.html:114
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> has "
+"completed the deal."
+msgstr ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> さんは取引"
+"を終えました。"
+
+#: app/chat/chat.tpl.html:104
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> offered "
+"services in the \"{{message.category === 'friendship' ? 'Friendship' : "
+"(message.category === 'professional' ? 'Professional' : 'Romance')}}\" "
+"category. Cost of service: {{message.price}} IMI, duration of deal ({{$m."
+"durationUnit(message) === 'hour' ? 'hours' : 'days'}}): {{message.duration}}."
+msgstr ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span>さんは"
+"「{{message.category === 'friendship' ? '友情' : (message.category === "
+"'professional' ? 'プロフェッショナル' : 'ロマンス')}}」のカテゴリーにおいて、"
+"サービスを提供しました。サービス料は{{message.price}} IMIで、実行期間は"
+"{{message.duration}}{{$m.durationUnit(message) === 'hour' ? '時間' : '日間'}}"
+"です。"
+
+#: app/chat/chat.tpl.html:112
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> refused "
+"the offer."
+msgstr ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span>さんは申し"
+"出を断りました。"
+
+#: app/chat/chat.tpl.html:105
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> wants to "
+"purchase your services in the \"{{message.category === 'friendship' ? "
+"'Friendship' : (message.category === 'professional' ? 'Professional' : "
+"'Romance')}}\" category. Cost of service: {{message.price}} IMI, duration of "
+"deal ({{$m.durationUnit(message) === 'hour' ? 'hours' : 'days'}}): {{message."
+"duration}}."
+msgstr ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span>さんは"
+"「{{message.category === 'friendship' ? '友情' : (message.category === "
+"'professional' ? 'プロフェッショナル' : 'ロマンス')}}」のカテゴリーにおけるあ"
+"なたのサービスを購入したがってます。サービス料は{{message.price}} IMIで、実行"
+"期間は{{message.duration}}{{$m.durationUnit(message) === 'hour' ? '時間' : "
+"'日間'}}です。"
+
+#: app/bank/bank.tpl.html:442
+msgid "1 MONTH"
+msgstr "１ヶ月"
+
+#: app/bank/bank.tpl.html:423
+msgid "1 WEEK"
+msgstr "１週間"
+
+#: app/bank/bank.tpl.html:465
+msgid "1 YEAR"
+msgstr "１年間"
+
+#: app/post-footer.tpl.html:5
+msgid "About"
+msgstr "サイトについて"
+
+#: app/about/about.tpl.html:17
+msgid "ABOUT"
+msgstr "サイトについて"
+
+#: app/chat/chat.tpl.html:132
+msgid "accept"
+msgstr "承諾する"
+
+#: app/error/idpPermission.tpl.html:17
+msgid "Access to your email address is needed to proceed."
+msgstr ""
+
+#: app/bank/bank.tpl.html:434 app/bank/bank.tpl.html:457
+#: app/bank/bank.tpl.html:480 app/bank/bank.tpl.html:512
+msgid "Activate"
+msgstr "購入する"
+
+#: app/bank/bank.tpl.html:503
+msgid ""
+"ACTIVATE <span class=\"imigo-bank-premium-account-label\">PREMIUM ACCOUNT</"
+"span><br>WITH NO DOWN PAYMENT*"
+msgstr ""
+"頭金なしで<span class=\"imigo-bank-premium-account-label\">プレミアムアカウン"
+"ト</span><br>を購読する、"
+
+#: app/profile/profile.tpl.html:25 app/search/search.tpl.html:183
+msgid "activate premium"
+msgstr "プレミアムを購入する"
+
+#: app/dictionary.html:31
+msgid "Activate premium account to unlock additional slots."
+msgstr ""
+"追加スロットをアンロックするにはプレミアムアカウントを購入してください。"
+
+#: app/main/main.tpl.html:241
+msgid "Ad text"
+msgstr "広告本文"
+
+#: app/report.tpl.html:56
+msgid "Add a comment"
+msgstr "コメントを追加する"
+
+#: app/profile/profile.tpl.html:138
+msgid "Add a new photo"
+msgstr ""
+"新しい写真を\n"
+"アップロードする"
+
+#: app/search/search.tpl.html:79
+msgid "Age"
+msgstr "年齢"
+
+#: app/bank/bank.tpl.html:16
+msgid "Amount of IMI you would like to buy:"
+msgstr "あなたが購入したいIMIの額："
+
+#: app/bank/bank.tpl.html:98
+msgid "Amount of IMI you would like to withdraw:"
+msgstr "あなたが引き出したいIMIの額："
+
+#: app/dictionary.html:49
+msgid "ANSWER to: Does deals have time limit?"
+msgstr "回答：取引には時間制限がありますか？"
+
+#: app/dictionary.html:65
+msgid "ANSWER to: How premium account differs?"
+msgstr "回答：プレミアムアカウントはどこが違うのですか？"
+
+#: app/dictionary.html:66
+msgid "ANSWER to: How to activate premium?"
+msgstr "回答：どうすればプレミアムアカウントを購入できますか？"
+
+#: app/dictionary.html:46
+msgid "ANSWER to: How to become performer and find an order?"
+msgstr "回答：どうすれば行為者になって、注文を見つけられます？"
+
+#: app/dictionary.html:68
+msgid "ANSWER to: How to fill up my balance?"
+msgstr "回答：どうすれば残高を増やせますか？"
+
+#: app/dictionary.html:45
+msgid "ANSWER to: How to get service or find performer?"
+msgstr "回答：どうすればサービスや行為者を見つけられますか？"
+
+#: app/dictionary.html:71
+msgid "ANSWER to: How to withdraw earned money?"
+msgstr "回答：どうすれば稼いだお金を引き出せますか？"
+
+#: app/dictionary.html:70
+msgid ""
+"ANSWER to: I've made a purchase, but I don't any change in my balance, what "
+"should I do?"
+msgstr "回答：購入したのに残高が変化しませんでした。どうすればいいでしょうか？"
+
+#: app/dictionary.html:53
+msgid "ANSWER to: imigo.me in beta testing stage. What does it mean?"
+msgstr "回答：IMIGO.MEはベータテスト中とはどういう意味ですか？"
+
+#: app/dictionary.html:52
+msgid "ANSWER to: In which countries I can access imigo.me?"
+msgstr "回答：どの国でIMIGO.MEを利用できますか？"
+
+#: app/dictionary.html:67
+msgid "ANSWER to: Subscription without inital payment - how does it work?"
+msgstr "回答：初回支払金なしの購読はどのように作用しますか。"
+
+#: app/dictionary.html:47
+msgid "ANSWER to: Turns out I can earn real money on imigo.me?"
+msgstr "回答：ということはIMIGO.MEで現金が稼げますか？"
+
+#: app/dictionary.html:51
+msgid "ANSWER to: What I can not do on web site?"
+msgstr "回答：このウェブサイトではどんなことが禁止されていますか？"
+
+#: app/dictionary.html:64
+msgid "ANSWER to: What is IMI?"
+msgstr "回答：IMIとは何ですか？"
+
+#: app/dictionary.html:44
+msgid "ANSWER to: What is IMIGO.ME"
+msgstr "回答：IMIGO.MEとは何ですか？"
+
+#: app/dictionary.html:50
+msgid "ANSWER to: What is karma? How to raise it?"
+msgstr "回答：カルマとは何ですか？どうやって上げられますか？"
+
+#: app/dictionary.html:69
+msgid "ANSWER to: Which payment systems are supported?"
+msgstr "回答：どの支払システムが使用できますか？"
+
+#: app/dictionary.html:48
+msgid ""
+"ANSWER to: Why I need web site, if I can do this in other social networks?"
+msgstr ""
+"回答：他のSNSで同様なことができまが、このウェブサイトの長所は何ですか？"
+
+#: app/dictionary.html:4
+msgid "April"
+msgstr "４月"
+
+#: app/main/main.tpl.html:96
+msgid "Are you sure you want to cancel this deal?"
+msgstr "この取引を本当にキャンセルしますか？"
+
+#: app/main/main.tpl.html:99
+msgid "Are you sure you want to delete your ad?"
+msgstr "この広告を本当に削除しますか？"
+
+#: app/dictionary.html:8
+msgid "August"
+msgstr "８月"
+
+#: app/profile/profile.tpl.html:110
+msgid "back to home page"
+msgstr "ホームページに戻る"
+
+#: app/profile/profile.tpl.html:88
+msgid "Back to search"
+msgstr "検索に戻る"
+
+#: app/main/main.tpl.html:136
+msgid "cancel the deal"
+msgstr "取引をキャンセルする"
+
+#: app/bank/bank.tpl.html:301
+msgid "Card expiration date"
+msgstr "カードの有効期限"
+
+#: app/chat/chat.tpl.html:186 app/chat/chat.tpl.html:188
+msgid "Category"
+msgstr "カテゴリー"
+
+#: app/dictionary.html:24
+msgid "charisma"
+msgstr "カリスマ"
+
+#: app/search/search.tpl.html:190
+msgid "clear filter"
+msgstr "フィルタをクリアする"
+
+#: app/dictionary.html:13
+msgid "Client"
+msgstr "顧客"
+
+#: app/dictionary.html:16
+msgid "Clients"
+msgstr "顧客"
+
+#: app/dictionary.html:27 app/video.tpl.html:21
+msgid "close"
+msgstr "閉じる"
+
+#: app/chat/chat.tpl.html:300 app/main/main.tpl.html:147
+msgid "Complete"
+msgstr "完了する"
+
+#: app/search/search.tpl.html:167
+msgid "Confirmed users"
+msgstr "確認されたプロフィール"
+
+#: app/chat/chat.tpl.html:8
+msgid "Contacts"
+msgstr "連絡先"
+
+#: app/about/about.tpl.html:51
+msgid "CONTACTS"
+msgstr "連絡先"
+
+#: app/dictionary.html:26
+msgid "cost / day"
+msgstr "価格/一日"
+
+#: app/dictionary.html:25
+msgid "cost / hour"
+msgstr "価格/一時間"
+
+#: app/bank/bank.tpl.html:354
+msgid "Country"
+msgstr "国"
+
+#: app/main/main.tpl.html:35
+msgid "Create a new ad"
+msgstr "新しい広告を作成する"
+
+#: app/bank/bank.tpl.html:285
+msgid "Credit card number"
+msgstr "クレジットカード番号"
+
+#: app/bank/bank.tpl.html:82
+msgid "Credit/Debet card"
+msgstr "クレジット/デビットカード"
+
+#: app/bank/history/history.tpl.html:25
+msgid "Date"
+msgstr "日付"
+
+#: app/registration/registration.tpl.html:14
+msgid "Date of birth"
+msgstr "生年月日"
+
+#: app/chat/chat.tpl.html:287 app/main/main.tpl.html:130
+msgid "Days"
+msgstr "日"
+
+#: app/dictionary.html:12
+msgid "December"
+msgstr "１２月"
+
+#: app/main/main.tpl.html:193
+msgid "delete this ad"
+msgstr "広告を削除する"
+
+#: app/profile/profile.tpl.html:104
+msgid "discuss the deal"
+msgstr "取引iについて話し合う"
+
+#: app/profile/profile.tpl.html:96 app/search/search.tpl.html:323
+msgid "Discuss the deal"
+msgstr "取引について話し合う"
+
+#: app/dictionary.html:38
+msgid "Does deals have time limit?"
+msgstr "取引には時間制限がありますか？"
+
+#: app/dictionary.html:23
+msgid "efficiency"
+msgstr "能率"
+
+#: app/bank/bank.tpl.html:206
+msgid "Email"
+msgstr "メール"
+
+#: app/bank/bank.tpl.html:113 app/bank/bank.tpl.html:114
+#: app/bank/bank.tpl.html:31 app/bank/bank.tpl.html:32
+msgid "Enter the amount"
+msgstr "金額を入力してください"
+
+#: app/bank/bank.tpl.html:341 app/bank/bank.tpl.html:342
+msgid "Enter the credit card holder's name"
+msgstr "クレジットカード所有者の名前を入力してください"
+
+#: app/chat/chat.tpl.html:225 app/chat/chat.tpl.html:226
+msgid "Enter the price"
+msgstr "価格を入力してください"
+
+#: app/dictionary.html:85
+msgid "Error activation of subscription."
+msgstr "購読のエラー。"
+
+#: app/dictionary.html:76
+msgid "Error! Slots limit exceeded"
+msgstr "エラー！スロットの制限を超えました。"
+
+#: app/dictionary.html:75
+msgid "Error! The picture is too large"
+msgstr "エラー！イメージのサイズが大きすぎます。"
+
+#: app/dictionary.html:2
+msgid "February"
+msgstr "２月"
+
+#: app/about/about.tpl.html:53
+msgid "Feel free to contact us by email: support@imigo.me"
+msgstr "お気軽に私たちに連絡してください。メール：support@imigo.me"
+
+#: app/main/main.tpl.html:316
+msgid "Fill the Price and Text fields"
+msgstr "価格と本文の項目を入力してください"
+
+#: app/video.tpl.html:12
+msgid "Find out how it works:"
+msgstr "それがどのように動作するかを知りましょう"
+
+#: app/report.tpl.html:17
+msgid "Fraud"
+msgstr "詐欺"
+
+#: app/help/help.tpl.html:13
+msgid "Frequently Asked Questions"
+msgstr "よくある質問"
+
+#: common/services/alert_dictionary.html:14
+msgid "friendship"
+msgstr "友情"
+
+#: app/main/main.tpl.html:28 app/profile/profile.tpl.html:163
+msgid "Friendship"
+msgstr "友情"
+
+#: app/error/errorEmail.tpl.html:31
+msgid ""
+"Go to General and set your new primary email address. After that you can try "
+"to <a class=\"imigo-card-nav2-label imigo-underline\" href=\"/#/login"
+"\">login</a> again."
+msgstr ""
+"ホームページに行き、新しいメールを設定してください。その後にもう一度<a class="
+"\"imigo-card-nav2-label imigo-underline\" href=\"/#/login\">ログイン</a>して"
+"みてください。"
+
+#: app/error/errorEmail.tpl.html:29
+msgid "Go to your Facebook Settings."
+msgstr "フェイスブックの設定に進んでください。"
+
+#: app/error/errorEmail.tpl.html:22
+msgid "Go to your VK Settings."
+msgstr "VKの設定に進んでください。"
+
+#: app/report.tpl.html:37
+msgid "Harassment, profanity"
+msgstr "いやがらせ、冒涜"
+
+#: app/post-footer.tpl.html:7
+msgid "Help"
+msgstr "ヘルプ"
+
+#: app/help/help.tpl.html:10
+msgid "HELP"
+msgstr "ヘルプ"
+
+#: app/footer.tpl.html:52
+msgid "Home"
+msgstr "ホーム"
+
+#: app/chat/chat.tpl.html:205 app/chat/chat.tpl.html:206
+msgid "How many days?"
+msgstr "何日間？"
+
+#: app/chat/chat.tpl.html:214 app/chat/chat.tpl.html:215
+msgid "How many hours?"
+msgstr "何時間？"
+
+#: app/dictionary.html:56
+msgid "How premium account differs?"
+msgstr "プレミアムアカウントはどこが違うのですか？"
+
+#: app/dictionary.html:57
+msgid "How to activate premium?"
+msgstr "どうすればプレミアムアカウントを購入できますか？"
+
+#: app/error/dictionary.html:2
+msgid "How to add my email?"
+msgstr "どうすればメールを追加できますか？"
+
+#: app/dictionary.html:35
+msgid "How to become performer and find an order?"
+msgstr "どうすれば行為者になって、注文を見つけられますか？"
+
+#: app/dictionary.html:59
+msgid "How to fill up my balance?"
+msgstr "残高をどうやって足せますか？"
+
+#: app/dictionary.html:34
+msgid "How to get service or find performer?"
+msgstr "サービスとか行為者をどうやって見つけられますか？"
+
+#: app/dictionary.html:62
+msgid "How to withdraw earned money?"
+msgstr "どうすれば稼いだお金を引き出せますか？"
+
+#: app/dictionary.html:18
+msgid "humor"
+msgstr "ユーモア"
+
+#: app/registration/registration.tpl.html:56
+msgid ""
+"I accept <span class=\"imigo-underline\" ng-click="
+"\"onSelectCondition()\">the Terms of use</span> and agree to <span class="
+"\"imigo-underline\" ng-click=\"onSelectPolitics()\">the privacy policy</"
+"span> IMIGO.ME"
+msgstr ""
+"私はIMIGO.MEの<span class=\"imigo-underline\" ng-click="
+"\"onSelectCondition()\">利用規約</span>と <span class=\"imigo-underline\" ng-"
+"click=\"onSelectPolitics()\">プライバシーポリシー</span>に同意します。"
+
+#: app/dictionary.html:61
+msgid ""
+"I've made a purchase, but I don't any change in my balance, what should I do?"
+msgstr "購入したのに残高が変化しませんでした。どうすればいいでしょうか？"
+
+#: app/footer.tpl.html:36
+msgid "IMI balance"
+msgstr "IMI残高"
+
+#: app/bank/bank.tpl.html:396
+msgid ""
+"IMI is the virtual currency of IMIGO.ME. 1 IMI equals 1 Euro. Use IMI to "
+"purchase premium account and finance your deals."
+msgstr ""
+"IMIはIMIGO.MEの仮想通貨です。１IMIは１ユーロです。IMIを使って、プレミアムアカ"
+"ウントの購入と取引を支払うことができます。"
+
+#: app/bank/bank.tpl.html:93
+msgid "IMI WITHDRAWAL"
+msgstr "IMIの引き出し"
+
+#: app/dictionary.html:82
+msgid "IMI withdrawal successful."
+msgstr "IMIの引き出しに成功しました。"
+
+#: app/dictionary.html:42
+msgid "imigo.me in beta testing stage. What does it mean?"
+msgstr "IMIGO.MEはベータテスト中とはどう言う意味ですか？"
+
+#: app/dictionary.html:41
+msgid "In which countries I can access imigo.me?"
+msgstr "どの国でIMIGO.MEを利用できますか？"
+
+#: app/dictionary.html:73
+msgid "infinity"
+msgstr "無限"
+
+#: app/dictionary.html:17
+msgid "initiative"
+msgstr "率先"
+
+#: app/dictionary.html:19
+msgid "intelligence"
+msgstr "知能"
+
+#: app/bank/bank.tpl.html:181
+msgid "It can take up to 15 days to process your withdrawal request."
+msgstr "お金の引出要求を処理するために15日がかかります。"
+
+#: app/dictionary.html:1
+msgid "January"
+msgstr "１月"
+
+#: app/dictionary.html:7
+msgid "July"
+msgstr "７月"
+
+#: app/dictionary.html:6
+msgid "June"
+msgstr "６月"
+
+#: app/chat/chat.tpl.html:358 app/profile/profile.tpl.html:172
+#: app/profile/profile.tpl.html:60 app/search/search.tpl.html:256
+msgid "karma"
+msgstr "カルマ"
+
+#: app/search/search.tpl.html:121
+msgid "Karma"
+msgstr "カルマ"
+
+#: app/dictionary.html:77
+msgid "language"
+msgstr "言語を変更する"
+
+#: app/search/search.tpl.html:156
+msgid "Language"
+msgstr "言語"
+
+#: app/chat/chat.tpl.html:369 app/search/search.tpl.html:310
+msgid "level in this category"
+msgstr "このカテゴリーのレベル"
+
+#: app/login/login.tpl.html:6
+msgid "LOG IN WITH"
+msgstr "どのSNSでログインしますか？"
+
+#: app/error/dictionary.html:3
+msgid "Login with another social network"
+msgstr "別のSNSでログイン"
+
+#: app/bank/history/history.tpl.html:82
+msgid "Manage payments"
+msgstr "支払いの管理"
+
+#: app/dictionary.html:3
+msgid "March"
+msgstr "３月"
+
+#: common/services/alert_dictionary.html:12
+msgid "Maximum is {{value}}."
+msgstr "最大は{{value}}です。"
+
+#: app/dictionary.html:5
+msgid "May"
+msgstr "５月"
+
+#: app/footer.tpl.html:14
+msgid "Messages"
+msgstr "メッセージ"
+
+#: app/bank/bank.tpl.html:132 app/bank/bank.tpl.html:88
+msgid "minimal sum"
+msgstr "最低金額"
+
+#: common/services/alert_dictionary.html:11
+msgid "Minimum is {{value}}."
+msgstr "最低は{{value}}です。"
+
+#: app/registration/registration.tpl.html:20
+msgid "month"
+msgstr "月"
+
+#: app/bank/bank.tpl.html:310
+msgid "Month"
+msgstr "月"
+
+#: app/bank/bank.tpl.html:335 app/registration/registration.tpl.html:6
+msgid "Name"
+msgstr "名前"
+
+#: app/chat/chat.tpl.html:356 app/profile/profile.tpl.html:170
+#: app/profile/profile.tpl.html:58 app/search/search.tpl.html:254
+msgid "negative karma"
+msgstr "負のカルマ"
+
+#: app/main/main.tpl.html:116
+msgid "no"
+msgstr "いいえ"
+
+#: app/search/search.tpl.html:348
+msgid "No results."
+msgstr "結果なし。"
+
+#: app/chat/chat.tpl.html:267
+msgid "Nothing selected."
+msgstr "何も選択されていません。"
+
+#: app/dictionary.html:11
+msgid "November"
+msgstr "１１月"
+
+#: app/dictionary.html:10
+msgid "October"
+msgstr "１０月"
+
+#: app/report.tpl.html:27
+msgid "Offensive or illegal content"
+msgstr "攻撃的なコンテンツもしくは違法なコンテンツ"
+
+#: app/chat/chat.tpl.html:231 app/chat/chat.tpl.html:234
+msgid "Offer"
+msgstr "申し出る"
+
+#: app/main/main.tpl.html:309
+msgid "Open chat"
+msgstr "チャットを開く"
+
+#: app/bank/history/history.tpl.html:24
+msgid "Operation"
+msgstr "運営"
+
+#: app/report.tpl.html:47
+msgid "Other violation (please specify)"
+msgstr "他の違反（説明をお願いします）"
+
+#: app/about/about.tpl.html:54
+msgid ""
+"Our Address: 3rd Floor, C &amp; H Towers Corner of Great Marlborough and "
+"Greate George Streets Roseau, 00152 Commonwealth of Dominica; +852 8193 1313"
+msgstr ""
+"住所：3rd Floor, C &amp; H Towers Corner of Great Marlborough and Greate "
+"George Streets Roseau, 00152 Commonwealth of Dominica; +852 8193 1313"
+
+#: app/login/login.tpl.html:22
+msgid "Our service is confidential. We will not post anything on your page."
+msgstr "このサービスは秘密です。あなたのタイムラインに何も投稿しません。"
+
+#: app/bank/bank.tpl.html:141
+msgid "Payment history"
+msgstr "支払い歴"
+
+#: app/bank/bank.tpl.html:231
+msgid "Payment sum"
+msgstr "支払いの額"
+
+#: app/bank/bank.tpl.html:188
+msgid "Payment system"
+msgstr "支払いシステム"
+
+#: app/bank/history/history.tpl.html:17
+msgid "PAYMENTS"
+msgstr "支払い"
+
+#: app/dictionary.html:80
+msgid "per day"
+msgstr "一日当たり"
+
+#: app/dictionary.html:79
+msgid "per hour"
+msgstr "一時間当たり"
+
+#: app/dictionary.html:22
+msgid "performance"
+msgstr "能率"
+
+#: app/dictionary.html:14
+msgid "Performer"
+msgstr "行為者"
+
+#: app/dictionary.html:15
+msgid "Performers"
+msgstr "行為者"
+
+#: app/profile/profile.tpl.html:70
+msgid ""
+"Please introduce yourself! This will help other users better understand who "
+"you are and what you're looking for."
+msgstr ""
+"自己紹介して下さい！他のユーザにがあなたについてより詳しくなったり、あなたが"
+"探しているものを知ったりできます。"
+
+#: app/main/main.tpl.html:270
+msgid "Points available to review your partner"
+msgstr "あなたの相手を評価するため利用可能ポイント"
+
+#: app/bank/bank.tpl.html:406
+msgid "Premium account active until:"
+msgstr "前払いプレミアムアカウントの終わり："
+
+#: app/bank/bank.tpl.html:409
+msgid "Premium account weekly payment plan active until:"
+msgstr "プレミアムアカウントの毎週支払いプランの有効期限"
+
+#: app/search/search.tpl.html:360
+msgid "premium ads"
+msgstr "プレミアム広告"
+
+#: app/dictionary.html:84
+msgid "Premium subscription activated."
+msgstr "プレミアムサブスクリプションの購入に成功しました。"
+
+#: app/chat/chat.tpl.html:308 app/main/main.tpl.html:174
+#: app/main/main.tpl.html:175 app/main/main.tpl.html:178
+msgid "Price per day"
+msgstr "一日あたりの価格"
+
+#: app/chat/chat.tpl.html:313 app/main/main.tpl.html:163
+#: app/main/main.tpl.html:164 app/main/main.tpl.html:184
+msgid "Price per hour"
+msgstr "一時間あたりの価格"
+
+#: app/search/search.tpl.html:100
+msgid "Price range"
+msgstr "価格帯"
+
+#: app/post-footer.tpl.html:11
+msgid "Privacy"
+msgstr "プライバシーポリシー"
+
+#: app/main/main.tpl.html:27 app/profile/profile.tpl.html:162
+msgid "Professional"
+msgstr "プロフェッショナル"
+
+#: app/dictionary.html:21
+msgid "professionalism"
+msgstr "プロ度"
+
+#: app/footer.tpl.html:6 app/footer.tpl.html:7
+msgid "Profile"
+msgstr "プロフィール"
+
+#: app/bank/bank.tpl.html:376 app/bank/bank.tpl.html:378
+#: app/bank/bank.tpl.html:41 app/bank/bank.tpl.html:43
+msgid "Purchase"
+msgstr "購入する"
+
+#: app/bank/bank.tpl.html:11
+msgid "PURCHASE IMI"
+msgstr "IMIを購入する"
+
+#: app/bank/history/history.tpl.html:14
+msgid "RECEIPTS"
+msgstr "領収書"
+
+#: app/chat/chat.tpl.html:136
+msgid "refuse"
+msgstr "拒否する"
+
+#: app/search/search.tpl.html:410
+msgid "regular ads"
+msgstr "普通の広告"
+
+#: app/profile/profile.tpl.html:255
+msgid "remove"
+msgstr "削除する"
+
+#: app/chat/chat.tpl.html:381 app/search/search.tpl.html:299
+msgid "report abuse"
+msgstr "違反を報告する"
+
+#: app/report.tpl.html:9
+msgid "Report this user for"
+msgstr "このユーザーを報告する"
+
+#: app/main/main.tpl.html:26 app/profile/profile.tpl.html:161
+msgid "Romance"
+msgstr "ロマンス"
+
+#: app/search/search.tpl.html:26
+msgid "Search"
+msgstr "検索"
+
+#: app/main/main.tpl.html:18
+msgid "Search for an ad"
+msgstr "広告を検索する"
+
+#: app/chat/chat.tpl.html:145
+msgid "sec."
+msgstr "秒"
+
+#: app/chat/chat.tpl.html:77
+msgid "Select a contact from the list on the left."
+msgstr "左側にあるリストから連絡先を選択してください。"
+
+#: app/report.tpl.html:65
+msgid "send"
+msgstr "送信する"
+
+#: app/dictionary.html:9
+msgid "September"
+msgstr "９月"
+
+#: app/profile/profile.tpl.html:239
+msgid "Set as profile picture"
+msgstr "プロフィール写真として設定する"
+
+#: app/error/errorEmail.tpl.html:18
+msgid "Set email in Facebook settings."
+msgstr "フェイスブックの設定にメールを入力してください。"
+
+#: app/error/errorEmail.tpl.html:17
+msgid "Set email in VK settings."
+msgstr "VKの設定にメールを入力してください。"
+
+#: app/error/errorEmail.tpl.html:24
+msgid ""
+"Set your new primary email address. After that you can try to <a class="
+"\"imigo-card-nav2-label imigo-underline\" href=\"/#/login\">login</a> again."
+msgstr ""
+"新しいメールを設定してください。その後にもう一度<a class=\"imigo-card-nav2-"
+"label imigo-underline\" href=\"/#/login\">ログイン</a>してみてください。"
+
+#: app/registration/registration.tpl.html:36 app/search/search.tpl.html:33
+msgid "Sex"
+msgstr "性別"
+
+#: app/dictionary.html:20
+msgid "sex appeal"
+msgstr "性的魅力"
+
+#: app/dictionary.html:95
+msgid "show all"
+msgstr "全てを見せる"
+
+#: app/search/search.tpl.html:216
+msgid "Show examples"
+msgstr "例を掲示する"
+
+#: app/search/search.tpl.html:58
+msgid "Show those who want"
+msgstr "どのプロフィールを見せますか？"
+
+#: app/footer.tpl.html:46
+msgid "Sign out"
+msgstr "サインアウト"
+
+#: app/registration/registration.tpl.html:64
+msgid "Sign up"
+msgstr "サインアップ"
+
+#: common/services/alert_dictionary.html:10
+msgid "Size limit is {{value}} characters."
+msgstr "残り{{value}}文字"
+
+#: app/main/main.tpl.html:321 app/main/main.tpl.html:45
+msgid "Slots filled in this category"
+msgstr "このカテゴリーに充填されたスロット"
+
+#: app/bank/bank.tpl.html:494
+msgid "SPECIAL OFFER"
+msgstr "特別提供"
+
+#: app/main/main.tpl.html:317
+msgid "Submit"
+msgstr "送信する"
+
+#: app/dictionary.html:58
+msgid "Subscription without inital payment - how does it work?"
+msgstr "初回支払金なしの購読はどのように作用しますか。"
+
+#: app/bank/history/history.tpl.html:26
+msgid "Sum"
+msgstr "金額"
+
+#: app/post-footer.tpl.html:9
+msgid "Terms"
+msgstr "利用規約"
+
+#: app/chat/chat.tpl.html:146
+msgid "The offer has expired."
+msgstr "この申し込みの期限が切れました。"
+
+#: app/main/main.tpl.html:127
+msgid "Time remaining until the end of the deal"
+msgstr "取引終了までの残り時間"
+
+#: app/dictionary.html:93
+msgid "to get paid"
+msgstr "稼ぎたい人"
+
+#: app/dictionary.html:94
+msgid "to pay"
+msgstr "払いたい人"
+
+#: app/error/dictionary.html:1
+msgid ""
+"To use IMIGO.ME you need an email address associated with your social "
+"network account."
+msgstr ""
+"IMIGO.MEを使用するには、あなたのソーシャルネットワークのアカウントに関連付け"
+"られたメールアドレスが必要です。"
+
+#: app/error/idpPermission.tpl.html:19
+msgid ""
+"To use IMIGO.ME you need to allow our app to use an email address associated "
+"with your social network account.<br><br>\n"
+"\t\t\t\t\t\t\t\t\t\tPlease do so by going back to the login page, choosing "
+"your favorite social network and accepting the suggested settings. It’s safe "
+"and confidential."
+msgstr ""
+
+#: app/error/errorEmail.tpl.html:27
+msgid ""
+"To use IMIGO.ME you need to associate an email address with your Facebook "
+"account. Use <a class=\"imigo-card-nav2-label imigo-underline\" target="
+"\"_blank\" href=\"https://www.facebook.com/settings?tab=account&amp;"
+"section=email&amp;view\">this</a> Facebook page to do so or navigate "
+"manually following the screenshots below."
+msgstr ""
+"IMIGO.MEを使用するには、あなたのフェイスブックのアカウントに関連付けられた"
+"メールアドレスが必要です。そのために<a class=\"imigo-card-nav2-label imigo-"
+"underline\" target=\"_blank\" href=\"https://www.facebook.com/settings?"
+"tab=account&amp;section=email&amp;view\">この</a>フェイスブックページを使用す"
+"るか、あるいは以下のスクリーンショットを使って自分で進んでください。"
+
+#: app/error/errorEmail.tpl.html:20
+msgid ""
+"To use IMIGO.ME you need to associate an email address with your VK account. "
+"Use <a class=\"imigo-card-nav2-label imigo-underline\" target=\"_blank\" "
+"href=\"http://vk.com/settings\">this</a> VK page to do so or navigate "
+"manually following the screenshots below."
+msgstr ""
+"IMIGO.MEを使用するには、あなたのVKのアカウントに関連付けられたメールアドレス"
+"が必要です。そのために<a class=\"imigo-card-nav2-label imigo-underline\" "
+"target=\"_blank\" href=\"http://vk.com/settings\">この</a>VKページを使用する"
+"か、あるいは以下のスクリーンショットを使って自分で進んでください。"
+
+#: app/dictionary.html:36
+msgid "Turns out I can earn real money on imigo.me?"
+msgstr "ということはIMIGO.MEで現金が稼げますか？"
+
+#: app/search/search.tpl.html:207
+msgid "Use filters to find and contact people."
+msgstr "人々を見つけるためにフィルターを使用してください。"
+
+#: app/post-footer.tpl.html:13
+msgid "Video tour"
+msgstr "ご利用の流れについての動画"
+
+#: app/bank/bank.tpl.html:199
+msgid "Wallet ID or number"
+msgstr "ウォレット番号"
+
+#: app/dictionary.html:90
+msgid "wants to get paid"
+msgstr "稼ぎたい人"
+
+#: app/dictionary.html:89
+msgid "wants to pay"
+msgstr "払いたい人"
+
+#: app/video.tpl.html:10
+msgid ""
+"Welcome to IMIGO.ME - the first website that allows you to buy and sell "
+"personal time and relationships!"
+msgstr ""
+"IMIGO.ME、自由時間と相互関係の売買を可能とする世界で最初のウェブサイトによう"
+"こそ！"
+
+#: app/dictionary.html:40
+msgid "What I can not do on web site?"
+msgstr "このウェブサイトではどんなことが禁止されていますか？"
+
+#: app/dictionary.html:55
+msgid "What is IMI?"
+msgstr "IMIとは何ですか？"
+
+#: app/bank/bank.tpl.html:387
+msgid "WHAT IS IMI?"
+msgstr "IMIとは？"
+
+#: app/dictionary.html:33
+msgid "What is IMIGO.ME"
+msgstr "IMIGO.MEとは何ですか？"
+
+#: app/dictionary.html:39
+msgid "What is karma? How to raise it?"
+msgstr "カルマとは何ですか？どうやって上げられますか？"
+
+#: app/dictionary.html:60
+msgid "Which payment systems are supported?"
+msgstr "どの支払いシステムが使えますか？"
+
+#: app/dictionary.html:37
+msgid "Why I need web site, if I can do this in other social networks?"
+msgstr "他のSNSでも同様なこができますが、このウエブサイトの長所は何ですか？"
+
+#: app/bank/bank.tpl.html:123 app/bank/bank.tpl.html:125
+#: app/bank/bank.tpl.html:213
+msgid "Withdraw"
+msgstr "引き出す"
+
+#: app/bank/bank.tpl.html:161
+msgid "Withdrawal amount"
+msgstr "引き出す額"
+
+#: common/services/alert_dictionary.html:7
+msgid ""
+"Woops! Deal offer has expired. Ask your partner to send you a new offer."
+msgstr ""
+"おっと！提供した申し込みの期限が切れました。相手に新しい申し込みすると頼んで"
+"ください。"
+
+#: app/dictionary.html:83
+msgid "Woops! IMI withdraw failed."
+msgstr "おっと！IMIの引き出しに失敗しました。"
+
+#: common/services/alert_dictionary.html:8
+msgid ""
+"Woops! You can not make a deal, because you already have an active deal with "
+"this person in the {{category}} category."
+msgstr ""
+"おっと！この人と{{category}}当該カテゴリーで、別の取引をしているので他の取引"
+"をすることはできません。"
+
+#: common/services/alert_dictionary.html:6
+msgid "Woops! You don't have enough IMI. Please buy some IMI first."
+msgstr "おっと！IMIが足りません！最初に追加のIMIを購入してください。"
+
+#: common/services/alert_dictionary.html:9
+msgid "Woops! You need to be 18 or older."
+msgstr "おっと！あにたは18歳以上である必要があります。"
+
+#: app/dictionary.html:87
+msgid "Woops! Your payment attempt failed, please try again."
+msgstr "あっと！ご支払いが失敗しました。もう一度試してしてみてください。"
+
+#: app/registration/registration.tpl.html:31
+msgid "year"
+msgstr "年"
+
+#: app/bank/bank.tpl.html:322
+msgid "Year"
+msgstr "年"
+
+#: app/main/main.tpl.html:109
+msgid "yes"
+msgstr "はい"
+
+#: common/services/alert_dictionary.html:1
+msgid ""
+"You can not create a new ad because your slot limit is exceeded. Delete "
+"existing ads or complete other deals to free up some slots."
+msgstr ""
+"スロットの制限が超えていたので、新しい広告を作成不可能です。いくつかのスロッ"
+"トを解放するために現存の広告を解除するか、あるいは現行の取引を完了してくださ"
+"い。"
+
+#: common/services/alert_dictionary.html:2
+msgid ""
+"You can not make the deal because your slot limit is exceeded. Delete "
+"existing ads or complete other deals to free up some slots."
+msgstr ""
+"スロットの制限が超えていたので、新しい取引をする不可能です。いくつかのスロッ"
+"トを解放するために現存の広告を解除するか、あるいは現行の取引を完了してくださ"
+"い。"
+
+#: common/services/alert_dictionary.html:3
+msgid ""
+"You can not send more than 1000 messages per day. The limit will reset in "
+"{{h}} h {{m}} m."
+msgstr ""
+"一日で１０００メッセージ以上を送信不可能です。制限は{{h}}時{{m}}分にリセット"
+"します、"
+
+#: common/services/alert_dictionary.html:4
+msgid ""
+"You can not send more than 1000 messages per day. This limit resets every 24 "
+"hours, please come back later."
+msgstr ""
+"一日で１０００メッセージ以上を送信不可能です。この制限は、24時間ごとにリセッ"
+"トし、後で戻って来てください。"
+
+#: app/footer.tpl.html:16
+msgid "You have a new message"
+msgstr "新着メッセージが1件あります。"
+
+#: common/services/alert_dictionary.html:5
+msgid ""
+"You have already created an ad in this category. You will be able to create "
+"another after {{h}} h {{m}} m"
+msgstr ""
+"このカテゴリーでもう広告を作成しました。別の広告は{{h}}時{{m}}分後に作成可能"
+"です。"
+
+#: app/dictionary.html:30
+msgid ""
+"You have reached the maximum number of ads. Activate premium account to "
+"unlock additional slots."
+msgstr ""
+"あなたは広告の最大数に達しました。追加のスロットをアンロックするために、プレ"
+"ミアムアカウントを購入してください。"
+
+#: app/chat/chat.tpl.html:107
+msgid ""
+"You offered your services in the \"{{message.category === 'friendship' ? "
+"'Friendship' : (message.category === 'professional' ? 'Professional' : "
+"'Romance')}}\" category to <span ng-bind-html=\"$m.receiver(message) | "
+"singleLineHtml\"></span>. Cost of service: {{message.price}} IMI, duration "
+"of deal ({{$m.durationUnit(message) === 'hour' ? 'hours' : 'days'}}): "
+"{{message.duration}}."
+msgstr ""
+"あなたは<span ng-bind-html=\"$m.receiver(message) | singleLineHtml\"></span>"
+"さんに「{{message.category === 'friendship' ? '友情' : (message.category === "
+"'professional' ? 'プロフェッシオナル' : 'ロマンス')}}」のカテゴリーからのサー"
+"ビスを提案しました。サービス料は{{message.price}} IMIで、取引の期間は({{$m."
+"durationUnit(message) === '時間' ? '時間' : '日間'}}): {{message.duration}}で"
+"す。"
+
+#: app/dictionary.html:92
+msgid "You want to get paid"
+msgstr "お金を稼ぎたいです。"
+
+#: app/dictionary.html:91
+msgid "You want to pay"
+msgstr "お金を払いたいです。"
+
+#: app/chat/chat.tpl.html:108
+msgid ""
+"You want to purchase <span ng-bind-html=\"$m.receiver(message) | "
+"singleLineHtml\"></span>'s services in the \"{{message.category === "
+"'friendship' ? 'Friendship' : (message.category === 'professional' ? "
+"'Professional' : 'Romance')}}\" category. Cost of service: {{message.price}} "
+"IMI, duration of deal ({{$m.durationUnit(message) === 'hour' ? 'hours' : "
+"'days'}}): {{message.duration}}."
+msgstr ""
+"あなたは<span ng-bind-html=\"$m.receiver(message) | singleLineHtml\"></span>"
+"さんの「{{message.category === 'friendship' ? '友情' : (message.category === "
+"'professional' ? 'プロフェッシオナル' : 'ロマンス')}}」カテゴリーからのサービ"
+"スを購入しがっています。サービス料は{{message.price}} IMIで、取引の期間は"
+"({{$m.durationUnit(message) === '時間' ? '時間' : '日間'}}): {{message."
+"duration}}です。"
+
+#: app/bank/bank.tpl.html:519
+msgid ""
+"You will not be charged for the first transaction. All subsequent "
+"transactions will have the charge rate of 4 IMI per week for 1 year."
+msgstr ""
+"最初の売買のためのチャージが行われていません。後続の全ての売買は1年の間で週"
+"４ IMIのチャージ率を持ちます。"
+
+#: app/dictionary.html:28
+msgid "Your abuse report was successfully sent!"
+msgstr "違反報告の送信に成功しました。"
+
+#: app/dictionary.html:29
+msgid "Your advertisement was successfully created!"
+msgstr "広告の作成に成功しまた。"
+
+#: app/footer.tpl.html:20
+msgid "Your Friendship level"
+msgstr "貴方の友情レベル"
+
+#: app/dictionary.html:86
+msgid ""
+"Your IMI purchase has been successful. Please be aware that it may take "
+"several minutes for your balance to update."
+msgstr ""
+"あなたはIMIの購入に成功しました。IMI残高が更新するために時間がかかる可能性が"
+"あるのでご承知おき下さい。"
+
+#: app/registration/registration.tpl.html:10
+msgid "your name"
+msgstr "名前"
+
+#: app/chat/chat.tpl.html:167 app/main/main.tpl.html:205
+msgid "Your offer"
+msgstr "あなたの申し込み"
+
+#: app/footer.tpl.html:30
+msgid "Your Professional level"
+msgstr "あにたのプロフェッショナルレベル"
+
+#: app/main/main.tpl.html:227
+msgid "Your role"
+msgstr "あなたの役割"
+
+#: app/footer.tpl.html:25
+msgid "Your Romance level"
+msgstr "あなたのロマンスレベル"
+
+#: app/search/search.tpl.html:355
+msgid "Your search did not match any ads."
+msgstr "あなたの検索に一致する広告は見つかりませんでした。"
+
+#~ msgid "Gender"
+#~ msgstr "性別"
+
+#~ msgid ""
+#~ "IMI is the virtual currency of IMIGO.ME. Use IMI to purchase premium "
+#~ "account and finance your deals."
+#~ msgstr ""
+#~ "IMIとは相互間決済とプレミアムアカウントの購入為に使われたIMIGO.MEの仮想通"
+#~ "貨です。"
+
+#~ msgid ""
+#~ "<a ui-sref=\"search({category: category(type)})\" class=\"imigo-card-nav-"
+#~ "label\">Find</a> your love or <a ng-click=\"onCreate(type)\" class="
+#~ "\"imigo-card-nav-label\">offer</a> romance for <a ui-sref=\"bank\" class="
+#~ "\"imigo-card-nav2-label imigo-underline\">IMI</a>."
+#~ msgstr ""
+#~ "<a ui-sref=\"bank\" class=\"imigo-card-nav2-label imigo-underline\">IMI</"
+#~ "a>を使用して、恋愛の<a ui-sref=\"search({category: category(type)})\" "
+#~ "class=\"imigo-card-nav-label\">検索</a>、あるいはロマンスの<a ng-click="
+#~ "\"onCreate(type)\" class=\"imigo-card-nav-label\">提供</a>"
+
+#~ msgid ""
+#~ "<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> "
+#~ "offered services in the \"{{message.category === 'friendship' ? "
+#~ "'Friendship' : (message.category === 'professional' ? 'Professional' : "
+#~ "'Romance')}}\" category. Cost of service: {{message.price}} IMI, "
+#~ "execution time ({{$m.durationUnit(message) === 'hour' ? 'hours' : "
+#~ "'days'}}): {{message.duration}}."
+#~ msgstr ""
+#~ "<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span>さんは"
+#~ "「{{message.category === 'friendship' ? '友情' : (message.category === "
+#~ "'professional' ? 'プロフェッショナル' : 'ロマンス')}}」のカテゴーリにおけ"
+#~ "るサービスを提供しました。サービス料は{{message.price}} IMIで、実行時間は"
+#~ "{{message.duration}}{{$m.durationUnit(message) === 'hour' ? '時間' : '日"
+#~ "間'}}です。"
+
+#~ msgid ""
+#~ "<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> wants "
+#~ "to purchase your services in the \"{{message.category === 'friendship' ? "
+#~ "'Friendship' : (message.category === 'professional' ? 'Professional' : "
+#~ "'Romance')}}\" category. Cost of service: {{message.price}} IMI, "
+#~ "execution time ({{$m.durationUnit(message) === 'hour' ? 'hours' : "
+#~ "'days'}}): {{message.duration}}."
+#~ msgstr ""
+#~ "<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span>さんは"
+#~ "「{{message.category === 'friendship' ? '友情' : (message.category === "
+#~ "'professional' ? 'プロフェッショナル' : 'ロマンス')}}」のカテゴリーにおけ"
+#~ "る貴方のサービスを購入したいです。サービス料は{{message.price}} IMIで、実"
+#~ "行時間は{{message.duration}}{{$m.durationUnit(message) === 'hour' ? '時"
+#~ "間' : '日間'}}です。"
+
+#~ msgid "All"
+#~ msgstr "全て"
+
+#~ msgid "back to search"
+#~ msgstr "検索に戻る"
+
+#~ msgid "Card expiry date"
+#~ msgstr "カードの有効期限"
+
+#~ msgid "Change language"
+#~ msgstr "言語を変化する"
+
+#~ msgid "clear form"
+#~ msgstr "リセット"
+
+#~ msgid "COMPLAINT TO USER"
+#~ msgstr "ユーザを告訴する"
+
+#~ msgid "Cost of IMI/day"
+#~ msgstr "IMIの価格/一日"
+
+#~ msgid "Cost of IMI/hour"
+#~ msgstr "IMIの価格/一時間"
+
+#~ msgid "deal offer expired"
+#~ msgstr "取引提供の有効期限が切れました"
+
+#~ msgid "Deal type"
+#~ msgstr "取引のタイプ"
+
+#~ msgid "Enter the credit card holder"
+#~ msgstr "クレジットカード所有者の名前を入力してください。"
+
+#~ msgid "Exchange rate: 1 IMI = 1 EUR"
+#~ msgstr "為替レート：1 IMI = 1 EUR"
+
+#~ msgid ""
+#~ "For any questions please contact us by email: suport@imigo.me "
+#~ "or<br>phone: +852 8193 1313"
+#~ msgstr ""
+#~ "ご質問の場合には以下のメールと電話番号にてご連絡下さい。\n"
+#~ "<BR>support@imigo.me\n"
+#~ "<BR>電話番号：+85281931313"
+
+#~ msgid "HOW DOES IT WORK?"
+#~ msgstr "それはどのように作用しますか？"
+
+#~ msgid "IMI currency"
+#~ msgstr "IMI通貨"
+
+#~ msgid ""
+#~ "IMIGO help people connect. Whether it's collaborating with skilled "
+#~ "professionals, searching for your one true love, or developing a "
+#~ "friendship that lasts a lifetime, IMIGO can make it happen in a snap. Our "
+#~ "fast growing online community and world-class customer service make IMIGO "
+#~ "the perfect foundation for making connections, generating an income, or "
+#~ "improving one's skillset."
+#~ msgstr "　　"
+
+#~ msgid "level category"
+#~ msgstr "カテゴリのレベル"
+
+#~ msgid ""
+#~ "Once the deal has concluded, both parties will be able to rate the "
+#~ "service they received and delivered. This creates a trustworthy community "
+#~ "where the services offered and provided are built upon an honest user "
+#~ "feedback framework."
+#~ msgstr " "
+
+#~ msgid ""
+#~ "Our Address: 3rd Floor, C &amp; H Towers Corner of Great Marlborough and "
+#~ "Greate George Streets Roseau, 00152 Commonwealth of Dominica"
+#~ msgstr ""
+#~ "住所：3rd Floor, C &amp; H Towers Corner of Great Marlborough and Greate "
+#~ "George Streets Roseau, 00152 Commonwealth of Dominica"
+
+#~ msgid ""
+#~ "Place your advertisement online by filling out a simple form. Or browse "
+#~ "through hundreds of offers already available. Once you find what you're "
+#~ "looking for, you can quickly and easily connect with that person to "
+#~ "arrange the terms of your deal."
+#~ msgstr " "
+
+#~ msgid ""
+#~ "Please tell about yourself! This information will be visible to other "
+#~ "users."
+#~ msgstr "ここでは自己紹介を書いてください。これは他のユーザに表示されます。"
+
+#~ msgid "Points available to appraise your partner"
+#~ msgstr "パートナーを評価するための利用可能なポイント"
+
+#~ msgid "Premium account with weekly payments active until:"
+#~ msgstr "後払いプレミアムアカウントの終わり："
+
+#~ msgid "Select wallet"
+#~ msgstr "ウォレットを選ぶ"
+
+#~ msgid ""
+#~ "Sign up to either buy or sell. Start by selecting a category: Dating, "
+#~ "Friendship or Work."
+#~ msgstr ""
+#~ "売買する為にはサインアップしてください。ロマンス、友情、プロフェッショナル"
+#~ "のカテゴリーの中から一つを選択すると開始ができます。"
+
+#~ msgid "Slots available in this category"
+#~ msgstr "このカテゴリーに利用可能なスロート"
+
+#~ msgid "The safer, easier way to pay."
+#~ msgstr "安全・簡単にお支払いします。"
+
+#~ msgid "To communicate with a user select a contact in the list on the left."
+#~ msgstr "ユーザと通信するには、左側のリストで連絡先を選択してください。"
+
+#~ msgid "to discuss the deal"
+#~ msgstr "取引を話し合う"
+
+#~ msgid "To discuss the deal"
+#~ msgstr "取引を話し合う"
+
+#~ msgid "To empower connect PREMIUM ACCOUNT"
+#~ msgstr ""
+#~ "広告の最大数に達しました。追加スロットをアンロック為にプレミアムアカウント"
+#~ "を購入してください。"
+
+#~ msgid "Wallet ID"
+#~ msgstr "ウォレットID"
+
+#~ msgid "XXX"
+#~ msgstr "XXX"
+
+#~ msgid ""
+#~ "You offered your services in the \"{{message.category === 'friendship' ? "
+#~ "'Friendship' : (message.category === 'professional' ? 'Professional' : "
+#~ "'Romance')}}\" category to <span ng-bind-html=\"$m.receiver(message) | "
+#~ "singleLineHtml\"></span>. Cost of service: {{message.price}} IMI, "
+#~ "execution time ({{$m.durationUnit(message) === 'hour' ? 'hours' : "
+#~ "'days'}}): {{message.duration}}."
+#~ msgstr ""
+#~ "貴方は<span ng-bind-html=\"$m.receiver(message) | singleLineHtml\"></span>"
+#~ "さんに「{{message.category === 'friendship' ? '友情' : (message.category "
+#~ "=== 'professional' ? 'プロフェッショナル' : 'ロマンス')}}」のカテゴリーに"
+#~ "おけるサービスを提供しました。サービス料は{{message.price}} IMIで、実行時"
+#~ "間は{{message.duration}}{{$m.durationUnit(message) === 'hour' ? '時間' : "
+#~ "'日間'}}です。"
+
+#~ msgid ""
+#~ "You want to purchase <span ng-bind-html=\"$m.receiver(message) | "
+#~ "singleLineHtml\"></span>'s services in the \"{{message.category === "
+#~ "'friendship' ? 'Friendship' : (message.category === 'professional' ? "
+#~ "'Professional' : 'Romance')}}\" category. Cost of service: {{message."
+#~ "price}} IMI, execution time ({{$m.durationUnit(message) === 'hour' ? "
+#~ "'hours' : 'days'}}): {{message.duration}}."
+#~ msgstr ""
+#~ "貴方は「{{message.category === 'friendship' ? '友情' : (message.category "
+#~ "=== 'professional' ? 'プロフェッショナル' : 'ロマンス')}}」のカテゴリーに"
+#~ "おける<span ng-bind-html=\"$m.receiver(message) | singleLineHtml\"></span>"
+#~ "さんのサービスを購入したいです。サービス料は{{message.price}} IMIで、実行"
+#~ "時間は{{message.duration}}{{$m.durationUnit(message) === 'hour' ? '時"
+#~ "間' : '日間'}}です。"

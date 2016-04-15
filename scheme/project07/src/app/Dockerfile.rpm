@@ -1,0 +1,12 @@
+FROM       itkaboom/imigo-rpms-base:latest
+MAINTAINER Alexander Nevskiy <kepkin@gmail.com>           
+
+WORKDIR    root/imigo-rpms
+RUN        mkdir -p /root/rpmbuild/SOURCES/
+COPY       *.tar.gz /root/rpmbuild/SOURCES/
+RUN        ls /root/rpmbuild/SOURCES/
+ADD        front.spec front.spec
+
+ARG        VERSION
+
+RUN        rpmbuild --define "version ${VERSION}" -ba front.spec

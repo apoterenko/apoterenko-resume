@@ -1,0 +1,47 @@
+@import "imigo-utils";
+@import "imigo-constant";
+
+.imigo-registration-form {
+
+	.build-input(
+		@border-size: 0,
+		@color: @imigo-basic-brown-color,
+		@background-color: @imigo-basic-bright-color
+	);
+
+	input[type="checkbox"] {
+		background-color: transparent;
+		cursor: pointer;
+	}
+
+	.selectize-control {
+		&.single {
+			.selectize-input {
+				border-color: transparent;
+			}
+		}
+	}
+}
+
+.build-label (
+	@name: 'registration',
+	@color: @imigo-basic-turquoise-color
+);
+
+.build-normal-button(
+	@name: 'registration',
+	@border-color: @imigo-basic-turquoise-color,
+	@color: @imigo-basic-turquoise-color
+);
+
+.build-label (
+	@name: 'registration-agreement',
+	@color: @imigo-basic-bright-color,
+	@font-size: 10
+);
+.imigo-registration-agreement-label {
+	.imigo-underline {
+		color: @imigo-basic-turquoise-color;
+		cursor: pointer;
+	}
+}

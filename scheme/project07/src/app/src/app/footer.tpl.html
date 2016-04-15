@@ -1,0 +1,54 @@
+<div ui-vb-align class="imigo-footer-view">
+	<div class="imigo-footer-placeholder-wrapper" ng-if="user" ng-controller="footerCtrl">
+		<div ui-w-22p class="imigo-footer-placeholder"></div>
+		<div ui-w-8p class="imigo-footer-placeholder imigo-footer-link">
+			<a ui-sref="profile({user: user._id, from: '', ad: ''})">
+				<resource ng-if="!user.premium" type="img" path="resources/images/footer/profile_icon.png" data-tip="{{'Profile' | translate}}"></resource>
+				<resource ng-if="user.premium" type="img" path="resources/images/footer/profile_prem_icon.png" data-tip="{{'Profile' | translate}}"></resource>
+			</a>
+		</div>
+		<div ui-w-8p class="imigo-footer-placeholder imigo-footer-link">
+			<!-- TODO render message icon here as background! -->
+			<div ui-rel style="margin: auto; width: 39px; height: 24px;">
+				<a href="{{'#/chat/' + getChatPartner()}}">
+					<resource type="img" path="resources/images/footer/message_icon.png" data-tip="{{'Messages' | translate}}"></resource>
+				</a>
+				<div ui-abs class="imigo-new-messages-image" ng-if="hasNewMessages()" data-tip="{{'You have a new message' | translate}}"></div>
+			</div>
+		</div>
+		<div ui-w-8p class="imigo-footer-placeholder imigo-friend-level">
+			<span data-tip="{{'Your Friendship level' | translate}}">
+				{{user.exp.friendship.level | ifEmpty: 0}}
+			</span>
+		</div>
+		<div ui-w-8p class="imigo-footer-placeholder imigo-sexual-level">
+			<span data-tip="{{'Your Romance level' | translate}}">
+				{{user.exp.romance.level | ifEmpty: 0}}
+			</span>
+		</div>
+		<div ui-w-8p class="imigo-footer-placeholder imigo-prof-level">
+			<span data-tip='{{"Your Professional level" | translate}}'>
+				{{user.exp.professional.level | ifEmpty: 0}}
+			</span>
+		</div>
+		<a ui-sref="bank">
+			<div ui-w-8p class="imigo-footer-placeholder" style="cursor: pointer;">
+				<span class="imigo-imi-level" data-tip="{{'IMI balance' | translate}}">{{user.imi | ifEmpty: 0}}</span>
+				<span ui-inline-block class="imigo-imi-level-image"></span>
+			</div>
+		</a>
+		<div ui-w-30p class="imigo-footer-placeholder"></div>
+	</div>
+	<a ui-sref="logout"
+	      ui-abs
+	      ng-if="user"
+	      class="imigo-exit-image"
+	      data-tip="{{'Sign out' | translate}}"
+	      data-tip-align="left"></a>
+	<a ui-sref="main"
+	      ui-abs
+	      ng-if="user"
+	      class="imigo-home-image"
+	      data-tip="{{'Home' | translate}}"></a>
+	<div ng-include="'app/post-footer.tpl.html'"></div>
+</div>

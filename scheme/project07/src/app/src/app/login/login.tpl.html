@@ -1,0 +1,39 @@
+<div ui-column ui-full-w ui-h-30p ng-include="'app/logo.tpl.html'"></div>
+<div ui-column ui-full-w ui-h-46p class="imigo-login-view">
+	<div ui-vc-align ui-hc-align ui-rel ng-if="login">
+		<div ui-abs ui-full-w class="imigo-login-title-label">
+			<div ui-column ui-full-w>
+				<div ui-full-w ui-hc-align>{{'LOG IN WITH' | translate}}</div>
+			</div>
+		</div>
+		<div ui-h-80
+		     ui-w-80
+		     ui-inline-block
+		     ng-repeat="link in [{path: 'auth/facebook', cls: 'imigo-login-fb-image'},
+		     					 {path: 'auth/google', cls: 'imigo-login-google-image'},
+								 {path: 'auth/vk', cls: 'imigo-login-vk-image'}]"
+		     ng-click="redirect(link.path)"
+		     ng-class="link.cls"
+		     class="imigo-login-link-image"></div>
+		<div ui-abs ui-full-w class="imigo-login-info-label">
+			<div ui-column ui-full-w>
+				<div ui-full-w ui-hc-align>
+					<div class="imigo-login-info-label-wrapper" ui-inline-block>
+						{{'Our service is confidential. We will not post anything on your page.' | translate}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div ui-column ui-full-w ui-h-14p>
+	<div ui-vb-align ui-hc-align  >
+		<resource ng-click="onShowVideo()" type="img" style="cursor: pointer;"
+			  path="resources/images/login/video_about.png"
+			  ui-h-80
+			  ui-w-494></resource>
+	</div>
+</div>
+<div ui-column ui-full-w ui-h-10p>
+	<div ui-vb-align ng-include="'app/post-footer.tpl.html'"></div>
+</div>

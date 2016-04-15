@@ -1,0 +1,98 @@
+@import "imigo-utils";
+@import "imigo-constant";
+
+.imigo-client-landing-view {
+	background-image: @imigo-icon-client-landing-background-image;
+	background-size: cover;
+
+	.imigo-client-landing-link {
+		.build-border-radius (@radius: 40);
+		background-color: white;
+	}
+}
+
+.build-label(
+	@name: 'client-landing-title',
+	@color: #343341,
+	@font-family: @imigo-basic-bold-font,
+	@font-size: 60
+);
+
+.build-label(
+	@name: 'client-landing-login',
+	@color: #343341,
+	@font-size: 40,
+	@white-space: nowrap,
+	@font-family: @imigo-basic-bold-font
+);
+
+.build-button(
+	@name: 'client-landing-video',
+	@border-size: 0,
+	@color: #123740,
+	@background-color: #00dade,
+	@padding-left: 30,
+	@padding-right: 30,
+	@padding-top: 16,
+	@padding-bottom: 16,
+	@font-size: 20,
+	@font-family: @imigo-basic-bold-font
+);
+.imigo-client-landing-video-button {
+	.build-border-radius (@radius: 6);
+}
+
+.imigo-customer-landing-view {
+	background-image: @imigo-icon-customer-landing-background-image;
+	background-size: cover;
+}
+
+.build-label(
+	@name: 'customer-landing-title',
+	@color: #474a58,
+	@font-family: @imigo-basic-bold-font,
+	@font-size: 70
+);
+
+.build-label(
+	@name: 'customer-landing-description',
+	@color: #474a58,
+	@font-size: 16,
+	@font-style: italic
+);
+
+.build-label(
+	@name: 'customer-landing-login',
+	@color: #474a58,
+	@font-size: 40
+);
+
+.build-label(
+	@name: 'customer-landing-confidential',
+	@color: #474a58,
+	@font-size: 13
+);
+
+.build-image(
+	@name: 'customer-landing-logo',
+	@background-image: @imigo-icon-customer-landing-logo-background-image,
+	@height: @imigo-icon-customer-landing-logo-height,
+	@width: @imigo-icon-customer-landing-logo-width
+);
+
+.build-button(
+	@name: 'customer-landing-video',
+	@border-color: #a3a3a3,
+	@color: #a3a3a3,
+	@padding-left: 20,
+	@padding-right: 20,
+	@padding-top: 10,
+	@padding-bottom: 10
+);
+
+.build-image(
+	@name: 'customer-landing-vk',
+	@background-image: @imigo-icon-customer-landing-vk-background-image,
+	@cursor: pointer,
+	@background-size: contain
+);

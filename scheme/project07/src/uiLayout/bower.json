@@ -1,0 +1,23 @@
+{
+  "name": "uiLayout",
+  "homepage": "https://github.com/apoterenko/uiLayout",
+  "description": "CSS layout library for web applications",
+  "main": [
+    "css/uiLayout.css"
+  ],
+  "keywords": [
+    "css",
+    "layout"
+  ],
+  "authors": [
+    "Alexander Poterenko"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "gulpfile.js"
+  ],
+  "dependencies": {
+  }
+}

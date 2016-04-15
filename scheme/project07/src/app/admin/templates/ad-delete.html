@@ -1,0 +1,25 @@
+<div class="ngdialog-message">
+  <h3>Decline AD</h3>
+  <table align="center" width="400">
+    <tr>
+      <th>{{ngDialogData.role}}</th>
+      <th>{{ngDialogData.nickname}}</th>
+      <th>{{ngDialogData.gender}}</th>
+      <th>{{ngDialogData.age}} years old</th>
+      <th>{{ngDialogData.price}} IMI</th>
+    </tr>
+  </table>
+  <table align="center" width="400">
+    <tr>
+      <td><img ng-src="{{cdn_path}}/{{ngDialogData.image}}_115.jpeg" height="115" width="115"/></td>
+      <td><div ng-bind-html="ngDialogData.text | linky"></div></td>
+    </tr>
+  </table>
+  <div><label>Reason(Will be send to User)</label></div>
+  <select ng-model="data_selected" ng-options="option.id for option in data_templates track by option.id" ng-change="confirmValue = data_selected.text"></select>
+  <div align="center"><textarea id="reasonArea" rows="4" cols="45" ng-model="confirmValue"></textarea></div>
+</div>
+<div class="ngdialog-buttons">
+  <button type="button" class="ngdialog-button ngdialog-button-primary" ng-disabled="!confirmValue" ng-click="confirm(confirmValue)">Decline</button>
+  <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('button')">Cancel</button>
+</div>

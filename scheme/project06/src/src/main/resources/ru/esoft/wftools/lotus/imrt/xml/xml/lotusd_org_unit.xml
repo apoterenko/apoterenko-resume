@@ -1,0 +1,181 @@
+<table>
+	<name>
+		lotusd_org_structure
+	</name>
+	<description>
+		организации - подразделение
+	</description>
+	<path>
+		ОРГ_СТРУКТУРА/Подразделения
+	</path>
+	<comment>
+		Очень похожа по структуре на «внешних адресатов», за исключением того, что здесь обычно только одна организация описана.
+		Сущность может быть и родительской и дочерней.
+	</comment>
+	<columns>
+		<column>
+			<name>ld_org_str_id</name>
+			<primary>true</primary>
+			<notNull>true</notNull>
+			<type>integer</type>
+			<description>первичный ключ (создан при импорте внешней БД)</description>
+		</column>
+		<column>
+			<name>ld_org_str_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<description>предыдущий первичный ключ</description>
+		</column>
+		<column>
+			<name>ld_org_str_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_org_str_type</name>
+			<type>text</type>
+			<sql>{form}</sql>
+			<typeId>true</typeId>
+			<description>
+				Form: "ld_organization". Только родительская форма.
+				Form: "ld_department". Только дочерняя форма. Без физического присутствия «родителя» смысла не имеет.
+			</description>
+		</column>
+		<column>
+			<name>ld_org_str_parent_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_org_structure</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>null</sql>
+			<description>внешний ключ на таблицу lotusd_ed_organizations</description>
+		</column>
+		<column>
+			<name>ld_org_str_parent_unid</name>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{parent}</sql>
+			<description>внешний уникальный ключ на таблицу lotusd_org_structure</description>
+		</column>
+		<column>
+			<name>ld_org_str_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>ld_org_str_path</name>
+			<type>text</type>
+			<sql>{path}</sql>
+			<description>абсолютный путь к файлу</description>
+		</column>
+		<column>
+			<name>Org_Speciality</name>
+			<type>text</type>
+			<comment>Специализация</comment>
+		</column>
+		<column>
+			<name>Org_Address</name>
+			<type>text</type>
+			<comment>Фактический адрес</comment>
+		</column>
+		<column>
+			<name>Org_JAddress</name>
+			<type>text</type>
+			<comment>Юридический адрес</comment>
+		</column>
+		<column>
+			<name>Org_Phone</name>
+			<type>text</type>
+			<comment>Телефон</comment>
+		</column>
+		<column>
+			<name>Org_Fax</name>
+			<type>text</type>
+			<comment>Факс</comment>
+		</column>
+		<column>
+			<name>Org_Leader</name>
+			<type>text</type>
+			<comment>ФИО руководителя</comment>
+		</column>
+		<column>
+			<name>Org_Accountant</name>
+			<type>text</type>
+			<comment>ФИО глав.буха</comment>
+		</column>
+		<column>
+			<name>Org_BankProperties</name>
+			<type>text</type>
+			<comment>Банковские реквизиты</comment>
+		</column>
+		<column>
+			<name>Org_Comment</name>
+			<type>text</type>
+			<comment>Комментарии</comment>
+		</column>
+		<column>
+			<name>Org_FullName</name>
+			<type>text</type>
+			<comment>Полное наименование</comment>
+		</column>
+		<column>
+			<name>Org_Name</name>
+			<type>text</type>
+			<comment>Сокращенное наименование</comment>
+		</column>
+		<column>
+			<name>Dep_Index</name>
+			<type>text</type>
+			<comment>Классификатор (индекс подразделения)</comment>
+		</column>
+		<column>
+			<name>Dep_Phone</name>
+			<type>text</type>
+			<comment>Телефон</comment>
+		</column>
+		<column>
+			<name>Dep_Fax</name>
+			<type>text</type>
+			<comment>Факс</comment>
+		</column>
+		<column>
+			<name>Dep_ZG</name>
+			<type>boolean</type>
+			<comment>Флаг: подразделение занимается обращениями граждан. «1», если да</comment>
+		</column>
+		<column>
+			<name>Dep_Leader</name>
+			<type>text</type>
+			<comment>ФИО руководителя подразделения</comment>
+		</column>
+		<column>
+			<name>Controller</name>
+			<type>text</type>
+			<comment>ФИО куратора подразделения</comment>
+		</column>
+		<column>
+			<name>Dep_Name</name>
+			<type>text</type>
+			<comment>Наименование</comment>
+		</column>
+		<column>
+			<name>Abbreviation</name>
+			<type>text</type>
+			<comment>Аббревиатура</comment>
+		</column>
+	</columns>
+</table>

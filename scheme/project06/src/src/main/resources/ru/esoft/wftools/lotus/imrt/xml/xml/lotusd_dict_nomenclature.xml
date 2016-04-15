@@ -1,0 +1,124 @@
+<table>
+	<name>
+		lotusd_dict_items
+	</name>
+	<description>
+		словари - пункты словарей
+	</description>
+	<path>
+		СЛОВАРИ/Пункты номенклатуры дел
+	</path>
+	<columns>
+		<column>
+			<name>ld_dt_im_id</name>
+			<primary>true</primary>
+			<notNull>true</notNull>
+			<type>integer</type>
+			<description>первичный ключ (создан при импорте внешней БД)</description>
+		</column>
+		<column>
+			<name>ld_dt_im_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<description>предыдущий первичный ключ</description>
+		</column>
+		<column>
+			<name>ld_dt_im_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_dt_im_type</name>
+			<type>text</type>
+			<sql>{form}</sql>
+			<description>название формы lotusd_dict_items</description>
+		</column>
+		<column>
+			<name>ld_dt_im_parent_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_dict_items</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>null</sql>
+			<description>внешний ключ на саму себя (на таблицу lotusd_dict_items)</description>
+		</column>
+		<column>
+			<name>ld_dt_im_parent_unid</name>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{parent}</sql>
+			<description>внешний уникальный ключ на саму себя (на таблицу lotusd_dict_items)</description>
+		</column>
+		<column>
+			<name>ld_dt_im_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>ld_dt_im_path</name>
+			<type>text</type>
+			<sql>{path}</sql>
+			<description>абсолютный путь к файлу</description>
+		</column>
+		<column>
+			<name>Alias</name>
+			<type>text</type>
+		</column>
+		<column>
+			<name>Name</name>
+			<type>text</type>
+		</column>
+		<column>
+			<name>ViewTitle</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+		</column>
+		<column>
+			<name>KeepingPeriodDig</name>
+			<type>text</type>
+		</column>
+		<column>
+			<name>KeepingPeriodWord</name>
+			<type>text</type>
+		</column>
+		<column>
+			<name>Comment</name>
+			<type>text</type>
+		</column>
+		<column>
+			<name>NameType</name>
+			<type>text</type>
+		</column>
+		<column>
+			<name>NeedDublicate</name>
+			<type>boolean</type>
+		</column>
+		<column>
+			<name>ArchiveSection</name>
+			<type>text</type>
+		</column>
+		<column>
+			<name>ListName</name>
+			<type>text</type>
+		</column>
+		<column>
+			<name>Active</name>
+			<type>boolean</type>
+		</column>
+	</columns>
+</table>

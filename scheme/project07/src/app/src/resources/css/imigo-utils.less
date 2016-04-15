@@ -1,0 +1,1364 @@
+@import "../../../jspm_packages/github/apoterenko/ui-less-build-utils@0.0.6/src/ui-less-build-utils";
+
+@import "imigo-icon";
+@import "imigo-constant";
+
+@build-font-size: 14;
+
+.build-namespace('imigo');
+
+.build-common() {
+
+	html {
+		min-height: 630px;
+		min-width: 800px;
+	}
+
+	* {
+		cursor: default;
+		-webkit-font-smoothing: antialiased;
+		text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+		font-family: @imigo-basic-normal-font;
+		.build-user-select(@select: none);
+	}
+
+	a {
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	q {
+		quotes: "\00ab" "\00bb";
+	}
+
+	label input[type="file"].hidden {
+		position: fixed;
+		top: -1000px;
+	}
+
+	.ui-simple-tooltip {
+		padding: 3px;
+		border: 1px solid @imigo-basic-turquoise-color;
+		color: @imigo-basic-turquoise-color;
+		font-size: 11px;
+		font-style: italic;
+	}
+
+	.imigo-panel {
+		background: rgba(0, 0, 0, .8);
+	}
+
+
+	.ui-layout {
+		.imigo-w-auto {
+			width: auto !important;
+		}
+	}
+
+	.imigo-view {
+		background-repeat: no-repeat;
+
+		input.ng-invalid, textarea.ng-invalid {
+			color: @imigo-basic-invalid-color;
+			border-color: @imigo-basic-invalid-color;
+		}
+	}
+
+	.imigo-body {
+		background-repeat: no-repeat;
+	}
+
+	.imigo-landing-html {
+		overflow: hidden;
+		min-height: inherit;
+		min-width: inherit;
+	}
+
+	.imigo-default-body {
+		background-image: @imigo-icon-shine-background-image;
+		background-position: bottom;
+		background-size: cover;
+
+		.imigo-view {
+			background-image: @imigo-icon-planet-background-image;
+			background-position: center bottom;
+			background-size: contain;
+		}
+	}
+
+	.imigo-login-body {
+		background-color: #000;
+		.imigo-view {
+			background-image: @imigo-icon-full-planet-background-image;
+			background-size: 60%;
+			background-position: center;
+		}
+	}
+
+	.imigo-registration-body {
+		.imigo-view {
+			background-image: @imigo-icon-full-planet-background-image;
+			background-size: 110%;
+			background-position: center 0;
+		}
+	}
+
+	.imigo-premium-shadow {
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d8ba28+0,d8ba28+100,d8ba28+100&0.15+0,0+30,0+70,0.15+100 */
+		background: -moz-linear-gradient(top,  rgba(216,186,40,0.15) 0%, rgba(216,186,40,0) 30%, rgba(216,186,40,0) 70%, rgba(216,186,40,0.15) 100%) !important; /* FF3.6-15 */
+		background: -webkit-linear-gradient(top,  rgba(216,186,40,0.15) 0%,rgba(216,186,40,0) 30%,rgba(216,186,40,0) 70%,rgba(216,186,40,0.15) 100%) !important; /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom,  rgba(216,186,40,0.15) 0%,rgba(216,186,40,0) 30%,rgba(216,186,40,0) 70%,rgba(216,186,40,0.15) 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26d8ba28', endColorstr='#26d8ba28',GradientType=0 ) !important; /* IE6-9 */
+	}
+
+	.imigo-error-tooltip-wrapper {
+		top: -6px;
+	}
+	.build-label(
+		@name: 'error-tooltip',
+		@color: @imigo-basic-invalid-color,
+		@font-size: 12,
+		@padding-left: 15,
+		@padding-right: 15,
+		@padding-top: 15,
+		@padding-bottom: 15
+	);
+	.imigo-error-tooltip-label {
+		border: 2px solid @imigo-basic-invalid-color;
+		.build-border-radius (@radius: 6);
+	}
+
+	.imigo-video-wrapper {
+		top: 0;
+		left: 0;
+
+		.imigo-video-dialog {
+			border: 1px solid @imigo-basic-turquoise-color;
+			background-color: #020e14;
+		}
+
+		.imigo-video-label-content {
+			margin: 20px;
+		}
+
+		.imigo-chat-cross-image {
+			margin-top: 20px;
+			margin-right: 20px;
+		}
+	}
+
+	.build-label(
+		@name: 'video',
+		@color: @imigo-basic-turquoise-color,
+		@font-size: 16
+	);
+	.imigo-video-label-content {line-height: 26px;}
+
+	.build-normal-button(
+		@name: 'video',
+		@color: @imigo-basic-turquoise-color,
+		@border-color: @imigo-basic-turquoise-color
+	);
+	.imigo-video-button {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.imigo-alert-dialog-wrapper {
+		top: 0;
+		left: 0;
+
+		.imigo-alert-dialog {
+			border: 2px solid;
+			background-color: #020e14;
+			color: @imigo-basic-bright-color;
+
+			&.error {
+				border-color: @imigo-basic-invalid-color;
+			}
+
+			&.info {
+				border-color: @imigo-basic-turquoise-color;
+
+				.imigo-alert-dialog-button {
+					color: @imigo-basic-turquoise-color;
+					border-color: @imigo-basic-turquoise-color;
+				}
+			}
+
+			&.gold {
+				border-color: @imigo-basic-gold-color;
+				
+				.imigo-alert-dialog-button {
+					color: @imigo-basic-gold-color;
+					border-color: @imigo-basic-gold-color;
+				}
+			}
+		}
+
+		.imigo-chat-cross-image {
+			margin: 10px 10px 0 10px;
+		}
+	}
+
+	.build-normal-button (
+		@name: 'alert-dialog',
+		@border-color: @imigo-basic-bright-color,
+		@color: @imigo-basic-bright-color
+	);
+	.imigo-alert-dialog-button {
+		margin: 10px;
+	}
+
+	.build-label(
+		@name: 'alert-dialog',
+		@color: @imigo-basic-bright-color
+	);
+	.imigo-alert-dialog-label {
+		padding: 10px;
+	}
+
+	.imigo-center-panel {
+		height: 80%;
+	}
+	.imigo-bottom-panel {
+		height: 10%;
+	}
+}
+
+.build-imigo-placeholder (
+	@font-family: @imigo-basic-normal-font,
+	@font-size: @build-font-size,
+	@font-style: normal,
+	@text-align: left,
+	@color: black
+) {
+	.build-placeholder(
+		@font-family: @font-family,
+		@font-size: @font-size,
+		@font-style: @font-style,
+		@text-align: @text-align,
+		@color: @color
+	);
+}
+
+.build-zone(
+	@name,
+	@border-size: 1,
+	@border-style: solid,
+	@border-color: black
+) {
+	@border-size-value: ~'@{border-size}px';
+	@tag-name: ~'imi-@{name}-zone';
+
+	[@{tag-name}], .@{tag-name} {
+		border: @border-size-value @border-style @border-color;
+		overflow: hidden;
+	}
+}
+
+.build-footer {
+
+	.build-image(
+		@name: 'imi-level',
+		@background-image: @imigo-icon-coin-background-image,
+		@background-size: @imigo-icon-coin-normal-size,
+		@width: @imigo-icon-coin-normal-width,
+		@height: @imigo-icon-coin-normal-height,
+		@cursor: pointer
+	);
+
+	.build-image(
+		@name: 'new-messages',
+		@background-image: @imigo-icon-new-message-background-image,
+		@width: @imigo-icon-new-message-width,
+		@height: @imigo-icon-new-message-width
+	);
+	.imigo-new-messages-image {
+		right: -5px;
+		top: -1px;
+	}
+
+	.imigo-friend-level {
+		color: @imigo-basic-green-color;
+		* {background: radial-gradient(ellipse at center, #497e69 0%, rgba(0,0,0,0) 75%);}
+	}
+	.imigo-sexual-level {
+		color: @imigo-basic-dark-pink-color;
+		* {background: radial-gradient(ellipse at center, #88445e 0%, rgba(0,0,0,0) 80%);}
+	}
+	.imigo-prof-level {
+		color: @imigo-basic-light-color;
+		* {background: radial-gradient(ellipse at center, #116e6d 0%, rgba(0,0,0,0) 75%);}
+	}
+
+	.imigo-friend-level, .imigo-sexual-level, .imigo-prof-level {
+		* {padding-left: 8px; padding-right: 8px;}
+	}
+
+	.imigo-imi-level {
+		cursor: pointer;
+		color: @imigo-basic-bright-color;
+	}
+
+	.imigo-footer-placeholder {
+		font-size: 30px;
+		font-weight: bold;
+		display: inline-block;
+		text-align: center;
+		white-space: nowrap;
+
+		img {
+			height: 24px;
+		}
+
+		&.imigo-footer-link {
+			img {
+				cursor: pointer;
+			}
+		}
+	}
+
+	.imigo-post-footer-wrapper {
+		color: @imigo-basic-gray-color;
+		font-size: 10px;
+		* {color: @imigo-basic-gray-color;}
+	}
+
+	.imigo-post-footer-separator {
+		line-height: 26px;
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+}
+
+.build-input(
+	@name: '',
+	@border-size: 1,
+	@border-style: solid,
+	@border-color: black,
+	@padding: 7,
+	@font-size: @build-font-size,
+	@cursor: text,
+	@background-color: transparent,
+	@color: black,
+	@height: 32
+) {
+	@name-value: ~'@{name}';
+	@padding-value: ~'@{padding}px';
+	@border-size-value: ~'@{border-size}px';
+	@font-size-value: ~'@{font-size}px';
+	@height-value: ~'@{height}px';
+
+	input@{name-value} {
+		border: @border-size-value @border-style @border-color;
+		padding: @padding-value;
+		cursor: @cursor;
+		background-color: @background-color;
+		font-size: @font-size-value;
+		color: @color;
+		height: @height-value;
+	}
+}
+
+.build-named-input (
+	@name,
+	@border-size: 1,
+	@border-style: solid,
+	@border-color: black,
+	@padding: 7,
+	@font-size: @build-font-size,
+	@cursor: text,
+	@background-color: transparent,
+	@color: black,
+	@height: 32
+) {
+	@name-value: ~'.imigo-@{name}-input';
+
+	.build-input(
+		@name-value,
+		@border-size: @border-size,
+		@border-style: @border-style,
+		@border-color: @border-color,
+		@padding: @padding,
+		@font-size: @font-size,
+		@cursor: @cursor,
+		@background-color: @background-color,
+		@color: @color,
+		@height: @height
+	);
+}
+
+.build-textarea(
+	@name: '',
+	@border-size: 1,
+	@border-style: solid,
+	@border-color: black,
+	@padding: 7,
+	@font-size: @build-font-size,
+	@cursor: text,
+	@background-color: transparent,
+	@color: black,
+	@cursor-readonly: default,
+	@border-color-readonly: transparent
+) {
+	@name-value: ~'@{name}';
+	@padding-value: ~'@{padding}px';
+	@border-size-value: ~'@{border-size}px';
+	@font-size-value: ~'@{font-size}px';
+
+	textarea@{name-value} {
+		border: @border-size-value @border-style @border-color;
+		padding: @padding-value;
+		cursor: @cursor;
+		background-color: @background-color;
+		font-size: @font-size-value;
+		color: @color;
+	}
+
+	textarea[readonly], textarea[readonly]:hover {
+		cursor: @cursor-readonly;
+		border-color: @border-color-readonly;
+	}
+}
+
+.build-named-textarea(
+	@name,
+	@border-size: 1,
+	@border-style: solid,
+	@border-color: black,
+	@padding: 7,
+	@font-size: @build-font-size,
+	@cursor: text,
+	@background-color: transparent,
+	@color: black
+) {
+	@name-value: ~'.imigo-@{name}-inputarea';
+
+	.build-textarea(
+		@name-value,
+		@border-size: @border-size,
+		@border-style: @border-style,
+		@border-color: @border-color,
+		@padding: @padding,
+		@font-size: @font-size,
+		@cursor: @cursor,
+		@background-color: @background-color,
+		@color: @color
+	);
+};
+
+.build-button (
+	@name,
+	@padding-left: 0,
+	@padding-right: 0,
+	@padding-top: 0,
+	@padding-bottom: 0,
+	@border-size: 1,
+	@border-style: solid,
+	@border-color: black,
+	@cursor: pointer,
+	@color: black,
+	@font-size: @build-font-size,
+	@font-family: @imigo-basic-normal-font,
+	@background-image: none,
+	@background-size: cover,
+	@background-position: center,
+	@background-repeat: no-repeat,
+	@background-color: none,
+	@width: auto,
+	@height: auto,
+	@disabled-opacity: .3,
+	@disabled-cursor: default
+) {
+	@name-value: ~'.imigo-@{name}-button';
+	@border-size-value: ~'@{border-size}px';
+	@padding-left-value: ~'@{padding-left}px';
+	@padding-right-value: ~'@{padding-right}px';
+	@padding-top-value: ~'@{padding-top}px';
+	@padding-bottom-value: ~'@{padding-bottom}px';
+	@font-size-value: ~'@{font-size}px';
+
+	@{name-value} {
+		border: @border-size-value @border-style @border-color;
+		padding: @padding-top-value @padding-right-value @padding-bottom-value @padding-left-value;
+		cursor: @cursor;
+		font-size: @font-size-value;
+		font-family: @font-family;
+		color: @color;
+		background-image: @background-image;
+		background-size: @background-size;
+		background-position: @background-position;
+		background-repeat: @background-repeat;
+		background-color: @background-color;
+		width: @width;
+		height: @height;
+
+		&.disabled {
+			opacity: @disabled-opacity;
+			cursor: @disabled-cursor;
+		}
+	}
+}
+
+.build-normal-button (
+	@name,
+	@padding-left: 7,
+	@padding-right: 7,
+	@padding-top: 7,
+	@padding-bottom: 6,
+	@border-size: 1,
+	@border-style: solid,
+	@border-color: black,
+	@cursor: pointer,
+	@color: black,
+	@font-size: @build-font-size,
+	@font-family: @imigo-basic-normal-font,
+	@background-image: none,
+	@background-size: cover,
+	@background-position: center,
+	@background-repeat: no-repeat,
+	@width: auto,
+	@height: auto
+) {
+	.build-button(
+		@name,
+		@padding-left,
+		@padding-right,
+		@padding-top,
+		@padding-bottom,
+		@border-size,
+		@border-style,
+		@border-color,
+		@cursor,
+		@color,
+		@font-size,
+		@font-family,
+		@background-image,
+		@background-size,
+		@background-position,
+		@background-repeat,
+		@width,
+		@height
+	);
+}
+
+.build-label (
+	@name,
+	@padding-left: 0,
+	@padding-right: 0,
+	@padding-top: 0,
+	@padding-bottom: 0,
+	@color: black,
+	@font-style: normal,
+	@font-weight: normal,
+	@font-size: @build-font-size,
+	@font-family: @imigo-basic-normal-font,
+	@white-space: normal,
+	@word-break: normal,
+	@cursor: default
+) {
+	@name-value: ~'.imigo-@{name}-label';
+	@padding-left-value: ~'@{padding-left}px';
+	@padding-right-value: ~'@{padding-right}px';
+	@padding-top-value: ~'@{padding-top}px';
+	@padding-bottom-value: ~'@{padding-bottom}px';
+	@font-size-value: ~'@{font-size}px';
+
+	@{name-value} {
+		padding: @padding-top-value @padding-right-value @padding-bottom-value @padding-left-value;
+		font-size: @font-size-value;
+		font-style: @font-style;
+		font-family: @font-family;
+		font-weight: @font-weight;
+		color: @color;
+		white-space: @white-space;
+		word-break: @word-break;
+		cursor: @cursor
+	}
+}
+
+.build-slider (
+	@height: 2px,
+	@background-color: @imigo-basic-lite-gray-color,
+	@background-range-color: @imigo-basic-dark-turquoise-color,
+	@background-state-color: @imigo-basic-dark-bright-color
+) {
+	.imigo-view {
+		.ui-slider {
+			border: none;
+			background: none;
+			background-color: @background-color;
+			height: @height;
+			cursor: pointer;
+		}
+
+		.ui-widget-header {
+			background: none;
+			background-color: @background-range-color;
+		}
+
+		.ui-state-default {
+			width: 12px;
+			height: 12px;
+			border: none;
+			background: none;
+			background-color: @background-state-color;
+			cursor: pointer;
+
+			.build-border-radius (@radius: 6);
+		}
+
+		.ui-slider-separator {
+			width: 2px;
+			height: 28px;
+			left: 50%;
+			background-color: @imigo-basic-bright-color;
+			z-index: 2;
+		}
+
+		.ui-slider-horizontal {
+			.ui-slider-handle {
+				margin-left: -5px;
+			}
+		}
+
+		.imigo-slider-antikarma-layout {
+			&.ui-slider-horizontal {
+				.ui-slider-handle {
+					margin-left: -10px;
+				}
+			}
+		}
+		.imigo-slider-karma {
+			&.ui-slider-horizontal {
+				.ui-slider-handle {
+					margin-left: 0;
+				}
+				.ui-slider-range {
+					left: 4px;
+				}
+			}
+		}
+
+		.imigo-slider-karma {
+			.ui-slider-range {
+				outline: #3a5e41 solid 5px;
+			}
+		}
+		.imigo-slider-antikarma {
+			.ui-slider-range {
+				outline: #76111d solid 5px;
+			}
+		}
+	}
+}
+
+.build-image (
+	@name,
+	@padding-left: 0,
+	@padding-right: 0,
+	@padding-top: 0,
+	@padding-bottom: 0,
+	@border-size: 0,
+	@border-style: solid,
+	@border-color: black,
+	@background-image: none,
+	@background-size: cover,
+	@background-position: center,
+	@background-repeat: no-repeat,
+	@background-color: transparent,
+	@width: auto,
+	@height: auto,
+	@cursor: default
+) {
+	@name-value: ~'.imigo-@{name}-image';
+	@border-size-value: ~'@{border-size}px';
+	@padding-left-value: ~'@{padding-left}px';
+	@padding-right-value: ~'@{padding-right}px';
+	@padding-top-value: ~'@{padding-top}px';
+	@padding-bottom-value: ~'@{padding-bottom}px';
+
+	@{name-value} {
+		border: @border-size-value @border-style @border-color;
+		padding: @padding-top-value @padding-right-value @padding-bottom-value @padding-left-value;
+		background-image: @background-image;
+		background-size: @background-size;
+		background-position: @background-position;
+		background-repeat: @background-repeat;
+		background-color: @background-color;
+		width: @width;
+		height: @height;
+		cursor: @cursor;
+	}
+}
+
+.build-counters (
+	@build-font-size-param: @build-font-size
+) {
+	@font-size-value: ~'@{build-font-size-param}px';
+
+	[imi-cs-sep], [imi-cs-ct], [imi-cs-ct-of] {
+		font-size: @font-size-value;
+		font-family: @imigo-basic-bold-font;
+	}
+
+	[imi-cs-sep] {
+		color: @imigo-basic-bright-color;
+	}
+
+	[imi-cs-ct] {
+		color: @imigo-basic-count-color;
+	}
+
+	[imi-cs-ct-of] {
+		color: @imigo-basic-of-count-color;
+	}
+}
+
+.build-logo () {
+	.build-image(
+		@name: 'logo',
+		@background-image: @imigo-icon-logo-background-image,
+		@background-size: @imigo-icon-logo-normal-size,
+		@background-position: center,
+		@cursor: pointer
+	);
+
+	.imigo-middle-logo-wrapper {
+		.imigo-logo-image {
+			background-size: @imigo-icon-logo-middle-size;
+		}
+	}
+
+	.imigo-mini-logo-wrapper {
+		.imigo-logo-image {
+			background-size: @imigo-icon-logo-mini-size;
+			background-position: 90px center;
+		}
+	}
+}
+
+.build-buttons () {
+
+	.build-button(
+		@name: 'backward',
+		@background-image: @imigo-icon-backward-background-image,
+		@width: @imigo-icon-backward-normal-width,
+		@height: @imigo-icon-backward-normal-height,
+		@background-size: contain,
+		@border-size: 0
+	);
+
+	.build-button(
+		@name: 'forward',
+		@background-image: @imigo-icon-forward-background-image,
+		@width: @imigo-icon-forward-normal-width,
+		@height: @imigo-icon-forward-normal-height,
+		@background-size: contain,
+		@border-size: 0
+	);
+
+	.build-button(
+		@name: 'star',
+		@background-image: @imigo-icon-star-background-image,
+		@width: @imigo-icon-star-normal-width,
+		@height: @imigo-icon-star-normal-height,
+		@background-size: contain,
+		@border-size: 0
+	);
+
+	.build-button(
+		@name: 'delete',
+		@background-image: @imigo-icon-delete-background-image,
+		@width: @imigo-icon-delete-normal-width,
+		@height: @imigo-icon-delete-normal-height,
+		@background-size: contain,
+		@border-size: 0
+	);
+
+	.build-button(
+		@name: 'gender-switch',
+		@background-image: @imigo-icon-gender-switch-background-image,
+		@background-size: auto,
+		@width: @imigo-icon-gender-switch-normal-width,
+		@height: @imigo-icon-gender-switch-normal-height,
+		@border-size: 0
+	);
+	.imigo-gender-switch-button {
+		&.male {
+			background-position: 0 -36px;
+			&.selected {
+				background-position: 0 0;
+			}
+		}
+		&.female {
+			background-position: -21px -36px;
+			&.selected {
+				background-position: -21px 0;
+			}
+		}
+	}
+}
+
+.build-images {
+
+	.build-image(
+		@name: 'imi-currency',
+		@background-image: @imigo-icon-imi-currency-background-image,
+		@width: @imigo-icon-imi-currency-normal-width,
+		@height: @imigo-icon-imi-currency-normal-height,
+		@background-size: contain
+	);
+
+	.build-image(
+		@name: 'loupe',
+		@background-image: @imigo-icon-search2-background-image,
+		@background-size: contain,
+		@width: @imigo-icon-search2-background-image-mini-width,
+		@height: @imigo-icon-search2-background-image-mini-height
+	);
+
+	.build-image(
+		@name: 'relation-romance',
+		@background-image: @imigo-icon-relation-category-sprite-background-image,
+		@background-position: @imigo-icon-relation-romance-category-sprite-mini-background-position,
+		@width: @imigo-icon-relation-romance-category-sprite-mini-width,
+		@height: @imigo-icon-relation-romance-category-sprite-mini-height
+	);
+
+	.build-image(
+		@name: 'relation-friends',
+		@background-image: @imigo-icon-relation-category-sprite-background-image,
+		@background-position: @imigo-icon-relation-friends-category-sprite-mini-background-position,
+		@width: @imigo-icon-relation-friends-category-sprite-mini-width,
+		@height: @imigo-icon-relation-friends-category-sprite-mini-height
+	);
+
+	.build-image(
+		@name: 'relation-work',
+		@background-image: @imigo-icon-relation-category-sprite-background-image,
+		@background-position: @imigo-icon-relation-work-category-sprite-mini-background-position,
+		@width: @imigo-icon-relation-work-category-sprite-mini-width,
+		@height: @imigo-icon-relation-work-category-sprite-mini-height
+	);
+
+	.build-image(
+		@name: 'loading',
+		@background-image: @imigo-icon-loading-background-image,
+		@width: @imigo-icon-loading-normal-width,
+		@height: @imigo-icon-loading-normal-height
+	);
+
+	.build-image(
+		@name: 'exit',
+		@background-image: @imigo-icon-exit-background-image,
+		@width: @imigo-icon-exit-normal-width,
+		@height: @imigo-icon-exit-normal-height,
+		@cursor: pointer
+	);
+	.build-image(
+		@name: 'home',
+		@background-image: @imigo-icon-home-background-image,
+		@width: @imigo-icon-home-normal-width,
+		@height: @imigo-icon-home-normal-height,
+		@cursor: pointer
+	);
+	.imigo-exit-image {
+		right: 30px;
+		bottom: 20px;
+	}
+	.imigo-home-image {
+		left: 30px;
+		bottom: 20px;
+	}
+}
+
+.build-report {
+	.build-label (
+		@name: 'report-checkbox',
+		@color: @imigo-basic-bright-color
+	);
+	.build-label (
+		@name: 'report-title',
+		@color: @imigo-basic-bright-color,
+		@font-size: 16
+	);
+	.imigo-report-title-label {
+		background-image: @imigo-icon-alert-background-image;
+		padding-left: 40px;
+		background-repeat: no-repeat;
+	}
+	.build-normal-button (
+		@name: 'report-dialog',
+		@border-color: @imigo-basic-warn-color,
+		@color: @imigo-basic-warn-color,
+		@padding-left: 18,
+		@padding-right: 18
+	);
+	.build-named-textarea(
+		@name: 'report-editor',
+		@border-color: @imigo-basic-lite-brown-color,
+		@color: @imigo-basic-brown-color,
+		@background-color: @imigo-basic-bright-color
+	);
+	.imigo-report-dialog {
+		width: 340px;
+		border: 1px solid @imigo-basic-warn-color;
+		background-color: @imigo-basic-dark-color;
+	}
+	.imigo-report-checkbox {
+		cursor: pointer;
+	}
+
+	// layout
+	.imigo-report-title-label {
+		margin: 4px 14px;
+	}
+	.imigo-report-dialog-button {
+		margin-bottom: 12px;
+		margin-top: 12px;
+	}
+	.imigo-report-editor-inputarea-wrapper {
+		padding-left: 16px;
+		padding-right: 16px;
+		padding-top: 8px;
+	}
+	.imigo-report-checkbox-wrapper {
+		padding-left: 12px;
+	}
+	.imigo-report-checkbox {
+		margin-right: 16px;
+	}
+}
+
+.build-card () {
+
+	.build-image(
+		@name: 'card-score-proff',
+		@background-image: @imigo-icon-level-prof-background-image,
+		@background-size: @imigo-icon-level-normal-size,
+		@width: @imigo-icon-level-normal-size,
+		@height: @imigo-icon-level-normal-size
+	);
+	.build-image(
+		@name: 'card-score-clarity',
+		@background-image: @imigo-icon-level-clarity-background-image,
+		@background-size: @imigo-icon-level-normal-size,
+		@width: @imigo-icon-level-normal-size,
+		@height: @imigo-icon-level-normal-size
+	);
+	.build-image(
+		@name: 'card-score-perf',
+		@background-image: @imigo-icon-level-perf-background-image,
+		@background-size: @imigo-icon-level-normal-size,
+		@width: @imigo-icon-level-normal-size,
+		@height: @imigo-icon-level-normal-size
+	);
+	.build-image(
+		@name: 'card-score-init',
+		@background-image: @imigo-icon-level-init-background-image,
+		@background-size: @imigo-icon-level-normal-size,
+		@width: @imigo-icon-level-normal-size,
+		@height: @imigo-icon-level-normal-size
+	);
+	.build-image(
+		@name: 'card-score-intel',
+		@background-image: @imigo-icon-level-intel-background-image,
+		@background-size: @imigo-icon-level-normal-size,
+		@width: @imigo-icon-level-normal-size,
+		@height: @imigo-icon-level-normal-size
+	);
+	.build-image(
+		@name: 'card-score-sexual',
+		@background-image: @imigo-icon-level-sexual-background-image,
+		@background-size: @imigo-icon-level-normal-size,
+		@width: @imigo-icon-level-normal-size,
+		@height: @imigo-icon-level-normal-size
+	);
+	.build-image(
+		@name: 'card-score-humor',
+		@background-image: @imigo-icon-level-humor-background-image,
+		@background-size: @imigo-icon-level-normal-size,
+		@width: @imigo-icon-level-normal-size,
+		@height: @imigo-icon-level-normal-size
+	);
+	.build-image(
+		@name: 'card-animate-friends',
+		@background-image: @imigo-icon-friend-background-image,
+		@background-size: @imigo-icon-friend-mini-size
+	);
+	.build-image(
+		@name: 'card-animate-work',
+		@background-image: @imigo-icon-prof-background-image,
+		@background-size: @imigo-icon-prof-mini-size
+	);
+	.build-image(
+		@name: 'card-animate-romance',
+		@background-image: @imigo-icon-romance-background-image,
+		@background-size: @imigo-icon-romance-mini-size
+	);
+	.build-image(
+		@name: 'card-chat',
+		@background-image: @imigo-icon-chat-background-image,
+		@background-size: contain,
+		@cursor: pointer,
+		@width: @imigo-icon-chat-mini-size,
+		@height: @imigo-icon-chat-mini-size
+	);
+	.build-image(
+		@name: 'card-photo-content',
+		@background-image: @imigo-icon-photo-background-image,
+		@background-size: cover
+	);
+	.imigo-card-photo-content-image {
+		&[uploader] {
+			background-size: auto;
+			cursor: pointer;
+		}
+	}
+	.build-image(
+		@name: 'card-price-imi',
+		@background-image: @imigo-icon-imi-background-image,
+		@width: @imigo-icon-imi-normal-width,
+		@height: @imigo-icon-imi-normal-height
+	);
+	.build-image(
+		@name: 'card-report',
+		@background-image: @imigo-icon-report-background-image,
+		@width: @imigo-icon-report-normal-width,
+		@height: @imigo-icon-report-normal-height,
+		@cursor: pointer
+	);
+	.build-image(
+		@name: 'card-selected-ad-photo'
+	);
+	.build-label (
+		@name: 'card-confirm',
+		@color: @imigo-basic-brown-color
+	);
+	.build-label (
+		@name: 'card-info-content',
+		@color: @imigo-basic-bright-color,
+		@font-size: 20
+	);
+	.build-label (
+		@name: 'card-description-content',
+		@color: @imigo-basic-brown-color,
+		@font-size: 24
+	);
+	.build-label (
+		@name: 'card-description-link',
+		@color: @imigo-basic-brown-color,
+		@font-size: 24,
+		@cursor: pointer
+	);
+	.imigo-card-description-content-label, .imigo-card-description-link-label {
+		text-overflow: ellipsis;
+		overflow: hidden;
+		word-break: break-all;
+	};
+	.build-label (
+		@name: 'card-suggestion-content',
+		@color: @imigo-basic-bright-color
+	);
+	.imigo-card-suggestion-content-label {
+		* {font-family: @imigo-basic-bold-font;}  /* translate directive */
+	}
+	.build-label (
+		@name: 'card-suggestion-text',
+		@color: @imigo-basic-dark-bright-color
+	);
+	.imigo-card-suggestion-text-label {
+		line-height: 16px;
+	}
+	.build-label (
+		@name: 'card-suggestion-timestamp',
+		@color: @imigo-basic-turquoise-color,
+		@font-size: 11,
+		@font-style: italic
+	);
+	.build-label (
+		@name: 'card-paging-content',
+		@color: @imigo-basic-brown-color,
+		@font-size: 24
+	);
+	.imigo-card-paging-content-label {
+		&.empty {
+			color: @imigo-basic-turquoise-color;
+		}
+	}
+	.build-label (
+		@name: 'card-empty',
+		@color: @imigo-basic-bright-color,
+		@font-size: 22
+	);
+	.imigo-card-empty-label {
+		line-height: 30px;
+	}
+	.imigo-card-nav2-label {
+		color: @imigo-basic-bright-color;
+	}
+	.build-label (
+		@name: 'card-price',
+		@color: @imigo-basic-bright-color,
+		@font-size: 20
+	);
+	.build-label (
+		@name: 'card-relation-count-content',
+		@color: @imigo-basic-brown-color,
+		@font-size: 20,
+		@font-family: @imigo-basic-bold-font
+	);
+	.build-label (
+		@name: 'card-nav',
+		@color: @imigo-basic-turquoise-color,
+		@font-size: 20,
+		@cursor: pointer
+	);
+	.build-label (
+		@name: 'card-score-title',
+		@color: @imigo-basic-brown-color,
+		@font-size: 13
+	);
+	.imigo-card-score-title-label {
+		line-height: 18px;
+	}
+	.build-label (
+		@name: 'card-score-text',
+		@color: @imigo-basic-brown-color,
+		@white-space: nowrap,
+		@font-size: 13
+	);
+	.imigo-card-score-text-label {
+		line-height: 18px;
+		text-transform: capitalize;
+	}
+	.build-button(
+		@name: 'card-cancel',
+		@border-size: 0,
+		@background-image: @imigo-icon-cancel-background-image,
+		@width: @imigo-icon-cancel-mini-size,
+		@height: @imigo-icon-cancel-mini-size
+	);
+	.build-button(
+		@name: 'card-finish-deal',
+		@color: @imigo-basic-bright-color,
+		@border-size: 0,
+		@font-size: 20
+	);
+	.build-button(
+		@name: 'card-score-action',
+		@color: @imigo-basic-brown-color,
+		@border-size: 0,
+		@font-size: 16
+	);
+	.build-button(
+		@name: 'card-confirm',
+		@border-size: 0,
+		@color: @imigo-basic-brown-color
+	);
+	.build-button(
+		@name: 'card-ad-place',
+		@border-color: @imigo-basic-lite-brown-color,
+		@color: @imigo-basic-brown-color,
+		@font-size: 12,
+		@padding-left: 1,
+		@padding-right: 1,
+		@padding-top: 1,
+		@padding-bottom: 1
+	);
+	.build-normal-button(
+		@name: 'card-chat-deal',
+		@border-color: @imigo-basic-lite-brown-color,
+		@color: @imigo-basic-brown-color
+	);
+	.build-named-input(
+		@name: 'card-price',
+		@border-color: @imigo-basic-bright-color,
+		@color: @imigo-basic-bright-color,
+		@font-size: 12,
+		@padding: 2,
+		@height: 20
+	);
+	.build-named-textarea(
+		@name: 'card-editor',
+		@border-color: @imigo-basic-lite-brown-color,
+		@color: @imigo-basic-brown-color
+	);
+	.build-label(
+		@name: 'card-editor',
+		@color: @imigo-basic-brown-color,
+		@padding-right: 10
+	);
+	.imigo-card-editor-label {
+		.build-user-select();
+	}
+	input.imigo-card-price-input {
+		.build-imigo-placeholder(@color: @imigo-basic-bright-color, @font-size: 12, @text-align: center, @font-style: italic);
+	}
+
+	.imigo-card {
+		width: 300px;
+		box-shadow: 0 0 40px 16px rgba(0,0,0,0.4);
+
+		.imigo-profile-lang-button {
+			background-image: @imigo-icon-lang2-background-image;
+		}
+
+		&.imigo-card-edit-mode {
+			background: none;
+
+			& > * {
+				background-color: @imigo-basic-bright-color;
+
+				&.imigo-card-center-bar-romance {
+					background-color: @imigo-basic-pink-color;
+				}
+
+				&.imigo-card-center-bar-work, &.imigo-card-center-bar-professional {
+					background-color: @imigo-basic-light-color;
+				}
+
+				&.imigo-card-center-bar-friends, &.imigo-card-center-bar-friendship {
+					background-color: @imigo-basic-green-color;
+				}
+
+				&.imigo-card-photo {
+					background-color: @imigo-basic-dark-gray-color;
+					background-image: @imigo-icon-photo-back-texture-background-image;
+					background-repeat: repeat;
+				}
+			}
+		}
+
+		&:hover {
+			.imigo-card-animate-friends-image {
+				background-image: @imigo-icon-friend-animate-background-image;
+				background-size: @imigo-icon-friend-mini-size;
+			}
+
+			.imigo-card-animate-romance-image {
+				background-image: @imigo-icon-romance-animate-background-image;
+				background-size: @imigo-icon-romance-mini-size;
+			}
+
+			.imigo-card-animate-work-image {
+				background-image: @imigo-icon-prof-animate-background-image;
+				background-size: @imigo-icon-prof-mini-size;
+			}
+		}
+	}
+
+	.imigo-card-confirm-bar {
+		background-color: @imigo-basic-bright-color;
+	}
+
+	// layout
+	.imigo-card-description-content-label,
+		.imigo-card-suggestion-content-label,
+		.imigo-card-suggestion-timestamp-label {padding-left: 20px; padding-right: 20px;}
+	.imigo-card-paging-content-label {padding-right: 8px; line-height: 34px;}
+	.imigo-card-confirm-label {padding-top: 10px; padding-left: 30px; padding-right: 30px;}
+	.imigo-card-chat-image {margin-left: 8px;}
+	.imigo-card-cancel-button {margin-right: 15px;}
+	.imigo-card-confirm-button {margin-bottom: 10px;}
+	.imigo-card-confirm-bar {top: -92px;}
+	.imigo-card-editor-content {padding-top: 6px; padding-left: 22px; padding-right: 12px;}
+	.imigo-card-edit-mode {.imigo-card-editor-content {padding-right: 22px;}}
+	.imigo-card-price-imi-image {margin-left: 6px;}
+	.imigo-card-selected-ad-photo-wrapper {padding: 20px;}
+	.imigo-card-empty-label {padding-right: 40px; padding-left: 40px;}
+	.imigo-card-score-wrapper {padding-right: 14px;}
+	.imigo-card-empty-paging-content-label {bottom: 0; right: 0;}
+	.imigo-card-score-title-label {margin-bottom: 6px;}
+	.imigo-card-score-image {margin-right: 4px;}
+	.imigo-card-description-content-label {height: 32px; padding-top: 16px;}
+	.imigo-card-suggestion-text-label {padding-right: 14px;}
+
+	// Media queries
+	.imigo-card-center-bar {height: 40px;}
+
+	.build-media-card (@max-width, @card-width, @card-empty-label-line-height, @card-label-font-size, @imigo-card-center-bar-height,
+			@card-score-text-label-font-size, @card-navigation-button-width, @card-description-content-label-height, @card-editor-label-font-size) {
+		@media (max-width: @max-width) {
+			.imigo-view {
+				.imigo-card {
+					width: @card-width;
+				}
+
+				.imigo-card-empty-label {
+					line-height: @card-empty-label-line-height;
+				}
+
+				.imigo-card-description-content-label, .imigo-card-nav-label, .imigo-card-empty-label, .imigo-card-paging-content-label {
+					font-size: @card-label-font-size;
+				}
+
+				.imigo-card-center-bar {
+					height: @imigo-card-center-bar-height;
+				}
+
+				.imigo-card-score-text-label, .imigo-card-score-title-label, .imigo-card-score-action-button {
+					font-size: @card-score-text-label-font-size;
+				}
+
+				.imigo-backward-button, .imigo-forward-button {
+					width: @card-navigation-button-width;
+				}
+
+				.imigo-card-description-content-label {
+					height: @card-description-content-label-height;
+				}
+
+				.imigo-card-editor-label, .imigo-card-chat-deal-button {
+					font-size: @card-editor-label-font-size;
+				}
+			}
+		}
+	}
+	.build-media-card(
+		@max-width: @imigo-1280-width,
+		@card-width: 280px,
+		@card-empty-label-line-height: 25px,
+		@card-label-font-size: 20px,
+		@imigo-card-center-bar-height: 38px,
+		@card-score-text-label-font-size: 12px,
+		@card-navigation-button-width: 24px,
+		@card-description-content-label-height: 32px,
+		@card-editor-label-font-size: 14px
+	);
+	.build-media-card(
+		@max-width: @imigo-1024-width,
+		@card-width: 260px,
+		@card-empty-label-line-height: 25px,
+		@card-label-font-size: 18px,
+		@imigo-card-center-bar-height: 34px,
+		@card-score-text-label-font-size: 12px,
+		@card-navigation-button-width: 20px,
+		@card-description-content-label-height: 28px,
+		@card-editor-label-font-size: 13px
+	);
+	.build-media-card(
+		@max-width: @imigo-900-width,
+		@card-width: 230px,
+		@card-empty-label-line-height: 21px,
+		@card-label-font-size: 16px,
+		@imigo-card-center-bar-height: 32px,
+		@card-score-text-label-font-size: 11px,
+		@card-navigation-button-width: 18px,
+		@card-description-content-label-height: 26px,
+		@card-editor-label-font-size: 12px
+	);
+	.build-media-card(
+		@max-width: @imigo-800-width,
+		@card-width: 220px,
+		@card-empty-label-line-height: 21px,
+		@card-label-font-size: 15px,
+		@imigo-card-center-bar-height: 30px,
+		@card-score-text-label-font-size: 10px,
+		@card-navigation-button-width: 16px,
+		@card-description-content-label-height: 24px,
+		@card-editor-label-font-size: 11px
+	);
+}

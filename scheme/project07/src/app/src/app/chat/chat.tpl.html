@@ -1,0 +1,405 @@
+<div ui-column ui-full-w ui-h-10p ng-include="'app/logo.tpl.html'" class="imigo-mini-logo-wrapper"></div>
+<div class="imigo-center-panel">
+	<div ui-column ui-full ng-if="user">
+		<div ui-full-h>
+			<div ui-rel ui-full-h class="imigo-panel imigo-chat-contacts-zone">
+				<div ui-row ui-abs ui-full>
+					<div>
+						<div class="imigo-chat-contact-title-label">{{'Contacts' | translate}}</div>
+					</div>
+					<div ui-full>
+						<div ui-rel ui-full>
+							<div ui-abs ui-full>
+								<perfect-scrollbar ui-full
+								                   suppress-scroll-x="true"
+								                   wheel-propagation="true"
+								                   wheel-speed="10"
+								                   min-scrollbar-length="20"
+								                   class="imigo-scroller">
+									<div class="imigo-chat-contacts">
+										<div ui-column ui-h-54 ui-w-100p
+										     class="imigo-chat-holder"
+										     ng-class="[{
+										     	'selected': offer.partner == contact.id,
+										     	'new-messages': hasNewMessages($index)
+										     }]"
+											 ng-repeat="contact in contacts.data">
+											<a ui-vc-align ui-sref="chat({partner: contact.id})">
+												<div ui-w-44
+												     ui-h-44
+												     ui-vt-align
+												     ui-inline-block
+												     ng-style="{'background-image': 'url(' + contacts.toUrl($index) + ')'}"
+												     class="imigo-chat-contact-icon-image"></div>
+												<div ui-abs
+													 ui-w-55p
+													 ui-h-44
+													 ui-lh-c
+													 ui-vc-align
+													 ui-inline-block
+													 class="imigo-chat-contact-name-label imigo-nowrap">
+													{{contacts.toName(contact.nickname)}}
+												</div>
+											</a>
+											<div ui-vc-align
+											     ui-rel
+												 ng-if="contact.id != 'system'">
+												 <div ui-abs
+													  ng-click="onRemoveContact($event, $index)"
+													  class="imigo-chat-cross-image">
+												</div>
+											</div>
+										</div>
+									</div>
+								</perfect-scrollbar>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ui-full>
+			<div ui-rel ui-full>
+				<div ui-abs ui-full>
+					<div ui-full-h class="imigo-chat-room imigo-panel">
+						<div ui-column ui-full>
+							<div ui-vc-align
+							     ui-hc-align
+							     ng-class="[notSystemPartner() ? 'imigo-chat-room-window-wrapper' : 'imigo-chat-room-window-wrapper2']">
+								<div ui-column ui-full>
+									<div ui-vb-align ui-full>
+										<div ui-row ui-full>
+											<div ui-full-h ui-full-w class="imigo-chat-room-window">
+												<div ui-rel ui-full>
+													<div ui-abs ui-full>
+														<div ng-if="!messages || !messages.length" ui-column ui-full>
+															<div ui-vc-align ui-hc-align class="imigo-chat-empty-label">
+																{{'Select a contact from the list on the left.' | translate}}
+															</div>
+														</div>
+														<perfect-scrollbar id="imigo-chat-scroller"
+														                   ng-if="messages && messages.length"
+																           ui-full
+																           suppress-scroll-x="true"
+																           class="imigo-scroller"
+														                   wheel-propagation="true"
+														                   wheel-speed="1"
+														                   min-scrollbar-length="20">
+															<div class="imigo-chat-messages-wrapper">
+																<div ui-row
+																     ng-repeat="message in messages"
+																     on-finish-render="onfinishrender"
+																     ng-class="['imigo-chat-room-message', 'imigo-chat-room-message-type-' + $m.getType(message),
+																        {'imigo-chat-room-partner-message': !$m.isMyMessage(message)},
+																        {'imigo-chat-room-my-message': $m.isMyMessage(message)},
+																     	 {true: 'imigo-chat-room-message-{{$m.getEventCode(message)}}'}[$m.getEventCode(message) !== null]
+																     ]">
+																	<div ui-full-w>
+																		<div ui-column ui-full-w class="imigo-chat-room-message-content">
+																			<div ui-hl-align
+																			     ui-full-w
+																			     ng-class="['imigo-chat-room-message-text-label',
+																			         {true: 'imigo-chat-room-message-text-{{$m.getEventCode(message)}}'}[$m.getEventCode(message) !== null]
+																			     ]">
+																				<div ng-if="$m.isOfferPerformer(message) && !$m.isMyMessage(message)" translate><span ng-bind-html="$m.sender(message) | singleLineHtml"></span> offered services in the "{{message.category === 'friendship' ? 'Friendship' : (message.category === 'professional' ? 'Professional' : 'Romance')}}" category. Cost of service: {{message.price}} IMI, duration of deal ({{$m.durationUnit(message) === 'hour' ? 'hours' : 'days'}}): {{message.duration}}.</div>
+																				<div ng-if="$m.isOfferCustomer(message) && !$m.isMyMessage(message)" translate><span ng-bind-html="$m.sender(message) | singleLineHtml"></span> wants to purchase your services in the "{{message.category === 'friendship' ? 'Friendship' : (message.category === 'professional' ? 'Professional' : 'Romance')}}" category. Cost of service: {{message.price}} IMI, duration of deal ({{$m.durationUnit(message) === 'hour' ? 'hours' : 'days'}}): {{message.duration}}.</div>
+
+																				<div ng-if="$m.isOfferPerformer(message) && $m.isMyMessage(message)" translate>You offered your services in the "{{message.category === 'friendship' ? 'Friendship' : (message.category === 'professional' ? 'Professional' : 'Romance')}}" category to <span ng-bind-html="$m.receiver(message) | singleLineHtml"></span>. Cost of service: {{message.price}} IMI, duration of deal ({{$m.durationUnit(message) === 'hour' ? 'hours' : 'days'}}): {{message.duration}}.</div>
+																				<div ng-if="$m.isOfferCustomer(message) && $m.isMyMessage(message)" translate>You want to purchase <span ng-bind-html="$m.receiver(message) | singleLineHtml"></span>'s services in the "{{message.category === 'friendship' ? 'Friendship' : (message.category === 'professional' ? 'Professional' : 'Romance')}}" category. Cost of service: {{message.price}} IMI, duration of deal ({{$m.durationUnit(message) === 'hour' ? 'hours' : 'days'}}): {{message.duration}}.</div>
+
+
+																				<div ng-if="$m.isDealStarted(message)" translate><span ng-bind-html="$m.sender(message) | singleLineHtml"></span> accepted the offer.</div>
+																				<div ng-if="$m.isDealRefused(message)" translate><span ng-bind-html="$m.sender(message) | singleLineHtml"></span> refused the offer.</div>
+																				<div ng-if="$m.isDealCanceled(message)" translate><span ng-bind-html="$m.sender(message) | singleLineHtml"></span> canceled the deal.</div>
+																				<div ng-if="$m.isDealFinished(message)" translate><span ng-bind-html="$m.sender(message) | singleLineHtml"></span> has completed the deal.</div>
+																				<div ng-if="$m.isMessage(message)">
+																					<div ui-column>
+																						<div ui-vc-align class="imigo-nowrap">
+																							<div ui-inline-block  class="imigo-chat-room-sender-label"><a ng-bind-html="$m.sender(message) | singleLineHtml" ui-sref="profile({user: message.from, from: 'chat'})"></a></div>:&nbsp;
+																						</div>
+																						<div ui-vc-align>
+																							<div ui-inline-block ng-bind-html="message.text | link" class="imigo-chat-room-message-content-label"></div>
+																						</div>
+																						<div ui-vc-align>
+																							<div ui-inline-block class="imigo-chat-room-post-label imigo-chat-room-message-timestamp">{{message.timestamp | parseDate}}</div>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																			<div ui-hr-align ui-vc-align ng-if="$m.isOfferActive(message) && !$m.isMyMessage(message)" class="imigo-nowrap">
+																				<div ui-inline-block
+																				     ng-click="onAcceptSuggestion($event, message)"
+																				     data-tip="{{'accept' | translate}}"
+																				     class="imigo-chat-check-image"></div>
+																				<div ui-inline-block
+																				     ng-click="onRefuseSuggestion($event, message)"
+																				     data-tip="{{'refuse' | translate}}"
+																				     class="imigo-chat-cancel-image"></div>
+																			</div>
+																		</div>
+																	</div>
+																	<div ui-full-w>
+																		<div ui-column ui-full-w>
+																			<div ui-hl-align class="imigo-chat-room-post-label imigo-chat-room-message-time-left">
+																				<div ng-if="!$m.isMessage(message) && false">{{$m.expirationDate(message) | parseDate}}</div>
+																				<div ng-if="$m.isOfferActive(message)">{{message.timeLeft}}&nbsp;{{'sec.' | translate}}</div>
+																				<div ng-if="$m.isDealOffer(message) && !$m.isOfferActive(message)">{{'The offer has expired.' | translate}}</div>
+																			</div>
+																			<div ng-if="!$m.isMessage(message)" ui-hr-align class="imigo-chat-room-post-label imigo-chat-room-message-timestamp">
+																				<div>{{message.timestamp | parseDate}}</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</perfect-scrollbar>
+													</div>
+												</div>
+											</div>
+											<div ui-rel ui-full-w class="imigo-chat-room-window imigo-chat-send-editor-zone" ng-show="notSystemPartner()">
+												<div ui-column ui-full>
+													<div ui-full class="imigo-chat-room-send-editor">
+														<textarea ui-block
+														          ui-full
+														          special-key='{"enter": "onSend()"}'
+														          ng-model="chat.message"
+														          data-tip-align="center"
+														          placeholder="{{'Your offer' | translate}}"></textarea>
+														<div ui-full-w ui-rel>
+															<div ui-abs
+															     ng-click="onSend()"
+															     class="imigo-chat-send-image"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div ui-h-20 ng-show="notSystemPartner()"></div>
+											<div class="imigo-chat-room-window">
+												<div ui-column ui-full ng-if="notSystemPartner()">
+													<div class="imigo-chat-room-editor">
+														<div ui-row ui-full>
+															<div>
+																<div ui-column ui-full-w>
+																	<div ui-vc-align ui-w-35p>
+																		<ui-select ui-w-100p
+																		           ng-model="selected.category"
+																		           data-tip="{{'Category' | translate}}"
+																		           theme="selectize">
+																			<ui-select-match placeholder="{{'Category' | translate}}">
+																				{{$select.selected.name | translate}}
+																			</ui-select-match>
+																			<ui-select-choices repeat="profession in professions" ui-full-w>
+																				<span ng-bind-html="profession.name | translate | highlight: $select.search"></span>
+																			</ui-select-choices>
+																		</ui-select>
+																	</div>
+																	<div><div ui-w-20></div></div>
+																	<div ui-vc-align ui-w-20p>
+																		<input ui-w-100p
+																		       type="number"
+																		       ng-digit-filter
+																		       ng-maxlength="3"
+																		       ng-if="durationDay"
+																		       ng-model="offer.duration"
+																		       placeholder="{{'How many days?' | translate}}"
+																		       data-tip="{{'How many days?' | translate}}">
+																		<input ui-w-100p
+																		       type="number"
+																		       ng-digit-filter
+																		       ng-maxlength="3"
+																		       ng-if="durationHour"
+																		       ng-model="offer.duration"
+																		       placeholder="{{'How many hours?' | translate}}"
+																		       data-tip="{{'How many hours?' | translate}}">
+																	</div>
+																	<div><div ui-w-20></div></div>
+																	<div ui-vc-align ui-w-15p>
+																		<input ui-w-100p
+																		       type="number"
+																		       ng-digit-filter
+																		       ng-maxlength="5"
+																		       ng-model="offer.price"
+																		       data-tip="{{'Enter the price' | translate}}"
+																		       placeholder="{{'Enter the price' | translate}}">
+																	</div>
+																	<div ui-vc-align ui-w-15p></div>
+																	<div ui-vc-align ui-w-15p>
+																		<div class="imigo-chat-room-button"
+																		     data-tip="{{'Offer' | translate}}"
+																		     ng-class="{disabled: !isOfferValid()}"
+																		     ng-click="onDealOffer()">
+																			{{'Offer' | translate}}
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div>
+																<div ui-h-20></div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div ui-vc-align ui-hc-align ui-w-32 ng-show="notSystemPartner()">
+										<div ui-inline-block
+											 ng-style="{visibility: desk.hasPrev() ? 'visible' : 'hidden'}"
+										     ng-click="desk.prev()"
+										     class="imigo-backward-button">
+										</div>
+									</div>
+									<div ui-full-h
+									     ui-vb-align
+									     imi-basic-zone
+									     ng-show="notSystemPartner()">
+										<div ui-full>
+											<div ui-row
+											     ui-full
+											     ng-if="!desk.card">
+												<div ui-full>
+													<div ui-column ui-full>
+														<div ui-vc-align
+														     ui-hc-align
+														     class="imigo-card-empty-label">{{'Nothing selected.' | translate}}</div>
+													</div>
+												</div>
+											</div>
+											<div ui-row
+											     ui-full-h
+											     ng-if="desk.card"
+											     class="imigo-card imigo-card-edit-mode imigo-chat-card-holder">
+												<div ui-h-60p class="imigo-card-photo">
+													<div ui-full
+													     class="imigo-card-photo-content-image"
+													     ng-style="{'background-image': 'url(' + desk.getPhotoUrl() + ')'}">
+													</div>
+												</div>
+												<div ui-h-40 class="imigo-card-center-bar-{{desk.card.category}}">
+													<div ui-column ui-full ng-if="desk.isDealActive()">
+														<div ui-w-15p></div>
+														<div ui-full-h ui-w-40p ui-vc-align ui-hc-align>
+															<span class="imigo-card-price-label">
+																{{desk.card.timeLeft}}
+																<span ng-if="desk.card.timeLeft > 0">{{'Days' | translate}}</span>
+															</span>
+														</div>
+														<div ui-w-30p ui-vc-align></div>
+														<div ui-w-15p></div>
+													</div>
+													<div ui-column ui-full ng-if="desk.isDealFinished()">
+														<div ui-w-15p></div>
+														<div ui-w-70p ui-vc-align>
+															<div ui-inline-block
+																 ui-full-w
+																 ui-hc-align
+																 ng-click="onCompleteDeal(desk.card)"
+																 class="imigo-card-finish-deal-button">{{'Complete' | translate}}</div>
+														</div>
+														<div ui-w-15p></div>
+													</div>
+													<div ui-column ui-full ng-if="desk.isAd()">
+														<div ui-w-15p></div>
+														<div ui-full-h ui-w-40p ui-vc-align ui-hc-align>
+															<span ng-if="desk.card.category === 'romance' || desk.card.category === 'friendship'"
+															      data-tip="{{'Price per day' | translate}}"
+															      class="imigo-card-price-label">
+																{{desk.card.price}}
+															</span>
+															<span ng-if="desk.card.category === 'professional'"
+															      data-tip="{{'Price per hour' | translate}}"
+															      class="imigo-card-price-label">
+																{{desk.card.price}}
+															</span>
+															<span ui-abs ui-inline-block class="imigo-card-price-imi-image"></span>
+														</div>
+														<div ui-w-15p></div>
+													</div>
+												</div>
+												<div ui-full-w>
+													<div ui-hl-align
+													     ui-vb-align
+													     class="imigo-card-description-content-label">
+														<a ui-sref="profile({user: desk.getPartnerId(), from: 'chat'})"
+														   data-tip-align="left"
+														   data-tip="{{desk.card.nickname | html | singleLineHtml}}"
+														   ng-bind-html="desk.card.nickname | html | singleLineHtml"
+														   class="imigo-card-description-link-label imigo-underline">
+														</a>
+													</div>
+												</div>
+												<div ui-h-40p ui-full-w ui-hl-align>
+													<div ui-column ui-full>
+														<div ui-full class="imigo-card-editor-content">
+															<div ui-full
+															     ui-rel>
+																<div ui-abs ui-full>
+																	<perfect-scrollbar ui-full
+																	                   wheel-propagation="true"
+																	                   wheel-speed="10"
+																	                   min-scrollbar-length="20"
+																	                   class="imigo-scroller">
+																		<div ng-bind-html="desk.card.text | html" class="imigo-card-suggestion-text-label"></div>
+																	</perfect-scrollbar>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div ui-h-44>
+													<div ui-column ui-full>
+														<div><div ui-w-12></div></div>
+														<div ui-w-30p ui-vc-align ui-hl-align ng-if="desk.isAd()">
+															<span imi-cs-ct data-tip="{{'negative karma' | translate}}">{{desk.card.antiKarma}}</span>
+															<span imi-cs-sep>/</span>
+															<span imi-cs-ct-of data-tip="{{'karma' | translate}}">{{desk.card.karma}}</span>
+														</div>
+														<div ui-w-40p ui-vc-align ui-hc-align>
+															<div ui-column ui-full>
+																<div ui-w-50p></div>
+																<div ui-vc-align>
+																	<div class="imigo-relation-{{desk.getImageType()}}-image"></div>
+																</div>
+																<div><div ui-w-8></div></div>
+																<div ui-vc-align>
+																	<span ui-hc-align
+																	      data-tip="{{'level in this category' | translate}}"
+																	      data-tip-align="center"
+																	      class="imigo-card-relation-count-content-label">{{desk.card.level}}</span>
+																</div>
+																<div ui-w-50p></div>
+															</div>
+														</div>
+														<div ui-w-30p ui-vc-align ui-hr-align ng-if="desk.isAd()">
+															<div ui-inline-block
+															     class="imigo-card-report-image"
+															     ng-click="onReport()"
+															     data-tip-align="left"
+															     data-tip="{{'report abuse' | translate}}">
+															</div>
+														</div>
+														<div><div ui-w-12></div></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div ui-vc-align ui-hc-align ui-w-32 ng-show="notSystemPartner()">
+										<div ui-inline-block
+											 ng-style="{visibility: desk.hasNext() ? 'visible' : 'hidden'}"
+										     ng-click="desk.next()"
+										     class="imigo-forward-button">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ui-abs ui-full ng-if="alertObject" ng-include="'app/popup.tpl.html'" class="imigo-alert-dialog-wrapper imigo-panel"></div>
+	<div ui-abs ui-full ng-if="reportObject" ng-include="'app/report.tpl.html'" class="imigo-alert-dialog-wrapper imigo-panel"></div>
+</div>
+<div ui-column ui-full-w class="imigo-bottom-panel" ng-include="'app/footer.tpl.html'"></div>

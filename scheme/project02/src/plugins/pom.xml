@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>qiwi.jira</groupId>
+		<artifactId>qiwi-jira</artifactId>
+		<version>1.1.10-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>qiwi-jira-plugins</artifactId>
+	<packaging>pom</packaging>
+
+
+	<properties>
+		<amps.version>3.7.2</amps.version>
+	</properties>
+
+	<modules>
+		<module>greenhopper</module>
+		<module>scheduler</module>
+		<module>pipeline-job</module>
+		<module>estimate-job</module>
+		<module>pipeline</module>
+		<module>estimate</module>
+		<module>planning</module>
+		<module>calendar</module>
+		<module>closing</module>
+		<module>datetime</module>
+	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.atlassian.maven.plugins</groupId>
+				<artifactId>maven-jira-plugin</artifactId>
+				<version>3.7.2</version>
+				<extensions>true</extensions>
+				<configuration>
+					<productVersion>${jira.version}</productVersion>
+					<productDataVersion>${jira.data.version}</productDataVersion>
+					<instructions>
+						<Export-Package>
+							qiwi.jira.plugins.*;version="${project.version}"
+						</Export-Package>
+						<Import-Package>
+							qiwi.jira.plugins.*;version="1.1",
+							*
+						</Import-Package>
+						<Spring-Context>*;timeout:=60</Spring-Context>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											com.atlassian.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-jira-plugin
+										</artifactId>
+										<versionRange>
+											[3.7.2,)
+										</versionRange>
+										<goals>
+											<goal>
+												copy-bundled-dependencies
+											</goal>
+											<goal>
+												generate-rest-docs
+											</goal>
+											<goal>
+												generate-manifest
+											</goal>
+											<goal>
+												compress-resources
+											</goal>
+											<goal>
+												filter-plugin-descriptor
+											</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>

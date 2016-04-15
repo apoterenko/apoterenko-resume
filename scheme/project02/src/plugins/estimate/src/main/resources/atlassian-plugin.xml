@@ -1,0 +1,26 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="QIWI Estimate Plugin" plugins-version="2">
+	<plugin-info>
+		<description>QIWI Estimate Plugin</description>
+		<version>${project.version}</version>
+		<vendor name="${project.organization.name}" url="${project.organization.url}"/>
+	</plugin-info>
+
+	<component-import key="rankIndexServiceImpl" interface="com.atlassian.greenhopper.service.rank.RankIndexService"/>
+
+	<component-import key="qiwi-calendar-service" interface="qiwi.jira.plugins.calendar.CalendarService"/>
+	<component-import key="qiwi-easy-scheduler" interface="qiwi.jira.plugins.scheduler.EasyScheduler"/>
+	<component-import key="qiwi-pipeline-speed-wrapper" interface="qiwi.jira.plugins.job.pipeline.PipelineSpeed"/>
+	<component-import key="qiwi-project-issue-loader-wrapper" interface="qiwi.jira.plugins.job.estimate.ProjectIssueLoader"/>
+	<component-import key="qiwi-estimation-issues-loader-wrapper" interface="qiwi.jira.plugins.job.estimate.EstimationIssuesLoader"/>
+
+	<component key="qiwi-estimation-service" class="qiwi.jira.plugins.estimate.EstimationServiceImpl" public="true">
+		<interface>qiwi.jira.plugins.estimate.EstimationService</interface>
+	</component>
+	<component key="qiwi-project-progress-parameters-factory" class="qiwi.jira.plugins.estimate.ProjectProgressParametersFactoryImpl" public="true">
+		<interface>qiwi.jira.plugins.estimate.ProjectProgressParametersFactory</interface>
+	</component>
+	<component key="qiwi-estimate-field-factory" class="qiwi.jira.plugins.estimate.EstimateFieldFactoryImpl" public="true">
+		<interface>qiwi.jira.plugins.estimate.EstimateFieldFactory</interface>
+	</component>
+
+</atlassian-plugin>

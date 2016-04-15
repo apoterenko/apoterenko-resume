@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>qiwi.jira</groupId>
+		<artifactId>qiwi-jira-plugins</artifactId>
+		<version>1.1.10-SNAPSHOT</version>
+	</parent>
+
+	<groupId>qiwi.jira.plugins</groupId>
+	<artifactId>qiwi-jira-pipeline-job-plugin</artifactId>
+	<packaging>atlassian-plugin</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>qiwi.jira</groupId>
+			<artifactId>qiwi-jira-specific</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>qiwi.jira</groupId>
+			<artifactId>qiwi-jira-persistence</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>qiwi.jira.plugins</groupId>
+			<artifactId>qiwi-jira-scheduler-plugin</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

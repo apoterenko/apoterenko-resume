@@ -1,0 +1,260 @@
+@import "imigo-utils";
+@import "imigo-constant";
+
+.build-label (
+	@name: 'chat-contact-title',
+	@color: @imigo-basic-turquoise-color,
+	@font-size: 20,
+	@font-family: @imigo-basic-bold-font
+);
+.imigo-chat-contact-title-label {
+	border-bottom: 1px solid @imigo-basic-brown-color;
+}
+
+.build-label (
+	@name: 'chat-contact-name',
+	@color: @imigo-basic-turquoise-color,
+	@font-size: 16,
+	@cursor: pointer
+);
+.imigo-chat-contact-name-label {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.build-label (
+	@name: 'chat-room-message-text',
+	@color: @imigo-basic-brown-color,
+	@font-size: 14
+);
+.build-label (
+	@name: 'chat-room-sender',
+	@color: @imigo-basic-dark-light-color,
+	@font-size: 14
+);
+
+.build-label (
+	@name: 'chat-room-post',
+	@color: @imigo-basic-lite-brown-color,
+	@font-size: 11,
+	@font-style: italic,
+	@white-space: nowrap
+);
+
+.build-label (
+	@name: 'chat-empty',
+	@color: @imigo-basic-lite-brown-color,
+	@font-size: 18
+);
+
+.build-image(
+	@name: 'chat-contact-icon',
+	@background-size: cover,
+	@cursor: pointer
+);
+
+.build-image(
+	@name: 'chat-send',
+	@background-image: @imigo-icon-send-background-image,
+	@width: @imigo-icon-send-normal-width,
+	@height: @imigo-icon-send-normal-height,
+	@cursor: pointer
+);
+
+.build-image(
+	@name: 'chat-cross',
+	@background-image: @imigo-icon-cross-background-image,
+	@width: @imigo-icon-cross-normal-width,
+	@height: @imigo-icon-cross-normal-height,
+	@cursor: pointer
+);
+
+.build-image(
+	@name: 'chat-check',
+	@background-image: @imigo-icon-check-background-image,
+	@width: @imigo-icon-check-normal-width,
+	@height: @imigo-icon-check-normal-height,
+	@background-size: contain,
+	@cursor: pointer
+);
+
+.build-image(
+	@name: 'chat-cancel',
+	@background-image: @imigo-icon-cancel2-background-image,
+	@width: @imigo-icon-cancel2-normal-width,
+	@height: @imigo-icon-cancel2-normal-height,
+	@background-size: contain,
+	@cursor: pointer
+);
+
+.build-normal-button(
+	@name: 'chat-room',
+	@color: @imigo-basic-brown-color,
+	@border-color: @imigo-basic-lite-brown-color,
+	@font-family: @imigo-basic-bold-font
+);
+.imigo-chat-room-button {white-space: nowrap;}
+
+.imigo-chat-room {
+	.imigo-backward-button, .imigo-forward-button {
+		background-size: 40%;
+	}
+	.imigo-card {
+		&.imigo-card-edit-mode {
+			& > * {
+				background: transparent;
+				&.imigo-card-center-bar-romance {
+					background-color: @imigo-basic-pink-color;
+				}
+				&.imigo-card-center-bar-professional {
+					background-color: @imigo-basic-light-color;
+				}
+				&.imigo-card-center-bar-friendship {
+					background-color: @imigo-basic-green-color;
+				}
+			}
+		}
+	}
+	.imigo-card-relation-count-content-label {
+		font-size: 14px;
+	}
+	.imigo-card-description-link-label, .imigo-card-relation-count-content-label {
+		color: @imigo-basic-bright-color;
+	}
+}
+
+.imigo-chat-room-window {
+	background-color: @imigo-basic-dark-bright-color;
+
+	.build-input(
+		@border-color: @imigo-basic-lite-brown-color,
+		@color: @imigo-basic-brown-color
+	);
+
+	.build-textarea(
+		@border-color: @imigo-basic-lite-brown-color,
+		@color: @imigo-basic-brown-color
+	);
+
+	input {
+		.build-imigo-placeholder(@font-style: italic, @color: @imigo-basic-lite-brown-color, @font-size: 12);
+	}
+}
+
+.imigo-chat-room-message {
+	.imigo-chat-room-message-text-label, .imigo-chat-room-sender-label {
+		* {
+			.build-user-select();
+		}
+	}
+
+	background-color: #c7edfc;
+	.build-border-radius (@radius: 5);
+
+	&.imigo-chat-room-partner-message {
+		background-color: #e5f7fd;
+	}
+
+	&.imigo-chat-room-message-0, &.imigo-chat-room-message-1, &.imigo-chat-room-message-2 {
+		border-left: 5px solid;
+		background-color: transparent;
+		.build-border-radius (@radius: 0);
+	}
+	&.imigo-chat-room-message-0 {
+		border-left-color: #c10824;
+
+		&.imigo-chat-room-message-type-deal-canceled {
+			background-color: #f6e4e5;
+		}
+
+		&.imigo-chat-room-message-type-deal-refused {
+			background-color: #ffcfd7;
+		}
+	}
+	&.imigo-chat-room-message-1 {
+		border-left-color: #00b400;
+
+		&.imigo-chat-room-message-type-deal-started {
+			background-color: #e3f3e5;
+		}
+
+		&.imigo-chat-room-message-type-deal-finished {
+			border-left-color: #626263;
+			background-color: #eeeeee;
+		}
+	}
+	&.imigo-chat-room-message-2 {
+		border-left-color: #ec8561;
+
+		&.imigo-chat-room-message-type-deal-offer, &.imigo-chat-room-message-type-self-offer {
+			background-color: #ffece6;
+		}
+	}
+}
+
+.imigo-chat-holder {
+	margin-bottom: 6px;
+
+	.imigo-chat-cross-image {
+		visibility: hidden;
+	}
+
+	&:hover {
+		.imigo-chat-cross-image {
+			visibility: visible;
+		}
+	}
+
+	&.selected {
+		background-color: #243c42;
+	}
+
+	&.new-messages {
+		.imigo-chat-contact-name-label {
+			font-size: 18px;
+			font-family: @imigo-basic-bold-font;
+		}
+	}
+}
+
+.imigo-chat-room-message-content-label a {
+	color: @imigo-basic-dark-light-color;
+	text-decoration: underline;
+}
+
+// Media queries
+.build-chat-controls (@max-width, @chat-common-label-font-size, @chat-contact-name-label-selected-font-size) {
+	@media (max-width: @max-width) {
+		.imigo-view {
+			.imigo-chat-contact-name-label, .imigo-chat-room-message-text-label, .imigo-chat-room-sender-label {
+				font-size: @chat-common-label-font-size;
+			}
+
+			.imigo-chat-holder {
+				&.new-messages {
+					.imigo-chat-contact-name-label {
+						font-size: @chat-contact-name-label-selected-font-size;
+					}
+				}
+			}
+		}
+	}
+}
+
+.build-chat-controls (
+	@max-width: @imigo-1280-width,
+	@chat-common-label-font-size: 14px,
+	@chat-contact-name-label-selected-font-size: 16px
+);
+
+.build-chat-controls (
+	@max-width: @imigo-1024-width,
+	@chat-common-label-font-size: 12px,
+	@chat-contact-name-label-selected-font-size: 14px
+);
+
+.build-chat-controls (
+	@max-width: @imigo-800-width,
+	@chat-common-label-font-size: 11px,
+	@chat-contact-name-label-selected-font-size: 12px
+);

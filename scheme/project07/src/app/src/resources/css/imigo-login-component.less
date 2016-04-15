@@ -1,0 +1,54 @@
+@import "imigo-utils";
+
+.build-image(
+	@name: 'login-fb',
+	@background-image: @imigo-icon-fb-background-image,
+	@cursor: pointer,
+	@background-size: contain
+);
+
+.build-image(
+	@name: 'login-vk',
+	@background-image: @imigo-icon-vk-background-image,
+	@cursor: pointer,
+	@background-size: contain
+);
+
+.build-image(
+	@name: 'login-google',
+	@background-image: @imigo-icon-google-background-image,
+	@cursor: pointer,
+	@background-size: contain
+);
+
+.build-label(
+	@name: 'login-title',
+	@color: #fdfefc,
+	@font-size: 32
+);
+.imigo-login-title-label * {
+	font-family: @imigo-basic-bold-font;
+}
+
+.build-label(
+	@name: 'login-info',
+	@color: #fdfefc,
+	@font-size: 12
+);
+
+// Media queries
+.build-login-link-image (@max-width, @size) {
+	@media (max-width: @max-width) {
+		.imigo-view {
+			.imigo-login-link-image {
+				width: @size;
+				height: @size;
+			};
+		}
+	}
+}
+
+.build-login-link-image(@max-width: @imigo-1024-width, @size: 75px);
+.build-login-link-image(@max-width: @imigo-800-width, @size: 70px);
+.build-login-link-image(@max-width: @imigo-640-width, @size: 50px);
+.build-login-link-image(@max-width: @imigo-480-width, @size: 40px);

@@ -1,0 +1,32 @@
+unit Unit2;
+interface
+uses
+  Classes, SysUtils;
+type
+  /////////////Объект потока////////////////////////////////////////////////////
+  NIVA = class(TThread)
+  private
+    procedure Execute; override;
+    procedure NIVAS;
+  end;
+  //////////////////////////////////////////////////////////////////////////////
+implementation
+uses
+  Unit1;
+/////////////////Вечный цикл////////////////////////////////////////////////////
+procedure NIVA.Execute;
+begin
+  while true do
+   begin
+     Synchronize(NIVAS);
+     Sleep(30);
+   end;
+end;
+////////////////////////////////////////////////////////////////////////////////
+procedure NIVA.NIVAS;
+var i: word;
+begin
+ for i:=1 to MAX do
+    mas[i].DVIGENIE(HANDLE);
+end;
+end.

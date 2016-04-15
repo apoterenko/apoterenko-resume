@@ -1,0 +1,19 @@
+<div ui-column ui-full>
+	<div ui-hc-align ui-vc-align>
+		<div ui-inline-block class="imigo-alert-dialog {{alertObject.type}}">
+			<div ui-row ui-full>
+				<div ui-full ui-hl-align>
+					<div ui-column ui-full>
+						<div ui-full ui-vc-align class="imigo-alert-dialog-label">
+							{{alertObject.text | translate}}
+						</div>
+					</div>
+				</div>
+				<div ui-full-w ui-hc-align>
+					<div ui-inline-block class="imigo-alert-dialog-button" ng-click="alertObject.button.action()">{{alertObject.button.text | translate}}</div>
+					<div ng-if="alertObject.button2" ui-inline-block class="imigo-alert-dialog-button" ng-click="alertObject.button2.action()">{{alertObject.button2.text | translate}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

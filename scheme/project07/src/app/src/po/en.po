@@ -1,0 +1,1155 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app\profile\profile.tpl.html:77
+msgid "{{accessbileCharCount}} characters left"
+msgstr ""
+
+#: app\profile\profile.tpl.html:51
+msgid "{{age()}} years"
+msgstr ""
+
+#: app\main\main.tpl.html:249
+msgid "{{desk.card.accessbileCharCount}} characters left"
+msgstr ""
+
+#: app\bank\bank.tpl.html:441 app\bank\bank.tpl.html:464
+msgid "{{imiAtWeek}} IMI per week"
+msgstr ""
+
+#: app\bank\bank.tpl.html:445 app\bank\bank.tpl.html:468
+msgid "{{percentSaving}}% off"
+msgstr ""
+
+#: app\bank\bank.tpl.html:175
+msgid "*The website will charge 20% commision for exchange services."
+msgstr ""
+
+#: app\main\main.tpl.html:61
+msgid ""
+"<a ui-sref=\"search({category: category(type)})\" class=\"imigo-card-nav-"
+"label\">Find</a> a friend or <a ng-click=\"onCreate(type)\" class=\"imigo-"
+"card-nav-label\">offer</a> friendship for <a ui-sref=\"bank\" class=\"imigo-"
+"card-nav2-label imigo-underline\">IMI</a>."
+msgstr ""
+
+#: app\main\main.tpl.html:60
+msgid ""
+"<a ui-sref=\"search({category: category(type)})\" class=\"imigo-card-nav-"
+"label\">Find</a> a professional or <a ng-click=\"onCreate(type)\" class="
+"\"imigo-card-nav-label\">offer</a> your services for <a ui-sref=\"bank\" "
+"class=\"imigo-card-nav2-label imigo-underline\">IMI</a>."
+msgstr ""
+
+#: app\main\main.tpl.html:59
+msgid ""
+"<a ui-sref=\"search({category: category(type)})\" class=\"imigo-card-nav-"
+"label\">Find</a> your love or <a ng-click=\"onCreate(type)\" class=\"imigo-"
+"card-nav-label\">offer</a> romance for <a ui-sref=\"bank\" class=\"imigo-"
+"card-nav2-label imigo-underline\">IMI</a>."
+msgstr ""
+
+#: app\chat\chat.tpl.html:111
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> accepted "
+"the offer."
+msgstr ""
+
+#: app\chat\chat.tpl.html:113
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> canceled "
+"the deal."
+msgstr ""
+
+#: app\chat\chat.tpl.html:114
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> has "
+"completed the deal."
+msgstr ""
+
+#: app\chat\chat.tpl.html:104
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> offered "
+"services in the \"{{message.category === 'friendship' ? 'Friendship' : "
+"(message.category === 'professional' ? 'Professional' : 'Romance')}}\" "
+"category. Cost of service: {{message.price}} IMI, execution time ({{$m."
+"durationUnit(message) === 'hour' ? 'hours' : 'days'}}): {{message.duration}}."
+msgstr ""
+
+#: app\chat\chat.tpl.html:112
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> refused "
+"the offer."
+msgstr ""
+
+#: app\chat\chat.tpl.html:105
+msgid ""
+"<span ng-bind-html=\"$m.sender(message) | singleLineHtml\"></span> wants to "
+"purchase your services in the \"{{message.category === 'friendship' ? "
+"'Friendship' : (message.category === 'professional' ? 'Professional' : "
+"'Romance')}}\" category. Cost of service: {{message.price}} IMI, execution "
+"time ({{$m.durationUnit(message) === 'hour' ? 'hours' : 'days'}}): {{message."
+"duration}}."
+msgstr ""
+
+#: app\bank\bank.tpl.html:437
+msgid "1 MONTH"
+msgstr ""
+
+#: app\bank\bank.tpl.html:418
+msgid "1 WEEK"
+msgstr ""
+
+#: app\bank\bank.tpl.html:460
+msgid "1 YEAR"
+msgstr ""
+
+#: app\post-footer.tpl.html:5
+msgid "About"
+msgstr ""
+
+#: app\about\about.tpl.html:17
+msgid "ABOUT"
+msgstr ""
+
+#: app\chat\chat.tpl.html:132
+msgid "accept"
+msgstr ""
+
+#: app\bank\bank.tpl.html:429 app\bank\bank.tpl.html:452
+#: app\bank\bank.tpl.html:475 app\bank\bank.tpl.html:507
+msgid "Activate"
+msgstr ""
+
+#: app\bank\bank.tpl.html:498
+msgid ""
+"ACTIVATE <span class=\"imigo-bank-premium-account-label\">PREMIUM ACCOUNT</"
+"span><br>WITH NO DOWN PAYMENT*"
+msgstr ""
+
+#: app\profile\profile.tpl.html:25 app\search\search.tpl.html:183
+msgid "activate premium"
+msgstr ""
+
+#: app\main\main.tpl.html:241
+msgid "Ad text"
+msgstr ""
+
+#: app\report.tpl.html:56
+msgid "Add a comment"
+msgstr ""
+
+#: app\profile\profile.tpl.html:138
+msgid "Add a new photo"
+msgstr ""
+
+#: app\search\search.tpl.html:79
+msgid "Age"
+msgstr ""
+
+#: app\bank\bank.tpl.html:16
+msgid "Amount of IMI you would like to buy:"
+msgstr ""
+
+#: app\bank\bank.tpl.html:98
+msgid "Amount of IMI you would like to withdraw:"
+msgstr ""
+
+#: app\dictionary.html:49
+msgid "ANSWER to: Does deals have time limit?"
+msgstr ""
+
+#: app\dictionary.html:65
+msgid "ANSWER to: How premium account differs?"
+msgstr ""
+
+#: app\dictionary.html:66
+msgid "ANSWER to: How to activate premium?"
+msgstr ""
+
+#: app\dictionary.html:46
+msgid "ANSWER to: How to become performer and find an order?"
+msgstr ""
+
+#: app\dictionary.html:68
+msgid "ANSWER to: How to fill up my balance?"
+msgstr ""
+
+#: app\dictionary.html:45
+msgid "ANSWER to: How to get service or find performer?"
+msgstr ""
+
+#: app\dictionary.html:71
+msgid "ANSWER to: How to withdraw earned money?"
+msgstr ""
+
+#: app\dictionary.html:70
+msgid ""
+"ANSWER to: I've made a purchase, but I don't any change in my balance, what "
+"should I do?"
+msgstr ""
+
+#: app\dictionary.html:53
+msgid "ANSWER to: imigo.me in beta testing stage. What does it mean?"
+msgstr ""
+
+#: app\dictionary.html:52
+msgid "ANSWER to: In which countries I can access imigo.me?"
+msgstr ""
+
+#: app\dictionary.html:67
+msgid "ANSWER to: Subscription without inital payment - how does it work?"
+msgstr ""
+
+#: app\dictionary.html:47
+msgid "ANSWER to: Turns out I can earn real money on imigo.me?"
+msgstr ""
+
+#: app\dictionary.html:51
+msgid "ANSWER to: What I can not do on web site?"
+msgstr ""
+
+#: app\dictionary.html:64
+msgid "ANSWER to: What is IMI?"
+msgstr ""
+
+#: app\dictionary.html:44
+msgid "ANSWER to: What is IMIGO.ME"
+msgstr ""
+
+#: app\dictionary.html:50
+msgid "ANSWER to: What is karma? How to raise it?"
+msgstr ""
+
+#: app\dictionary.html:69
+msgid "ANSWER to: Which payment systems are supported?"
+msgstr ""
+
+#: app\dictionary.html:48
+msgid ""
+"ANSWER to: Why I need web site, if I can do this in other social networks?"
+msgstr ""
+
+#: app\dictionary.html:4
+msgid "April"
+msgstr ""
+
+#: app\main\main.tpl.html:96
+msgid "Are you sure you want to cancel this deal?"
+msgstr ""
+
+#: app\main\main.tpl.html:99
+msgid "Are you sure you want to delete your ad?"
+msgstr ""
+
+#: app\dictionary.html:8
+msgid "August"
+msgstr ""
+
+#: app\profile\profile.tpl.html:110
+msgid "back to home page"
+msgstr ""
+
+#: app\profile\profile.tpl.html:88
+msgid "back to search"
+msgstr ""
+
+#: app\main\main.tpl.html:136
+msgid "cancel the deal"
+msgstr ""
+
+#: app\bank\bank.tpl.html:296
+msgid "Card expiry date"
+msgstr ""
+
+#: app\chat\chat.tpl.html:186 app\chat\chat.tpl.html:188
+msgid "Category"
+msgstr ""
+
+#: app\dictionary.html:77
+msgid "Change language"
+msgstr ""
+
+#: app\dictionary.html:24
+msgid "charisma"
+msgstr ""
+
+#: app\search\search.tpl.html:190
+msgid "clear form"
+msgstr ""
+
+#: app\dictionary.html:13
+msgid "Client"
+msgstr ""
+
+#: app\dictionary.html:16
+msgid "Clients"
+msgstr ""
+
+#: app\dictionary.html:27 app\login\login.tpl.html:62
+#: app\main\main.tpl.html:398 app\video.tpl.html:21
+msgid "close"
+msgstr ""
+
+#: app\report.tpl.html:9
+msgid "COMPLAINT TO USER"
+msgstr ""
+
+#: app\chat\chat.tpl.html:300 app\main\main.tpl.html:147
+msgid "Complete"
+msgstr ""
+
+#: app\chat\chat.tpl.html:8
+msgid "Contacts"
+msgstr ""
+
+#: app\about\about.tpl.html:27
+msgid "CONTACTS"
+msgstr ""
+
+#: app\dictionary.html:26
+msgid "cost / day"
+msgstr ""
+
+#: app\dictionary.html:25
+msgid "cost / hour"
+msgstr ""
+
+#: app\chat\chat.tpl.html:308 app\main\main.tpl.html:175
+#: app\main\main.tpl.html:178
+msgid "Cost of IMI/day"
+msgstr ""
+
+#: app\chat\chat.tpl.html:313 app\main\main.tpl.html:164
+#: app\main\main.tpl.html:184
+msgid "Cost of IMI/hour"
+msgstr ""
+
+#: app\bank\bank.tpl.html:349
+msgid "Country"
+msgstr ""
+
+#: app\main\main.tpl.html:35
+msgid "Create a new ad"
+msgstr ""
+
+#: app\bank\bank.tpl.html:280
+msgid "Credit card number"
+msgstr ""
+
+#: app\bank\bank.tpl.html:82
+msgid "Credit/Debet card"
+msgstr ""
+
+#: app\bank\history\history.tpl.html:25
+msgid "Date"
+msgstr ""
+
+#: app\registration\registration.tpl.html:14
+msgid "Date of birth"
+msgstr ""
+
+#: app\chat\chat.tpl.html:287 app\main\main.tpl.html:130
+msgid "Days"
+msgstr ""
+
+#: app\chat\chat.tpl.html:146
+msgid "deal offer expired"
+msgstr ""
+
+#: app\dictionary.html:12
+msgid "December"
+msgstr ""
+
+#: app\main\main.tpl.html:193
+msgid "delete this ad"
+msgstr ""
+
+#: app\dictionary.html:38
+msgid "Does deals have time limit?"
+msgstr ""
+
+#: app\dictionary.html:23
+msgid "efficiency"
+msgstr ""
+
+#: app\bank\bank.tpl.html:201
+msgid "Email"
+msgstr ""
+
+#: app\bank\bank.tpl.html:113 app\bank\bank.tpl.html:114
+#: app\bank\bank.tpl.html:31 app\bank\bank.tpl.html:32
+#: app\chat\chat.tpl.html:225 app\chat\chat.tpl.html:226
+msgid "Enter the amount"
+msgstr ""
+
+#: app\bank\bank.tpl.html:336 app\bank\bank.tpl.html:337
+msgid "Enter the credit card holder"
+msgstr ""
+
+#: app\dictionary.html:85
+msgid "Error activation of subscription."
+msgstr ""
+
+#: app\dictionary.html:76
+msgid "Error! Slots limit exceeded"
+msgstr ""
+
+#: app\dictionary.html:75
+msgid "Error! The picture is too large"
+msgstr ""
+
+#: app\bank\bank.tpl.html:88
+msgid "Exchange rate: 1 IMI = 1 EUR"
+msgstr ""
+
+#: app\dictionary.html:2
+msgid "February"
+msgstr ""
+
+#: app\main\main.tpl.html:316
+msgid "Fill the Price and Text fields"
+msgstr ""
+
+#: app\login\login.tpl.html:53 app\main\main.tpl.html:389
+#: app\video.tpl.html:12
+msgid "Find out how it works:"
+msgstr ""
+
+#: app\about\about.tpl.html:29
+msgid ""
+"For any questions please contact us by email: suport@imigo.me or<br>phone: "
+"+852 8193 1313"
+msgstr ""
+
+#: app\report.tpl.html:17
+msgid "Fraud"
+msgstr ""
+
+#: app\help\help.tpl.html:13
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: app\main\main.tpl.html:28 app\profile\profile.tpl.html:163
+msgid "Friendship"
+msgstr ""
+
+#: app\registration\registration.tpl.html:36 app\search\search.tpl.html:33
+msgid "Gender"
+msgstr ""
+
+#: app\error_email\errorEmail.tpl.html:31
+msgid ""
+"Go to General and set your new primary email address. After that you can try "
+"to <a class=\"imigo-card-nav2-label imigo-underline\" href=\"/#/login"
+"\">login</a> again."
+msgstr ""
+
+#: app\error_email\errorEmail.tpl.html:29
+msgid "Go to your Facebook Settings."
+msgstr ""
+
+#: app\error_email\errorEmail.tpl.html:22
+msgid "Go to your VK Settings."
+msgstr ""
+
+#: app\report.tpl.html:37
+msgid "Harassment, profanity"
+msgstr ""
+
+#: app\post-footer.tpl.html:7
+msgid "Help"
+msgstr ""
+
+#: app\help\help.tpl.html:10
+msgid "HELP"
+msgstr ""
+
+#: app\footer.tpl.html:52
+msgid "Home"
+msgstr ""
+
+#: app\about\about.tpl.html:20
+msgid "HOW DOES IT WORK?"
+msgstr ""
+
+#: app\chat\chat.tpl.html:205 app\chat\chat.tpl.html:206
+msgid "How many days?"
+msgstr ""
+
+#: app\chat\chat.tpl.html:214 app\chat\chat.tpl.html:215
+msgid "How many hours?"
+msgstr ""
+
+#: app\dictionary.html:56
+msgid "How premium account differs?"
+msgstr ""
+
+#: app\dictionary.html:57
+msgid "How to activate premium?"
+msgstr ""
+
+#: app\dictionary.html:35
+msgid "How to become performer and find an order?"
+msgstr ""
+
+#: app\dictionary.html:59
+msgid "How to fill up my balance?"
+msgstr ""
+
+#: app\dictionary.html:34
+msgid "How to get service or find performer?"
+msgstr ""
+
+#: app\dictionary.html:62
+msgid "How to withdraw earned money?"
+msgstr ""
+
+#: app\dictionary.html:18
+msgid "humor"
+msgstr ""
+
+#: app\registration\registration.tpl.html:56
+msgid ""
+"I accept <span class=\"imigo-underline\" ng-click="
+"\"onSelectCondition()\">the Terms of use</span> and agree to <span class="
+"\"imigo-underline\" ng-click=\"onSelectPolitics()\">the privacy policy</"
+"span> IMIGO.ME"
+msgstr ""
+
+#: app\dictionary.html:61
+msgid ""
+"I've made a purchase, but I don't any change in my balance, what should I do?"
+msgstr ""
+
+#: app\footer.tpl.html:36
+msgid "IMI currency"
+msgstr ""
+
+#: app\bank\bank.tpl.html:391
+msgid ""
+"IMI is the virtual currency of IMIGO.ME. Use IMI to purchase premium account "
+"and finance your deals."
+msgstr ""
+
+#: app\bank\bank.tpl.html:93
+msgid "IMI WITHDRAWAL"
+msgstr ""
+
+#: app\about\about.tpl.html:19
+msgid ""
+"IMIGO help people connect. Whether it's collaborating with skilled "
+"professionals, searching for your one true love, or developing a friendship "
+"that lasts a lifetime, IMIGO can make it happen in a snap. Our fast growing "
+"online community and world-class customer service make IMIGO the perfect "
+"foundation for making connections, generating an income, or improving one's "
+"skillset."
+msgstr ""
+
+#: app\dictionary.html:42
+msgid "imigo.me in beta testing stage. What does it mean?"
+msgstr ""
+
+#: app\dictionary.html:41
+msgid "In which countries I can access imigo.me?"
+msgstr ""
+
+#: app\dictionary.html:73
+msgid "infinity"
+msgstr ""
+
+#: app\dictionary.html:17
+msgid "initiative"
+msgstr ""
+
+#: app\dictionary.html:19
+msgid "intelligence"
+msgstr ""
+
+#: app\bank\bank.tpl.html:176
+msgid "It can take up to 15 days to recieve the money."
+msgstr ""
+
+#: app\dictionary.html:87
+msgid "It failed to purchased IMI."
+msgstr ""
+
+#: app\login\login.tpl.html:22
+msgid "It is confidential. We will not post information on your page."
+msgstr ""
+
+#: app\dictionary.html:1
+msgid "January"
+msgstr ""
+
+#: app\dictionary.html:7
+msgid "July"
+msgstr ""
+
+#: app\dictionary.html:6
+msgid "June"
+msgstr ""
+
+#: app\chat\chat.tpl.html:358 app\profile\profile.tpl.html:172
+#: app\profile\profile.tpl.html:60 app\search\search.tpl.html:259
+msgid "karma"
+msgstr ""
+
+#: app\search\search.tpl.html:121
+msgid "Karma"
+msgstr ""
+
+#: app\search\search.tpl.html:156
+msgid "Language"
+msgstr ""
+
+#: app\chat\chat.tpl.html:369 app\search\search.tpl.html:313
+msgid "level category"
+msgstr ""
+
+#: app\login\login.tpl.html:6
+msgid "LOG IN WITH"
+msgstr ""
+
+#: app\bank\history\history.tpl.html:82
+msgid "Manage payments"
+msgstr ""
+
+#: app\dictionary.html:3
+msgid "March"
+msgstr ""
+
+#: app\dictionary.html:5
+msgid "May"
+msgstr ""
+
+#: app\footer.tpl.html:14
+msgid "Messages"
+msgstr ""
+
+#: app\registration\registration.tpl.html:20
+msgid "month"
+msgstr ""
+
+#: app\bank\bank.tpl.html:305
+msgid "Month"
+msgstr ""
+
+#: app\bank\bank.tpl.html:330 app\registration\registration.tpl.html:6
+msgid "Name"
+msgstr ""
+
+#: app\chat\chat.tpl.html:356 app\profile\profile.tpl.html:170
+#: app\profile\profile.tpl.html:58 app\search\search.tpl.html:257
+msgid "negative karma"
+msgstr ""
+
+#: app\main\main.tpl.html:116
+msgid "no"
+msgstr ""
+
+#: app\search\search.tpl.html:351
+msgid "No results."
+msgstr ""
+
+#: app\chat\chat.tpl.html:267
+msgid "Nothing selected."
+msgstr ""
+
+#: app\dictionary.html:11
+msgid "November"
+msgstr ""
+
+#: app\dictionary.html:10
+msgid "October"
+msgstr ""
+
+#: app\report.tpl.html:27
+msgid "Offensive or illegal content"
+msgstr ""
+
+#: app\chat\chat.tpl.html:231 app\chat\chat.tpl.html:234
+msgid "Offer"
+msgstr ""
+
+#: app\about\about.tpl.html:23
+msgid ""
+"Once the deal has concluded, both parties will be able to rate the service "
+"they received and delivered. This creates a trustworthy community where the "
+"services offered and provided are built upon an honest user feedback "
+"framework."
+msgstr ""
+
+#: app\main\main.tpl.html:309
+msgid "Open chat"
+msgstr ""
+
+#: app\bank\history\history.tpl.html:24
+msgid "Operation"
+msgstr ""
+
+#: app\dictionary.html:83
+msgid "Operation withdraw IMI failed."
+msgstr ""
+
+#: app\dictionary.html:82
+msgid "Operation withdraw IMI successfully completed."
+msgstr ""
+
+#: app\report.tpl.html:47
+msgid "Other violation (please specify)"
+msgstr ""
+
+#: app\about\about.tpl.html:30
+msgid ""
+"Our Address: 3rd Floor, C &amp; H Towers Corner of Great Marlborough and "
+"Greate George Streets Roseau, 00152 Commonwealth of Dominica"
+msgstr ""
+
+#: app\bank\bank.tpl.html:136
+msgid "Payment history"
+msgstr ""
+
+#: app\bank\bank.tpl.html:226
+msgid "Payment sum"
+msgstr ""
+
+#: app\bank\history\history.tpl.html:17
+msgid "PAYMENTS"
+msgstr ""
+
+#: app\dictionary.html:80
+msgid "per day"
+msgstr ""
+
+#: app\dictionary.html:79
+msgid "per hour"
+msgstr ""
+
+#: app\dictionary.html:22
+msgid "performance"
+msgstr ""
+
+#: app\dictionary.html:14
+msgid "Performer"
+msgstr ""
+
+#: app\dictionary.html:15
+msgid "Performers"
+msgstr ""
+
+#: app\about\about.tpl.html:22
+msgid ""
+"Place your advertisement online by filling out a simple form. Or browse "
+"through hundreds of offers already available. Once you find what you're "
+"looking for, you can quickly and easily connect with that person to arrange "
+"the terms of your deal."
+msgstr ""
+
+#: app\profile\profile.tpl.html:70
+msgid ""
+"Please tell about yourself! This information will be visible to other users."
+msgstr ""
+
+#: app\main\main.tpl.html:270
+msgid "Points available to appraise your partner"
+msgstr ""
+
+#: app\bank\bank.tpl.html:401
+msgid "Premium account active until:"
+msgstr ""
+
+#: app\bank\bank.tpl.html:404
+msgid "Premium account with weekly payments active until:"
+msgstr ""
+
+#: app\search\search.tpl.html:363
+msgid "premium ads"
+msgstr ""
+
+#: app\main\main.tpl.html:174
+msgid "Price per day"
+msgstr ""
+
+#: app\main\main.tpl.html:163
+msgid "Price per hour"
+msgstr ""
+
+#: app\search\search.tpl.html:100
+msgid "Price range"
+msgstr ""
+
+#: app\post-footer.tpl.html:11
+msgid "Privacy"
+msgstr ""
+
+#: app\main\main.tpl.html:27 app\profile\profile.tpl.html:162
+msgid "Professional"
+msgstr ""
+
+#: app\dictionary.html:21
+msgid "professionalism"
+msgstr ""
+
+#: app\footer.tpl.html:6 app\footer.tpl.html:7
+msgid "Profile"
+msgstr ""
+
+#: app\bank\bank.tpl.html:371 app\bank\bank.tpl.html:373
+#: app\bank\bank.tpl.html:41 app\bank\bank.tpl.html:43
+msgid "Purchase"
+msgstr ""
+
+#: app\bank\bank.tpl.html:11
+msgid "PURCHASE IMI"
+msgstr ""
+
+#: app\bank\history\history.tpl.html:14
+msgid "RECEIPTS"
+msgstr ""
+
+#: app\chat\chat.tpl.html:136
+msgid "refuse"
+msgstr ""
+
+#: app\search\search.tpl.html:413
+msgid "regular ads"
+msgstr ""
+
+#: app\profile\profile.tpl.html:255
+msgid "remove"
+msgstr ""
+
+#: app\chat\chat.tpl.html:381 app\search\search.tpl.html:302
+msgid "report abuse"
+msgstr ""
+
+#: app\main\main.tpl.html:26 app\profile\profile.tpl.html:161
+msgid "Romance"
+msgstr ""
+
+#: app\search\search.tpl.html:26
+msgid "Search"
+msgstr ""
+
+#: app\main\main.tpl.html:18
+msgid "Search for an ad"
+msgstr ""
+
+#: app\chat\chat.tpl.html:145
+msgid "sec."
+msgstr ""
+
+#: app\bank\bank.tpl.html:183
+msgid "Select wallet"
+msgstr ""
+
+#: app\report.tpl.html:65
+msgid "send"
+msgstr ""
+
+#: app\dictionary.html:9
+msgid "September"
+msgstr ""
+
+#: app\profile\profile.tpl.html:239
+msgid "Set as profile picture"
+msgstr ""
+
+#: app\error_email\errorEmail.tpl.html:18
+msgid "Set email in Facebook settings."
+msgstr ""
+
+#: app\error_email\errorEmail.tpl.html:17
+msgid "Set email in VK settings."
+msgstr ""
+
+#: app\error_email\errorEmail.tpl.html:24
+msgid ""
+"Set your new primary email address. After that you can try to <a class="
+"\"imigo-card-nav2-label imigo-underline\" href=\"/#/login\">login</a> again."
+msgstr ""
+
+#: app\dictionary.html:20
+msgid "sex appeal"
+msgstr ""
+
+#: app\dictionary.html:95 app\search\search.tpl.html:65
+msgid "show all"
+msgstr ""
+
+#: app\search\search.tpl.html:216
+msgid "Show examples"
+msgstr ""
+
+#: app\search\search.tpl.html:58
+msgid "Show those who want"
+msgstr ""
+
+#: app\footer.tpl.html:46
+msgid "Sign out"
+msgstr ""
+
+#: app\registration\registration.tpl.html:64
+msgid "Sign up"
+msgstr ""
+
+#: app\about\about.tpl.html:21
+msgid ""
+"Sign up to either buy or sell. Start by selecting a category: Dating, "
+"Friendship or Work."
+msgstr ""
+
+#: app\main\main.tpl.html:321 app\main\main.tpl.html:45
+msgid "Slots available in this category"
+msgstr ""
+
+#: app\bank\bank.tpl.html:489
+msgid "SPECIAL OFFER"
+msgstr ""
+
+#: app\main\main.tpl.html:317
+msgid "Submit"
+msgstr ""
+
+#: app\dictionary.html:84
+msgid "Subscription activated."
+msgstr ""
+
+#: app\dictionary.html:58
+msgid "Subscription without inital payment - how does it work?"
+msgstr ""
+
+#: app\bank\history\history.tpl.html:26
+msgid "Sum"
+msgstr ""
+
+#: app\post-footer.tpl.html:9
+msgid "Terms"
+msgstr ""
+
+#: app\main\main.tpl.html:127
+msgid "Time remaining until the end of the deal"
+msgstr ""
+
+#: app\chat\chat.tpl.html:77
+msgid "To communicate with a user select a contact in the list on the left."
+msgstr ""
+
+#: app\profile\profile.tpl.html:104
+msgid "to discuss the deal"
+msgstr ""
+
+#: app\profile\profile.tpl.html:96 app\search\search.tpl.html:326
+msgid "To discuss the deal"
+msgstr ""
+
+#: app\dictionary.html:31
+msgid "To empower connect PREMIUM ACCOUNT"
+msgstr ""
+
+#: app\dictionary.html:93
+msgid "to get paid"
+msgstr ""
+
+#: app\dictionary.html:94
+msgid "to pay"
+msgstr ""
+
+#: app\error_email\errorEmail.tpl.html:27
+msgid ""
+"To use IMIGO.ME you need to associate an email address with your Facebook "
+"account. Use <a class=\"imigo-card-nav2-label imigo-underline\" target="
+"\"_blank\" href=\"https://www.facebook.com/settings?tab=account&amp;"
+"section=email&amp;view\">this</a> Facebook page to do so or navigate "
+"manually following the screenshots below."
+msgstr ""
+
+#: app\error_email\errorEmail.tpl.html:20
+msgid ""
+"To use IMIGO.ME you need to associate an email address with your VK account. "
+"Use <a class=\"imigo-card-nav2-label imigo-underline\" target=\"_blank\" "
+"href=\"http://vk.com/settings\">this</a> VK page to do so or navigate "
+"manually following the screenshots below."
+msgstr ""
+
+#: app\dictionary.html:36
+msgid "Turns out I can earn real money on imigo.me?"
+msgstr ""
+
+#: app\search\search.tpl.html:207
+msgid "Use filters to find and contact people."
+msgstr ""
+
+#: app\search\search.tpl.html:167
+msgid "Validated users"
+msgstr ""
+
+#: app\post-footer.tpl.html:13
+msgid "Video tour"
+msgstr ""
+
+#: app\bank\bank.tpl.html:194
+msgid "Wallet ID"
+msgstr ""
+
+#: app\dictionary.html:90
+msgid "wants to get paid"
+msgstr ""
+
+#: app\dictionary.html:89
+msgid "wants to pay"
+msgstr ""
+
+#: app\login\login.tpl.html:51 app\main\main.tpl.html:387
+#: app\video.tpl.html:10
+msgid ""
+"Welcome to IMIGO.ME - the first website that allows you to buy and sell "
+"personal time and relationships!"
+msgstr ""
+
+#: app\dictionary.html:40
+msgid "What I can not do on web site?"
+msgstr ""
+
+#: app\dictionary.html:55
+msgid "What is IMI?"
+msgstr ""
+
+#: app\bank\bank.tpl.html:382
+msgid "WHAT IS IMI?"
+msgstr ""
+
+#: app\dictionary.html:33
+msgid "What is IMIGO.ME"
+msgstr ""
+
+#: app\dictionary.html:39
+msgid "What is karma? How to raise it?"
+msgstr ""
+
+#: app\dictionary.html:60
+msgid "Which payment systems are supported?"
+msgstr ""
+
+#: app\dictionary.html:37
+msgid "Why I need web site, if I can do this in other social networks?"
+msgstr ""
+
+#: app\bank\bank.tpl.html:123 app\bank\bank.tpl.html:125
+#: app\bank\bank.tpl.html:208
+msgid "Withdraw"
+msgstr ""
+
+#: app\bank\bank.tpl.html:156
+msgid "Withdrawal sum"
+msgstr ""
+
+#: app\registration\registration.tpl.html:31
+msgid "year"
+msgstr ""
+
+#: app\bank\bank.tpl.html:317
+msgid "Year"
+msgstr ""
+
+#: app\main\main.tpl.html:109
+msgid "yes"
+msgstr ""
+
+#: app\footer.tpl.html:16
+msgid "You have a new message"
+msgstr ""
+
+#: app\dictionary.html:30
+msgid ""
+"You have reached the maximum number of ads. Activate premium account to "
+"unlock additional slots."
+msgstr ""
+
+#: app\chat\chat.tpl.html:107
+msgid ""
+"You offered your services in the \"{{message.category === 'friendship' ? "
+"'Friendship' : (message.category === 'professional' ? 'Professional' : "
+"'Romance')}}\" category to <span ng-bind-html=\"$m.receiver(message) | "
+"singleLineHtml\"></span>. Cost of service: {{message.price}} IMI, execution "
+"time ({{$m.durationUnit(message) === 'hour' ? 'hours' : 'days'}}): {{message."
+"duration}}."
+msgstr ""
+
+#: app\dictionary.html:86
+msgid ""
+"You successfully purchased IMI. Please be notified that it make take several "
+"minutes till your balance is updated."
+msgstr ""
+
+#: app\dictionary.html:92
+msgid "You want to get paid"
+msgstr ""
+
+#: app\dictionary.html:91
+msgid "You want to pay"
+msgstr ""
+
+#: app\chat\chat.tpl.html:108
+msgid ""
+"You want to purchase <span ng-bind-html=\"$m.receiver(message) | "
+"singleLineHtml\"></span>'s services in the \"{{message.category === "
+"'friendship' ? 'Friendship' : (message.category === 'professional' ? "
+"'Professional' : 'Romance')}}\" category. Cost of service: {{message.price}} "
+"IMI, execution time ({{$m.durationUnit(message) === 'hour' ? 'hours' : "
+"'days'}}): {{message.duration}}."
+msgstr ""
+
+#: app\bank\bank.tpl.html:514
+msgid ""
+"You will not be charged for the first transaction. All subsequent "
+"transactions will have the charge rate of 4 IMI per week for 1 year."
+msgstr ""
+
+#: app\dictionary.html:28
+msgid "Your abuse report was successfully sent!"
+msgstr ""
+
+#: app\dictionary.html:29
+msgid "Your advertisement was successfully created!"
+msgstr ""
+
+#: app\footer.tpl.html:20
+msgid "Your Friendship level"
+msgstr ""
+
+#: app\registration\registration.tpl.html:10
+msgid "your name"
+msgstr ""
+
+#: app\chat\chat.tpl.html:167 app\main\main.tpl.html:205
+msgid "Your offer"
+msgstr ""
+
+#: app\footer.tpl.html:30
+msgid "Your Professional level"
+msgstr ""
+
+#: app\main\main.tpl.html:227
+msgid "Your role"
+msgstr ""
+
+#: app\footer.tpl.html:25
+msgid "Your Romance level"
+msgstr ""
+
+#: app\search\search.tpl.html:358
+msgid "Your search did not match any ads."
+msgstr ""

@@ -1,0 +1,35 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="QIWI Planning Plugin" plugins-version="2">
+	<plugin-info>
+		<description>QIWI Planning Plugin</description>
+		<version>${project.version}</version>
+		<vendor name="${project.organization.name}" url="${project.organization.url}"/>
+	</plugin-info>
+
+	<webwork1 key="planning-webwork" name="planning-webwork" class="java.lang.Object">
+		<actions>
+			<action name="qiwi.jira.plugins.planning.PlanningAction" alias="planning">
+				<view name="input">/templates/qiwi/jira/plugins/planning/main.vm</view>
+			</action>
+			<command name="managementMode" alias="managementMode"/>
+			<command name="reload" alias="reload"/>
+		</actions>
+	</webwork1>
+	<web-resource key="planning-web-resource" name="QIWI Planning Plugin Web Resource">
+		<resource type="download" name="jquery.scrollTo.js" location="templates/qiwi/jira/plugins/planning/js/core/jquery.scrollTo-1.4.2-min.js"/>
+		<resource type="download" name="navigation.js" location="templates/qiwi/jira/plugins/planning/js/navigation.js"/>
+	</web-resource>
+
+	<component-import key="rankIndexServiceImpl" interface="com.atlassian.greenhopper.service.rank.RankIndexService"/>
+	<component-import key="rankDaoImpl" interface="com.atlassian.greenhopper.service.rank.RankDao"/>
+	<component-import key="rankCustomFieldServiceImpl" interface="com.atlassian.greenhopper.service.rank.RankCustomFieldService"/>
+
+	<component-import key="qiwi-rank-service-factory" interface="qiwi.jira.plugins.greenhopper.RankServiceFactory"/>
+	<component-import key="qiwi-rank-index-service-factory" interface="qiwi.jira.plugins.greenhopper.RankIndexServiceFactory"/>
+
+	<component-import key="qiwi-project-issue-loader-wrapper" interface="qiwi.jira.plugins.job.estimate.ProjectIssueLoader"/>
+	<component-import key="qiwi-estimation-issues-loader-wrapper" interface="qiwi.jira.plugins.job.estimate.EstimationIssuesLoader"/>
+
+	<component-import key="qiwi-estimation-service" interface="qiwi.jira.plugins.estimate.EstimationService"/>
+	<component-import key="qiwi-project-progress-parameters-factory" interface="qiwi.jira.plugins.estimate.ProjectProgressParametersFactory"/>
+	<component-import key="qiwi-estimate-field-factory" interface="qiwi.jira.plugins.estimate.EstimateFieldFactory"/>
+</atlassian-plugin>

@@ -1,0 +1,907 @@
+<!DOCTYPE HTML>
+<html id="cv">
+<head>
+	<title>Alex Poter CV</title>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta http-equiv="cache-control" content="max-age=0"/>
+	<meta http-equiv="cache-control" content="no-cache"/>
+	<meta http-equiv="expires" content="0"/>
+	<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT"/>
+	<meta http-equiv="pragma" content="no-cache"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="viewport" content="width = device-width, minimal-ui, initial-scale = 1, user-scalable = 1"/>
+	<meta name="apple-mobile-web-app-title" content="Alex Poter CV"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+	<base href="/">
+	<style>
+		body {
+			cursor: default;
+		}
+
+		.x-resume-page.container {
+			/** Layout **/
+			margin-top: 2rem;
+			margin-bottom: 2rem;
+		}
+
+		.x-resume-page ul {
+			/** Layout **/
+			margin-bottom: 0.5rem;
+		}
+
+		.x-top-project {
+			margin-top: 0.5rem;
+		}
+
+		.x-resume-page .x-after-project ul {
+			margin-bottom: 1rem;
+		}
+
+		.x-resume-title {
+			/** Layout **/
+			margin-bottom: 2rem;
+		}
+
+		.x-resume-section {
+			/** Layout **/
+			margin-bottom: 1rem;
+			clear: both;
+		}
+
+		.x-resume-lang a {
+			/** Layout **/
+			float: right;
+		}
+
+		.x-none {
+			display: none;
+		}
+
+		.x-role {
+			/** Styles **/
+			text-decoration: underline;
+		}
+
+		[x-key-words] {
+			/** Styles **/
+			color: #838383;
+			font-weight: 700;
+		}
+
+		.x-project-name {
+			/** Styles **/
+			font-weight: 500;
+		}
+
+		.x-translate .x-exclude-text {
+			/** Styles **/
+			display: none;
+		}
+
+		.x-compact [xfull] {
+			display: none;
+		}
+
+		/** Media **/
+		@media (max-width: 1200px) {
+			html {font-size: 15px;}
+		}
+		@media (max-width: 992px) {
+			html {font-size: 13px;}
+		}
+		@media (max-width: 768px) {
+			html {font-size: 11px;}
+		}
+		@media (max-width: 544px) {
+			html {font-size: 11px;}
+		}
+		@media (max-width: 400px) {
+			html {font-size: 10px;}
+		}
+	</style>
+	<script>
+		var winHref = window.location.href;
+		if (winHref.indexOf('localhost') === -1 && winHref.indexOf('debug') === -1) {
+			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			  ga('create', 'UA-72031769-9', 'auto');
+			  ga('send', 'pageview');
+		}
+
+		var updateHash = function (mode) {
+			document.location.hash = mode || document.location.hash;
+
+			var curMode = document.location.hash.replace('#', '');
+			curMode && ~['full', 'compact'].indexOf(curMode) && (document.body.className = 'x-{mode}'.replace('{mode}', curMode))
+				|| (document.body.className = '');
+		};
+	</script>
+</head>
+<body class="x-none"> <!-- x-none - workaround for github.io viewer -->
+<div class="container x-resume-page">
+	<div class="pager pager-next x-resume-lang">
+		<a href="javascript:void(0);" onclick="window.print();">[PRINT]</a>
+		<a href="javascript:void(0);" onclick="updateHash('compact')">[COMPACT]</a>
+		<a href="javascript:void(0);" onclick="updateHash('full')">[FULL]</a>
+	</div>
+
+	<div class="x-resume-title row x-exclude-text">
+		<div class="col-xs-12">
+			<h4><b>ALEX POTER</b></h4>
+			a.poterenko@gmail.com<br>
+			apoterenko [skype]<br>
+			<a href="https://github.com/apoterenko/cv" target="_blank">github.com/apoterenko/cv</a><br>
+		</div>
+	</div>
+
+	<div class="x-resume-section row">
+		<div class="col-xs-2">
+			<b class="text-uppercase">
+				Career goal
+			</b>
+		</div>
+		<div class="col-xs-10">
+			<b>JavaScript</b>&nbsp;&nbsp;<b>TypeScript</b>&nbsp;&nbsp;<b>Java</b>&nbsp;&nbsp;<b>Node</b><br>
+			Senior/Lead Front-end/Full-stack Developer/Engineer
+		</div>
+	</div>
+
+	<div class="x-resume-section row">
+		<div class="col-xs-2">
+			<b class="text-uppercase">Summary</b>
+		</div>
+		<div class="col-xs-10">
+			Experienced full-stack software developer:
+			<ul>
+				<li>1 year <span x-key-words>React</span>, <span x-key-words>Redux</span></li>
+				<li>2 years <span x-key-words>Angular 2/x</span></li>
+				<li>2,5 years <span x-key-words>TypeScript</span></li>
+				<li>10 years <span x-key-words>ECMAScript 5/6</span>, <span x-key-words>HTML 4/5</span></li>
+				<li>6 years <span x-key-words>ExtJS 2-6</span>, <span x-key-words>JSE 5/6</span>, <span x-key-words>JEE</span></li>
+			</ul>
+			<b class="text-uppercase">Expertise:</b>
+			<ul>
+				<li>Strong knowledge:
+					<ul>
+						<li>Object-oriented languages: <span x-key-words>JavaScript</span>, <span x-key-words>TypeScript</span>, <span x-key-words>Java</span></li>
+						<li>Programming paradigms: <span x-key-words>Event-based</span>, <span x-key-words>Object-oriented</span>, <span x-key-words>Declarative</span>, <span x-key-words>Functional</span>, <span x-key-words>Reactive</span></li>
+					</ul>
+				</li>
+				<li>Hands-on commercial experience:
+					<ul>
+						<li>Developing scalable, sustainable, multi-module applications using <span x-key-words>JavaScript</span>, <span x-key-words>TypeScript</span>, <span x-key-words>Java</span></li>
+						<li>Optimising <span x-key-words>JavaScript</span> code for enhanced performance and memory leaks prevention [closure pitfalls, batching DOM changes, using async and defer attributes, and other methods]</li>
+						<li>Profiling applications with <span x-key-words>VisualVM</span>, <span x-key-words>Chrome DevTools</span> [performance, memory use, threads activity]</li>
+						<li>Unit testing and integrated testing: <span x-key-words>JUnit</span>, <span x-key-words>TestNg</span>, <span x-key-words>Karma</span>, <span x-key-words>Jasmine</span></li>
+					</ul>
+				</li>
+				<li>Good knowledge:
+					<ul>
+						<li>Java ecosystem:
+							<span x-key-words>Core</span>,
+							<span x-key-words>Collections</span>,
+							<span x-key-words>Jsp</span>,
+							<span x-key-words>Servlets</span>,
+							<span x-key-words>Jdbc</span>,
+							<span x-key-words>Google Guice & Guava</span>,
+							<span x-key-words>Tomcat</span>,
+							<span x-key-words>JasperReports</span>
+						</li>
+						<li>Markup and style sheet languages: <span x-key-words>HTML4</span>, <span x-key-words>Css2</span></li>
+						<li>IDE: <span x-key-words>IntelliJ Idea</span>, <span x-key-words>WebStorm</span></li>
+						<li>Build tools: <span x-key-words>Maven</span>, <span x-key-words>Grunt</span>, <span x-key-words>Gulp</span>, <span x-key-words>Webpack</span></li>
+						<li>CVS and code review tools: <span x-key-words>Git</span>, <span x-key-words>Bitbucket</span>, <span x-key-words>Gerrit</span>, <span x-key-words>GitLab</span></li>
+						<li>OS: <span x-key-words>Windows</span></li>
+					</ul>
+				</li>
+				<li>Good understanding:
+					<ul>
+						<li>Software engineering: <span x-key-words>SDLC</span>, <span x-key-words>TDD</span></li>
+						<li>Concurrency theory:
+							<ul>
+								<li><span x-key-words>HTML5 Web Workers</span></li>
+								<li>
+									<span x-key-words>Java Multithreading</span>:
+									<ul>
+										<li><span x-key-words>Volatile</span></li>
+										<li><span x-key-words>Synchronized</span> vs <span x-key-words>Concurrent locks</span></li>
+										<li><span x-key-words>Object</span> as <span x-key-words>mutex</span></li>
+										<li><span x-key-words>Concurrency Abstractions</span></li>
+										<li>Some <span x-key-words>JMM</span> tricks [Final fields, Happens-Before Relation]</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>Protocols: <span x-key-words>REST</span>, <span x-key-words>JSON-RPC</span>, <span x-key-words>JSONP</span></li>
+						<li>Security: <span x-key-words>XSS</span>, <span x-key-words>XSRF</span>, <span x-key-words>SQLI</span></li>
+					</ul>
+				</li>
+				<li>Sufficient knowledge:
+					<ul>
+						<li>Markup, style sheet and preprocessor languages: <span x-key-words>HTML5</span>, <span x-key-words>Css3</span>, <span x-key-words>Less</span></li>
+						<li>Databases: <span x-key-words>RDBMS</span> and <span x-key-words>Sql</span> [design, normalisation, objects, queries, query plans]</li>
+						<li>Protocols: <span x-key-words>HTTP</span> [<span x-key-words>CORS</span>, <span x-key-words>keep-alive</span>, <span x-key-words>pipelining</span>, caching strategy/<span x-key-words>ETag</span>]</li>
+						<li>CI tools: <span x-key-words>TeamCity</span></li>
+						<li>UML tools: <span x-key-words>PlantUML</span></li>
+						<li>Database tools: <span x-key-words>Toad</span></li>
+						<li>OS: <span x-key-words>Linux</span></li>
+					</ul>
+				</li>
+			</ul>
+			<b>Skills:</b>
+			<ul>
+				<li>Strong ability to write well-structured, readable and testable code and apply best software development practices:
+					<ul>
+						<li><span x-key-words>SOLID principles</span></li>
+						<li><span x-key-words>Design Patterns/GoF</span></li>
+						<li><span x-key-words>Code Reuse</span></li>
+						<li><span x-key-words>Refactoring</span></li>
+					</ul>
+				</li>
+				<li>Good analytical, problem-solving, troubleshooting and communication skills</li>
+				<li>Goal-oriented team player</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="x-resume-section row">
+		<div class="col-xs-2">
+			<b class="text-uppercase">Employment history</b>
+		</div>
+		<div class="col-xs-10">
+			<a href="http://walli.com" target="_blank"><b>WALLI IT, INC</b></a><br>
+			<b>Senior Software Developer</b> [ full-time ]<br>
+			July 2017 - July 2018
+			<ul class="x-top-project">
+				<li>
+					<a href="https://github.com/apoterenko/cv/tree/master/scheme/project13" target="_blank">
+						<b>#14&nbsp;&nbsp;SweedPos project</b>
+					</a>
+					<ul>
+						<li>Stack:
+							<ul>
+								<li>
+									<span x-key-words>TypeScript</span>, <span x-key-words>React</span>, <span x-key-words>Redux</span>, <span x-key-words>Webpack</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<a href="http://crif.com" target="_blank"><b>Crif LLC</b></a><br>
+			<b>Senior Software Developer</b> [ full-time ] [ short-term contract ]<br>
+			May 2017 - July 2017
+			<ul class="x-top-project">
+				<li>
+					<a href="https://github.com/apoterenko/cv/tree/master/scheme/project13" target="_blank">
+						<b>#13&nbsp;&nbsp;Contact Internationalization project</b>
+					</a>
+					<ul>
+						<li>Stack:
+							<ul>
+								<li>
+									<span x-key-words>TypeScript</span>, <span x-key-words>Angular 4</span>, <span x-key-words>Webpack</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<a href="http://www.acronis.com" target="_blank"><b>Acronis LLC</b></a><br>
+			<b>Senior Software Developer</b> [ full-time ]<br>
+			March 2015 - December 2016 <span xfull>[ <a href="https://github.com/apoterenko/cv/blob/master/references/Acronis.Employment%20Reference.Poterenko.A.G.pdf" target="_blank">Link to the employment reference</a> ]</span>
+			<ul class="x-top-project">
+				<li>
+					<a href="https://github.com/apoterenko/cv/tree/master/scheme/project12" target="_blank">
+						<b>#12&nbsp;&nbsp;Multi-functional web applications bootstrapper for a standalone data centre and geo-distributed data centres</b>
+					</a>
+					<ul>
+						<li>Successfully put to commercial use</li>
+						<li>
+							Role: <span class="x-role">Principal Front-End Developer</span> [a team of 1 front-end expert]
+							<ul xfull>
+								<li>Design, developing modules, unit testing and integrated testing</li>
+								<li>Integrating into the current ecosystem</li>
+							</ul>
+						</li>
+						<li xfull>Achievements:
+							<ul>
+								<li>The module operates successfully in two operating modes simultaneously for the following products:
+									<ul>
+										<li>&laquo;On-Premise Backup Software&raquo; [standalone mode]</li>
+										<li>&laquo;Cloud Backup as a Service&raquo; [cloud mode]</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li xfull>Key points:
+							<ul>
+								<li>The module operates in the ecosystem with the &laquo;Fully connected mesh&raquo; topology</li>
+								<li>Responsible for the area of critical importance [high cost of errors or malfunctions]</li>
+							</ul>
+						</li>
+						<li>Stack:
+							<ul>
+								<li>
+									<span x-key-words>TypeScript</span>, <span x-key-words>Bluebird</span>, <span x-key-words>Inversify</span>, <span x-key-words>whatwg-fetch</span>, <span x-key-words>urijs</span>, <span x-key-words>js-cookie</span>, <span x-key-words>core-js</span>, <span x-key-words>Webpack</span>
+								</li>
+								<li>
+									<span x-key-words>Karma</span>, <span x-key-words>Jasmine</span>, <span x-key-words>json-server</span>
+								</li>
+								<li>
+									<span x-key-words>Git/Bitbucket</span>, <span x-key-words>WebStorm</span>
+								</li>
+								<li>
+									<span x-key-words>HTML5 CORS</span>, <span x-key-words>REST</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="https://github.com/apoterenko/cv/tree/master/scheme/project11" target="_blank">
+						<b>#11&nbsp;&nbsp;Personal online office account.acronis.com to manage user licenses and edit profile</b>
+					</a>
+					<ul>
+						<li>Successfully put to commercial use</li>
+						<li>Role: <span class="x-role">Principal Front-End Developer</span> [in a team of up to 3 front-end developers]
+							<ul xfull>
+								<li>Design, developing <span x-key-words>TypeScript</span> modules, code review, unit testing</li>
+							</ul>
+						</li>
+						<li xfull>Achievements and personal contribution:
+							<ul>
+								<li>Long and successful migration from <span x-key-words>Angular2.0.0-beta.7</span> to <span x-key-words>Angular2.0</span></li>
+								<li>Implemented the project using source code of the previous project:
+									<ul>
+										<li>successfully implemented assembly profiles and multi-layer architecture</li>
+										<li>projects No. 10 and 11 share a codebase [code reuse: ~ 95%]</li>
+									</ul>
+								</li>
+								<li>In the course of project implementation, several modules were released as Open Source: <a href="https://github.com/apoterenko/angular2-dynamic-component" target="_blank">angular2-dynamic-component</a>, <a href="https://github.com/apoterenko/angular2-post-message" target="_blank">angular2-post-message</a>, <a href="https://github.com/apoterenko/angular2-i18next" target="_blank">angular2-i18next</a>, <a href="https://github.com/apoterenko/ts-smart-logger" target="_blank">ts-smart-logger</a></li>
+								<li>Found a solution to a challenging task to improve the performance: <a href="https://github.com/apoterenko/angular2-cache" target="_blank">angular2-cache</a> implementing a new caching strategy based on <span x-key-words>NgZone</span></li>
+							</ul>
+						</li>
+						<li>Stack:
+							<ul>
+								<li>
+									<span x-key-words>Angular2</span>, <span x-key-words>TypeScript</span>, <span x-key-words>Bluebird</span>, <span x-key-words>Lodash</span>, <span x-key-words>Webpack</span>
+								</li>
+								<li>
+									<span x-key-words>Karma</span>, <span x-key-words>Jasmine</span>
+								</li>
+								<li>
+									<span x-key-words>Git/Bitbucket</span>, <span x-key-words>WebStorm</span>
+								</li>
+								<li>
+									<span x-key-words>Flux</span>, <span x-key-words>REST</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="https://github.com/apoterenko/cv/tree/master/scheme/project10" target="_blank">
+						<b>#10&nbsp;&nbsp;User licence management module [a sub-module of &laquo;On-Premise Backup Software&raquo;]</b>
+					</a>
+					<ul>
+						<li>Successfully put to commercial use</li>
+						<li>Role: <span class="x-role">Principal Front-End Developer</span> [in a team of up to 3 front-end developers]
+							<ul xfull>
+								<li>Design, developing <span x-key-words>TypeScript</span> modules, code review, unit testing</li>
+							</ul>
+						</li>
+						<li xfull>Achievements and personal contribution:
+							<ul>
+								<li>The first and successful experience of using <span x-key-words>Angular2</span> as a corporate front-end platform: research, introduction and troubleshooting</li>
+								<li>Improved code base of <span x-key-words>Flux</span>-based module implemented by another team member: an introduction of <a href="https://github.com/apoterenko/angular2-di-helper" target="_blank">angular2-di-helper</a> <span x-key-words>DI</span>-module based on Angular2 core</li>
+								<li>The module is part of the leading product &laquo;Acronis Backup 12&raquo;</li>
+							</ul>
+						</li>
+						<li xfull>Key points:
+							<ul>
+								<li>Application architecture is based on the <span x-key-words>Flux</span> pattern</li>
+								<li>The module is integrated inside <span x-key-words>ExtJS</span> app using iframe</li>
+							</ul>
+						</li>
+						<li>Stack:
+							<ul>
+								<li>
+									<span x-key-words>TypeScript</span>, <span x-key-words>Angular2</span>, <span x-key-words>HTML5 postMessage</span>, <span x-key-words>Bluebird</span>, <span x-key-words>Lodash</span>, <span x-key-words>Webpack</span>
+								</li>
+								<li>
+									<span x-key-words>Karma</span>, <span x-key-words>Jasmine</span>
+								</li>
+								<li>
+									<span x-key-words>Git/Bitbucket</span>, <span x-key-words>WebStorm</span>
+								</li>
+								<li>
+									<span x-key-words>Flux</span>, <span x-key-words>REST</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="https://github.com/apoterenko/cv/tree/master/scheme/project09" target="_blank">
+						<b>#9&nbsp;&nbsp;Private online office baas.acronis.com for user groups and settings management</b>
+					</a>
+					<ul>
+						<li>All four product releases were successfully put into commercial use</li>
+						<li>Role: <span class="x-role">Principal Front-End Maintainer</span> [in a team of up to 3 front-end developers]
+							<ul xfull>
+								<li>Ensuring a high level of backward compatibility</li>
+								<li>Maintenance, developing new modules (e.g. <a href="https://github.com/apoterenko/cv/tree/master/scheme/project09/src/smart-histogram" target="_blank">smart-histogram</a>), fixing critical issues</li>
+							</ul>
+						</li>
+						<li xfull>Achievements and personal contribution:
+							<ul>
+								<li>The most successful experience in maintaining unstable legacy code</li>
+								<li>The module is part of the leading product &laquo;Acronis Backup 12&raquo;</li>
+								<li>
+									Successfully developed a <a href="https://github.com/apoterenko/extjs-ts-console" target="_blank">demo application</a> based on
+									<span x-key-words>ExtJS6</span> & <span x-key-words>TypeScript</span>
+									[in a team of up to 2 front-end developers]
+								</li>
+							</ul>
+						</li>
+						<li xfull>Key points:
+							<ul>
+								<li>Dozens of mock-ups as a starting point</li>
+								<li>Demanding work environment</li>
+							</ul>
+						</li>
+						<li>Stack:
+							<ul>
+								<li>
+									<span x-key-words>JavaScript</span>, <span x-key-words>TypeScript</span>, <span x-key-words>ExtJS4</span>, <span x-key-words>ExtJS6</span>
+								</li>
+								<li>
+									<span x-key-words>Karma</span>, <span x-key-words>Jasmine</span>
+								</li>
+								<li>
+									<span x-key-words>Git/Bitbucket</span>, <span x-key-words>Jira</span>, <span x-key-words>WebStorm</span>
+								</li>
+								<li>
+									<span x-key-words>HTML5 CORS</span>, <span x-key-words>REST</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="https://github.com/apoterenko/cv/tree/master/scheme/project08" target="_blank">
+						<b>#8&nbsp;&nbsp;Email Templates</b>
+					</a>
+					<ul>
+						<li>Successfully put to commercial use</li>
+						<li>Role: <span class="x-role">Principal Front-End Developer</span> [a team of 1 front-end expert]
+							<ul xfull>
+								<li>Templates design and layout, development of Java-based template generator</li>
+							</ul>
+						</li>
+						<li xfull>Achievements:
+							<ul>
+								<li>Successfully drafting email templates supporting more than ten clients [desktop and mobile software, different browsers]</li>
+								<li>Successfully resolved the problem of rounded button corners in Microsoft Outlook, <a href="https://github.com/apoterenko/cv/blob/master/scheme/project08/src/email-rounded-button-template/activation/README.md" target="_blank">cross-client solution here</a> [the whole button area is active]</li>
+							</ul>
+						</li>
+						<li xfull>Key points:
+							<ul>
+								<li>A turn-key solution based on an adaptive layout</li>
+								<li>Dozens of mock-ups as a starting point</li>
+							</ul>
+						</li>
+						<li>Stack:
+							<ul>
+								<li><span x-key-words>Html</span>, <span x-key-words>Java</span>, <span x-key-words>Jira</span>, <span x-key-words>emailonacid.com</span></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<a href="https://www.youtube.com/watch?v=WlwYLloSA00" target="_blank"><b>Imigo.me Start-up</b></a><br>
+			<b>Principal Front-End Developer</b> [ part-time ]<br>
+			December 2015 - February 2016
+			<ul class="x-top-project">
+				<li>
+					<a href="https://github.com/apoterenko/cv/tree/master/scheme/project07" target="_blank">
+						<b>#7&nbsp;&nbsp;Relationship market</b>
+					</a>
+					<ul>
+						<li>A minimum viable product was created and successfully put into commercial use</li>
+						<li>
+							Role: <span class="x-role">Software Architect and Principal Front-End Developer</span> [in a team of up to 2 front-end developers]
+							<ul xfull>
+								<li>Choosing a front-end platform, troubleshooting, design, development</li>
+							</ul>
+						</li>
+						<li xfull>Achievements and personal contribution:
+							<ul>
+								<li>Selected the front-end platform, launched the project from scratch, implemented automatic assembly of the project</li>
+								<li>Drafted the entire UI</li>
+								<li>MVP developed within 3 months</li>
+							</ul>
+						</li>
+						<li xfull>Key points:
+							<ul>
+								<li>The main goal is to create a market platform where anyone can sell their services</li>
+								<li>Tight deadlines</li>
+								<li>I am one of the founders of the company</li>
+							</ul>
+						</li>
+						<li>Stack:
+							<ul>
+								<li>
+									<span x-key-words>Angular</span>, <span x-key-words>jQuery</span>, <span x-key-words>ECMAScript6/Babel</span>
+								</li>
+								<li>
+									<span x-key-words>Less</span>, <span x-key-words>Css3</span>
+								</li>
+								<li>
+									<span x-key-words>SystemJS</span>, <span x-key-words>Bower</span>, <span x-key-words>Gulp</span>
+								</li>
+								<li>
+									<span x-key-words>Git</span>, <span x-key-words>WebStorm</span>
+								</li>
+								<li>
+									<span x-key-words>SPA</span>, <span x-key-words>REST</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<a href="http://www.e-soft.ru" target="_blank"><b>E.Soft</b></a><br>
+			<b>Lead Programmer</b> [ full-time ]<br>
+			September 2014 - February 2015 <span xfull>[ <a href="https://github.com/apoterenko/cv/blob/master/references/E.Soft.Employment%20Reference.Poterenko.A.G.pdf" target="_blank">Link to the employment reference</a> ]</span>
+			<ul class="x-top-project">
+				<li>
+					<a href="https://github.com/apoterenko/cv/tree/master/scheme/project06" target="_blank">
+						<b>#6&nbsp;&nbsp;Data migration tool for importing Xml files from IBM Lotus Notes to PostgreSql</b>
+					</a>
+					<ul>
+						<li>Successfully launched for commercial use</li>
+						<li>
+							Role: <span class="x-role">Principal Back-End Developer</span> [a team of 1 back-end expert]
+							<ul xfull>
+								<li>Development of migration algorithms, <span x-key-words>Sql</span> expressions and <span x-key-words>Java</span> modules</li>
+							</ul>
+						</li>
+						<li xfull>
+							Achievements:
+							<ul>
+								<li>More than 15 million successfully imported <span x-key-words>Xml</span> and binary files; more than 10 million entities created in the database</li>
+								<li>
+									Transactional algorithm of operation: import process recovery after a possible failure or a deliberate interruption of the tool operation
+								</li>
+							</ul>
+						</li>
+						<li xfull>
+							Key points:
+							<ul>
+								<li>The tool dynamically creates structures for tables and dependent tables, as requested</li>
+								<li>Tens of terabytes of imported data</li>
+								<li>Import process time is more than 24 hours; no errors caused by memory overflow</li>
+							</ul>
+						</li>
+						<li>
+							Stack:
+							<ul>
+								<li>
+									<span x-key-words>Java</span>, <span x-key-words>Nio file</span>, <span x-key-words>Guava</span>, <span x-key-words>Jooq</span>, <span x-key-words>Xml</span>
+								</li>
+								<li>
+									<span x-key-words>Maven</span>, <span x-key-words>PostgreSql</span>, <span x-key-words>IntelliJ Idea</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="https://github.com/apoterenko/cv/tree/master/scheme/project05" target="_blank">
+						<b>#5&nbsp;&nbsp;Data migration tool based on existing internal Java modules of the WFMS for importing Xml files to PostgreSql</b>
+					</a>
+					<ul>
+						<li>Created and introduced the migration tool into Workflow Management System</li>
+						<li>Role: <span class="x-role">Principal Back-End Developer</span> [a team of 1 back-end expert]
+							<ul xfull>
+								<li>Development of migration algorithms, <span x-key-words>Sql</span> expressions and <span x-key-words>Java</span> modules</li>
+							</ul>
+						</li>
+						<li xfull>Achievements:
+							<ul>
+								<li>External data was successfully imported to the local database</li>
+								<li>Finding unconventional solutions to challenging tasks</li>
+							</ul>
+						</li>
+						<li>Stack:
+							<ul>
+								<li>
+									<span x-key-words>Java</span>, <span x-key-words>Jaxb</span>, <span x-key-words>Spring IoC</span>, <span x-key-words>Xml</span>, <span x-key-words>Sql</span>
+								</li>
+								<li>
+									<span x-key-words>Maven</span>, <span x-key-words>PostgreSql</span>, <span x-key-words>IntelliJ Idea</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="https://github.com/apoterenko/cv/tree/master/scheme/project04" target="_blank">
+						<b>#4&nbsp;&nbsp;Web Client for Workflow Management System</b>
+					</a>
+					<ul>
+						<li>A minimum viable product was successfully created</li>
+						<li>Role: <span class="x-role">Software Architect and Principal Front-End Developer</span> [a team of 1 front-end expert]
+							<ul xfull>
+								<li>Design, development and continuous integration</li>
+								<li>Integration into the current ecosystem</li>
+							</ul>
+						</li>
+						<li xfull>Achievements:
+							<ul>
+								<li>MVP developed within 3 months</li>
+								<li>Multi-layer architecture separating the user interface from the core functionality</li>
+							</ul>
+						</li>
+						<li xfull>Key points:
+							<ul>
+								<li>The main goal is to create a web client that will mirror the functionality of the client's desktop version based on <span x-key-words>Java Swing</span></li>
+								<li>A dynamically extensible user interface based on a special <span x-key-words>Xml</span> format with injected dynamic behaviour</li>
+							</ul>
+						</li>
+						<li>
+							Stack:
+							<ul>
+								<li>
+									<span x-key-words>JavaScript</span>, <span x-key-words>ExtJS5</span>, <span x-key-words>Google Closure Library</span>
+								</li>
+								<li>
+									<span x-key-words>Java</span>, <span x-key-words>Guice</span>, <span x-key-words>Gson</span>, <span x-key-words>Servlets</span>, <span x-key-words>Guice-servlet</span>, <span x-key-words>Tomcat</span>, <span x-key-words>Xml</span>
+								</li>
+								<li>
+									<span x-key-words>MVC</span>, <span x-key-words>JXON</span>, <span x-key-words>JSON-RPC</span>
+								</li>
+								<li>
+									<span x-key-words>Maven</span>, <span x-key-words>Svn</span>, <span x-key-words>IntelliJ Idea</span>, <span x-key-words>TeamCity</span>, <span x-key-words>YouTrack</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<a href="https://qiwi.com" target="_blank"><b>Qiwi Plc Payment System</b></a><br>
+			<b>Lead Programmer</b> [ full-time ]<br>
+			November 2011 - July 2014 <span xfull>[ <a href="https://github.com/apoterenko/cv/blob/master/references/Qiwi.Employment%20Reference.Poterenko.A.G.pdf" target="_blank">Link to the employment reference</a> ]</span>
+			<ul class="x-top-project">
+				<li>
+					<a href="https://github.com/apoterenko/cv/tree/master/scheme/project03" target="_blank">
+						<b>#3&nbsp;&nbsp;For payment kiosks: &laquo;Provider Visibility&raquo; module v1.x, the payment system core</b>
+					</a>
+					<ul>
+						<li>Successfully launched for commercial use</li>
+						<li>
+							Role: <span class="x-role">Principal Back-End Developer</span> [a team of 1 back-end expert]
+							<ul xfull>
+								<li>Designing database and algorithms, developing <span x-key-words>Java</span> modules and <span x-key-words>Sql</span> queries</li>
+							</ul>
+						</li>
+						<li xfull>Achievements:
+							<ul>
+								<li>The first version of the module was in operation for about 1.5 years without a single glitch</li>
+							</ul>
+						</li>
+						<li xfull>Key points:
+							<ul>
+								<li>The module core implements complex algorithms and operates under high loads</li>
+								<li>Critical area of responsibility, high cost of errors or malfunctions</li>
+							</ul>
+						</li>
+						<li>Stack:
+							<ul>
+								<li>
+									<span x-key-words>Java</span>, <span x-key-words>Memcached</span>, <span x-key-words>JUnit</span>
+								</li>
+								<li>
+									<span x-key-words>Sql</span>, <span x-key-words>Oracle</span>
+								</li>
+								<li>
+									<span x-key-words>Git</span>, <span x-key-words>IntelliJ Idea</span>, <span x-key-words>Toad</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="https://github.com/apoterenko/cv/tree/master/scheme/project02" target="_blank">
+						<b>#2&nbsp;&nbsp;Jira plugins for in-house customers</b>
+					</a>
+					<ul>
+						<li>Successfully launched for commercial use</li>
+						<li>Role: <span class="x-role">System Architect assistant</span> [in a team of up to 2 developers]
+							<ul xfull>
+								<li>Development, maintenance</li>
+							</ul>
+						</li>
+						<li xfull>Achievements and personal contribution:
+							<ul>
+								<li>Created practical plugins to automate operations of the Analytical Department</li>
+							</ul>
+						</li>
+						<li xfull>Key points:
+							<ul>
+								<li>The key plugin evaluates completion time of Jira-tasks assigned to software developers</li>
+								<li>Most plugins have a UI</li>
+							</ul>
+						</li>
+						<li>Stack:
+							<ul>
+								<li>
+									<span x-key-words>Java</span>, <span x-key-words>Spring IoC</span>, <span x-key-words>Guava</span>, <span x-key-words>Apache Velocity</span>, <span x-key-words>Atlassian SDK</span>
+								</li>
+								<li>
+									<span x-key-words>Maven</span>, <span x-key-words>Git</span>, <span x-key-words>Gerrit</span>
+								</li>
+								<li>
+									<span x-key-words>Jira</span>, <span x-key-words>IntelliJ Idea</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="https://github.com/apoterenko/cv/tree/master/scheme/project01" target="_blank">
+						<b>#1&nbsp;&nbsp;Private online office agent.qiwi.com, the main working portal for all customers</b>
+					</a>
+					<ul>
+						<li>Successfully launched for commercial use</li>
+						<li>
+							Role:
+							<ul>
+								<li>
+									<span class="x-role">Principal Front-End/Back-End Application Developer</span> [in a team of up to 6 developers]
+									<ul xfull>
+										<li>20% of system tasks; 80% of application tasks</li>
+										<li>Developing <span x-key-words>Java</span> and <span x-key-words>JavaScript</span> modules and <span x-key-words>Sql</span> expressions; code review; unit testing; fixing critical issues</li>
+									</ul>
+								</li>
+								<li>
+									Final year: <span class="x-role">Team Leader</span>, acting as a <span class="x-role">Project Manager</span>
+									<ul xfull>
+										<li>Ensuring deadlines are met</li>
+										<li>Providing itemised estimates for development work</li>
+										<li>Task requirements and specifications analysis; prototype analysis and translation to <span x-key-words>Jira</span> tasks</li>
+										<li>Bringing any major issues up to the relevant stakeholders, assigning duties to regular developers</li>
+										<li>Working closely with customers, QA, product managers, release managers, database and system module developers</li>
+										<li>Conducting job interviews with <span x-key-words>JavaScript</span> developer applicants</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li xfull>
+							Achievements and personal contribution:
+							<ul>
+								<li>More than 150 successfully developed application and system tasks [over 6 years]</li>
+								<li>More than 20 significant successful releases [in the last 3 years]</li>
+								<li>
+									The following modules have made a significant contribution to the project's success:
+									<ul>
+										<li>protection modules preventing attacks via client-side scripting based on <span x-key-words>OWASP AntiSamy</span></li>
+										<li>reporting module, extensions based on <span x-key-words>JasperReports</span></li>
+										<li>dozens of widgets, plugins and extensions based on <span x-key-words>ExtJS</span></li>
+										<li>&laquo;Provider visibility&raquo; module v1.x, payment system core</li>
+										<li>&laquo;Repeat payments&raquo; module, payment system core</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li xfull>
+							Key points:
+							<ul>
+								<li><span x-key-words>Agile</span>, <span x-key-words>Scrum</span></li>
+								<li>Demanding work environment</li>
+							</ul>
+						</li>
+						<li>
+							Stack:
+							<ul>
+								<li>
+									<span x-key-words>JavaScript</span>, <span x-key-words>ExtJS3</span>, <span x-key-words>ExtJS4</span>
+								</li>
+								<li>
+									<span x-key-words>Sql</span>, <span x-key-words>Java</span>, <span x-key-words>Guice</span>, <span x-key-words>Jdbc</span>, <span x-key-words>Guava</span>, <span x-key-words>Camel</span>, <span x-key-words>JasperReports</span>, <span x-key-words>FreeMarker</span>, <span x-key-words>Struts</span>, <span x-key-words>Servlets</span>, <span x-key-words>Jsp</span>, <span x-key-words>Guice-servlet</span>, <span x-key-words>OWASP AntiSamy</span>, <span x-key-words>TestNg</span>
+								</li>
+								<li>
+									<span x-key-words>Maven</span>, <span x-key-words>Git</span>, <span x-key-words>Gerrit</span>, <span x-key-words>Jira</span>, <span x-key-words>TeamCity</span>
+								</li>
+								<li>
+									<span x-key-words>Tomcat</span>, <span x-key-words>Oracle</span>, <span x-key-words>Toad</span>, <span x-key-words>IntelliJ Idea</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<a href="https://qiwi.com" target="_blank"><b>Qiwi Plc Payment System</b></a><br>
+			<b>Senior Programmer</b> [ full-time ]<br>
+			January 2009 – October 2011 <span xfull>[ <a href="https://github.com/apoterenko/cv/blob/master/references/Qiwi.Employment%20Reference.Poterenko.A.G.pdf" target="_blank">Link to the employment reference</a> ]</span>
+			<ul class="x-top-project">
+				<li>
+					<a href="https://github.com/apoterenko/cv/tree/master/scheme/project01" target="_blank">
+						<b>#1&nbsp;&nbsp;Private online office agent.qiwi.com, the main working portal for all customers</b>
+					</a>
+					<ul>
+						<li>Migration to <span x-key-words>Java</span> and <span x-key-words>ExtJS</span> was successfully completed</li>
+						<li>
+							Role: <span class="x-role">Front-End/Back-End Application Developer</span> [in a team of up to 3 developers]
+							<ul xfull>
+								<li>Developing <span x-key-words>Java</span> and <span x-key-words>JavaScript</span> modules and <span x-key-words>Sql</span> expressions</li>
+								<li>Eliminating legacy Php code</li>
+							</ul>
+						</li>
+						<li>
+							Stack:
+							<ul>
+								<li>
+									<span x-key-words>JavaScript</span>, <span x-key-words>ExtJS2</span>, <span x-key-words>ExtJS3</span>
+								</li>
+								<li>
+									<span x-key-words>Sql</span>, <span x-key-words>Java</span>, <span x-key-words>Struts</span>, <span x-key-words>Servlets</span>, <span x-key-words>Jsp</span>
+								</li>
+								<li>
+									<span x-key-words>Tomcat</span>, <span x-key-words>Oracle</span>, <span x-key-words>Toad</span>, <span x-key-words>IntelliJ Idea</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<a href="https://qiwi.com" target="_blank"><b>Qiwi Plc Payment System</b></a><br>
+			<b>Junior Programmer</b> [ full-time ]<br>
+			July 2008 - December 2008
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-2">
+			<b>EDUCATIONAL QUALIFICATION</b>
+		</div>
+		<div class="col-xs-10">
+			<a href="http://www.ulstu.ru/?design=english" target="_blank"><b>Russia, Ulyanovsk State Technical University (UlSTU)</b></a><br>
+			<b>Software Engineering</b> [ full-time ]<br>
+			September 2003 - June 2008 <span xfull>[ <a href="https://github.com/apoterenko/cv/blob/master/educational%20qualifications/Degree.pdf" target="_blank">Link to the degree reference</a> ] [ <a href="https://github.com/apoterenko/cv/blob/master/educational%20qualifications/Transcript.pdf" target="_blank">Link to the transcript reference</a> ]</span>
+			<ul>
+				<li>Bachelor's Degree/Specialist</li>
+				<li><a href="https://github.com/apoterenko/cv/tree/master/educational%20qualifications/docs/diploma" target="_blank">Developing a cross-platform Web-portal for processing orders at an automobile store</a></li>
+				<li><span x-key-words>Java</span>, <span x-key-words>Servlets</span>, <span x-key-words>Jsp</span>, <span x-key-words>Hibernate</span>, <span x-key-words>Struts</span>, <span x-key-words>Apache Axis</span>, <span x-key-words>Tomcat</span></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<script>
+	updateHash('compact');
+
+	if (winHref.indexOf('translate') > -1) {
+		document.body.className = 'x-translate';
+	}
+</script>
+</body>
+</html>

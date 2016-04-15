@@ -1,0 +1,23 @@
+{
+  "name": "ui-less-build-utils",
+  "version": "0.0.6",
+  "homepage": "https://github.com/apoterenko/ui-less-build-utils",
+  "keywords": [
+    "gulp",
+    "css",
+    "less",
+    "utils",
+    "build"
+  ],
+  "author": {
+    "name": "Alexander Poterenko",
+    "email": "apoterenko@gmail.com"
+  },
+  "bugs": "https://github.com/apoterenko/ui-less-build-utils/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:apoterenko/ui-less-build-utils.git"
+  },
+  "readmeFilename": "README.md",
+  "license": "MIT"
+}

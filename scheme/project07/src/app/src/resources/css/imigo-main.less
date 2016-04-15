@@ -1,0 +1,37 @@
+@import "imigo-main-component";
+
+.imigo-main-card-placeholder {
+	.imigo-loupe-image {margin-left: 10px;}
+	.imigo-main-card-plus-image {margin-right: 10px;}
+	.imigo-card-empty-label {padding-top: 60px;}
+}
+
+// Media queries
+.imigo-main-card-placeholder {
+	.imigo-card-photo {
+		height: 45%;
+	}
+	.imigo-card-editor-content-wrapper {
+		height: 55%;
+	}
+}
+
+.build-media-card-placeholder (@max-width, @card-empty-label-padding-top, @card-card-photo-height, @card-editor-content-wrapper-height) {
+	@media (max-width: @max-width) {
+		.imigo-view {
+			.imigo-main-card-placeholder {
+				.imigo-card-empty-label {padding-top: @card-empty-label-padding-top;}
+				.imigo-card-photo {
+					height: @card-card-photo-height;
+				}
+				.imigo-card-editor-content-wrapper {
+					height: @card-editor-content-wrapper-height;
+				}
+			}
+		}
+	}
+}
+
+.build-media-card-placeholder(@max-width: @imigo-1280-width, @card-empty-label-padding-top: 50px, @card-card-photo-height: 40%, @card-editor-content-wrapper-height: 60%);
+.build-media-card-placeholder(@max-width: @imigo-1024-width, @card-empty-label-padding-top: 40px, @card-card-photo-height: 35%, @card-editor-content-wrapper-height: 65%);
+.build-media-card-placeholder(@max-width: @imigo-800-width, @card-empty-label-padding-top: 30px, @card-card-photo-height: 30%, @card-editor-content-wrapper-height: 70%);

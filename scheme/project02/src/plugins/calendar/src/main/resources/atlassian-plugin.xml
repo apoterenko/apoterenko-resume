@@ -1,0 +1,11 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="QIWI Calendar Plugin" plugins-version="2">
+	<plugin-info>
+		<description>QIWI Calendar Plugin</description>
+		<version>${project.version}</version>
+		<vendor name="${project.organization.name}" url="${project.organization.url}" />
+	</plugin-info>
+
+	<component key="qiwi-calendar-service" class="qiwi.jira.plugins.calendar.CalendarServiceImpl" public="true">
+		<interface>qiwi.jira.plugins.calendar.CalendarService</interface>
+	</component>
+</atlassian-plugin>

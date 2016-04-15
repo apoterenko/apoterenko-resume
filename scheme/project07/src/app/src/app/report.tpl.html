@@ -1,0 +1,70 @@
+<div ui-column ui-full ng-controller="reportCtrl">
+	<div ui-hc-align ui-vc-align>
+		<div ui-inline-block class="imigo-report-dialog">
+			<div ui-row ui-full>
+				<div>
+					<div ui-bl-hr-align class="imigo-chat-cross-image" ng-click="onCloseReport()"></div>
+				</div>
+				<div>
+					<div ui-h-32 ui-lh-c ui-hl-align class="imigo-report-title-label">{{'Report this user for' | translate}}</div>
+				</div>
+				<div ui-full ui-hl-align>
+					<div ui-column ui-full-w>
+						<div ui-vc-align ui-w-12 class="imigo-report-checkbox-wrapper">
+							<input ui-h-20 ng-model="form.cause" class="imigo-report-checkbox" type="radio" value="fraud">
+						</div>
+						<div ui-vc-align>
+							<div class="imigo-report-checkbox-label">{{'Fraud' | translate}}</div>
+						</div>
+					</div>
+				</div>
+				<div ui-full ui-hl-align>
+					<div ui-column ui-full-w>
+						<div ui-vc-align ui-w-12 class="imigo-report-checkbox-wrapper">
+							<input ui-h-20 ng-model="form.cause" class="imigo-report-checkbox" type="radio" value="illegal">
+						</div>
+						<div ui-vc-align>
+							<div class="imigo-report-checkbox-label">{{'Offensive or illegal content' | translate}}</div>
+						</div>
+					</div>
+				</div>
+				<div ui-full ui-hl-align>
+					<div ui-column ui-full-w>
+						<div ui-vc-align ui-w-12 class="imigo-report-checkbox-wrapper">
+							<input ui-h-20 ng-model="form.cause" class="imigo-report-checkbox" type="radio" value="harassment">
+						</div>
+						<div ui-vc-align>
+							<div class="imigo-report-checkbox-label">{{'Harassment, profanity' | translate}}</div>
+						</div>
+					</div>
+				</div>
+				<div ui-full ui-hl-align>
+					<div ui-column ui-full-w>
+						<div ui-vc-align ui-w-12 class="imigo-report-checkbox-wrapper">
+							<input ui-h-20 ng-model="form.cause" class="imigo-report-checkbox" type="radio" value="other">
+						</div>
+						<div ui-vc-align>
+							<div class="imigo-report-checkbox-label">{{'Other violation (please specify)' | translate}}</div>
+						</div>
+					</div>
+				</div>
+				<div ui-column ui-full>
+					<div ui-full class="imigo-report-editor-inputarea-wrapper">
+						<textarea ui-full
+						          ui-block
+						          minlength="1"
+						          placeholder="{{'Add a comment' | translate}}"
+						          ng-model="form.comment"
+						          class="imigo-report-editor-inputarea"></textarea>
+					</div>
+				</div>
+				<div ui-vc-align>
+					<div ui-inline-block
+					     class="imigo-report-dialog-button"
+					     ng-class="{disabled: !canSendReport()}"
+					     ng-click="onSendReport()">{{'send' | translate}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

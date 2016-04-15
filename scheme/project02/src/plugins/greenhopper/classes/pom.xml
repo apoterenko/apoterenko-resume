@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>qiwi.jira.greenhopper</groupId>
+		<artifactId>qiwi-jira-greenhopper</artifactId>
+		<version>1.1.10-SNAPSHOT</version>
+	</parent>
+
+	<groupId>qiwi.jira.greenhopper</groupId>
+	<artifactId>jira-greenhopper-plugin-classes</artifactId>
+	<version>${greenhopper-version}</version>
+	<packaging>jar</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>unpack</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.atlassian.jira.plugins</groupId>
+									<artifactId>jira-greenhopper-plugin</artifactId>
+									<version>${greenhopper-version}</version>
+									<type>jar</type>
+									<overWrite>true</overWrite>
+									<outputDirectory>${project.build.directory}/classes</outputDirectory>
+									<includes>com/**/*.*</includes>
+									<excludes>com/pyxis/greenhopper/jira/license/GreenHopperLicenseManagerImpl.class,com/pyxis/greenhopper/jira/license/GreenHopperLicenseManagerImpl$1.class</excludes>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

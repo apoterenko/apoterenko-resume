@@ -1,0 +1,120 @@
+@import '../../../styles/bootstrap/bootstrap/_mixins';
+@import '../../../styles/app/variables.scss';
+
+.app-select-unselectable {
+  @include user-select(none);
+}
+
+.app-select-search-wrapper {
+  padding: 0 4px;
+}
+
+.app-select-search {
+  width: 100%;
+}
+
+.app-select-close-action {
+  float: right;
+  margin-left: 5px;
+  font-size: 18px;
+  line-height: 12px;
+}
+
+.app-select-caret {
+  position: absolute;
+  top: 45%;
+  right: 15px;
+  cursor: pointer;
+}
+
+.app-select-tool {
+  padding: 3px $padding-base-horizontal;
+  font-weight: bold;
+  cursor: pointer;
+}
+.app-select-tool .fa {
+  position: absolute;
+  right: 10px;
+}
+
+.app-select-match-item {
+  display: inline-block;
+  border: 1px solid #dde6e9;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 3px;
+  margin: 1px 3px 3px 3px;
+
+  &.selected {
+    background-color: #99e5a9;
+    border-color: #b6b6b6;
+
+    &.context-exist {
+      background-color: #99e5a9;
+    }
+  }
+
+  &.context-exist {
+    background-color: #d8ffe1;
+  }
+}
+
+.ui-select-choices {
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  overflow-x: hidden;
+  margin-top: 0;
+}
+
+.ui-select-choices.dropdown-menu {
+  box-shadow: none;
+  min-width: unset;
+}
+
+.ui-select-container {
+  font-weight: normal;
+}
+
+.ui-select-container[disabled] * {
+  background-color: $gray-lighter;
+  cursor: not-allowed;
+}
+
+.ui-select-multiple .ui-select-choices {
+  margin-top: 1px;
+}
+
+.ui-select-choices-row {
+  &.active {
+    .dropdown-item {
+      color: #fff;
+      background-color: #23b7e5;
+    }
+  }
+  &:hover {
+    background-color: #eee;
+  }
+  .dropdown-item {
+    padding: 3px $padding-base-horizontal;
+    line-height: 1.42857143;
+    color: #333;
+    font-weight: normal;
+    cursor: pointer;
+  }
+}
+
+.ui-select-multiple {
+  height: auto;
+  padding: 3px 3px 0 3px;
+  min-height: 35px;
+}
+
+.ui-select-multiple input.app-select-search {
+  background-color: transparent !important; /* To prevent double background when disabled */
+  margin-bottom: 3px;
+
+  &.hidden {
+   display: none;
+  }
+}

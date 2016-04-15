@@ -1,0 +1,54 @@
+<div ui-column ui-full ui-rel class="imigo-client-landing-view">
+	<div ui-full>
+		<div ui-row ui-full>
+			<div ui-full-w>
+				<div ui-column ui-full-w>
+					<div ui-w-5p></div>
+					<div ui-w-57p>
+						<div>
+							<div ui-row ui-full-w>
+								<div ui-hc-align>
+									<div ui-inline-block class="imigo-customer-landing-logo-image"></div>
+								</div>
+								<div ui-hc-align>
+									<div ui-inline-block class="imigo-client-landing-title-label">
+										ЗАРАБАТЫВАЙ НА ОБЩЕНИИ
+									</div>
+								</div>
+								<div ui-hc-align>
+									<div ui-column ui-full-w class="imigo-client-landing-login-label-wrapper">
+										<div ui-hc-align>
+											<div ui-auto ui-column>
+												<div ui-vc-align>
+													<div ui-inline-block class="imigo-client-landing-login-label">
+														ВОЙДИ ЧЕРЕЗ
+													</div>
+												</div>
+												<div>
+													<div ui-h-80
+													     ui-w-80
+													     ui-inline-block
+													     ng-repeat="link in [{path: 'auth/vk', cls: 'imigo-customer-landing-vk-image'}]"
+													     ng-click="redirect(link.path)"
+													     ng-class="[link.cls, 'imigo-client-landing-link']"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ui-w-38p></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ui-abs ui-full-w ui-hc-align class="imigo-client-landing-video-button-wrapper">
+		<div ui-inline-block
+		     class="imigo-client-landing-video-button"
+		     ng-click="onShowVideo()">
+			ВИДЕОЭКСКУРСИЯ ПО САЙТУ
+		</div>
+	</div>
+</div>

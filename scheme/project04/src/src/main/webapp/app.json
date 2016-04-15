@@ -1,0 +1,72 @@
+{
+    "name": "Workflow",
+    "indexHtmlPath": "index.jsp",
+    "classpath": "${app.dir}/app",
+    "overrides": "${app.dir}/overrides",
+    "framework": "ext",
+    "theme": "ext-theme-neptune",
+    "requires": [
+    ],
+    "sass": {
+        "namespace": "Workflow"
+    },
+    "url": null,
+    "js": [
+        {
+            "path": "${ext.dir}/build/ext-all-rtl-debug.js"
+        },
+        {
+            "path": "app.js",
+            "bundle": true
+        }
+    ],
+    "production": {
+        "output": {
+            "base": "${app.dir}"
+        },
+        "loader": {
+            "cache": "${build.timestamp}"
+        }
+    },
+    "development": {
+        "output": {
+            "base": "${app.dir}"
+        }
+    },
+    "css": [
+        {
+            "path": "bootstrap.css",
+            "bootstrap": true
+        }
+    ],
+    "bootstrap": {
+        "base": "${app.dir}",
+        "manifest": "bootstrap.json",
+        "microloader": "bootstrap.js",
+        "css": "bootstrap.css"
+    },
+    "appCache": {
+        "cache": [
+            "index.jsp"
+        ],
+        "network": [
+            "*"
+        ],
+        "fallback": []
+    },
+    "resources": [
+    ],
+    "ignore": [
+        "(^|/)CVS(/?$|/.*?$)"
+    ],
+    "archivePath": "archive",
+    "slicer": {
+        "js": [
+            {
+                "path": "${app.dir}/sass/example/custom.js",
+                "isWidgetManifest": true
+            }
+        ]
+    },
+    "id": "148e7f31-f8a7-4d68-9f3c-f8b5c6396504"
+}

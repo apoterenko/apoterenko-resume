@@ -1,0 +1,58 @@
+@import "imigo-utils";
+@import "imigo-constant";
+
+.build-label(
+	@name: 'about-title',
+	@color: @imigo-basic-bright-color,
+	@font-size: 22
+);
+.build-label(
+	@name: 'about-contacts',
+	@color: @imigo-basic-bright-color,
+	@font-size: 22
+);
+.imigo-about-title-label, .imigo-about-contacts-label {
+	border-bottom: 1px solid @imigo-basic-brown-color;
+}
+
+.build-label(
+	@name: 'about-text',
+	@color: @imigo-basic-bright-color
+);
+.imigo-about-content-wrapper {
+	.imigo-about-text-label * {
+		.build-user-select(@select: text);
+	}
+}
+
+// Media queries
+.build-about-controls (@max-width, @about-text-label-font-size, @about-label-font-size) {
+	@media (max-width: @max-width) {
+		.imigo-view {
+			.imigo-about-text-label {
+				font-size: @about-text-label-font-size;
+			}
+			.imigo-about-contacts-label, .imigo-about-title-label {
+				font-size: @about-label-font-size;
+			}
+		}
+	}
+}
+
+.build-about-controls (
+	@max-width: @imigo-1280-width,
+	@about-text-label-font-size: 13px,
+	@about-label-font-size: 20px
+);
+
+.build-about-controls (
+	@max-width: @imigo-1024-width,
+	@about-text-label-font-size: 12px,
+	@about-label-font-size: 18px
+);
+
+.build-about-controls (
+	@max-width: @imigo-800-width,
+	@about-text-label-font-size: 11px,
+	@about-label-font-size: 16px
+);

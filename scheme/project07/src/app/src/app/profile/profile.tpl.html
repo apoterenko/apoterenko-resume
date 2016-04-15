@@ -1,0 +1,269 @@
+<div ui-column ui-full-w ui-h-10p ng-include="'app/logo.tpl.html'" class="imigo-mini-logo-wrapper"></div>
+<div ui-rel class="imigo-center-panel imigo-panel">
+	<div ui-column ui-full ng-show="user">
+		<div ui-w-6p></div>
+		<div>
+			<div ui-row ui-full>
+				<div ui-h-28></div>
+				<div>
+					<div ui-column ui-full>
+						<div ui-w-10p></div>
+						<div ui-full-h ui-vt-align>
+							<div ui-row ng-if="user" class="imigo-profile-account-type-zone">
+								<div ui-full>
+									<div ui-full class="imi-{{accountType()}}-zone">
+										<div ui-full
+										     class="imigo-profile-photo-image"
+										     ng-style="{'background-image': 'url(' + photo.toUrl(350) + ')'}">
+										</div>
+									</div>
+								</div>
+								<div ui-full-w ng-if="!!me && user && !user.premium">
+									<div ui-hc-align
+									     class="imigo-bank-apply-button imigo-premium-shadow"
+									     ng-click="buyPremium()">
+										{{'activate premium' | translate}}
+									</div>
+								</div>
+							</div>
+						</div>
+						<div ui-w-50p ui-full-h ui-vt-align class="imigo-profile-about-zone-wrapper">
+							<div ui-row
+							     ui-full-w
+							     class="imigo-profile-about-zone-wrapper-content">
+								<div ui-full>
+									<div ui-column ui-full imi-basic-zone>
+										<div ui-full-h class="imigo-profile-about-zone">
+											<div ui-row ui-full>
+												<div ui-h-48>
+													<div ui-column ui-full>
+														<div ui-full-w ui-vb-align class="imigo-nowrap">
+															<div contentEditable="{{!!me}}"
+																 contenteditable
+															     ui-vb-align
+															     ui-inline-block
+															     maxlength="30"
+															     minlength="1"
+															     data-tip="{{user.nickname}}"
+															     ng-model="user.nickname"
+															     ng-blur="me && updateProperty('nickname')"
+															     class="imigo-profile-nickname-label"></div>
+															<div ui-inline-block class="imigo-profile-years-label" translate>{{age()}} years</div>
+														</div>
+														<div ui-vb-align ng-if="me" language></div>
+														<div ui-vb-align ng-if="!me" language readonly></div>
+													</div>
+												</div>
+												<div ui-h-24 ui-lh-c>
+													<span imi-cs-ct data-tip="{{'negative karma' | translate}}">{{sum('antiKarma')}}</span>
+													<span imi-cs-sep>&nbsp;/&nbsp;</span>
+													<span imi-cs-ct-of data-tip="{{'karma' | translate}}">{{sum('karma')}}</span>
+												</div>
+												<div>
+													<textarea ui-full
+															  ng-if="me"
+															  ng-change="onChangeAbout()"
+															  ng-model="user.about"
+															  ng-blur="updateProperty('about')"
+															  maxlength="{{maxAccessbileCharCount}}"
+															  class="imigo-profile-about-editor-inputarea"
+															  placeholder="{{'Please introduce yourself! This will help other users better understand who you are and what you\'re looking for.' | translate}}"></textarea>
+													<textarea ui-full readonly
+															  ng-if="!me"
+													          ng-model="user.about"
+													          maxlength="{{maxAccessbileCharCount}}"
+													          class="imigo-profile-about-editor-inputarea"></textarea>
+												</div>
+												<div ui-h-32 ng-if="me" class="imigo-profile-char-count-label" translate>{{accessbileCharCount}} characters left</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div ng-if="returnState">
+									<div ui-column ui-full ng-if="returnState === 'search'">
+										<div ui-w-50p>
+											<div ui-hc-align
+											     class="imigo-profile-return-button"
+											     ng-click="backwardToState()">
+												{{'Back to search' | translate}}
+											</div>
+										</div>
+										<div><div ui-w-8></div></div>
+										<div ui-w-50p>
+											<div ui-hc-align
+											     class="imigo-profile-return-button"
+											     ng-click="onChat()">
+												{{'Discuss the deal' | translate}}
+											</div>
+										</div>
+									</div>
+									<div ui-hc-align
+									     class="imigo-profile-return-button"
+									     ng-if="returnState === 'chat'"
+									     ng-click="backwardToState()">
+										{{'discuss the deal' | translate}}
+									</div>
+									<div ui-hc-align
+									     class="imigo-profile-return-button"
+									     ng-if="returnState === 'main'"
+									     ng-click="backwardToState()">
+										{{'back to home page' | translate}}
+									</div>
+								</div>
+							</div>
+						</div>
+						<div ui-w-36p ui-full-h>
+							<div ui-rel
+							     ui-full-w
+							     class="imigo-profile-upload-zone">
+								<perfect-scrollbar ui-full
+								                   imi-basic-zone
+								                   wheel-propagation="true"
+								                   wheel-speed="10"
+								                   min-scrollbar-length="20"
+								                   class="imigo-scroller">
+									<div ui-full ui-fl-content>
+										<div ng-repeat="image in photo.v"
+										     ng-click="openOverlay($index)"
+										     ng-style="{'background-image': 'url(' + photo.toUrl(115, image) + ')'}"
+										     class="imigo-profile-photo-preview-image" >
+										</div>
+										<div ng-if="me && photo.v.length < 8"
+										     class="imigo-profile-photo-upload-image">
+											<label ui-inline-block
+											       ui-full
+											       nv-file-over=""
+											       nv-file-drop=""
+											       uploader="uploader"
+											       data-tip="{{'Add a new photo' | translate}}"
+											       class="imigo-profile-photo-upload-area-image">
+												<input type="file" class="hidden" nv-file-select="" uploader="uploader">
+											</label>
+										</div>
+									</div>
+								</perfect-scrollbar>
+							</div>
+						</div>
+						<div ui-w-4p></div>
+					</div>
+				</div>
+				<div ui-full>
+					<div ui-column ui-full>
+						<div ui-full-h ui-w-33p ng-repeat="(type, desk) in data">
+							<div ui-row ui-full>
+								<div ui-h-8p></div>
+								<div>
+									<div ui-column ui-auto>
+										<div class="imigo-profile-icon-{{type}} imigo-profile-icon-image"></div>
+										<div ui-vc-align class="imigo-profile-graphic-description">
+											<div>
+												<div class="imigo-profile-graphic-title-label imigo-profile-graphic-title-{{type}}-label">
+													<span ng-if="type == 'romance'" translate>Romance</span>
+													<span ng-if="type == 'work'" translate>Professional</span>
+													<span ng-if="type == 'friends'" translate>Friendship</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div ui-hc-align>
+									<span imi-cs-ct data-tip="{{'negative karma' | translate}}">{{desk.antiKarma}}</span>
+									<span imi-cs-sep>&nbsp;/&nbsp;</span>
+									<span imi-cs-ct-of data-tip="{{'karma' | translate}}">{{desk.karma}}</span>
+								</div>
+								<div>
+									<div ui-column ui-full-w>
+										<div ui-vc-align ui-hc-align>
+											<div ui-inline-block
+											     data-tip="{{desk.tip.top | translate}} {{desk.getCustomLevel('top')}}"
+											     class="imigo-profile-graphic-level-top-image imigo-profile-graphic-level-top-{{type}}-image"></div>
+										</div>
+									</div>
+								</div>
+								<div ui-h-92p>
+									<div ui-rel ui-full-h ui-auto class="imigo-profile-graphic-image" ng-style="desk.getStyle()">
+										<div ui-column ui-full>
+											<div ui-vc-align ui-hc-align class="imigo-profile-graphic-total-count-label">
+												{{desk.level || desk.getLevel()}}
+											</div>
+										</div>
+										<div ui-abs
+										     data-tip="{{desk.tip.left | translate}} {{desk.getCustomLevel('left')}}"
+										     class="imigo-profile-graphic-level-left-image imigo-profile-graphic-level-left-{{type}}-image">&nbsp;</div>
+										<div ui-abs
+										     data-tip="{{desk.tip.right | translate}} {{desk.getCustomLevel('right')}}"
+										     class="imigo-profile-graphic-level-right-image imigo-profile-graphic-level-right-{{type}}-image">&nbsp;</div>
+									</div>
+								</div>
+								<div><div ui-h-12></div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ui-w-6p></div>
+	</div>
+	<div ui-abs ui-full ng-if="user"
+	     ng-click="closeOverlay()"
+	     class="imigo-profile-overlay imigo-panel"
+	     ng-show="user"
+	     ng-style="{display: photo.index < 0 ? 'none' : 'block'}">
+		<div ui-column ui-full>
+			<div ui-w-30p></div>
+			<div ui-w-40p>
+				<div ui-row ui-full>
+					<div ui-h-44></div>
+					<div ui-full>
+						<div ui-column ui-full>
+							<div ui-vc-align>
+								<div ui-w-52 ui-hc-align>
+									<div ui-inline-block
+										 ng-click="onOverlayPrev($event)"
+										 ng-style="{visibility: photo.index > 0 ? 'visible' : 'hidden'}"
+									     class="imigo-backward-button">
+									</div>
+								</div>
+							</div>
+							<div ui-full
+							     class="imigo-profile-overlay-photo"
+							     ng-style="{'background-image': 'url(' + photo.toUrl(600, photo.index) + ')'}">
+							</div>
+							<div ui-vt-align>
+								<div ui-row ui-w-52 ui-full-h>
+									<div ui-hc-align>
+										<div ui-inline-block
+											 ng-if="me"
+										     ng-click="updateAvatar($event, photo.index)"
+										     class="imigo-star-button"
+										     data-tip="{{'Set as profile picture' | translate}}"></div>
+									</div>
+									<div ui-column ui-full>
+										<div ui-vc-align ui-hc-align>
+											<div ui-inline-block
+											     ng-click="onOverlayNext($event)"
+												 ng-style="{visibility: photo.index < photo.v.length - 1 ? 'visible' : 'hidden'}"
+											     class="imigo-forward-button">
+											</div>
+										</div>
+									</div>
+									<div ui-hc-align>
+										<div ui-inline-block
+											 ng-if="me"
+											 ng-click="deleteImage($event, photo.index)"
+										     class="imigo-delete-button"
+										     data-tip="{{'remove' | translate}}"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ui-h-44 ui-lh-c ui-hc-align></div>
+				</div>
+			</div>
+			<div ui-w-30p></div>
+		</div>
+	</div>
+	<div ui-abs ui-full ng-if="alertObject" ng-include="'app/popup.tpl.html'" class="imigo-alert-dialog-wrapper imigo-panel"></div>
+</div>
+<div ui-column ui-full-w class="imigo-bottom-panel" ng-include="'app/footer.tpl.html'"></div>

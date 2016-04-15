@@ -1,0 +1,46 @@
+<div ui-column ui-full-w ui-h-10p ng-include="'app/logo.tpl.html'" class="imigo-mini-logo-wrapper"></div>
+<div ui-rel class="imigo-center-panel imigo-panel">
+	<div ui-column ui-w-85p ui-full-h>
+		<div><div ui-w-92></div></div>
+		<div ui-full>
+			<div ui-rel ui-full>
+				<div ui-full ui-abs>
+					<perfect-scrollbar id="imigo-error-email-scroller"
+					                   ui-full
+					                   class="imigo-scroller"
+					                   wheel-propagation="true"
+					                   wheel-speed="2"
+					                   min-scrollbar-length="20">
+						<div class="imigo-about-content-wrapper">
+							<div ui-row ui-full>
+								<div ui-full-w>
+									<div ng-if="showVk" class="imigo-error-email-title-label">{{'Set email in VK settings.' | translate}}</div>
+									<div ng-if="showFacebook" class="imigo-error-email-title-label">{{'Set email in Facebook settings.' | translate}}</div>
+									<div ng-if="showVk" class="imigo-error-email-label">
+										<p translate>To use IMIGO.ME you need to associate an email address with your VK account. Use <a class="imigo-card-nav2-label imigo-underline" target="_blank" href="http://vk.com/settings">this</a> VK page to do so or navigate manually following the screenshots below.</p>
+										<resource type="img" path="resources/images/errorEmail/vk1.png"></resource>
+										<p translate>Go to your VK Settings.</p>
+										<resource type="img" path="resources/images/errorEmail/vk2.png"></resource>
+										<p translate>Set your new primary email address. After that you can try to <a class="imigo-card-nav2-label imigo-underline" href="/#/login">login</a> again.</p>
+									</div>
+									<div ng-if="showFacebook" class="imigo-error-email-label">
+										<p translate>To use IMIGO.ME you need to associate an email address with your Facebook account. Use <a class="imigo-card-nav2-label imigo-underline" target="_blank" href="https://www.facebook.com/settings?tab=account&amp;section=email&amp;view">this</a> Facebook page to do so or navigate manually following the screenshots below.</p>
+										<resource type="img" path="resources/images/errorEmail/facebook1.png"></resource>
+										<p translate>Go to your Facebook Settings.</p>
+										<resource type="img" path="resources/images/errorEmail/facebook2.png"></resource>
+										<p translate>Go to General and set your new primary email address. After that you can try to <a class="imigo-card-nav2-label imigo-underline" href="/#/login">login</a> again.</p>
+									</div>
+								</div>
+								<div ui-full></div>
+							</div>
+						</div>
+					</perfect-scrollbar>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ui-abs ui-full ng-if="alertObject" ng-include="'app/popup.tpl.html'" class="imigo-alert-dialog-wrapper imigo-panel"></div>
+</div>
+<div ui-column ui-full-w class="imigo-bottom-panel">
+	<div ui-vb-align ng-include="'app/post-footer.tpl.html'"></div>
+</div>

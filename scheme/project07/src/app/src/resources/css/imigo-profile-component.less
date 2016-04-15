@@ -1,0 +1,279 @@
+@import "imigo-utils";
+@import "imigo-icon";
+@import "imigo-constant";
+
+.build-label(
+	@name: 'profile-years',
+	@font-size: 22,
+	@color: @imigo-basic-turquoise-color,
+	@white-space: nowrap
+);
+
+.build-label(
+	@name: 'profile-graphic-total-count',
+	@font-size: 30,
+	@font-weight: bold,
+	@color: @imigo-basic-bright-color
+);
+
+.build-label(
+	@name: 'profile-graphic-title-romance',
+	@font-size: 30,
+	@font-weight: bold,
+	@color: @imigo-basic-dark-pink-color,
+	@white-space: nowrap
+);
+
+.build-label(
+	@name: 'profile-graphic-title-friends',
+	@font-size: 30,
+	@font-weight: bold,
+	@color: @imigo-basic-green-color,
+	@white-space: nowrap
+);
+
+.build-label(
+	@name: 'profile-graphic-title-work',
+	@font-size: 30,
+	@font-weight: bold,
+	@color: @imigo-basic-light-color,
+	@white-space: nowrap
+);
+
+.build-button(
+	@name: 'profile-return',
+	@border-color: @imigo-basic-turquoise-color,
+	@color: @imigo-basic-turquoise-color,
+	@padding-left: 20,
+	@padding-right: 20,
+	@padding-top: 5,
+	@padding-bottom: 5
+);
+
+.build-image(
+	@name: 'profile-graphic-level-top-romance',
+	@background-image: @imigo-icon-initiative-background-image,
+	@width: @imigo-icon-initiative-normal-width,
+	@height: @imigo-icon-initiative-normal-height,
+	@background-size: contain
+);
+
+.build-image(
+	@name: 'profile-graphic-level-top-friends',
+	@background-image: @imigo-icon-initiative-background-image,
+	@width: @imigo-icon-initiative-normal-width,
+	@height: @imigo-icon-initiative-normal-height,
+	@background-size: contain
+);
+
+.build-image(
+	@name: 'profile-graphic-level-top-work',
+	@background-image: @imigo-icon-professionalism-background-image,
+	@width: @imigo-icon-professionalism-normal-width,
+	@height: @imigo-icon-professionalism-normal-height,
+	@background-size: contain
+);
+
+.build-image(
+	@name: 'profile-graphic-level-left-romance',
+	@background-image: @imigo-icon-sexuality-background-image,
+	@width: @imigo-icon-sexuality-normal-width,
+	@height: @imigo-icon-sexuality-normal-height,
+	@background-size: contain
+);
+
+.build-image(
+	@name: 'profile-graphic-level-left-friends',
+	@background-image: @imigo-icon-humor-background-image,
+	@width: @imigo-icon-humor-normal-width,
+	@height: @imigo-icon-humor-normal-height,
+	@background-size: contain
+);
+
+.build-image(
+	@name: 'profile-graphic-level-left-work',
+	@background-image: @imigo-icon-operability-background-image,
+	@width: @imigo-icon-operability-normal-width,
+	@height: @imigo-icon-operability-normal-height,
+	@background-size: contain
+);
+
+.build-image(
+	@name: 'profile-graphic-level-right-romance',
+	@background-image: @imigo-icon-intelligence-background-image,
+	@width: @imigo-icon-intelligence-normal-width,
+	@height: @imigo-icon-intelligence-normal-height,
+	@background-size: contain
+);
+
+.build-image(
+	@name: 'profile-graphic-level-right-friends',
+	@background-image: @imigo-icon-intelligence-background-image,
+	@width: @imigo-icon-intelligence-normal-width,
+	@height: @imigo-icon-intelligence-normal-height,
+	@background-size: contain
+);
+
+.build-image(
+	@name: 'profile-graphic-level-right-work',
+	@background-image: @imigo-icon-leadership-background-image,
+	@width: @imigo-icon-leadership-normal-width,
+	@height: @imigo-icon-leadership-normal-height,
+	@background-size: contain
+);
+
+.build-image(
+	@name: 'profile-photo-preview',
+	@cursor: pointer
+);
+
+.build-image(
+	@name: 'profile-photo-upload-area',
+	@background-image: @imigo-icon-photo-background-image,
+	@cursor: pointer,
+	@background-size: 30%
+);
+
+.build-image(
+	@name: 'profile-photo',
+	@background-size: cover
+);
+
+.build-image(
+	@name: 'profile-graphic',
+	@background-size: contain
+);
+
+.build-image(
+	@name: 'profile-icon',
+	@background-position: 35% center,
+	@background-size: contain,
+	@width: 60px
+);
+.imigo-profile-icon-image {
+	&.imigo-profile-icon-friends {
+		background-image: @imigo-icon-friends2-background-image;
+		width: 50px;
+	}
+	&.imigo-profile-icon-work {
+		background-image: @imigo-icon-work2-background-image;
+	}
+	&.imigo-profile-icon-romance {
+		background-image: @imigo-icon-romance2-background-image;
+	}
+}
+
+.build-named-textarea(
+	@name: 'profile-about-editor',
+	@color: @imigo-basic-turquoise-color,
+	@font-size: 16,
+	@border-size: 0
+);
+textarea.imigo-profile-about-editor-inputarea {
+	padding-left: 0;
+	padding-right: 0;
+	.build-imigo-placeholder(@color: @imigo-basic-turquoise-color, @font-size: 16);
+}
+
+.build-label(
+	@name: 'profile-nickname',
+	@color: @imigo-basic-bright-color,
+	@font-size: 24,
+	@cursor: text,
+	@white-space: nowrap
+);
+.imigo-profile-nickname-label {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	.build-user-select (@select: auto;)
+}
+
+.build-label (
+	@name: 'profile-char-count',
+	@color: @imigo-basic-lite-brown-color,
+	@font-size: 11,
+	@font-style: italic
+);
+.imigo-profile-char-count-label {
+	line-height: 20px;
+}
+
+.build-button(
+	@name: 'profile-lang',
+	@background-image: @imigo-icon-lang-background-image,
+	@width: @imigo-icon-lang-normal-width,
+	@height: @imigo-icon-lang-normal-height,
+	@background-size: contain,
+	@border-size: 0
+);
+.imigo-profile-lang-button {
+	&.imigo-profile-lang-button-jp {
+		background-image: @imigo-icon-lang-jp-background-image;
+	}
+	&.imigo-profile-lang-button-ru {
+		background-image: @imigo-icon-lang-ru-background-image;
+	}
+	&.imigo-profile-lang-button-en {
+		background-image: @imigo-icon-lang-en-background-image;
+	}
+}
+.imigo-profile-lang-list {
+	z-index: 1;
+	top: 26px;
+}
+
+.imigo-profile-photo-upload-image {
+	background-image: @imigo-icon-photo-back-texture-background-image;
+	background-repeat: repeat;
+}
+
+/** Profile overlay **/
+.imigo-profile-overlay-remove {
+	color: @imigo-basic-lite-gray-color;
+	font-size: 26px;
+	cursor: pointer;
+}
+
+.imigo-profile-overlay-photo {
+	background-size: cover;
+	background-position: center center;
+}
+
+// Media queries
+.build-profile-controls (@max-width, @profile-nickname-label-font-size, @profile-years-label-font-size,
+		@profile-graphic-title-label-font-size) {
+	@media (max-width: @max-width) {
+		.imigo-view {
+			.imigo-profile-nickname-label {
+				font-size: @profile-nickname-label-font-size;
+			}
+			.imigo-profile-years-label {
+				font-size: @profile-years-label-font-size;
+			}
+			.imigo-profile-graphic-title-label {
+				font-size: @profile-graphic-title-label-font-size;
+			}
+		}
+	}
+}
+
+.build-profile-controls (
+	@max-width: @imigo-1280-width,
+	@profile-nickname-label-font-size: 18px,
+	@profile-years-label-font-size: 17px,
+	@profile-graphic-title-label-font-size: 26px
+);
+
+.build-profile-controls (
+	@max-width: @imigo-1024-width,
+	@profile-nickname-label-font-size: 16px,
+	@profile-years-label-font-size: 15px,
+	@profile-graphic-title-label-font-size: 24px
+);
+
+.build-profile-controls (
+	@max-width: @imigo-800-width,
+	@profile-nickname-label-font-size: 14px,
+	@profile-years-label-font-size: 13px,
+	@profile-graphic-title-label-font-size: 22px
+);

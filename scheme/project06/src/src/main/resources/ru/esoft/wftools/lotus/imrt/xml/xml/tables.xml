@@ -1,0 +1,88 @@
+<tables>
+	<list>
+		<table>
+			<name>lotusd_dict_items</name>
+			<description>СЛОВАРИ/Пункты словарей</description>
+		</table>
+		<table>
+			<name>lotusd_dict_nomenclature</name>
+			<description>СЛОВАРИ/Пункты номенклатуры дел</description>
+		</table>
+		<table>
+			<name>lotusd_dict_article_archive</name>
+			<description>СЛОВАРИ/Пункты статей архива</description>
+		</table>
+		<table>
+			<name>lotusd_dict_sub_article_archive</name>
+			<description>СЛОВАРИ/Подпункты статей архива</description>
+		</table>
+		<table>
+			<name>lotusd_ed_organizations</name>
+			<description>ВНЕШНИЕ_АДРЕСАТЫ/Организации</description>
+		</table>
+		<table>
+			<name>lotusd_ed_branches</name>
+			<description>ВНЕШНИЕ_АДРЕСАТЫ/Филиалы</description>
+		</table>
+		<table>
+			<name>lotusd_ed_representatives</name>
+			<description>ВНЕШНИЕ_АДРЕСАТЫ/Представители</description>
+		</table>
+		<table>
+			<name>lotusd_ed_send_list</name>
+			<description>ВНЕШНИЕ_АДРЕСАТЫ/Списки рассылки</description>
+		</table>
+		<table>
+			<name>lotusd_agreement</name>
+			<description>СОГЛАСОВАНИЯ/Согласования</description>
+		</table>
+		<table>
+			<name>lotusd_agreement_response</name>
+			<description>СОГЛАСОВАНИЯ/Ответы на согласование</description>
+		</table>
+		<table>
+			<name>lotusd_org_structure</name>
+			<description>ОРГ_СТРУКТУРА/Организации</description>
+		</table>
+		<table>
+			<name>lotusd_org_unit</name>
+			<description>ОРГ_СТРУКТУРА/Подразделения</description>
+		</table>
+		<table>
+			<name>lotusd_org_employee</name>
+			<description>ОРГ_СТРУКТУРА/Сотрудники</description>
+		</table>
+		<table>
+			<name>lotusd_org_combination</name>
+			<description>ОРГ_СТРУКТУРА/Совмещения</description>
+		</table>
+		<table>
+			<name>lotusd_chancery_in</name>
+			<description>КАНЦЕЛЯРИЯ/Входящие</description>
+		</table>
+		<table>
+			<name>lotusd_chancery_out</name>
+			<description>КАНЦЕЛЯРИЯ/Исходящие</description>
+		</table>
+		<table>
+			<name>lotusd_out_exp</name>
+			<description>ИСХОДЯЩИЕ_ЭКСПЕДИЦИИ/Исходящие</description>
+		</table>
+		<table>
+			<name>lotusd_org_send_list</name>
+			<description>ОРГ_СТРУКТУРА/Списки рассылки</description>
+		</table>
+		<table>
+			<name>lotusd_ord_docs</name>
+			<description>ОРД/Документы</description>
+		</table>
+		<table>
+			<name>lotusd_ord_tasks</name>
+			<description>ОРД/Задачи</description>
+		</table>
+		<table>
+			<name>lotusd_procuratory</name>
+			<description>ПОРУЧЕНИЯ/Поручения</description>
+		</table>
+	</list>
+</tables>

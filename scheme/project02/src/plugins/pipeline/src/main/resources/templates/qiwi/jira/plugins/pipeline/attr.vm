@@ -1,0 +1,47 @@
+#parse("/templates/qiwi/jira/plugins/pipeline/header.vm")
+#parse("/templates/qiwi/jira/plugins/pipeline/main-page-link.vm")
+
+#parse("/templates/qiwi/jira/plugins/pipeline/title.vm")
+Редактирование атрибутов проекта
+#parse("/templates/qiwi/jira/plugins/pipeline/footer.vm")
+
+#set($pipelineEntities = $req.getAttribute("pipelineEntities"))
+
+<form name="pla" action="pipelineattr!processAttributes.jspa" method="post">
+    <input type="submit" value="сохранить изменения">
+    <table style="text-align: right;">
+        <tr style="margin: 10px 0; font-weight: bold; text-decoration: underline;">
+            <td colspan="2">
+                <nobr>назначенная скорость</nobr>
+            </td>
+            <td colspan="2">
+                <div style="white-space: nowrap; margin-left: 10px;">показывать рассчетную скорость</div>
+            </td>
+        </tr>
+        #foreach($pipelineEntity in $pipelineEntities)
+            <tr>
+                <td><b>
+                    <nobr>$pipelineEntity.name</nobr>
+                </b></td>
+                <td>
+                    <label>
+                        <input type="text" name="id$pipelineEntity.id" style="width: 100px;"
+                               value=$pipelineEntity.value>
+                    </label>
+                </td>
+                <td><b>
+                    <nobr>$pipelineEntity.name</nobr>
+                </b></td>
+                <td>
+                    <label>
+                        <input #if ($pipelineEntity.view) checked="true" #else #end type="checkbox"
+                                                          name="view$pipelineEntity.id" value="1"
+                                                          style="margin-top: 4px;">
+                    </label>
+                </td>
+            </tr>
+        #end
+    </table>
+</form>
+
+#parse("/templates/qiwi/jira/plugins/pipeline/footer.vm")

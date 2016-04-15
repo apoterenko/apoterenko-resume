@@ -1,0 +1,35 @@
+<div ui-column ui-full-w ui-h-10p ng-include="'app/logo.tpl.html'" class="imigo-mini-logo-wrapper"></div>
+<div ui-rel class="imigo-center-panel imigo-panel">
+	<div ui-column ui-w-85p ui-full-h>
+		<div><div ui-w-92></div></div>
+		<div ui-full>
+			<div ui-rel ui-full>
+				<div ui-full ui-abs>
+					<perfect-scrollbar id="imigo-error-email-scroller"
+					                   ui-full
+					                   class="imigo-scroller"
+					                   wheel-propagation="true"
+					                   wheel-speed="2"
+					                   min-scrollbar-length="20">
+						<div class="imigo-about-content-wrapper">
+							<div ui-row ui-full>
+								<div ui-full-w>
+									<div class="imigo-error-email-title-label">{{'Access to your email address is needed to proceed.' | translate}}</div>
+									<div class="imigo-error-email-label">
+										<p translate>To use IMIGO.ME you need to allow our app to use an email address associated with your social network account.<br><br>
+										Please do so by going back to the login page, choosing your favorite social network and accepting the suggested settings. It’s safe and confidential.</p>
+									</div>
+								</div>
+								<div ui-full></div>
+							</div>
+						</div>
+					</perfect-scrollbar>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ui-abs ui-full ng-if="alertObject" ng-include="'app/popup.tpl.html'" class="imigo-alert-dialog-wrapper imigo-panel"></div>
+</div>
+<div ui-column ui-full-w class="imigo-bottom-panel">
+	<div ui-vb-align ng-include="'app/post-footer.tpl.html'"></div>
+</div>

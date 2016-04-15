@@ -1,0 +1,8 @@
+bucket: builds.kabym.ru
+
+artifacts:
+  - project: imigo-front
+    pattern: archive/*.tar.gz
+
+  - project: imigo-front
+    pattern: noarch/*.rpm

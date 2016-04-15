@@ -1,0 +1,151 @@
+<table>
+	<name>
+		lotusd_ed_send_list
+	</name>
+	<description>
+		внешние адресаты - списки рассылки
+	</description>
+	<path>
+		ВНЕШНИЕ_АДРЕСАТЫ/Списки рассылки
+	</path>
+	<comment>
+		Список рассылки – это просто некая группа организаций\филиалов\представителей, коих можно выбирать группой в
+		качестве «адресата» в исходящих документах (при этом сам список просто раскрывается – копируются адресаты,
+		выбранный список не запоминается).
+		Сущность может быть только родительской.
+	</comment>
+	<columns>
+		<column>
+			<name>ld_ed_sl_id</name>
+			<primary>true</primary>
+			<notNull>true</notNull>
+			<type>integer</type>
+			<description>первичный ключ (создан при импорте внешней БД)</description>
+		</column>
+		<column>
+			<name>ld_ed_sl_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<description>предыдущий первичный ключ</description>
+		</column>
+		<column>
+			<name>ld_ed_sl_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ed_sl_type</name>
+			<type>text</type>
+			<sql>{form}</sql>
+			<description>Form: "ld_send_list". Форма только родительская</description>
+		</column>
+		<column>
+			<name>ld_ed_sl_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>ld_ed_sl_path</name>
+			<type>text</type>
+			<sql>{path}</sql>
+			<description>абсолютный путь к файлу</description>
+		</column>
+		<column>
+			<name>Header_Name</name>
+			<type>text</type>
+			<comment>Наименование списка рассылки</comment>
+		</column>
+		<column>
+			<name>OrgList_Code</name>
+			<type>text</type>
+			<comment>Код списка</comment>
+		</column>
+		<column>
+			<name>Comment</name>
+			<type>text</type>
+			<comment>Комментарий</comment>
+		</column>
+		<!--БЛОК СПИСКА РАССЫЛКИ-->
+		<column>
+			<name>ld_ed_sl_list_ed_sl_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_ed_send_list</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_ed_send_list_send_list</group>
+			<description>внешний ключ на таблицу lotusd_ed_send_list</description>
+		</column>
+		<column>
+			<name>ld_ed_sl_list_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_ed_send_list_send_list</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ed_sl_list_ed_sl_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<group>lotusd_ed_send_list_send_list</group>
+			<description>внешний уникальный ключ на таблицу lotusd_ed_send_list</description>
+		</column>
+		<column>
+			<name>ld_ed_sl_list_ed_org_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_ed_organizations</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<group>lotusd_ed_send_list_send_list</group>
+			<comment>Наименование ID организации/филиала/представителя (lotusd_ed_organizations)</comment>
+		</column>
+		<column>
+			<name>ld_ed_sl_list_ed_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_ed_send_list_send_list</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>OrgList</name>
+			<columnName>ld_ed_sl_list_ed_org_unid</columnName>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<multi>true</multi>
+			<comment>Наименование UNID организации/филиала/представителя (lotusd_ed_organizations)</comment>
+			<separator>\|</separator>
+			<group>lotusd_ed_send_list_send_list</group>
+			<groupSeparate>true</groupSeparate>
+			<groupSeparateIndex>1</groupSeparateIndex>
+		</column>
+	</columns>
+</table>

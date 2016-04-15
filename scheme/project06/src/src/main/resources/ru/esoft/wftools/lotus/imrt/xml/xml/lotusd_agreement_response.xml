@@ -1,0 +1,120 @@
+<table>
+	<name>
+		lotusd_agreement_response
+	</name>
+	<description>
+		согласования - ответ на согласование
+	</description>
+	<path>
+		СОГЛАСОВАНИЯ/Ответы на согласование
+	</path>
+	<comment>
+		Создается документ согласования, в него прописываются согласующие. Далее согласующий «соглашается» или «нет» с
+		документом, при этом создается документ типа «ответ на согласование», куда прописывается ФИО и результат ответа
+		согласующего. Согласование считается завершенным, когда количество таких доков = количеству согласующих (если
+		совсем точно, то ФИО согласующих – СУММА (ФИО из всех ответных доков) = 0). При необходимости создается
+		повторное согласование, при этом док согласования привязывается (автоматом) к предыдущему согласованию и
+		становится «дочерним» по отношению к нему.
+		Сущность может быть родительской и дочерней.
+	</comment>
+	<columns>
+		<column>
+			<name>ld_agr_rs_id</name>
+			<primary>true</primary>
+			<notNull>true</notNull>
+			<type>integer</type>
+			<description>первичный ключ (создан при импорте внешней БД)</description>
+		</column>
+		<column>
+			<name>ld_agr_rs_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<description>предыдущий первичный ключ</description>
+		</column>
+		<column>
+			<name>ld_agr_rs_type</name>
+			<type>text</type>
+			<nativeColumnType>varchar(30)</nativeColumnType>
+			<sql>{form}</sql>
+			<typeId>true</typeId>
+			<description>Form: "ld_comment". Ссылка на родителя берется не из атрибутов документа, а из физического
+				поля ld_parent_unid. Если ссылка есть, а физически родителя в базе нет – документ смысла не имеет.
+			</description>
+		</column>
+		<column>
+			<name>ld_agr_rs_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_agr_rs_agr_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_agreement</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>null</sql>
+			<description>внешний ключ на таблицу lotusd_agreement</description>
+		</column>
+		<column>
+			<name>ParentUNID</name>
+			<columnName>ld_agr_rs_agr_unid</columnName>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<comment>внешний уникальный ключ на таблицу lotusd_agreement. UNID родительского документа согласования (т.е. к которому этот ответ привязан)
+			</comment>
+		</column>
+		<column>
+			<name>ld_agr_rs_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>ld_agr_rs_path</name>
+			<type>text</type>
+			<sql>{path}</sql>
+			<description>абсолютный путь к файлу</description>
+		</column>
+		<column>
+			<name>Comment</name>
+			<type>text</type>
+			<comment>Комментарий к согласованию</comment>
+		</column>
+		<column>
+			<name>Decision</name>
+			<type>text</type>
+			<nativeColumnType>varchar(30)</nativeColumnType>
+			<comment>
+				Принятое согласующим решение по согласованию. Бывает двух видов: «Согласен» и «Не согласен»
+			</comment>
+		</column>
+		<column>
+			<name>Reviewed</name>
+			<type>text</type>
+			<comment>ФИО согласовавшего</comment>
+		</column>
+		<column>
+			<name>ReviewedDate</name>
+			<type>date</type>
+			<comment>Дата ответа на согласование</comment>
+		</column>
+		<column>
+			<name>CommentsRT</name>
+			<type>text</type>
+			<comment>Текстовка различных документов, которые согласующий хочет приложить к ответу.</comment>
+		</column>
+	</columns>
+</table>

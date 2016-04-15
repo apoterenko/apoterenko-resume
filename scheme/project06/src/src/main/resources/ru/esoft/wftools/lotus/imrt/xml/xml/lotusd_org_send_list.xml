@@ -1,0 +1,149 @@
+<table>
+	<name>
+		lotusd_org_send_list
+	</name>
+	<description>
+		организации - списки рассылки
+	</description>
+	<path>
+		ОРГ_СТРУКТУРА/Списки рассылки
+	</path>
+	<comment>
+		Сущность может быть только родительской.
+	</comment>
+	<columns>
+		<column>
+			<name>ld_org_sl_id</name>
+			<primary>true</primary>
+			<notNull>true</notNull>
+			<type>integer</type>
+			<description>первичный ключ (создан при импорте внешней БД)</description>
+		</column>
+		<column>
+			<name>ld_org_sl_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<description>предыдущий первичный ключ</description>
+		</column>
+		<column>
+			<name>ld_org_sl_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_org_sl_type</name>
+			<type>text</type>
+			<sql>{form}</sql>
+			<description>Form: "ld_send_list". Только родительская форма.</description>
+		</column>
+		<column>
+			<name>ld_org_sl_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>ld_org_sl_path</name>
+			<type>text</type>
+			<sql>{path}</sql>
+			<description>абсолютный путь к файлу</description>
+		</column>
+		<column>
+			<name>Header_Name</name>
+			<type>text</type>
+			<comment>Наименование списка рассылки</comment>
+		</column>
+		<column>
+			<name>OrgList_Code</name>
+			<type>text</type>
+			<comment>Код списка</comment>
+		</column>
+		<column>
+			<name>Comment</name>
+			<type>text</type>
+			<comment>Комментарий</comment>
+		</column>
+		<!--БЛОК СПИСКА РАССЫЛКИ-->
+		<column>
+			<name>ld_org_sl_list_org_sl_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_org_send_list</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_org_send_list_send_list</group>
+			<description>внешний ключ на таблицу lotusd_org_send_list</description>
+		</column>
+		<column>
+			<name>ld_org_sl_list_org_sl_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_org_send_list_send_list</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_org_sl_list_org_sl_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<group>lotusd_org_send_list_send_list</group>
+			<description>внешний уникальный ключ на таблицу lotusd_org_send_list</description>
+		</column>
+		<column>
+			<name>ld_org_sl_list_org_sl_org_str_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_org_structure</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_org_send_list_send_list</group>
+			<comment>ID внутреннего структурного подразделения. Ссылка на ОРГ_СТРУКТУРА/Организации (lotusd_org_structure)</comment>
+		</column>
+		<column>
+			<name>OrgList</name>
+			<columnName>ld_org_sl_list_org_sl_org_str_unid</columnName>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<multi>true</multi>
+			<separator>\|</separator>
+			<group>lotusd_org_send_list_send_list</group>
+			<groupSeparate>true</groupSeparate>
+			<groupSeparateIndex>1</groupSeparateIndex>
+			<comment>UNID внутреннего структурного подразделения. Ссылка на ОРГ_СТРУКТУРА/Организации (lotusd_org_structure)</comment>
+		</column>
+		<column>
+			<name>ld_org_sl_list_org_sl_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_org_send_list_send_list</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+	</columns>
+</table>

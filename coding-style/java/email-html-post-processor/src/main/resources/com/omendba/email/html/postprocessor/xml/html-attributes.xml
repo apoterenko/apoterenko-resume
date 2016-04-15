@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html-attributes>
+	<html-attribute>
+		<!--iphone/ipad width fix-->
+		<![CDATA[min-width: 100%]]>
+	</html-attribute>
+	<html-attribute>
+		<![CDATA[width: 100%]]>
+	</html-attribute>
+	<html-attribute>
+		<![CDATA[height: 100%]]>
+	</html-attribute>
+	<html-attribute>
+		<![CDATA[margin: 0]]>
+	</html-attribute>
+	<html-attribute>
+		<![CDATA[padding: 0]]>
+	</html-attribute>
+</html-attributes>

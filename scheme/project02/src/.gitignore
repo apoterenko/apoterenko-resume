@@ -1,0 +1,14 @@
+# Eclipse project files
+.project
+.settings
+.classpath
+
+# IntelliJ file-based project files
+*.iml
+*.iws
+*.ipr
+*.ids
+.idea/
+
+target/
+test-output/

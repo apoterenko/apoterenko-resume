@@ -1,0 +1,54 @@
+<select name="categorySelect" id="categorySelect"
+        ng-options="option.name for option in data.availableCategories track by option.id"
+        ng-model="data.selectedCategory"
+        ng-change="reloadAds()"
+>
+</select>
+
+<select name="languageSelect" id="languageSelect"
+        ng-options="option.name for option in data.availableLanguages track by option.id"
+        ng-model="data.selectedLanguage"
+        ng-change="reloadAds()"
+>
+</select>
+
+<select name="languageSelect" id="languageSelect"
+        ng-options="option.name for option in data.availableRoles track by option.id"
+        ng-model="data.selectedRole"
+        ng-change="reloadAds()"
+>
+</select>
+
+<a class="btn btn-primary" ng-click="reloadAds()">Reload</a>
+
+<table class="table ads_table">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>User</th>
+      <th>Text</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="ad in ads">
+      <td><img ng-src="{{cdn_path}}/{{ad.image}}_115.jpeg" height="115" width="115"/></td>
+      <td>{{ad.nickname}} ({{ad.age}})<br>
+      {{ad.role}}<br>
+      {{ad.gender}}
+      </td>
+      <td><div ng-bind-html="ad.text | linky"></div></td>
+      <td>{{ad.price}}</td>
+      <td>
+        <a class="btn btn-primary" ng-click="acceptAd(ad)">Accept</a>
+        <a class="btn btn-danger"  ng-click="declineAd(ad)">Decline</a>
+      </td>
+      <td>
+        <a class="btn btn-danger"  ng-click="declineAdFast(ad)">FastDecline</a>
+        <a class="btn btn-danger"  ng-click="declineAdLang(ad)">LangDecline</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

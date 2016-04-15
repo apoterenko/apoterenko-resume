@@ -1,0 +1,29 @@
+# language setting 
+language: node_js
+
+node_js:
+  - "4.2.3"
+
+env:
+  global:
+    - secure: YOHVWJzPRfEn3vLG57w8saMzq/sHleI7DnDR4XPGmSYwM34z3MDU/54LccUBUXNCxi+dA1d55QakFsd/jl/HVuOO3PpJlmC5wFZgW6/AdxmGkL69afPtUEyumnfeXCx39sAPkazTsMLbasz1PtbrpGcCUOR8epsfPTzAhcLIsCVsFfdZY/E56alppJv4mk+Ed0boNA09HR4D6MS78nTMXJfiMyncBtXi8fUdE+Ufyj+d/AstvqXafEPA5ie3Q8Q+sk8X6AzLexQOSL5KEfYYDBxiMIZSMG5vZBJz7OFmjd9n/2GurfByUDTVYiiR+FDXYFEGjS9B2u7H/weS4UTFFg==
+    - secure: ODAI59H9aWe6Ts5w+xtlJNk35wnJZM4EV5XbAImyQlOyIGvb0s8HzbD8BTKNXQpx8cvnT6CXRwBBo2gYTxqfxYVmpWTy4+Wq1ZD7wGDzyEyPmQQFQg2ENuGJTq5ta4JnOo/b776jCXur1qnHmGwTqgEvlhRJCrDDYrcLyKf47KRpgvRUK5LMgnzBG/v4UhUuOQZZfbuZlZ3/ZLa5es/bZYVQD+araKAOcQPgWYSGsh83GbWPbTScFpxnwDg0vSopde/CzDL5foH4eyC8dOTAKDpMVydmsG7+0FGtbjZcuj447LaazIsJJGHNajb0MfpTm0JUbTZK0OhRG01/K/af7w==
+    - secure: L9iHanL86n1FGkWAxRw4SmhGCo429wVLozLb2f81erSKqD9TCRYaLEjmyhvioW9tR+Gjx1xyIQqlXB0p5j9O/009huD9mfJUq5agZNyLb4JmJUCBlBDhQ5x+20/VRC7DPOx/7DxIux4CvlSXCY9Q9qoR0TSiRrzEGUNTCSEvDWs1X/foZbSJ+grmfK5jGtibLmtk9BR3l3FuK9F7LUKTKSRrC1Yd2dVuqZD8HSjz0EnzPxWYcAtexG1AinyfkBtyX4Uy3SsLcuo6mM7HHalTMZ1TxBCKV+nBVyGbtoskzCAj0PBfWFnQ8hWu1nxhJFsiAU9CjjrTIBV/XGM72IWElw==
+    - secure: Srqn2idgg5xMrVJ73efRTPVR7eZhEJ3yIG4zHYfUFEyBOq61Bu7/VvTKvOCkzgBRqr+P2BcACf2C0bm85uN3uyQ5CUT1MLvtEYdp4EQMpbYLVRdGP0I8avlFYuMM8Y0hB8B2x0eYRMlEjHsOIqye2sJWX180iZCrLnKhUS0Nrg/ScIfOu2PWJw9bz32dX39LVHcMeHoIsioqqmmFbh/lPCwQZBgBa8X/tjF6y7tGiFiMoa1JhIqWNFaBGyzzwomcCkVEWoXSlMQEcgIrvDFaRMWIKBIJmLMiev3NDXvl9J91wYS6gMYMzsOIP+v3vPPSeiaFfPrTqeb5VxqvcRamDA==
+
+build:
+  pre_ci_boot:
+    image_name: drydock/u14pyt
+    image_tag: prod
+
+  ci:
+    - npm install --global gulp jspm babel babel-core systemjs browser-sync
+    - which jspm
+    - npm install
+    - jspm install
+    - gulp release
+    - echo 1 #npm test
+    - python --version
+    - sudo pip install boto3 PyYAML
+    - ./build-rpm.sh
+    - python s3-deps.py -c s3-deps.yaml upload

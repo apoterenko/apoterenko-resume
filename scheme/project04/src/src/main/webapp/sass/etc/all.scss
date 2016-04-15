@@ -1,0 +1,212 @@
+/*******/
+/* VAR */
+/*******/
+$prefix: "x-";
+
+/************/
+/* WORKFLOW */
+/************/
+.wf-panel-cls {
+  cursor: default;
+  font-family: helvetica, arial, verdana, sans-serif;
+
+/* TABLE */
+  table {
+	border-collapse: collapse;
+  }
+
+/* ACTION */
+  .#{$prefix}btn-default-small {
+	padding: 3px 4px 0;
+
+	.#{$prefix}btn-wrap-default-small {
+	  margin-bottom: 1px;
+	}
+  }
+
+  .wf-header-action-cls, .wf-footer-action-cls {
+	.wf-action-cls .#{$prefix}btn {
+	  margin: 2px;
+	}
+  }
+
+/* HEADER */
+  .wf-header-cls {
+	color: white;
+	background-color: #157fcc;
+
+	.wf-header-text-cls {
+	  padding: 10px;
+	  font-size: 13px;
+	  font-weight: bold;
+	}
+  }
+
+/* ELEMENT */
+  .wf-element-cls {
+	margin-bottom: 2px;
+
+	.#{$prefix}field {
+	  padding-left: 2px;
+	}
+
+	.#{$prefix}form-invalid-under-default {
+	  padding-top: 0px;
+	  padding-bottom: 0px;
+	  background-position: 0;
+	}
+
+	label {
+	  line-height: 21px;
+	  padding-right: 3px;
+	}
+
+	.#{$prefix}form-text-default {
+	  padding: 1px 4px;
+	  min-height: 20px;
+	  height: 20px;
+	}
+
+	.#{$prefix}form-cb-default {
+	  margin-top: 3px;
+	}
+  }
+}
+
+/* COLUMN */
+.wf-column-cls {
+  vertical-align: top;
+  overflow: hidden;
+}
+
+/**********/
+/* SENCHA */
+/**********/
+.sencha-wf-branch-cls {
+
+  /* TAB */
+  .#{$prefix}tab.#{$prefix}tab-active.sencha-invalid-tab {
+
+	.#{$prefix}tab-inner-default {
+	  color: #cf4c35;
+	}
+  }
+
+  .sencha-invalid-tab {
+
+	.#{$prefix}tab-inner-default {
+	  color: #ffb8ac;
+	}
+  }
+}
+
+.sencha-wf-overflow-cls {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* TABLE */
+.sencha-wf-table {
+
+  .#{$prefix}form-display-field {
+	font-weight: bold;
+	padding-top: 3px;
+	padding-right: 6px;
+	line-height: 15px;
+  }
+}
+
+/* FILE */
+.sencha-wf-file {
+
+  .#{$prefix}panel-body-default {
+	border: 1px solid #e1e1e1 !important;
+	background-color: #c8ddec;
+  }
+
+  .sencha-wf-file-item {
+	margin: 6px;
+
+	.#{$prefix}panel-body-default {
+	  border: 1px solid #317cb1 !important;
+	}
+  }
+}
+
+/* MULTI FIELD */
+.sencha-multi-field {
+
+  .sencha-multi-part {
+
+	background-color: #add2ed;
+	border-radius: 3px;
+	margin: 2px 1px 0 2px;
+
+	.sencha-multi-part-inner {
+	  overflow: hidden;
+	  font-size: 11px;
+	  height: 17px;
+	  padding-left: 3px;
+	  padding-right: 3px;
+	}
+
+	.sencha-multi-field-close {
+	  cursor: pointer;
+	  height: 10px;
+	  margin: 0 3px;
+	}
+  }
+
+  .#{$prefix}form-text-default {
+	border: 1px solid #add2ed;
+	width: 50%;
+	margin: 1px;
+  }
+
+  .sencha-multi-part, .#{$prefix}form-text-default {
+	float: left;
+  }
+
+  .#{$prefix}form-trigger.#{$prefix}form-trigger-default {
+	display: none;
+  }
+}
+
+.#{$prefix}form-readonly.sencha-multi-field {
+
+  .sencha-multi-part .sencha-multi-field-close {
+	display: none;
+  }
+}
+
+.wf-panel-cls .wf-element-cls {
+
+  .sencha-multi-field .#{$prefix}form-text-default {
+	min-height: 18px;
+	height: 18px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+  }
+
+  .sencha-multi-field.sencha-multi-no-editor {
+
+	.sencha-multi-part {
+	  background-color: #70bcf1;
+	}
+
+	.#{$prefix}form-text-default {
+	/**
+			 Нам нужно получать фокус, сохранить позицию и поле ввода должно быть невидимо без использования
+			visibility/display, и враппер опирается на высоту содержимого, которую мы не хотим хардкодить
+			(задавать явно height) */
+	  border: none;
+	  width: 0;
+	  padding: 0;
+	}
+  }
+}
+
+.sencha-multi-description {
+  color: #989b9e;
+  font-size: 11px;
+}

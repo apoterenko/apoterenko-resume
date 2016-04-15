@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Name="" DotMatrixReport="false" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="2047" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" ReportOptions.CreateDate="38712,3912309954" ReportOptions.Description.Text="" ReportOptions.LastChange="38712,4684188542" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end." PropData="044C65667403480203546F7003B80108446174617365747301010C3400000020446174615365743D22667278444244617461736574312220446174615365744E616D653D2266727844424461746173657431220000095661726961626C65730100055374796C650100">
+  <TfrxReportPage Name="Page1" PaperWidth="210" PaperHeight="297" PaperSize="9" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxReportTitle Name="ReportTitle1" Height="37,7953" Left="0" Top="18,89765" Width="718,1107">
+      <TfrxMemoView Name="Memo2" Left="83,14966" Top="7,55906" Width="612,28386" Height="26,45671" Font.Charset="1" Font.Color="0" Font.Height="-19" Font.Name="Arial" Font.Style="3" Memo.Text="Отчет по предприятиям, нуждающихся в вывозе мусора" ParentFont="false"/>
+    </TfrxReportTitle>
+    <TfrxMasterData Name="MasterData1" Height="3,77953" Left="0" Top="117,16543" Width="718,1107" ColumnWidth="0" ColumnGap="0" DataSet="frxDBDataset1" DataSetName="frxDBDataset1" RowCount="0"/>
+    <TfrxPageFooter Name="PageFooter1" Height="22,67718" Left="0" Top="381,73253" Width="718,1107">
+      <TfrxMemoView Name="Memo1" Left="642,09931233" Top="0" Width="75,5906" Height="18,89765" HAlign="haRight" Memo.Text="[Page#]"/>
+    </TfrxPageFooter>
+    <TfrxDetailData Name="DetailData1" Height="177,63791" Left="0" Top="143,62214" Width="718,1107" ColumnWidth="0" ColumnGap="0" DataSet="frxDBDataset1" DataSetName="frxDBDataset1" RowCount="0">
+      <TfrxMemoView Name="Memo3" Left="15,11812" Top="7,55905999999999" Width="196,53556" Height="18,89765" Memo.Text="Идентификатор предприятия:"/>
+      <TfrxMemoView Name="Memo4" Left="222,99227" Top="7,55905999999999" Width="196,53556" Height="18,89765" DataField="ID" DataSet="frxDBDataset1" DataSetName="frxDBDataset1" Memo.Text="[frxDBDataset1.&#34;ID&#34;]"/>
+      <TfrxMemoView Name="Memo5" Left="15,11812" Top="34,01577" Width="196,53556" Height="18,89765" Memo.Text="Руководитель предприятием:"/>
+      <TfrxMemoView Name="Memo6" Left="222,99227" Top="34,01577" Width="196,53556" Height="18,89765" DataField="FIORUC" DataSet="frxDBDataset1" DataSetName="frxDBDataset1" Memo.Text="[frxDBDataset1.&#34;FIORUC&#34;]"/>
+      <TfrxMemoView Name="Memo7" Left="15,11812" Top="60,47248" Width="196,53556" Height="18,89765" Memo.Text="Название предприятия:"/>
+      <TfrxMemoView Name="Memo8" Left="222,99227" Top="60,47248" Width="196,53556" Height="18,89765" DataField="NAME_PR" DataSet="frxDBDataset1" DataSetName="frxDBDataset1" Memo.Text="[frxDBDataset1.&#34;NAME_PR&#34;]"/>
+      <TfrxMemoView Name="Memo9" Left="222,99227" Top="90,70872" Width="196,53556" Height="18,89765" DataField="ADRES" DataSet="frxDBDataset1" DataSetName="frxDBDataset1" Memo.Text="[frxDBDataset1.&#34;ADRES&#34;]"/>
+      <TfrxMemoView Name="Memo10" Left="222,99227" Top="124,72449" Width="196,53556" Height="18,89765" DataField="RAION" DataSet="frxDBDataset1" DataSetName="frxDBDataset1" Memo.Text="[frxDBDataset1.&#34;RAION&#34;]"/>
+      <TfrxMemoView Name="Memo11" Left="15,11812" Top="90,70872" Width="196,53556" Height="18,89765" Memo.Text="Адрес предприятия:"/>
+      <TfrxMemoView Name="Memo12" Left="15,11812" Top="124,72449" Width="196,53556" Height="18,89765" Memo.Text="Район, где находится:"/>
+      <TfrxLineView Name="Line1" Left="15,11812" Top="158,74026" Width="634,96104" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line2" Left="15,11812" Top="166,29932" Width="634,96104" Height="0" Frame.Typ="4"/>
+    </TfrxDetailData>
+  </TfrxReportPage>
+</TfrxReport>

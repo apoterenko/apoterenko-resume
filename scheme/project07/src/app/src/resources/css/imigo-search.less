@@ -1,0 +1,65 @@
+@import "imigo-search-component";
+
+.imigo-search-photo-zone {padding-top: 20px; padding-bottom: 20px;}
+.imigo-search-body-center-zone {padding-left: 20px; padding-right: 20px;}
+.imigo-search-relation-wrapper {margin: 16px 0;}
+.imigo-search-filter-zone {padding-left: 10px; padding-right: 20px;}
+.imigo-search-card-holder {
+	.imigo-card-description-content-label {padding-left: 0;}
+	.imigo-card-editor-inputarea {padding: 0 20px 20px 0;}
+	.imigo-search-friends-image, .imigo-search-work-image {margin-top: 4px;}
+	.imigo-card-report-image {margin-right: 6px;}
+	.imigo-card-price-imi-image {margin-left: 0;}
+}
+.imigo-search-field-wrapper {
+	margin-bottom: 8px;
+	.imigo-search-filter-label {padding-left: 8px;}
+}
+[ui-abs].imigo-search-filter-slider-label {top: -1px; padding-left: 0;}
+.imigo-search-filter-zone .imigo-relation-romance-image {margin-top: 3px;}
+.imigo-search-actual-filter-label {padding-top: 4px;}
+.ui-slider-horizontal {
+	&.imigo-slider-antikarma {
+		.ui-slider-range-max {right: 2px;}
+	}
+}
+.imigo-search-filter-label {width: 120px;}
+.imigo-search {
+	.imigo-bank-apply-button, .imigo-search-reset-button {
+		margin: 0 20px 20px 20px;
+	}
+}
+
+// Media queries
+.build-search-filter-zone (@max-width, @search-filter-label-width, @search-field-service-margin) {
+	@media (max-width: @max-width) {
+		.imigo-view {
+			.imigo-search-filter-label {
+				width: @search-filter-label-width;
+			}
+			.imigo-search {
+				.imigo-bank-apply-button, .imigo-search-reset-button {
+					margin: 0 @search-field-service-margin;
+				}
+			}
+		}
+	}
+}
+
+.build-search-filter-zone (
+	@max-width: @imigo-1280-width,
+	@search-filter-label-width: 110px,
+	@search-field-service-margin: 18px
+);
+
+.build-search-filter-zone (
+	@max-width: @imigo-1024-width,
+	@search-filter-label-width: 100px,
+	@search-field-service-margin: 16px
+);
+
+.build-search-filter-zone (
+	@max-width: @imigo-800-width,
+	@search-filter-label-width: 90px,
+	@search-field-service-margin: 14px
+);

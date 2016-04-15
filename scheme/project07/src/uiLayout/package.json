@@ -1,0 +1,33 @@
+{
+  "name": "uiLayout",
+  "version": "0.0.3",
+  "homepage": "https://github.com/apoterenko/uiLayout",
+  "keywords": [
+    "gulp",
+    "css",
+    "layout"
+  ],
+  "author": {
+    "name": "Alexander Poterenko",
+    "email": "apoterenko@gmail.com"
+  },
+  "bugs": "https://github.com/apoterenko/uiLayout/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:apoterenko/uiLayout.git"
+  },
+  "readmeFilename": "README.md",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-less": "^3.0.3",
+    "gulp-changed": "^1.3.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sourcemaps": "^1.3.0",
+    "gulp-cssnano": "^2.1.0",
+    "require-dir": "^0.3.0",
+    "del": "2.0.2",
+    "vinyl-paths": "2.0.0",
+    "run-sequence": "^1.0.2"
+  }
+}

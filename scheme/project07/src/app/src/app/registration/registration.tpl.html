@@ -1,0 +1,76 @@
+<div ui-column ui-full-w ui-h-30p ng-include="'app/logo.tpl.html'"></div>
+<div ui-column ui-full-w ui-h-66p>
+	<div ui-vc-align ui-hc-align ng-if="form">
+		<div ui-inline-block ui-w-300>
+			<div ui-hl-align class="imigo-registration-form imigo-panel">
+				<div class="imigo-registration-label imigo-registration-field-wrapper">{{'Name' | translate}}</div>
+				<input ui-full-w
+				       type="text"
+				       ng-model="form.name"
+				       placeholder="{{'your name' | translate}}"
+				       ng-minlength="3"
+				       ng-maxlength="50"
+				       class="imigo-registration-field-wrapper">
+				<div class="imigo-registration-label imigo-registration-field-wrapper">{{'Date of birth' | translate}}</div>
+				<div ui-column ui-full-w class="imigo-registration-field-wrapper">
+					<div>
+						<ui-select ui-w-132
+						           ng-model="month.selected"
+						           theme="selectize">
+							<ui-select-match placeholder="{{'month' | translate}}">{{$select.selected.name | translate}}</ui-select-match>
+							<ui-select-choices ui-w-132 repeat="month in months">
+								<span ng-bind-html="month.name | translate | highlight: $select.search"></span>
+							</ui-select-choices>
+						</ui-select>
+					</div>
+					<div><div ui-w-12>&nbsp;</div></div>
+					<div ui-full-w ui-vt-align>
+						<input ui-full-w
+						       type="number"
+						       ng-model="form.year"
+						       placeholder="{{'year' | translate}}"
+						       ng-minlength="4"
+						       ng-maxlength="4">
+					</div>
+				</div>
+				<div class="imigo-registration-label imigo-registration-field-wrapper">{{'Sex' | translate}}</div>
+				<div ui-column ui-full-w>
+					<div ui-hr-align>
+						<div ng-click="setGender('male')"
+						     ng-class="{selected: form.gender == 'male'}"
+						     ui-inline-block
+						     class="imigo-gender-switch-button male"></div>
+					</div>
+					<div><div ui-w-16>&nbsp;</div></div>
+					<div>
+						<div ng-click="setGender('female')"
+						     ng-class="{selected: form.gender == 'female'}"
+						     ui-inline-block
+						     class="imigo-gender-switch-button female"></div>
+					</div>
+				</div>
+				<div ui-column ui-full-w class="imigo-registration-label imigo-registration-field-wrapper">&nbsp;</div>
+				<div ui-column ui-full-w class="imigo-registration-label imigo-registration-field-wrapper">{{'Language' | translate}}
+					<div ui-full-w ui-vc-align ui-hc-align language></div>
+				</div>
+				<div ui-column ui-full-w class="imigo-registration-field-wrapper">
+					<div>
+						<input type="checkbox" ng-model="form.agreement">
+					</div>
+					<div ui-vc-align
+					     class="imigo-registration-agreement-label" translate>
+						I accept <span class="imigo-underline" ng-click="onSelectCondition()">the Terms of use</span> and agree to <span class="imigo-underline" ng-click="onSelectPolitics()">the privacy policy</span> IMIGO.ME
+					</div>
+				</div>
+				<div ng-click="registration()"
+				     ng-class="{disabled: !form.valid}"
+				     ui-hc-align
+				     class="imigo-registration-button">{{'Sign up' | translate}}</div>
+			</div>
+		</div>
+	</div>
+	<div ui-abs ui-full ng-if="alertObject" ng-include="'app/popup.tpl.html'" class="imigo-alert-dialog-wrapper imigo-panel"></div>
+</div>
+<div ui-column ui-full-w ui-h-4p>
+	<div ui-vb-align ng-include="'app/post-footer.tpl.html'"></div>
+</div>

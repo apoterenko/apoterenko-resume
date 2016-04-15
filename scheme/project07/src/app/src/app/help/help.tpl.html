@@ -1,0 +1,55 @@
+<div ui-column ui-full-w ui-h-10p ng-include="'app/logo.tpl.html'" class="imigo-mini-logo-wrapper"></div>
+<div ui-rel class="imigo-center-panel imigo-panel">
+	<div ui-column ui-w-85p ui-full-h>
+		<div>
+			<div ui-w-92></div>
+		</div>
+		<div ui-full>
+			<div ui-row ui-full>
+				<div>
+					<div class="imigo-help-title-label">{{'HELP' | translate}}</div>
+				</div>
+				<div ui-full-w>
+					<div class="imigo-help-faq-label">{{'Frequently Asked Questions' | translate}}</div>
+				</div>
+				<div ui-full>
+					<div ui-column ui-full>
+						<div ui-w-40p ui-full-h>
+							<div ui-rel ui-full>
+								<div ui-abs ui-full>
+									<perfect-scrollbar id="imigo-chat-scroller"
+									                   ui-full
+									                   class="imigo-scroller"
+									                   suppress-scroll-x="true"
+									                   wheel-propagation="true"
+									                   wheel-speed="2"
+									                   min-scrollbar-length="20">
+										<div class="imigo-help-content-wrapper">
+											<div ng-repeat="question in getData()">
+												<div ng-click="onSelectItem(question)"
+												     ng-class="['imigo-help-question-label', 'imigo-underline', {selected: question.id === selectedQuestion.id}]">
+													{{question.text}}
+												</div>
+											</div>
+										</div>
+									</perfect-scrollbar>
+								</div>
+							</div>
+						</div>
+						<div ui-w-10p></div>
+						<div ui-w-50p ui-vt-align ui-full-h>
+							<div ui-row ui-full>
+								<div ui-full>
+									<div class="imigo-help-answer-label">{{selectedQuestion.answer}}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div ui-column ui-full-w class="imigo-bottom-panel">
+	<div ui-vb-align ng-include="'app/post-footer.tpl.html'"></div>
+</div>

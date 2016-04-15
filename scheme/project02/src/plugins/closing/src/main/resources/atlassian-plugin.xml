@@ -1,0 +1,14 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="QIWI Closing Plugin" plugins-version="2">
+    <plugin-info>
+        <description>QIWI Closing Plugin</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    </plugin-info>
+    <component-import key="eventPublisher" interface="com.atlassian.event.api.EventPublisher">
+        <description>atlassian-event EventPublisher imported from system bundle.</description>
+    </component-import>
+
+    <component key="eventListener" class="qiwi.jira.plugins.listener.CloseIssueListener">
+        <description>Class that processes the incoming JIRA issue events.</description>
+    </component>
+</atlassian-plugin>

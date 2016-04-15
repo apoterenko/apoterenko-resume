@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>qiwi.jira.greenhopper</groupId>
+		<artifactId>qiwi-jira-greenhopper</artifactId>
+		<version>1.1.10-SNAPSHOT</version>
+	</parent>
+
+	<groupId>qiwi.jira.greenhopper</groupId>
+	<artifactId>qiwi-jira-greenhopper-plugin</artifactId>
+	<packaging>atlassian-plugin</packaging>
+
+	<properties>
+		<greenhopper-build-number>#20b5e9f2c13e</greenhopper-build-number>
+		<atlassian.plugin.key>com.pyxis.greenhopper.jira</atlassian.plugin.key>
+		<upm.version>2.0-m3</upm.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>qiwi.jira.greenhopper</groupId>
+			<artifactId>qiwi-jira-greenhopper-extension</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>qiwi.jira.greenhopper</groupId>
+			<artifactId>jira-greenhopper-plugin-classes</artifactId>
+			<version>${greenhopper-version}</version>
+		</dependency>
+
+		<!-- Original Greenhopper dependencies -->
+		<!-- API -->
+		<dependency>
+			<groupId>com.atlassian.jira.plugins</groupId>
+			<artifactId>jira-greenhopper-api</artifactId>
+			<version>${greenhopper-version}</version>
+		</dependency>
+
+		<!-- JIRA's JSONObject implementation is broken, see http://jira.atlassian.com/browse/JRA-24191 -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20090211</version>
+		</dependency>
+
+		<!-- Compile time deps -->
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>1.6.0-atlassian-3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>xpp3</groupId>
+			<artifactId>xpp3</artifactId>
+			<version>1.1.3.4-RC8</version>
+		</dependency>
+
+		<!-- licensing deps -->
+		<dependency>
+			<!-- intentionally have this as compile scope -->
+			<groupId>com.atlassian.upm</groupId>
+			<artifactId>licensing-legacy-compatibility-spi</artifactId>
+			<version>${upm.version}</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>unpack</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.atlassian.jira.plugins</groupId>
+									<artifactId>jira-greenhopper-plugin</artifactId>
+									<version>${greenhopper-version}</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}/classes</outputDirectory>
+									<excludes>com/,META-INF/lib/,META-INF/spring/,META-INF/MANIFEST.MF</excludes>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>com.atlassian.maven.plugins</groupId>
+				<artifactId>maven-jira-plugin</artifactId>
+				<inherited>true</inherited>
+				<configuration>
+					<enableFastdev>false</enableFastdev>
+					<instructions>
+						<Bundle-SymbolicName>${atlassian.plugin.key}</Bundle-SymbolicName>
+						<Export-Package>
+							com.pyxis.*,
+							com.atlassian.greenhopper.*,
+							qiwi.jira.plugins.greenhopper.*
+						</Export-Package>
+						<Import-Package>
+							!nu.xom.*,
+							!sun.misc.*,
+							!sun.reflect.*,
+							!sun.security.*,
+							!org.hibernate.*,
+							!com.ibm.*,
+							!com.sun.*,
+							!javax.jms.*,
+							!javax.jmdns.*,
+							javax.xml.bind*;version="2.1.0",
+							javax.xml.stream*;version="1.0.0",
+							javax.annotation*;version="1.0",
+							org.apache.lucene*;version="2.9.4",
+							com.atlassian.upm.api.*;resolution:=optional,
+							org.apache.avalon.framework.logger.*;resolution:=optional,
+							*
+						</Import-Package>
+						<Private-Package>
+							gadgets*;version="${greenhopper-version}",
+							includes*;version="${greenhopper-version}",
+							templates*;version="${greenhopper-version}",
+							*
+						</Private-Package>
+						<Spring-Context>*;timeout:=60</Spring-Context>
+					</instructions>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.google.code.maven-replacer-plugin</groupId>
+				<artifactId>maven-replacer-plugin</artifactId>
+				<inherited>false</inherited>
+				<version>${maven-replacer-plugin-version}</version>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<file>target/classes/atlassian-plugin.xml</file>
+					<replacements>
+						<replacement>
+							<token>name="GreenHopper"</token>
+							<value>name="GreenHopper[Qiwi]"</value>
+						</replacement>
+						<replacement>
+							<token>${greenhopper-build-number}</token>
+							<value>Qiwi Edition</value>
+						</replacement>
+						<!--replacement>
+							<token>${greenhopper-version}</token>
+							<value>${greenhopper-version}-QIWI</value>
+						</replacement-->
+						<replacement>
+							<token><![CDATA[com\.atlassian\.greenhopper\.Launcher]]></token>
+							<value><![CDATA[qiwi.jira.plugins.greenhopper.QiwiGreenHopperLauncher]]></value>
+						</replacement>
+						<replacement>
+							<token><![CDATA[com\.atlassian\.greenhopper\.api\.rank\.RankService]]></token>
+							<value>
+							<![CDATA[
+    com.atlassian.greenhopper.api.rank.RankService</interface>
+    </component>
+    <component key="qiwi-rank-service-factory" name="Qiwi Rank Service Factory" class="qiwi.jira.plugins.greenhopper.RankServiceFactoryImpl" public="true">
+        <interface>qiwi.jira.plugins.greenhopper.RankServiceFactory</interface>
+    </component>
+    <component key="qiwi-rank-index-service-factory" name="Qiwi Rank Index Service Factory" class="qiwi.jira.plugins.greenhopper.RankIndexServiceFactoryImpl" public="true">
+        <interface>qiwi.jira.plugins.greenhopper.RankIndexServiceFactory</interface>
+    </component>
+    <component key="rankDaoImpl" name="GreenHopper Rank DAO" class="com.atlassian.greenhopper.service.rank.RankDaoImpl" public="true">
+        <interface>com.atlassian.greenhopper.service.rank.RankDao</interface>
+    </component>
+    <component key="rankIndexServiceImpl" name="GreenHopper Rank Index Service" class="com.atlassian.greenhopper.service.rank.RankIndexServiceImpl" public="true">
+        <interface>com.atlassian.greenhopper.service.rank.RankIndexService</interface>
+    </component>
+    <component key="rankCustomFieldServiceImpl" name="GreenHopper Rank CustomField Service" class="com.atlassian.greenhopper.service.rank.RankCustomFieldServiceImpl" public="true">
+        <interface>com.atlassian.greenhopper.service.rank.RankCustomFieldService
+							]]>
+							</value>
+						</replacement>
+					</replacements>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

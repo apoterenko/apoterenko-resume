@@ -1,0 +1,375 @@
+<div ui-column ui-full-w ui-h-20p ng-include="'app/logo.tpl.html'" class="imigo-middle-logo-wrapper"></div>
+<div ui-h-65p ui-rel>
+	<div ui-column ui-full ng-show="user">
+		<div ui-w-5p></div>
+		<div ng-repeat="(type, desk) in data">
+			<div ui-column ui-full class="imigo-main-card-placeholder">
+				<div ui-vc-align ui-hr-align ui-w-50p>
+					<div ui-inline-block ng-click="onPageBackward(type)" class="imigo-backward-button" ng-style="{visibility: desk.count > 0 ? 'visible' : 'hidden'}"></div>
+				</div>
+				<div>
+					<div ui-row ui-full-h ui-rel>
+						<div ui-h-72>
+							<div ui-column ui-full>
+								<div ui-w-25p ui-vc-align ui-hl-align>
+									<a ui-sref="search({category: category(type)})">
+										<div ui-inline-block
+											 class="imigo-loupe-image"
+											 data-tip="{{'Search for an ad' | translate}}"></div>
+									</a>
+								</div>
+								<div ui-w-50p ui-vc-align ui-hc-align>
+									<div ui-w-60
+									     ui-h-44
+									     ui-inline-block
+									     class="imigo-main-icon-image imigo-main-icon-{{type}}">
+										<div ui-full ng-if="type == 'romance'" data-tip="{{'Romance' | translate}}"></div>
+										<div ui-full ng-if="type == 'work'" data-tip="{{'Professional' | translate}}"></div>
+										<div ui-full ng-if="type == 'friends'" data-tip="{{'Friendship' | translate}}"></div>
+									</div>
+								</div>
+								<div ui-w-25p ui-vc-align ui-hr-align>
+									<div ui-inline-block
+									     ng-click="onCreate(type)"
+									     class="imigo-main-card-plus-image"
+									     data-tip="{{'Create a new ad' | translate}}"></div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div ui-abs ui-h-36 class="imigo-card-empty-paging-content-label" ng-if="!desk.card && desk.count > 0">
+								<div ui-column ui-full>
+									<div ui-w-70p></div>
+									<div ui-w-30p ui-vc-align ui-hr-align>
+										<div ng-class="['imigo-card-paging-content-label', {empty: !desk.card}]"
+										     data-tip="{{'Slots filled in this category' | translate}}">
+											{{(desk.index + 1) + '/' + user.limits.max_slots.value}}
+										</div>
+									</div>
+								</div>
+							</div>
+							<div ui-row
+							     ui-full-h
+							     imi-basic-zone
+							     ng-if="!desk.card"
+							     class="imigo-card imigo-panel">
+								<div ui-h-80>
+									<div ui-hc-align
+									     class="imigo-card-empty-label">
+										<div ng-if="type == 'romance'" translate><a ui-sref="search({category: category(type)})" class="imigo-card-nav-label">Find</a> love or <a ng-click="onCreate(type)" class="imigo-card-nav-label">offer</a> romance for <a ui-sref="bank" class="imigo-card-nav2-label imigo-underline">IMI</a>.</div>
+										<div ng-if="type == 'work'" translate><a ui-sref="search({category: category(type)})" class="imigo-card-nav-label">Find</a> a professional or <a ng-click="onCreate(type)" class="imigo-card-nav-label">offer</a> your services for <a ui-sref="bank" class="imigo-card-nav2-label imigo-underline">IMI</a>.</div>
+										<div ng-if="type == 'friends'" translate><a ui-sref="search({category: category(type)})" class="imigo-card-nav-label">Find</a> a friend or <a ng-click="onCreate(type)" class="imigo-card-nav-label">offer</a> friendship for <a ui-sref="bank" class="imigo-card-nav2-label imigo-underline">IMI</a>.</div>
+									</div>
+								</div>
+								<div class="imigo-card-animate-image imigo-card-animate-{{type}}-image">&nbsp;</div>
+							</div>
+							<div ui-column ui-full ng-if="desk.card">
+								<div ui-full ui-vt-align>
+									<div ui-row ui-full-h class="imigo-card imigo-card-edit-mode imigo-panel">
+										<div class="imigo-card-photo">
+											<label ui-full
+											       ui-block
+											       class="imigo-card-photo-content-image"
+											       ng-if="desk.edit"
+											       ng-style="desk.style ? desk.style : {}"
+											       nv-file-over=""
+											       nv-file-drop=""
+											       uploader="desk.uploader">
+												<input type="file" class="hidden" nv-file-select="" uploader="desk.uploader">
+											</label>
+											<label ui-full
+											       ui-block
+											       class="imigo-card-photo-content-image"
+											       ng-if="!desk.edit" ng-style="desk.style ? desk.style : {}">
+											</label>
+										</div>
+										<div class="imigo-card-center-bar-{{type}}">
+											<div ui-rel ui-full-w class="imigo-card-center-bar">
+												<div ui-abs
+												     ui-h-92
+												     class="imigo-card-confirm-bar"
+												     ng-style="{display: desk.confirm ? 'block' : 'none'}">
+													<div ui-row ui-full>
+														<div ui-full>
+															<div ui-column ui-full>
+																<div ui-vc-align ui-hl-align class="imigo-card-confirm-label" ng-if="desk.isDeal()">
+																	{{'Are you sure you want to cancel this deal?' | translate}}
+																</div>
+																<div ui-vc-align ui-hl-align class="imigo-card-confirm-label" ng-if="!desk.isDeal()">
+																	{{'Are you sure you want to delete your ad?' | translate}}
+																</div>
+															</div>
+														</div>
+														<div>
+															<div ui-inline-block
+															     ui-hc-align
+															     ui-w-50p
+															     ng-click="onDelete(type)"
+															     class="imigo-card-confirm-button">
+																{{'yes' | translate}}
+															</div>
+															<b><div ui-inline-block
+															        ui-hc-align
+															        ui-w-50p
+															        ng-click="onCancelDelete(type)"
+															        class="imigo-card-confirm-button">
+																{{'no' | translate}}
+															</div></b>
+														</div>
+													</div>
+												</div>
+												<div ui-column ui-full ng-if="desk.isDealActive()">
+													<div ui-w-15p></div>
+													<div ui-w-70p ui-vc-align>
+														<div ui-inline-block
+														     ui-full-w
+														     ui-hc-align
+														     data-tip="{{'Time remaining until the end of the deal' | translate}}"
+														     class="imigo-card-finish-deal-button">
+															{{desk.timeLeft}}
+															<span ng-if="desk.timeLeft > 0">{{'Days' | translate}}</span>
+														</div>
+													</div>
+													<div ui-w-15p ui-vc-align>
+														<div ng-click="onCancel(type)"
+														     ui-bl-hr-align
+														     data-tip="{{'cancel the deal' | translate}}"
+														     class="imigo-card-cancel-button"></div>
+													</div>
+												</div>
+												<div ui-column ui-full ng-if="desk.isDealFinished()">
+													<div ui-w-15p></div>
+													<div ui-w-70p ui-vc-align>
+														<div ui-inline-block
+														     ui-full-w
+														     ui-hc-align
+														     ng-click="onCompleteDeal(desk.card)"
+														     class="imigo-card-finish-deal-button">{{'Complete' | translate}}</div>
+													</div>
+													<div ui-w-15p></div>
+												</div>
+												<div ui-column ui-full ng-if="!desk.isDeal()">
+													<div ui-w-15p ui-vc-align ui-hr-align><div ng-if="desk.edit" ng-model="data[type].card.language" language></div></div>
+													<div ui-w-70p ui-vc-align ui-hc-align>
+														<input type="number"
+														       ng-digit-filter
+														       ng-maxlength="5"
+														       ng-minlength="1"
+														       ui-w-45p
+														       ng-model="desk.card.price"
+														       ng-if="desk.edit && type === 'work'"
+														       class="imigo-card-price-input"
+														       placeholder="{{'Price per hour' | translate}}"
+														       data-tip="{{'Price per hour' | translate}}">
+														<input type="number"
+														       ng-digit-filter
+														       ng-maxlength="5"
+														       ng-minlength="1"
+														       ui-w-45p
+														       ng-model="desk.card.price"
+														       ng-if="desk.edit && (type == 'romance' || type == 'friends')"
+														       class="imigo-card-price-input"
+														       placeholder="{{'Price per day' | translate}}"
+														       data-tip="{{'Price per day' | translate}}">
+														<span ui-w-45p
+															  ng-if="!desk.edit && (type == 'romance' || type == 'friends')"
+														      data-tip="{{'Price per day' | translate}}"
+														      class="imigo-card-price-label">
+															{{desk.card.price || 0}}
+														</span>
+														<span ui-w-45p
+														      ng-if="!desk.edit && type === 'work'"
+														      data-tip="{{'Price per hour' | translate}}"
+														      class="imigo-card-price-label">
+															{{desk.card.price || 0}}
+														</span>
+														<span ui-abs ui-inline-block class="imigo-card-price-imi-image"></span>
+													</div>
+													<div ui-w-15p ui-vc-align>
+														<div ng-click="onCancel(type)"
+														     ui-bl-hr-align
+														     data-tip="{{'delete this ad' | translate}}"
+														     class="imigo-card-cancel-button"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div>
+											<div ui-column ui-full-w>
+												<div ui-vb-align
+												     ui-hl-align
+												     class="imigo-card-description-content-label"
+												     ng-if="!desk.isDeal()">
+													{{'Your offer' | translate}}
+												</div>
+												<div ui-vb-align
+												     ui-hl-align
+												     class="imigo-card-description-content-label"
+												     ng-if="desk.isDeal()">
+													<a ui-sref="profile({user: desk.card.partner, from: 'main'})"
+													   data-tip-align="center"
+													   data-tip="{{desk.card.nickname | html | singleLineHtml}}"
+													   ng-bind-html="desk.card.nickname | html | singleLineHtml"
+													   class="imigo-card-description-link-label imigo-underline"></a>
+												</div>
+											</div>
+										</div>
+										<div ui-full-w class="imigo-card-editor-content-wrapper">
+											<div ui-column ui-full>
+												<div ui-full class="imigo-card-editor-content">
+													<div ui-row ui-full ng-if="desk.edit">
+														<div>
+															<ui-select ui-full-w
+															           ng-model="desk.card.role"
+															           theme="selectize">
+																<ui-select-match placeholder="{{'Your role' | translate}}">
+																	{{$select.selected.name | translate}}
+																</ui-select-match>
+																<ui-select-choices repeat="role in roles" ui-full-w>
+																	<span ng-bind-html="role.name | translate | highlight: $select.search"></span>
+																</ui-select-choices>
+															</ui-select>
+														</div>
+														<div>
+															<div ui-h-4></div>
+														</div>
+														<div ui-full>
+															<textarea ui-full
+															          ui-block
+															          placeholder="{{'Ad text' | translate}}"
+															          maxlength="{{maxAccessbileCharCount}}"
+															          minlength="1"
+															          ng-model="desk.card.text"
+															          ng-change="onChangeAd(desk.card)"
+															          class="imigo-card-editor-inputarea"></textarea>
+														</div>
+														<div>
+															<div ui-h-16
+															     class="imigo-profile-char-count-label" translate>{{desk.card.accessbileCharCount}} characters left</div>
+														</div>
+													</div>
+													<div ui-full
+													     ui-rel
+													     ng-if="!desk.edit">
+														<div ui-abs ui-full ng-if="!desk.isDeal()">
+															<perfect-scrollbar ui-full
+															                   wheel-propagation="true"
+															                   wheel-speed="10"
+															                   min-scrollbar-length="20"
+															                   class="imigo-scroller">
+																<div ng-bind-html="desk.card.text | html" class="imigo-card-editor-label"></div>
+															</perfect-scrollbar>
+														</div>
+														<div ui-abs ui-full ng-if="desk.isDealFinished() && !desk.card.complete">
+															<div ui-rel ui-full>
+																<div ui-row ui-abs ui-full>
+																	<div>
+																		<div class="imigo-card-score-title-label">
+																			{{'Points available to review your partner' | translate}}: <b>{{desk.card.points}}</b>
+																		</div>
+																	</div>
+																	<div ui-full>
+																		<div ui-rel ui-full>
+																			<div ui-abs ui-full>
+																				<perfect-scrollbar ui-full
+																				                   wheel-propagation="true"
+																				                   wheel-speed="10"
+																				                   min-scrollbar-length="20"
+																				                   class="imigo-scroller">
+																					<div ui-column ng-repeat="(skill, name) in desk.card.skills" class="imigo-card-score-wrapper">
+																						<div><div ui-inline-block ui-vc-align class="imigo-card-score-image imigo-card-score-{{skill}}-image"></div></div>
+																						<div ui-full-w ui-vc-align>
+																							<span ui-inline-block class="imigo-card-score-text-label">{{name | translate}}</span>
+																						</div>
+																						<div class="imigo-nowrap" ui-vc-align>
+																							<span ui-inline-block class="imigo-card-score-action-button" ng-click="desk.decrementScore(skill)">-</span>
+																							<span class="imigo-card-score-text-label">{{desk.card.feedback[skill]}}</span>
+																							<span ui-inline-block class="imigo-card-score-action-button" ng-click="desk.incrementScore(skill)">+</span>
+																						</div>
+																					</div>
+																				</perfect-scrollbar>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div>
+											<div ui-column ui-full-w ui-h-32>
+												<div ui-w-30p ui-vc-align>
+													<div ui-sref="chat({partner:desk.card.partner})"
+													     ng-if="desk.isDeal()"
+													     class="imigo-card-chat-image"
+														 data-tip="{{'Open chat' | translate}}"></div>
+												</div>
+												<div ui-w-40p ui-vc-align>
+													<div ui-hc-align
+													     ng-click="onPlace(type)"
+													     ng-class="{disabled: !isValidAd(desk.card)}"
+													     class="imigo-card-ad-place-button"
+													     data-tip="{{'Fill the Price and Text fields' | translate}}"
+													     ng-if="desk.edit">{{'Submit' | translate}}</div>
+												</div>
+												<div ui-w-30p ui-vc-align ui-hr-align>
+													<div class="imigo-card-paging-content-label"
+													     data-tip="{{'Slots filled in this category' | translate}}">
+														{{(desk.index + 1) + '/' + user.limits.max_slots.value}}
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div ui-vc-align ui-hl-align ui-w-50p>
+					<div ui-inline-block ng-click="onPageForward(type)" class="imigo-forward-button" ng-style="{visibility: desk.count > 0 ? 'visible' : 'hidden'}"></div>
+				</div>
+			</div>
+		</div>
+		<div ui-w-5p></div>
+	</div>
+	<div ui-abs ui-full ng-if="alertObject" class="imigo-alert-dialog-wrapper imigo-panel">
+		<div ui-column ui-full>
+			<div ui-hc-align ui-vc-align>
+				<div ui-inline-block class="imigo-alert-dialog {{alertObject.type}}">
+					<div ui-row ui-full>
+						<div ng-if="alertObject.close && alertObject.type !== 'error'">
+							<div ui-bl-hr-align class="imigo-chat-cross-image" ng-click="alertObject.close()"></div>
+						</div>
+						<div ui-full ui-hl-align>
+							<div ui-column ui-full>
+								<div ui-full ui-vc-align class="imigo-alert-dialog-label" ng-if="alertObject.text1 && alertObject.text2">
+									{{alertObject.text1 | translate}}<br>{{alertObject.text2 | translate}}
+								</div>
+								<div ui-full ui-vc-align class="imigo-alert-dialog-label" ng-if="alertObject.text">
+									{{alertObject.text | translate}}
+								</div>
+							</div>
+						</div>
+						<div ui-full-w ui-hc-align>
+							<div ui-column ui-full>
+								<div ng-if="alertObject.text3" ui-vc-align>
+									<div class="imigo-main-alert-premium-label">
+										{{alertObject.text3 | translate}}
+									</div>
+								</div>
+								<div ui-vc-align>
+									<div ui-inline-block class="imigo-alert-dialog-button" ng-click="alertObject.button.action()">{{alertObject.button.text | translate}}</div>
+									<div ng-if="alertObject.button2" ui-inline-block class="imigo-alert-dialog-button" ng-click="alertObject.button2.action()">{{alertObject.button2.text | translate}}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div ui-column ui-full-w ui-h-15p ng-include="'app/footer.tpl.html'"></div>

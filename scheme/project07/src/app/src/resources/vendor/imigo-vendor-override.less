@@ -1,0 +1,59 @@
+@import "../css/imigo-constant";
+
+/** UI-SELECT **/
+.ui-select-focusser {
+	display: none;
+}
+
+.ui-select-choices-row-inner {
+	text-align: left;
+}
+
+.ui-select-dropdown * {
+	cursor: pointer;
+}
+
+/** SELECTIZE **/
+.selectize-control {
+	height: 32px;
+
+	&.single {
+		.selectize-input {
+			height: 32px;
+			box-shadow: none;
+			text-align: left;
+			border-color: @imigo-basic-lite-brown-color;
+			padding: 2px;
+			z-index: 0;
+
+			.ui-select-match {
+				padding: 4px;
+			}
+
+			& > input {
+				width: 100%;
+				height: 26px;
+				padding: 0 4px !important;
+			}
+
+			&:after {
+				background: url('../images/registration/V_icon.png') no-repeat;
+				height: 9px;
+				width: 15px;
+				border: 0;
+				right: 6px;
+			}
+		}
+	}
+}
+
+.selectize-dropdown {
+	.active {
+		font-weight: bold;
+	}
+}
+
+/** TOOLTIP **/
+.ui-simple-tooltip {
+	background: rgba(0, 0, 0, .8);
+}

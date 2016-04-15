@@ -1,0 +1,281 @@
+<table>
+	<name>
+		lotusd_agreement
+	</name>
+	<description>
+		согласования - согласование
+	</description>
+	<path>
+		СОГЛАСОВАНИЯ/Согласования
+	</path>
+	<comment>
+		Создается документ согласования, в него прописываются согласующие. Далее согласующий «соглашается» или «нет» с
+		документом, при этом создается документ типа «ответ на согласование», куда прописывается ФИО и результат ответа
+		согласующего. Согласование считается завершенным, когда количество таких доков = количеству согласующих (если
+		совсем точно, то ФИО согласующих – СУММА (ФИО из всех ответных доков) = 0). При необходимости создается
+		повторное согласование, при этом док согласования привязывается (автоматом) к предыдущему согласованию и
+		становится «дочерним» по отношению к нему.
+		Сущность может быть родительской и дочерней.
+	</comment>
+	<columns>
+		<column>
+			<name>ld_agr_id</name>
+			<primary>true</primary>
+			<notNull>true</notNull>
+			<type>integer</type>
+			<description>первичный ключ (создан при импорте внешней БД)</description>
+		</column>
+		<column>
+			<name>ld_agr_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<description>предыдущий первичный ключ</description>
+		</column>
+		<column>
+			<name>ld_agr_parent_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_agreement</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>null</sql>
+			<description>внешний ключ на саму себя (на таблицу lotusd_agreement)</description>
+		</column>
+		<column>
+			<name>ld_agr_parent_unid</name>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{parent}</sql>
+			<description>внешний уникальный ключ на саму себя (на таблицу lotusd_agreement)</description>
+		</column>
+		<column>
+			<name>ld_agr_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_agr_type</name>
+			<type>text</type>
+			<nativeColumnType>varchar(30)</nativeColumnType>
+			<sql>{form}</sql>
+			<description>Form: "ld_document". Форма может быть как родительской, так и дочерней (может ссылаться на
+				документы этой же формы – предыдущие варианты согласований, к примеру). Форма вполне может существовать
+				и без связей на родителя, и без физически существующего родителя (если ссылка на него есть). К этому
+				типу документов привязываются документы из БД Поручений (ПОРУЧЕНИЯ/Поручения: lotusd_procuratory).
+			</description>
+		</column>
+		<column>
+			<name>ld_agr_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>ld_agr_path</name>
+			<type>text</type>
+			<sql>{path}</sql>
+			<description>абсолютный путь к файлу</description>
+		</column>
+		<column>
+			<name>SourceDocID</name>
+			<columnName>ld_linked_unid</columnName>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<comment>UNID документа, связка с lotusd_chancery_out (КАНЦЕЛЯРИЯ/Исходящие) или lotusd_ord_docs (ОРД/Документы)</comment>
+		</column>
+		<column>
+			<name>Status</name>
+			<type>text</type>
+			<columnType>character</columnType>
+			<comment>Статус документа согласования: “D” – черновик, “E” – согласование идёт, “X” – согласование
+				завершено
+			</comment>
+		</column>
+		<column>
+			<name>Version</name>
+			<type>integer</type>
+			<comment>Номер версии согласования. Равно 1, если это первое согласование</comment>
+		</column>
+		<column>
+			<name>Archive</name>
+			<type>boolean</type>
+			<comment>Флаг: документ можно поместить в архив «1», если да</comment>
+		</column>
+		<column>
+			<name>Subject</name>
+			<type>text</type>
+			<comment>Заголовок документа</comment>
+		</column>
+		<column>
+			<name>Category</name>
+			<type>text</type>
+			<comment>Категория согласования (выбирается из словарика «категории документов»)</comment>
+		</column>
+		<column>
+			<name>Author</name>
+			<type>text</type>
+			<comment>ФИО автора согласования</comment>
+		</column>
+		<column>
+			<name>Reviewers</name>
+			<type>text[]</type>
+			<multi>true</multi>
+			<comment>ФИО согласующих</comment>
+		</column>
+		<column>
+			<name>ReviewStyle</name>
+			<type>text</type>
+			<nativeColumnType>varchar(20)</nativeColumnType>
+			<comment>
+				Тип согласования:
+				“Serial” – последовательное,
+				“Parallel” – одновременное
+			</comment>
+		</column>
+		<column>
+			<name>IsReviewTerm</name>
+			<type>boolean</type>
+			<comment>Флаг: срок согласования ограничен. «1» - если да
+			</comment>
+		</column>
+		<column>
+			<name>ReviewTime</name>
+			<type>integer</type>
+			<comment>
+				Количество дней для завершения согласования (с момента отправки на согласование). Имеет смысл читать
+				только если isReviewTerm = “1”
+			</comment>
+		</column>
+		<column>
+			<name>DisagreeRet</name>
+			<type>boolean</type>
+			<comment>Флаг: останавливать согласование при первом же несогласном. «1» - если да</comment>
+		</column>
+		<column>
+			<name>AllowAddition</name>
+			<type>boolean</type>
+			<comment>Флаг: разрешить согласующим добавлять в согласование других согласующих «1» - если да</comment>
+		</column>
+		<!--БЛОК ФАЙЛОВ-->
+		<column>
+			<name>id</name>
+			<primary>true</primary>
+			<type>integer</type>
+			<nativeColumnType>numeric</nativeColumnType>
+			<notNull>true</notNull>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+			<description>первичный ключ (создан при импорте внешней БД)</description>
+		</column>
+		<column>
+			<name>version_id</name>
+			<type>integer</type>
+			<nativeColumnType>numeric</nativeColumnType>
+			<empty>true</empty>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<column>
+			<name>version_date</name>
+			<type>timestamp with time zone</type>
+			<empty>true</empty>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<column>
+			<name>dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<originalFileName>true</originalFileName>
+			<sql>{district}</sql>
+			<group>lotusd_files</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>file_entity_unid</name>
+			<notNull>true</notNull>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<type>text</type>
+			<sql>{unid}</sql>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<column>
+			<name>Body</name>
+			<type>xml</type>
+			<notNull>true</notNull>
+			<columnName>file_name</columnName>
+			<columnType>text</columnType>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+			<comment>название оригинального файла</comment>
+		</column>
+		<column>
+			<name>file_path</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<column>
+			<name>hash</name>
+			<type>text</type>
+			<empty>true</empty>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<column>
+			<name>is_actual</name>
+			<type>boolean</type>
+			<empty>true</empty>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<column>
+			<name>type_id</name>
+			<type>text</type>
+			<empty>true</empty>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<column>
+			<name>size</name>
+			<type>integer</type>
+			<nativeColumnType>numeric</nativeColumnType>
+			<empty>true</empty>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<column>
+			<name>level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<!---->
+		<column>
+			<name>DateSended</name>
+			<type>timestamp with time zone</type>
+			<comment>Дата отправки на согласование</comment>
+		</column>
+	</columns>
+</table>

@@ -1,0 +1,422 @@
+<table>
+	<name>
+		lotusd_procuratory
+	</name>
+	<description>
+		Поручения - поручения
+	</description>
+	<path>
+		ПОРУЧЕНИЯ/Поручения
+	</path>
+	<comment>
+		Создается головное поручение, в него прописывается ответственный исполнитель и все соисполнители.
+		При этом при отправке такого поручения на исполнение каждому исполнителю создается свое собственное поручение,
+		привязанное к головному, при этом этот исполнитель не видит поручения других исполнителей.
+		Сущность может быть родительской и дочерней.
+	</comment>
+	<columns>
+		<column>
+			<name>ld_proc_id</name>
+			<primary>true</primary>
+			<notNull>true</notNull>
+			<type>integer</type>
+			<description>первичный ключ (создан при импорте внешней БД)</description>
+		</column>
+		<column>
+			<name>ld_proc_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<description>предыдущий первичный ключ</description>
+		</column>
+		<column>
+			<name>ld_proc_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_proc_parent_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_procuratory</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>null</sql>
+			<description>внешний ключ на саму себя (на таблицу lotusd_procuratory)</description>
+		</column>
+		<column>
+			<name>ld_proc_parent_unid</name>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{parent}</sql>
+			<description>внешний уникальный ключ на таблицу lotusd_procuratory</description>
+		</column>
+		<column>
+			<name>ld_proc_type</name>
+			<type>text</type>
+			<nativeColumnType>varchar(30)</nativeColumnType>
+			<sql>{form}</sql>
+			<description>Form = "ld_commission" или "ld_commission_resp". Форма "ld_commission" может быть только
+				родительской (ссылки на родителя иметь не может), форма "ld_commission_resp" может быть только дочерней
+				(т.е. имеет ссылку на родителя в атрибутах всегда). Документ формы "ld_commission_resp" без ссылки на
+				родителя (или при отсутствующем родителе) смысла не имеет.
+			</description>
+		</column>
+		<column>
+			<name>ld_proc_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>ld_proc_path</name>
+			<type>text</type>
+			<sql>{path}</sql>
+			<description>абсолютный путь к файлу</description>
+		</column>
+		<column>
+			<name>ctbBody</name>
+			<type>text</type>
+			<comment>Текстовка поручения</comment>
+		</column>
+		<column>
+			<name>ctbStatus</name>
+			<type>integer</type>
+			<comment>Статус поручения. 1: черновик, 2: передача (не используется), 3: исполнение,
+				4: приемка (не используется), 5: выполнено
+			</comment>
+		</column>
+		<column>
+			<name>ctbPriority</name>
+			<type>integer</type>
+			<comment>Флаг: приоритет поручения. «1», если нормальный, «3», если высокий</comment>
+		</column>
+		<column>
+			<name>ctbBoss</name>
+			<type>text</type>
+			<comment>ФИО контролёра поручения</comment>
+		</column>
+		<column>
+			<name>ctbSign</name>
+			<type>text</type>
+			<comment>ФИО подписавшего поручения</comment>
+		</column>
+		<column>
+			<name>ctbAuthor_ru</name>
+			<type>text</type>
+			<comment>Автор (создатель) поручения, ФИО</comment>
+		</column>
+		<column>
+			<name>ctbExtremeDate</name>
+			<type>timestamp with time zone</type>
+			<comment>Срок исполнения поручения</comment>
+		</column>
+		<column>
+			<name>ctbExecutor</name>
+			<type>text</type>
+			<comment>ФИО главного исполнителя поручения</comment>
+		</column>
+		<column>
+			<name>ctbDept</name>
+			<type>text</type>
+			<comment>Подразделения главного исполнителя поручения</comment>
+		</column>
+		<column>
+			<name>ctbDateCreated</name>
+			<type>timestamp with time zone</type>
+			<comment>Дата создания (выдачи) поручения</comment>
+		</column>
+		<column>
+			<name>ctb_InheritedID</name>
+			<columnName>ld_linked_unid</columnName>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<comment>UNID документа, к которому относится поручение. Поручение может крепиться к
+				КАНЦЕЛЯРИЯ/Входящие (lotusd_chancery_in), КАНЦЕЛЯРИЯ/Исходящие (lotusd_chancery_out),
+				ОРД/Документы (lotusd_ord_docs), СОГЛАСОВАНИЯ/Согласования (lotusd_agreement)</comment>
+		</column>
+		<column>
+			<name>ctbDocnum</name>
+			<type>text</type>
+			<comment>
+				Номер и дата документа, по которому было создано поручение.
+				Для информационных целей, все равно берется из «привязанного» документа.
+			</comment>
+		</column>
+		<column>
+			<name>ctbControl</name>
+			<type>text</type>
+			<comment>Флаг: поручение на контроле = «», если нет. Действительно пустое значение, если нет, else – да.
+			</comment>
+		</column>
+		<column>
+			<name>ctbExtremeDate_First</name>
+			<type>date</type>
+			<comment>Первоначальный срок исполнения, если он переносился</comment>
+		</column>
+		<column>
+			<name>ctbTematika</name>
+			<type>text</type>
+			<comment>Тематика поручения (выбирается из словарика «тематика поручений»)</comment>
+		</column>
+		<column>
+			<name>ctbDateFact</name>
+			<type>date</type>
+			<comment>Дата фактического выполнения поручения</comment>
+		</column>
+		<column>
+			<name>ctbMoredocs</name>
+			<type>text</type>
+			<comment>Текстовка с описанием сопутствующих документов</comment>
+		</column>
+		<column>
+			<name>ctbAuthor</name>
+			<type>text</type>
+			<comment>ФИО составителя поручения</comment>
+		</column>
+		<column>
+			<name>ctbComplete</name>
+			<type>integer</type>
+			<comment>
+				Флаг: результат исполнения поручения. «1» = исполнено, «2» = не исполнено, «3» = исполнено частично,
+				«4» = поручение отменено
+			</comment>
+		</column>
+		<column>
+			<name>ctbRelDocs</name>
+			<type>text</type>
+			<comment>Комментарий и описание исполнение поручения</comment>
+		</column>
+		<column>
+			<name>ctbComment</name>
+			<type>text</type>
+			<comment>Текстовка подготовленных в результате исполнения документов</comment>
+		</column>
+		<!--БЛОК ПЕРЕНОС СРОКОВ-->
+		<column>
+			<name>ld_proc_pp_order_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_procuratory</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_procuratory_postponement</group>
+			<description>внешний ключ на таблицу lotusd_procuratory</description>
+		</column>
+		<column>
+			<name>ld_proc_pp_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_procuratory_postponement</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_proc_pp_order_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<group>lotusd_procuratory_postponement</group>
+			<description>внешний уникальный ключ на таблицу lotusd_procuratory</description>
+		</column>
+		<column>
+			<name>ld_proc_pp_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_procuratory_postponement</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>ctbExtremeDate_ListMan</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_procuratory_postponement</group>
+			<comment>ФИО кто перенес срок</comment>
+		</column>
+		<column>
+			<name>ctbExtremeDate_ListDate</name>
+			<type>date[]</type>
+			<columnType>date</columnType>
+			<multi>true</multi>
+			<group>lotusd_procuratory_postponement</group>
+			<comment>Когда был перенесен срок</comment>
+		</column>
+		<column>
+			<name>ctbExtremeDate_List</name>
+			<type>date[]</type>
+			<columnType>date</columnType>
+			<multi>true</multi>
+			<group>lotusd_procuratory_postponement</group>
+			<comment>Новый срок исполнения</comment>
+		</column>
+		<column>
+			<name>ctbExtremeDate_Reason</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_procuratory_postponement</group>
+			<comment>Причина переноса срока</comment>
+		</column>
+		<!--БЛОК СОИСПОЛНИТЕЛЕЙ-->
+		<column>
+			<name>ld_proc_co_order_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_procuratory</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_procuratory_coauthors</group>
+			<description>внешний ключ на таблицу lotusd_procuratory</description>
+		</column>
+		<column>
+			<name>ld_proc_co_order_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_procuratory_coauthors</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_proc_co_order_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<group>lotusd_procuratory_coauthors</group>
+			<description>внешний уникальный ключ на таблицу lotusd_procuratory</description>
+		</column>
+		<column>
+			<name>ld_proc_co_order_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_procuratory_coauthors</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>ctbCoExecutors</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_procuratory_coauthors</group>
+			<comment>ФИО соисполнителей</comment>
+		</column>
+		<column>
+			<name>ctbCoExecutorsDept</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_procuratory_coauthors</group>
+			<comment>Подразделения соисполнителей</comment>
+		</column>
+		<!--БЛОК ВОЗВРАТА-->
+		<column>
+			<name>ld_proc_rt_order_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_procuratory</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_procuratory_return</group>
+			<description>внешний ключ на таблицу lotusd_procuratory</description>
+		</column>
+		<column>
+			<name>ld_proc_rt_order_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_procuratory_return</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_proc_rt_order_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<group>lotusd_procuratory_return</group>
+			<description>внешний уникальный ключ на таблицу lotusd_procuratory</description>
+		</column>
+		<column>
+			<name>ld_proc_rt_order_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_procuratory_return</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>ctb_Return_ListDate</name>
+			<type>date[]</type>
+			<columnType>date</columnType>
+			<multi>true</multi>
+			<group>lotusd_procuratory_return</group>
+			<comment>Дата возврата</comment>
+		</column>
+		<column>
+			<name>ctb_Return_ListMan</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_procuratory_return</group>
+			<comment>Кто вернул, ФИО</comment>
+		</column>
+		<column>
+			<name>ctb_Return_ListStatus</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_procuratory_return</group>
+			<comment>Статус, в котором был документ на момент возвращения</comment>
+		</column>
+		<column>
+			<name>ctb_Return_ListReason</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_procuratory_return</group>
+			<comment>Причина возврата на доработку</comment>
+		</column>
+	</columns>
+</table>

@@ -1,0 +1,27 @@
+#parse("/templates/qiwi/jira/plugins/pipeline/header.vm")
+#parse("/templates/qiwi/jira/plugins/pipeline/main-page-link.vm")
+
+#parse("/templates/qiwi/jira/plugins/pipeline/title.vm")
+Просмотр скорости закрытия тикетов в конвейере на текущий момент времени за расчетный период в $req.getAttribute("totalMonthCount") месяца
+#parse("/templates/qiwi/jira/plugins/pipeline/footer.vm")
+
+#set($pipelineStatEntities = $req.getAttribute("pipelineStatEntities"))
+
+<table border="0" cellpadding="3" style="cursor: default; background-color: #000;">
+    <tbody style="background-color: #fff;">
+        <tr style="text-align: center;">
+            <td>проект</td>
+            <td><nobr>расчетная скорость (человеко-дней в месяц)</nobr></td>
+            <td><nobr>назначенная скорость (человеко-дней в месяц)</nobr></td>
+        </tr>
+        #foreach($pipelineStatEntity in $pipelineStatEntities)
+            <tr>
+                <td>$pipelineStatEntity.name</td>
+                <td style="text-align: right;">$pipelineStatEntity.formattedSpeed</td>
+                <td style="text-align: right;">$pipelineStatEntity.formattedFixedSpeed</td>
+            </tr>
+        #end
+    </tbody>
+</table>
+
+#parse("/templates/qiwi/jira/plugins/pipeline/footer.vm")

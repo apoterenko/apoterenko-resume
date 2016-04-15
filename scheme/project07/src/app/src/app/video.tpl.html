@@ -1,0 +1,26 @@
+<div ui-column ui-full id="dynamicheightparent-main-id">
+	<div ui-hc-align ui-vc-align>
+		<div ui-inline-block class="imigo-video-dialog">
+			<div ui-row ui-full>
+				<div>
+					<div ui-bl-hr-align class="imigo-chat-cross-image" ng-click="onClose()"></div>
+				</div>
+				<div class="imigo-video-label">
+					<div class="imigo-video-label-content">
+						{{'Welcome to IMIGO.ME - the first website that allows you to buy and sell personal time and relationships!' | translate }}
+						<br>
+						{{'Find out how it works:' | translate }}
+					</div>
+				</div>
+				<div>
+					<iframe dynamicheight="dynamicheightparent-main-id" ng-src="{{videoPath}}" frameborder="0" allowfullscreen></iframe>
+				</div>
+				<div ui-vc-align>
+					<div ui-inline-block
+					     class="imigo-video-button"
+					     ng-click="onClose()">{{'close' | translate}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

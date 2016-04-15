@@ -1,0 +1,149 @@
+@import "imigo-bank-component";
+
+.imigo-bank-history-label {margin-bottom: 50px;}
+.imigo-bank-premium-title-label {padding-top: 40px; padding-bottom: 6px;}
+.imigo-bank-payment-title-label {
+	padding-top: 54px;
+	&.imigo-bank-payment-title-label2 {
+		padding-top: 26px;
+	}
+}
+.imigo-bank-payment-common-label {padding-top: 16px;}
+.imigo-bank-payment-title-label, .imigo-bank-payment-common-label {padding-bottom: 14px;}
+.imigo-bank-premium-description-label {margin-right: 20px; margin-left: 20px;}
+.imigo-bank-premium-subscription-label {margin-right: 40px; padding-left: 20px;}
+.imigo-bank-payment-rate-label {bottom: -18px;}
+.imigo-bank-payment-title-first-label {padding-right: 80px;}
+.imigo-bank-premium-zone {.imigo-bank-payment-common-label {padding-bottom: 28px;}}
+.imigo-bank-histoty-list-title {margin-top: 18px; margin-bottom: 30px;}
+.imigo-bank-histoty-list-last {padding-right: 12px;}
+.imigo-bank-histoty-navigation {padding-top: 20px;}
+.imigo-bank-payment-rate-label {margin-top: 6px;}
+.imigo-bank-premium-offer-zone-wrapper {max-width: 700px;}
+.imigo-bank-premium-zone-wrapper {overflow: hidden;}
+.imigo-bank-premium-offer-zone-wrapper2 {
+	.imigo-imi-currency-image {
+		margin-right: 20px;
+	}
+}
+.imigo-bank-payment-replenish-label {padding-right: 40px;}
+
+.imigo-payment-dialog-wrapper {left: 0; top: 0;}
+.imigo-payment-dialog {padding: 16px;}
+.imigo-purchase-input {margin-bottom: 8px;}
+.imigo-payment-dialog {width: 300px;}
+.imigo-payment-title-label {margin-bottom: 12px;}
+.imigo-bank-cred-card {width: 450px; height: 260px; padding: 16px 20px;
+	&.imigo-bank-cred-card2 {
+		padding: 16px 0;
+		width: 470px;
+	}
+}
+.imigo-bank-cred-card-holder {height: 340px;}
+.imigo-bank-cred-card2 {left: 170px; top: 20px;}
+.imigo-bank-cvc-holder {width: 150px;}
+input.imigo-bank-payment-checkbox {height: 12px; padding: 0;}
+
+.imigo-bank-payment-sum-label {padding-left: 20px;}
+.imigo-bank-payment-type-wrapper {margin-top: 10px; padding-top: 6px; padding-bottom: 6px}
+.imigo-bank-cvc {padding: 10px;}
+.imigo-bank-validity {margin-top: 12px;}
+.imigo-bank-payment-sum-wrapper {width: 650px;}
+.imigo-bank-withdrawal-description-label {padding-bottom: 20px;}
+.imigo-bank-withdrawal-zone {max-width: 460px;}
+.imigo-bank-withdrawal-sum-label {padding-bottom: 26px; padding-top: 116px;}
+
+// Media queries
+.build-bank-controls2 (@max-width, @bank-common-input-padding, @bank-apply-button-padding,
+@bank-payment-premium-common-label-padding, @bank-payment-common-label-padding-bottom, @bank-payment-common-label-padding-top, @bank-cred-card-width1, @bank-cred-card-width2,
+@bank-cred-card-left) {
+	@media (max-width: @max-width) {
+		.imigo-view {
+
+			.imigo-bank-apply-button, .imigo-profile-return-button {
+				padding-top: @bank-apply-button-padding;
+				padding-bottom: @bank-apply-button-padding;
+			}
+
+			.imigo-bank-payment-zone input {
+				padding: @bank-common-input-padding;
+			}
+
+			.imigo-bank-premium-zone {
+				.imigo-bank-payment-common-label {
+					padding-bottom: @bank-payment-premium-common-label-padding;
+				}
+			}
+
+			.imigo-bank-payment-title-label, .imigo-bank-payment-common-label {
+				padding-bottom: @bank-payment-common-label-padding-bottom;
+			}
+
+			.imigo-bank-payment-common-label {
+				padding-top: @bank-payment-common-label-padding-top;
+			}
+
+			.imigo-bank-cred-card {
+				width: @bank-cred-card-width1;
+				&.imigo-bank-cred-card2 {
+					width: @bank-cred-card-width2;
+				}
+			}
+			.imigo-bank-cred-card2 {left: @bank-cred-card-left;}
+
+		}
+	}
+}
+
+.build-bank-controls2 (
+	@max-width: @imigo-1280-width,
+	@bank-common-input-padding: 8px,
+	@bank-apply-button-padding: 4px,
+	@bank-payment-premium-common-label-padding: 22px,
+	@bank-payment-common-label-padding-bottom: 10px,
+	@bank-payment-common-label-padding-top: 12px,
+	@bank-cred-card-width1: 360px,
+	@bank-cred-card-width2: 380px,
+	@bank-cred-card-left: 150px
+);
+
+.build-bank-controls2 (
+	@max-width: @imigo-1024-width,
+	@bank-common-input-padding: 6px,
+	@bank-apply-button-padding: 3px,
+	@bank-payment-premium-common-label-padding: 18px,
+	@bank-payment-common-label-padding-bottom: 8px,
+	@bank-payment-common-label-padding-top: 10px,
+	@bank-cred-card-width1: 340px,
+	@bank-cred-card-width2: 360px,
+	@bank-cred-card-left: 150px
+);
+
+.build-bank-controls2 (
+	@max-width: @imigo-900-width,
+	@bank-common-input-padding: 4px,
+	@bank-apply-button-padding: 2px,
+	@bank-payment-premium-common-label-padding: 14px,
+	@bank-payment-common-label-padding-bottom: 6px,
+	@bank-payment-common-label-padding-top: 8px,
+	@bank-cred-card-width1: 320px,
+	@bank-cred-card-width2: 340px,
+	@bank-cred-card-left: 150px
+);
+
+.build-bank-controls2 (
+	@max-width: @imigo-800-width,
+	@bank-common-input-padding: 2px,
+	@bank-apply-button-padding: 2px,
+	@bank-payment-premium-common-label-padding: 10px,
+	@bank-payment-common-label-padding-bottom: 4px,
+	@bank-payment-common-label-padding-top: 6px,
+	@bank-cred-card-width1: 300px,
+	@bank-cred-card-width2: 320px,
+	@bank-cred-card-left: 150px
+);
+
+// Browser
+.imigo-jp {
+	.imigo-bank-payment-replenish-label {padding-right: 140px;}
+}

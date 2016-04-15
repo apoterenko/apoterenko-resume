@@ -1,0 +1,466 @@
+<div ui-column ui-full-w ui-h-10p ng-include="'app/logo.tpl.html'" class="imigo-mini-logo-wrapper"></div>
+<div class="imigo-center-panel imigo-search">
+	<div ui-column ui-full ng-show="user">
+		<div ui-w-25p ui-full-h ui-vt-align>
+			<div ui-row ui-full class="imigo-panel">
+				<div ui-full>
+					<div ui-column ui-full>
+						<div class="imigo-search-filter-zone">
+							<div ui-column ui-full-w class="imigo-search-relation-wrapper imigo-search-{{viewCategory}}-wrapper">
+								<div ui-hc-align
+								     ui-vc-align
+								     ui-w-33p
+								     ng-repeat="type in [{id: 'friends', tip: 'Friendship'}, {id: 'romance', tip: 'Romance'}, {id: 'work', tip: 'Professional'}]">
+									<div ui-inline-block
+									     data-tip="{{type.tip | translate}}"
+									     data-tip-align="center"
+										 class="imigo-relation-{{type.id}}-image imigo-search-filter-relation-image"
+									     ui-sref="search({category: category(type.id)})">
+									</div>
+								</div>
+							</div>
+							<input ui-full-w
+							       type="text"
+							       autofocus
+							       class="imigo-search-input imigo-loupe-image imigo-search-field-wrapper"
+							       placeholder="{{'Search' | translate}}"
+							       ng-model="query.text">
+							<div ui-column
+							     ui-full-w
+							     ui-h-40
+							     class="imigo-search-field-wrapper">
+								<div ui-vc-align>
+									<div class="imigo-search-filter-label">{{'Sex' | translate}}</div>
+								</div>
+								<div ui-rel ui-w-100p ui-vc-align>
+									<div ui-column ui-full-w>
+										<div ui-hr-align>
+											<div ng-click="setGender('male')"
+											     ng-class="{selected: query.gender == 'male'}"
+											     ui-inline-block
+											     class="imigo-gender-switch-button male"></div>
+										</div>
+										<div><div ui-w-32>&nbsp;</div></div>
+										<div>
+											<div ng-click="setGender('female')"
+											     ng-class="{selected: query.gender == 'female'}"
+											     ui-inline-block
+											     class="imigo-gender-switch-button female"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div ui-column
+							     ui-full-w
+							     ui-h-40
+							     class="imigo-search-field-wrapper">
+								<div ui-vc-align>
+									<div class="imigo-search-filter-label">{{'Show those who want' | translate}}</div>
+								</div>
+								<div ui-rel ui-w-100p ui-vc-align>
+									<ui-select ui-w-100p
+									           ng-model="roleCombo.role"
+									           class="imigo-search-combo"
+									           theme="selectize">
+										<ui-select-match placeholder="{{'...' | translate}}">
+											{{$select.selected.name | translate}}
+										</ui-select-match>
+										<ui-select-choices repeat="role in roles" ui-full-w>
+											<span ng-bind-html="role.name | translate | highlight: $select.search"></span>
+										</ui-select-choices>
+									</ui-select>
+								</div>
+							</div>
+							<div ui-column
+							     ui-full-w
+							     ui-h-40
+							     class="imigo-search-field-wrapper">
+								<div ui-vc-align>
+									<div class="imigo-search-filter-label">{{'Age' | translate}}</div>
+								</div>
+								<div ui-rel ui-w-100p ui-vc-align>
+									<div ui-slider="{range: true}"
+									     min="18"
+									     max="70"
+									     step="1"
+									     ng-model="age"
+									     class="ui-slider ui-slider-horizontal">
+										<a class="ui-state-default" href="#"></a>
+										<a class="ui-state-default" href="#"></a>
+									</div>
+									<div ui-abs class="imigo-search-filter-slider-label">{{age[0]}}</div>
+									<div ui-abs ui-abs-hr class="imigo-search-filter-slider-label">{{age[1] === 70 ? age[1] + '+' : age[1]}}</div>
+								</div>
+							</div>
+							<div ui-column
+							     ui-full-w
+							     ui-h-40
+							     class="imigo-search-field-wrapper">
+								<div ui-vc-align>
+									<div class="imigo-search-filter-label">{{'Price range' | translate}}</div>
+								</div>
+								<div ui-rel ui-w-100p ui-vc-align>
+									<div ui-slider="{range: true}"
+									     min="1"
+									     max="500"
+									     step="1"
+									     ng-model="price"
+									     class="ui-slider ui-slider-horizontal">
+										<a class="ui-state-default" href="#"></a>
+										<a class="ui-state-default" href="#"></a>
+									</div>
+									<div ui-abs class="imigo-search-filter-slider-label">{{price[0]}}</div>
+									<div ui-abs ui-abs-hr class="imigo-search-filter-slider-label">{{price[1] === 500 ? price[1] + '+' : price[1]}}</div>
+								</div>
+							</div>
+							<div ui-column
+							     ui-full-w
+							     ui-h-40
+							     class="imigo-search-field-wrapper">
+								<div ui-vc-align>
+									<div class="imigo-search-filter-label">{{'Karma' | translate}}</div>
+								</div>
+								<div ui-rel ui-w-100p ui-vc-align>
+									<div ui-slider="{range: 'max'}"
+									     ui-w-50p
+									     ui-inline-block
+									     min="0"
+									     max="50"
+									     step="1"
+									     ng-model="antiKarma"
+									     ng-class="['imigo-slider-antikarma-layout', {'imigo-slider-antikarma': query.antiKarma < 50}]"
+									     class="ui-slider ui-slider-horizontal">
+										<a class="ui-state-default" href="#"></a>
+									</div>
+									<div ui-abs
+									     ui-inline-block
+									     class="ui-slider-separator"></div>
+									<div ui-slider="{range: 'min'}"
+									     ui-w-50p
+									     ui-inline-block
+									     max="50"
+									     step="1"
+									     ng-model="karma"
+									     class="ui-slider ui-slider-horizontal imigo-slider-karma">
+										<a class="ui-state-default" href="#"></a>
+									</div>
+									<div ui-abs class="imigo-search-filter-slider-label">&#62; {{antiKarmaUnlimited ? (antiKarmaUnlimited) : query.antiKarma}}</div>
+									<div ui-abs ui-abs-hr class="imigo-search-filter-slider-label">&gt; {{query.karma || 0}}</div>
+								</div>
+							</div>
+							<div ui-column
+							     ui-full-w
+							     ui-h-40
+							     class="imigo-search-field-wrapper">
+								<div ui-vc-align>
+									<div class="imigo-search-filter-label">{{'Language' | translate}}</div>
+								</div>
+								<div ui-w-100p ui-vc-align ui-hc-align language></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div>
+					<div ui-column ui-full-w>
+						<div ui-column ui-h-40 class="imigo-search-field-wrapper">
+							<div ui-vc-align>
+								<div class="imigo-search-filter-label imigo-nowrap imigo-w-auto">{{'Confirmed users' | translate}}</div>
+							</div>
+							<div><div ui-w-12></div></div>
+							<div ui-w-100p ui-vc-align ui-hc-align>
+								<input ui-inline-block
+								       ng-model="confirmed"
+								       class="imigo-search-checkbox"
+								       type="checkbox">
+							</div>
+						</div>
+					</div>
+					<div ui-column ui-full-w>
+						<div ui-hc-align ng-if="user && !user.premium">
+							<div ui-inline-block
+							     class="imigo-bank-apply-button imigo-premium-shadow"
+							     ng-click="buyPremium()">
+								{{'activate premium' | translate}}
+							</div>
+						</div>
+						<div ui-hc-align>
+							<div ui-inline-block
+							     class="imigo-search-reset-button"
+							     ng-click="onResetForm()">
+								{{'clear filter' | translate}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ui-w-35p class="imigo-search-card-holder imigo-search-body-center-zone">
+			<div ui-rel ui-full class="imigo-panel">
+				<div ui-row
+				     ui-abs
+				     ui-full
+				     ng-if="!selected()">
+					<div ui-h-35p>
+						<div ui-column ui-full>
+							<div ui-vc-align
+							     ui-hc-align
+							     class="imigo-card-empty-label">{{'Use filters to find and contact people.' | translate}}</div>
+						</div>
+					</div>
+					<div ui-h-15p>
+						<div ui-column ui-full>
+							<div ui-hc-align ui-vc-align>
+								<div ui-inline-block
+								     ng-click="onShowExamples()"
+								     class="imigo-search-examples-button">
+									{{'Show examples' | translate}}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ui-h-50p class="imigo-search-result-image">&nbsp;</div>
+				</div>
+				<div ui-row
+				     ui-abs
+				     ui-full
+				     ng-if="selected()"
+				     class="imigo-card imigo-card-edit-mode imigo-panel">
+					<div ui-h-60p class="imigo-card-photo">
+						<label ui-full
+						       ui-block
+						       class="imigo-card-photo-content-image"
+						       ng-style="{'background-image': 'url(' + getCurrentAdPhotoUrl() + ')'}">
+						</label>
+					</div>
+					<div ui-h-40 class="imigo-card-center-bar-{{selected().category}}">
+						<div ui-column ui-full>
+							<div ui-full ui-vc-align ui-hc-align class="imigo-nowrap">
+								<span ui-inline-block class="imigo-card-price-label imigo-card-role-label">{{(selected().role === 'customer' ? 'wants to pay' : 'wants to get paid') | translate}}</span>
+								<span ui-inline-block class="imigo-card-price-label">{{selected().price}}</span>
+								<span ui-inline-block ui-vt-align class="imigo-card-price-imi-image"></span>
+								<span ui-inline-block class="imigo-card-price-label">{{(selected().category === 'professional' ? 'per hour' : 'per day') | translate}}</span>
+							</div>
+						</div>
+					</div>
+					<div ui-h-40p ui-full-w>
+						<div ui-column ui-full>
+							<div class="imigo-card-selected-ad-photo-wrapper">
+								<div ui-w-88
+								     ui-h-88
+								     ng-style="{'background-image': 'url(' + getCurrentAdUserPhotoUrl() + ')'}"
+								     class="imigo-card-selected-ad-photo-image">
+								</div>
+								<div ui-hc-align>
+									<span imi-cs-ct data-tip="{{'negative karma' | translate}}" data-tip-align="center">{{selected().antiKarma}}</span>
+									<span imi-cs-sep>/</span>
+									<span imi-cs-ct-of data-tip="{{'karma' | translate}}" data-tip-align="center">{{selected().karma}}</span>
+								</div>
+							</div>
+							<div ui-full ui-vt-align>
+								<div ui-row ui-full>
+									<div>
+										<div class="imigo-card-description-content-label">
+											<a ui-sref="profile({user: selected().owner, ad: selected()._id, from: 'search'})"
+											   data-tip-align="center"
+											   data-tip="{{selected().nickname | html | singleLineHtml}}"
+											   ng-bind-html="selected().nickname | html | singleLineHtml"
+											   class="imigo-card-description-link-label imigo-underline"></a>
+										</div>
+									</div>
+									<div ui-full>
+										<div ui-column ui-full>
+											<div ui-full>
+												<div ui-rel ui-full>
+													<div ui-abs ui-full>
+														<perfect-scrollbar ui-full
+														                   wheel-propagation="true"
+														                   wheel-speed="10"
+														                   min-scrollbar-length="20"
+														                   class="imigo-scroller">
+															<div ng-bind-html="selected().text | html" class="imigo-card-editor-label"></div>
+														</perfect-scrollbar>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ui-h-44>
+						<div ui-column ui-full>
+							<div><div ui-w-12></div></div>
+							<div ui-w-40p ui-vc-align>
+								<div ui-inline-block
+								     class="imigo-card-report-image"
+								     ng-click="onReport()"
+									 ng-style="{visibility: isOwnAd() ? 'hidden' : 'visible'}"
+								     data-tip="{{'report abuse' | translate}}">
+								</div>
+							</div>
+							<div ui-w-20p ui-vc-align ui-hc-align>
+								<div ui-column ui-full>
+									<div ui-w-50p></div>
+									<div ui-vc-align>
+										<div ng-class="'imigo-relation-' + getCurrentAdImageType() + '-image'"></div>
+									</div>
+									<div><div ui-w-8></div></div>
+									<div ui-vc-align>
+										<span ui-hc-align class="imigo-card-relation-count-content-label" data-tip="{{'level in this category' | translate}}" data-tip-align="center">
+											{{selected().level}}
+										</span>
+									</div>
+									<div ui-w-50p></div>
+								</div>
+							</div>
+							<div ui-w-40p ui-vc-align ui-hr-align>
+								<div ui-inline-block
+								     ui-hc-align
+								     ng-click="onChat()"
+								     ng-style="{visibility: isOwnAd() ? 'hidden' : 'visible'}"
+								     class="imigo-card-chat-deal-button imigo-nowrap">
+									{{'Discuss the deal' | translate}}
+								</div>
+							</div>
+							<div><div ui-w-8></div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ui-w-40p>
+			<div ui-rel ui-full class="imigo-panel">
+				<div ui-abs ui-full>
+					<div ui-row ui-full>
+						<div ng-if="isSearchProgress()" ui-full-h>
+							<div ui-column ui-full>
+								<div ui-vc-align
+								     ui-hc-align>
+									<div ui-auto class="imigo-loading-image"></div>
+								</div>
+							</div>
+						</div>
+						<div ng-if="!hasSearchResult() && !isSearchProgress() && !nothingFound()" ui-full-h>
+							<div ui-column ui-full>
+								<div ui-vc-align
+								     ui-hc-align
+								     class="imigo-card-empty-label">{{'No results.' | translate}}</div>
+							</div>
+						</div>
+						<div ng-if="nothingFound() && !isSearchProgress()" ui-full-h>
+							<div ui-column ui-full>
+								<div ui-vc-align
+								     ui-hc-align
+								     class="imigo-card-empty-label">{{'Your search did not match any ads.' | translate}}</div>
+							</div>
+						</div>
+						<div ng-if="hasSearchResult() && !isSearchProgress()" ui-h-40p>
+							<div ui-column ui-full>
+								<div ui-full imi-form-premium-zone class="imigo-search-photo-zone imigo-premium-shadow" data-tip="{{'premium ads' | translate}}" data-tip-align="center">
+									<div ui-column ui-full>
+										<div ui-vc-align>
+											<div ui-w-20 ui-hr-align>
+												<div ui-inline-block
+												     ng-click="onPremiumPrev()"
+													 ng-style="{visibility: isPrevVisible('premium') ? 'visible' : 'hidden'}"
+												     class="imigo-backward-button">
+												</div>
+											</div>
+										</div>
+										<div ui-w-100p ui-full-h>
+											<div ui-rel ui-full>
+												<div ui-abs ui-full>
+													<perfect-scrollbar ui-full
+													                   dynamiccontentsize="premium"
+													                   suppress-scroll-x="true"
+													                   wheel-propagation="true"
+													                   wheel-speed="10"
+													                   min-scrollbar-length="20"
+													                   class="imigo-scroller">
+														<div ui-fl-content>
+															<div ng-repeat="ad in premiumPage()"
+															     ng-click="onSelectAd(ad)"
+															     ng-style="{'background-image': 'url(' + toUrl(ad) + ')'}"
+															     ui-w-100
+															     ui-h-100
+															     class="imigo-search-photo-preview-image"
+																 ng-class="{seen: seen(ad._id)}">
+															</div>
+														</div>
+													</perfect-scrollbar>
+												</div>
+											</div>
+										</div>
+										<div ui-vc-align>
+											<div ui-w-20 ui-hl-align>
+												<div ui-inline-block
+												     ng-click="onPremiumNext()"
+													 ng-style="{visibility: isNextVisible('premium') ? 'visible' : 'hidden'}"
+												     class="imigo-forward-button">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div ng-if="hasSearchResult() && !isSearchProgress()" ui-h-60p>
+							<div ui-column ui-full>
+								<div ui-full class="imigo-search-photo-zone" data-tip="{{'regular ads' | translate}}" data-tip-align="center">
+									<div ui-column ui-full>
+										<div ui-vc-align>
+											<div ui-w-20 ui-hr-align>
+												<div ui-inline-block
+												     ng-click="onStandardPrev()"
+													 ng-style="{visibility: isPrevVisible('standard') ? 'visible' : 'hidden'}"
+												     class="imigo-backward-button">
+												</div>
+											</div>
+										</div>
+										<div ui-w-100p ui-full-h>
+											<div ui-rel ui-full>
+												<div ui-abs ui-full>
+													<perfect-scrollbar ui-full
+													                   dynamiccontentsize="standard"
+													                   suppress-scroll-x="true"
+													                   wheel-propagation="true"
+													                   wheel-speed="10"
+													                   min-scrollbar-length="20"
+													                   class="imigo-scroller">
+														<div ui-fl-content>
+															<div ng-repeat="ad in standardPage()"
+															     ng-click="onSelectAd(ad)"
+															     ng-style="{'background-image': 'url(' + toUrl(ad) + ')'}"
+															     ui-w-100
+																 ui-h-100
+																 class="imigo-search-photo-preview-image"
+															     ng-class="{seen: seen(ad._id)}">
+															</div>
+														</div>
+													</perfect-scrollbar>
+												</div>
+											</div>
+										</div>
+										<div ui-vc-align>
+											<div ui-w-20 ui-hl-align>
+												<div ui-inline-block
+												     ng-click="onStandardNext()"
+													 ng-style="{visibility: isNextVisible('standard') ? 'visible' : 'hidden'}"
+												     class="imigo-forward-button">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ui-abs ui-full ng-if="alertObject" ng-include="'app/popup.tpl.html'" class="imigo-alert-dialog-wrapper imigo-panel"></div>
+	<div ui-abs ui-full ng-if="reportObject" ng-include="'app/report.tpl.html'" class="imigo-alert-dialog-wrapper imigo-panel"></div>
+</div>
+<div ui-column ui-full-w class="imigo-bottom-panel" ng-include="'app/footer.tpl.html'"></div>

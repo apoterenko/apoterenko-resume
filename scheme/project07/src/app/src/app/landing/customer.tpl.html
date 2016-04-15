@@ -1,0 +1,49 @@
+<div ui-column ui-full class="imigo-customer-landing-view">
+	<div ui-w-30p ui-full-h>
+		<div ui-full ui-column>
+			<div ui-vc-align ui-full-w class="imigo-customer-landing-body-wrapper">
+				<div ui-row ui-full-w>
+					<div ui-hc-align>
+						<div ui-inline-block class="imigo-customer-landing-title-label">
+							ПРИОБРЕТИ ОТНОШЕНИЯ
+						</div>
+					</div>
+					<div ui-hc-align>
+						<div ui-inline-block class="imigo-customer-landing-logo-image"></div>
+					</div>
+					<div>
+						<div ui-inline-block class="imigo-customer-landing-description-label">
+							- первый рынок взаимоотношений, где можно приобрести время и общение за деньги. Просто выбери понравившегося человека и договорись о виртуальном свидании или личной встрече!
+						</div>
+					</div>
+					<div ui-hc-align>
+						<div ui-inline-block class="imigo-customer-landing-login-label">
+							ВОЙТИ НА САЙТ ЧЕРЕЗ
+						</div>
+					</div>
+					<div ui-hc-align>
+						<div ui-h-80
+						     ui-w-80
+						     ui-inline-block
+						     ng-repeat="link in [{path: 'auth/vk', cls: 'imigo-customer-landing-vk-image'}]"
+						     ng-click="redirect(link.path)"
+						     ng-class="link.cls"></div>
+					</div>
+					<div ui-hc-align>
+						<div ui-inline-block class="imigo-customer-landing-confidential-label">
+							Это полностью конфиденциально. Мы не будем размещать никакую информацию на вашей странице.
+						</div>
+					</div>
+					<div ui-hc-align>
+						<div class="imigo-customer-landing-video-button"
+						     ui-inline-block
+						     ng-click="onShowVideo()">
+							ВИДЕОЭКСКУРСИЯ ПО САЙТУ
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ui-w-70p ui-full-h></div>
+</div>

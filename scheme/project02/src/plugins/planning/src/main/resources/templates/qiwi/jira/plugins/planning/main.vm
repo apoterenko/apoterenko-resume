@@ -1,0 +1,152 @@
+<script src="$webResourceManager.getStaticPluginResource('qiwi.jira.plugins.qiwi-jira-planning-plugin:planning-web-resource', 'jquery.scrollTo.js')"></script>
+<script src="$webResourceManager.getStaticPluginResource('qiwi.jira.plugins.qiwi-jira-planning-plugin:planning-web-resource', 'navigation.js')"></script>
+
+#parse("/templates/qiwi/jira/plugins/planning/wrapper.vm")
+
+#parse("/templates/qiwi/jira/plugins/planning/title.vm")
+Утилита планирования сроков
+#parse("/templates/qiwi/jira/plugins/planning/footer.vm")
+
+#set($fast = 2)
+#set($low = 1)
+#set($freeze = 0)
+#set($fastColor = '#85f0b0')
+#set($lowColor = '#fe6a6a')
+#set($detailingAttr = $req.getAttribute("detailingAttr"))
+#set($sessionIssuesInfo = $req.getAttribute("sessionInfo").issuesInfo)
+
+#if($sessionIssuesInfo)
+    <table>
+        <tr>
+            <td>
+                <div style="margin-bottom: 8px;">
+                    #if($detailingAttr)
+                        <a style="text-decoration: underline;" href="planning!managementMode.jspa?mode=0">отключить режим детализации</a>
+                    #else
+                        <a style="text-decoration: underline;" href="planning!managementMode.jspa?mode=1">включить режим детализации</a>
+                    #end
+                </div>
+            </td>
+            <td>
+                <div style="margin-bottom: 8px; margin-left: 10px;">
+                    <a style="text-decoration: underline;" href="planning!reload.jspa">отменить все изменения</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellpadding="3" style="white-space: nowrap; text-align: center; background-color: #000; cursor: default;">
+        <tbody style="background-color: #fff;">
+        <tr style="font-weight: bold;">
+            <td>задача</td>
+            <td>ожидаемая дата реализации</td>
+            <td>новая дата реализации</td>
+            <td>изменить приоритет</td>
+            #if($detailingAttr)
+                <td>Implementation-тикеты</td>
+                <td>Dependency-тикеты</td>
+            #end
+        </tr>
+            #set($index = 0)
+            #set($size = $sessionIssuesInfo.size())
+            #set($contextPath = $req.contextPath)
+            #foreach($sessionIssueInfo in $sessionIssuesInfo)
+                #set($colorId = $sessionIssueInfo.colorId)
+                #set($issueKey = $sessionIssueInfo.issueKey)
+                #set($issueId = $sessionIssueInfo.issueId)
+                #set($buffer = $index + 1)
+                #if($buffer < $size)
+                    #set($afterIssueId = $sessionIssuesInfo.get($buffer).issueId)
+                #end
+            <tr id="wrapper-id-$issueId">
+                <td id="issue-id-$issueId" style="text-align: left;">
+                    <a style="text-decoration: underline;" target="_blank" href="$contextPath/browse/$issueKey">
+                        $issueKey - $sessionIssueInfo.issueSummary
+                        #if($detailingAttr)
+                            <span style="font-weight: bold; color: #000;">[R: $sessionIssueInfo.issueRank]</span>
+                        #end
+                    </a>
+                </td>
+                <td>
+                    $sessionIssueInfo.formatEstimatedDate()
+                </td>
+                <td style="background-color:
+                    #if ($colorId == $fast) $fastColor
+                    #elseif ($colorId == $low) $lowColor
+                    #end;">
+                    #if ($colorId != $freeze)
+                        $sessionIssueInfo.formatVirtualEstimatedDate()
+                    #end
+                </td>
+                <td>
+                    <table style="width: 100%;">
+                        <tbody>
+                        <tr>
+                            <td style="width: 50%;"></td>
+                            #if($index > 0)
+                                <td>
+                                    <a style="text-decoration: underline;" href="planning!default.jspa?current=$issueId&target=$beforeIssueId&direction=before">повысить</a>
+                                </td>
+                            #end
+                            #if($index < $size - 1)
+                                <td>
+                                    <a style="text-decoration: underline;" href="planning!default.jspa?current=$issueId&target=$afterIssueId&direction=after">понизить</a>
+                                </td>
+                            #end
+                            <td style="width: 50%;"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                #if($detailingAttr)
+                    <td>
+                        #foreach($implementationIssue in $sessionIssueInfo.implementationIssues)
+                            <a style="text-decoration: underline;" target="_blank" href="$contextPath/browse/$implementationIssue.issueKey">
+                                $implementationIssue.issueKey
+                                <span style="font-weight: bold; color: #000;">[R: $implementationIssue.issueRank, ED: $implementationIssue.formatVirtualEstimatedDate()]</span>
+                            </a>
+                            <br>
+                        #end
+                    </td>
+                    <td>
+                        #foreach($blockingIssue in $sessionIssueInfo.blockingIssues)
+                            <a style="text-decoration: underline;" target="_blank" href="$contextPath/browse/$blockingIssue.issueKey">
+                                $blockingIssue.issueKey
+                                <span style="font-weight: bold; color: #000;">[R: $blockingIssue.issueRank, ED: $blockingIssue.formatVirtualEstimatedDate()]</span>
+                            </a>
+                            <br>
+                        #end
+                    </td>
+                #end
+            </tr>
+                #set($index = $index + 1)
+                #set($beforeIssueId = $sessionIssueInfo.issueId)
+            #end
+            <tr style="text-align: left"><td colspan="#if($detailingAttr) 6 #else 4 #end"><b>количество задач в списке: </b>$size</td></tr>
+        </tbody>
+    </table>
+    #if($detailingAttr)
+        <br>
+        <table border="0" cellpadding="3" style="white-space: nowrap; text-align: center; background-color: #000; cursor: default;">
+            <tbody style="background-color: #fff;">
+            <tr style="font-weight: bold;">
+                <td>проект</td>
+                <td>ресурсов всей команды с учетом фокус-фактора<br>человеко-дней в день d: 8h (original estimate)</td>
+                <td>ресурсов одного сотрудника с учетом фокус-фактора<br>человеко-день d: 8h (original estimate)</td>
+                <td>параллельно работающих сотрудников</td>
+            </tr>
+                #foreach($projectProgressParameters in $detailingAttr.projectsProgressParameters)
+                <tr>
+                    <td>$projectProgressParameters.projectKey</td>
+                    <td style="text-align: right;">$projectProgressParameters.formattedProjectDailyRate d</td>
+                    <td style="text-align: right;">$projectProgressParameters.formattedSingleTaskDailyRate d</td>
+                    <td style="text-align: right;">$projectProgressParameters.parallelTasksCount</td>
+                </tr>
+                #end
+            </tbody>
+        </table>
+    #end
+#else
+    При работе возникли ошибки. Просьба обратиться к разработчикам...
+#end
+
+#parse("/templates/qiwi/jira/plugins/planning/footer.vm")

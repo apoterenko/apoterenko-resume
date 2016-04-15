@@ -1,0 +1,33 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="QIWI Pipeline Plugin" plugins-version="2">
+	<plugin-info>
+		<description>QIWI Pipeline Plugin</description>
+		<version>${project.version}</version>
+		<vendor name="${project.organization.name}" url="${project.organization.url}"/>
+	</plugin-info>
+
+	<component-import key="qiwi-pipeline-speed-wrapper" interface="qiwi.jira.plugins.job.pipeline.PipelineSpeed"/>
+	<component-import key="qiwi-pipeline-processor" interface="qiwi.jira.plugins.job.pipeline.PipelineProcessor"/>
+
+	<webwork1 key="pipeline-key-main" name="pipeline-key-main" class="java.lang.Object">
+		<actions>
+			<action name="qiwi.jira.plugins.pipeline.PipelineAction" alias="pipeline">
+				<view name="input">/templates/qiwi/jira/plugins/pipeline/main.vm</view>
+			</action>
+		</actions>
+	</webwork1>
+	<webwork1 key="pipeline-key-attr" name="pipeline-key-attr" class="java.lang.Object">
+		<actions>
+			<action name="qiwi.jira.plugins.pipeline.PipelineAttrAction" alias="pipelineattr">
+				<view name="input">/templates/qiwi/jira/plugins/pipeline/attr.vm</view>
+			</action>
+			<command name="processAttributes" alias="processAttributes"/>
+		</actions>
+	</webwork1>
+	<webwork1 key="pipeline-key-stat" name="pipeline-key-stat" class="java.lang.Object">
+		<actions>
+			<action name="qiwi.jira.plugins.pipeline.PipelineStatAction" alias="pipelinestat">
+				<view name="input">/templates/qiwi/jira/plugins/pipeline/stat.vm</view>
+			</action>
+		</actions>
+	</webwork1>
+</atlassian-plugin>

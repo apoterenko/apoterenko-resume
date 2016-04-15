@@ -1,0 +1,332 @@
+<table>
+	<name>
+		lotusd_ed_organizations
+	</name>
+	<description>
+		внешние адресаты - организации
+	</description>
+	<path>
+		ВНЕШНИЕ_АДРЕСАТЫ/Организации
+	</path>
+	<comment>
+		В качестве адресатов создается множество организаций. К организации может быть привязан филиал, к филиалу тоже
+		может быть привязан филиал; но отдельно (не привязанных) филиалов не бывает. К организации и филиалам могут быть
+		привязаны представители; отдельно представителей тоже не бывает.
+		Сущность организации может быть только родительской. Сущность филиал может быть только дочерней.
+	</comment>
+	<columns>
+		<column>
+			<name>ld_ed_org_id</name>
+			<primary>true</primary>
+			<notNull>true</notNull>
+			<type>integer</type>
+			<description>первичный ключ (создан при импорте внешней БД)</description>
+		</column>
+		<column>
+			<name>ld_ed_org_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<description>предыдущий первичный ключ</description>
+		</column>
+		<column>
+			<name>ld_ed_org_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ed_org_type</name>
+			<type>text</type>
+			<nativeColumnType>varchar(20)</nativeColumnType>
+			<sql>{form}</sql>
+			<description>
+				Form: "ld_company": форма только родительская. Form: "ld_branch". Форма только дочерняя. Без физического
+				присутствия «родителя» документ смысла не имеет.
+				Поле Form: "ld_contact_person" форма только дочерняя. Без физического присутствия «родителя» документ
+				смысла не имеет.
+			</description>
+		</column>
+		<column>
+			<name>ld_ed_org_parent_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_ed_organizations</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>null</sql>
+			<description>внешний ключ на таблицу lotusd_ed_organizations</description>
+		</column>
+		<column>
+			<name>ld_ed_org_parent_unid</name>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{parent}</sql>
+			<description>внешний уникальный ключ на таблицу lotusd_ed_organizations</description>
+		</column>
+		<column>
+			<name>ld_ed_org_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>ld_ed_org_path</name>
+			<type>text</type>
+			<sql>{path}</sql>
+			<description>абсолютный путь к файлу</description>
+		</column>
+		<column>
+			<name>Company_Speciality</name>
+			<type>text</type>
+			<comment>Специализация компании (банк, гос.орган, юр.лицо и прочее – тип компании)</comment>
+		</column>
+		<column>
+			<name>Company_Comment</name>
+			<type>text</type>
+			<comment>Комментарий</comment>
+		</column>
+		<column>
+			<name>Company_Phone</name>
+			<type>text</type>
+			<comment>Телефон компании</comment>
+		</column>
+		<column>
+			<name>Company_Fax</name>
+			<type>text</type>
+			<comment>Факс</comment>
+		</column>
+		<column>
+			<name>Add_State</name>
+			<type>text</type>
+			<comment>Государство</comment>
+		</column>
+		<column>
+			<name>Add_Resp</name>
+			<type>text</type>
+			<comment>Субъект федерации</comment>
+		</column>
+		<column>
+			<name>Add_Avt</name>
+			<type>text</type>
+			<comment>Автономия</comment>
+		</column>
+		<column>
+			<name>Add_City</name>
+			<type>text</type>
+			<comment>Населенный пункт</comment>
+		</column>
+		<column>
+			<name>Add_ZIP</name>
+			<type>text</type>
+			<comment>Почтовый индекс</comment>
+		</column>
+		<column>
+			<name>Add_Street</name>
+			<type>text</type>
+			<comment>Улица, дом, корпус, квартира</comment>
+		</column>
+		<column>
+			<name>Company_Index</name>
+			<type>text</type>
+			<comment>Классификатор компании (номерной код, например у инспекций налоговой или еще чего)</comment>
+		</column>
+		<column>
+			<name>Company_Relation</name>
+			<type>text</type>
+			<comment>Отношения с этим адресатом (выбирается из словарика отношений в внешними адресатами)</comment>
+		</column>
+		<column>
+			<name>Company_OfficeAddress</name>
+			<type>text</type>
+			<comment>Электронный адрес канцелярии экспедиции для этого адресата</comment>
+		</column>
+		<column>
+			<name>Company_JZIP</name>
+			<type>text</type>
+			<comment>Почтовый индекс</comment>
+		</column>
+		<column>
+			<name>Company_JAddress</name>
+			<type>text</type>
+			<comment>Адрес (обычно сюда вписывали город)</comment>
+		</column>
+		<column>
+			<name>Company_JAddress_Add</name>
+			<type>text</type>
+			<comment>Доп.адрес (сюда уже подробности – улица, дом и так далее)</comment>
+		</column>
+		<column>
+			<name>Company_BasicEmail</name>
+			<type>text</type>
+			<comment>Официальный е-мейл</comment>
+		</column>
+		<column>
+			<name>Company_Path</name>
+			<type>text</type>
+			<comment>Предпочтительные пути сообщения с компанией (телефон\почта \совы\северные олени и прочее – в
+				свободном формате)
+			</comment>
+		</column>
+		<column>
+			<name>Company_INN</name>
+			<type>text</type>
+			<comment>ИНН</comment>
+		</column>
+		<column>
+			<name>Company_OKONH</name>
+			<type>text</type>
+			<comment>Код отрасли по ОКОНХ</comment>
+		</column>
+		<column>
+			<name>Company_OKPO</name>
+			<type>text</type>
+			<comment>Код отрасли по ОКПО</comment>
+		</column>
+		<column>
+			<name>Company_Acc1</name>
+			<type>text</type>
+			<comment>Расчетный счет</comment>
+		</column>
+		<column>
+			<name>Company_Acc2</name>
+			<type>text</type>
+			<comment>Корр. счет</comment>
+		</column>
+		<column>
+			<name>Company_BIK</name>
+			<type>text</type>
+			<comment>БИК банка счетов компании</comment>
+		</column>
+		<column>
+			<name>Company_BankName</name>
+			<type>text</type>
+			<comment>Полное наименование банка счетов компании</comment>
+		</column>
+		<column>
+			<name>Company_BankAddress</name>
+			<type>text</type>
+			<comment>Местонахождение банка счетов компании</comment>
+		</column>
+		<column>
+			<name>Company_FullName</name>
+			<type>text</type>
+			<comment>Полное наименование компании</comment>
+		</column>
+		<column>
+			<name>Company_Name</name>
+			<type>text</type>
+			<comment>Сокращенное (и уникальное для этой бд внешних адресатов) название компании</comment>
+		</column>
+		<column>
+			<name>Company_ZIP</name>
+			<type>text</type>
+			<comment>Почтовый индекс</comment>
+		</column>
+		<column>
+			<name>Company_Address</name>
+			<type>text</type>
+			<comment>Адрес (обычно сюда вписывали город)</comment>
+		</column>
+		<column>
+			<name>Company_Address_Add</name>
+			<type>text</type>
+			<comment>Доп.адрес (сюда уже подробности – улица, дом и так далее)</comment>
+		</column>
+		<column>
+			<name>Company_ReturnReceipt</name>
+			<type>boolean</type>
+			<comment>Флаг: отправлять корреспонденцию с пометкой "Уведомление о вручении". «1», если да</comment>
+		</column>
+		<column>
+			<name>ContPers_IsDefault</name>
+			<type>boolean</type>
+			<comment>Флаг: основное контактное лицо. «1», если да</comment>
+		</column>
+		<column>
+			<name>ContPers_LastName</name>
+			<type>text</type>
+			<comment>ФИО, фамилия</comment>
+		</column>
+		<column>
+			<name>ContPers_FirstName</name>
+			<type>text</type>
+			<comment>ФИО, имя</comment>
+		</column>
+		<column>
+			<name>ContPers_MiddleName</name>
+			<type>text</type>
+			<comment>ФИО, отчество</comment>
+		</column>
+		<column>
+			<name>ContPers_FullName</name>
+			<type>text</type>
+			<comment>Правильный вариант написания полного ФИО</comment>
+		</column>
+		<column>
+			<name>ContPers_Title</name>
+			<type>text</type>
+			<comment>Звание</comment>
+		</column>
+		<column>
+			<name>ContPers_Post</name>
+			<type>text</type>
+			<comment>Должность</comment>
+		</column>
+		<column>
+			<name>ContPers_Comment</name>
+			<type>text</type>
+			<comment>Комментарий</comment>
+		</column>
+		<column>
+			<name>Comm_Phone</name>
+			<type>text</type>
+			<comment>Рабочий телефон</comment>
+		</column>
+		<column>
+			<name>Comm_Ext</name>
+			<type>text</type>
+			<comment>Добавочный номер</comment>
+		</column>
+		<column>
+			<name>Comm_Fax</name>
+			<type>text</type>
+			<comment>Номер факса</comment>
+		</column>
+		<column>
+			<name>Comm_Home</name>
+			<type>text</type>
+			<comment>Домашний телефон</comment>
+		</column>
+		<column>
+			<name>Comm_Pager</name>
+			<type>text</type>
+			<comment>Номер пейджера</comment>
+		</column>
+		<column>
+			<name>Comm_Mobile</name>
+			<type>text</type>
+			<comment>Мобильный телефон</comment>
+		</column>
+		<column>
+			<name>Comm_Email</name>
+			<type>text</type>
+			<comment>Личный емейл</comment>
+		</column>
+		<column>
+			<name>Comm_Salutation</name>
+			<type>text</type>
+			<comment>Обращение</comment>
+		</column>
+	</columns>
+</table>

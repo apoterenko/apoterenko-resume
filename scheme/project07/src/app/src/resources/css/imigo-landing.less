@@ -1,0 +1,31 @@
+@import "imigo-landing-component";
+
+.imigo-customer-landing-title-label {padding-bottom: 20px;}
+.imigo-customer-landing-description-label, .imigo-customer-landing-title-label {border-bottom: 3px solid #474a58;}
+.imigo-customer-landing-description-label {padding-top: 24px; padding-bottom: 24px;  }
+.imigo-customer-landing-login-label {padding-top: 30px;}
+.imigo-customer-landing-confidential-label {padding-bottom: 30px;}
+.imigo-customer-landing-body-wrapper {padding-left: 20%;}
+.imigo-customer-landing-logo-image {margin-top: 24px;}
+
+.imigo-client-landing-video-button-wrapper {left: 0; bottom: -6px;}
+.imigo-client-landing-title-label {margin-top: 40px;}
+.imigo-client-landing-view {
+	.imigo-customer-landing-logo-image {margin-top: 94px;}
+}
+.imigo-client-landing-login-label {margin-right: 20px;}
+.imigo-client-landing-login-label-wrapper {margin-top: 20px;}
+
+// Media queries
+.build-customer-landing (@max-width, @customer-landing-body-wrapper-padding-left) {
+	@media (max-width: @max-width) {
+		.imigo-view {
+			.imigo-customer-landing-body-wrapper {padding-left: @customer-landing-body-wrapper-padding-left;}
+		}
+	}
+}
+
+.build-customer-landing (
+	@max-width: @imigo-1280-width,
+	@customer-landing-body-wrapper-padding-left: 15%
+);

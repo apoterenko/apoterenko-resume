@@ -1,0 +1,190 @@
+@import "imigo-utils";
+@import "imigo-icon";
+@import "imigo-constant";
+
+.build-named-input(
+	@name: 'search',
+	@color: @imigo-basic-turquoise-color,
+	@border-color: @imigo-basic-turquoise-color
+);
+input.imigo-search-input {
+	background-size: 18px;
+	background-position: 98% 6px;
+	padding-right: 28px;
+
+	.build-imigo-placeholder(@color: @imigo-basic-turquoise-color);
+}
+
+.build-image(
+	@name: 'search-result',
+	@background-image: @imigo-icon-search-background-image,
+	@background-position: 57% top,
+	@background-size: @imigo-icon-search-mini-size
+);
+
+.build-image(
+	@name: 'search-photo-preview',
+	@cursor: pointer,
+	@background-size: 92%
+);
+.imigo-search-photo-preview-image.seen {
+	&:after {
+		width: 100%;
+		height: 100%;
+		content: "";
+		display: inline-block;
+		background: url('../images/search/watched.png') no-repeat center;
+		background-size: 50%;
+		background-color: #161616;
+		opacity: .7;
+	}
+}
+
+.build-button(
+	@name: 'search-reset',
+	@border-color: @imigo-basic-turquoise-color,
+	@color: @imigo-basic-turquoise-color,
+	@padding-left: 20,
+	@padding-right: 20,
+	@padding-top: 5,
+	@padding-bottom: 5
+);
+
+.build-button(
+	@name: 'search-examples',
+	@border-color: @imigo-basic-turquoise-color,
+	@color: @imigo-basic-turquoise-color,
+	@padding-left: 14,
+	@padding-right: 14,
+	@padding-top: 4,
+	@padding-bottom: 4,
+	@font-size: 16,
+	@height: 34px
+);
+.imigo-search-examples-button {
+	line-height: 34px;
+	overflow: hidden;
+}
+
+.build-label(
+	@name: 'search-filter',
+	@color: @imigo-basic-turquoise-color,
+	@word-break: break-all
+);
+.build-label(
+	@name: 'search-filter-slider',
+	@color: @imigo-basic-turquoise-color
+);
+
+.imigo-search-filter-relation-image {
+	opacity: .4;
+	cursor: pointer;
+}
+
+.imigo-search-card-holder {
+	[imi-cs-sep] {
+		color: @imigo-basic-brown-color;
+	}
+}
+
+.imigo-search-professional-wrapper .imigo-relation-work-image,
+	.imigo-search-friendship-wrapper .imigo-relation-friends-image,
+	.imigo-search-romance-wrapper .imigo-relation-romance-image {
+	opacity: 1;
+}
+
+.imigo-search-photo-zone {
+	.imigo-forward-button, .imigo-backward-button {
+		width: 18px;
+		height: 18px;
+		opacity: .6;
+	}
+}
+
+.imigo-search-card-holder {
+	.imigo-card-description-content-label {cursor: pointer;}
+}
+
+.imigo-search-combo {
+	.selectize-input {
+		background: transparent;
+	}
+	&.selectize-control {
+		&.single {
+			.selectize-input {
+				border-color: @imigo-basic-turquoise-color;
+			}
+		}
+	}
+	.selectize-dropdown {
+		background-color: @imigo-basic-dark-color;
+		color: @imigo-basic-turquoise-color;
+
+		.active {
+			background-color: @imigo-basic-dark-color;
+			color: @imigo-basic-turquoise-color;
+			* {
+				font-family: @imigo-basic-bold-font;
+			}
+		}
+	}
+
+	.selectize-input {
+		color: @imigo-basic-turquoise-color;
+	}
+
+	input {
+		.build-imigo-placeholder(@color: @imigo-basic-turquoise-color);
+	}
+}
+
+input.imigo-search-checkbox {
+	cursor: pointer;
+}
+
+// Media queries
+.build-search-controls (@max-width, @search-filter-label-font-size, @search-card-price-label-font-size, @search-reset-button) {
+	@media (max-width: @max-width) {
+		.imigo-view {
+			.imigo-search-filter-label, .imigo-search-filter-slider-label {
+				font-size: @search-filter-label-font-size;
+			}
+			.imigo-search-card-holder {
+				.imigo-card-price-label {
+					font-size: @search-card-price-label-font-size;
+				}
+			}
+			.imigo-search-reset-button {
+				font-size: @search-reset-button;
+			}
+		}
+	}
+}
+
+.build-search-controls (
+	@max-width: @imigo-1280-width,
+	@search-filter-label-font-size: 13px,
+	@search-card-price-label-font-size: 14px,
+	@search-reset-button: 12px
+);
+
+.build-search-controls (
+	@max-width: @imigo-1024-width,
+	@search-filter-label-font-size: 12px,
+	@search-card-price-label-font-size: 13px,
+	@search-reset-button: 11px
+);
+
+.build-search-controls (
+	@max-width: @imigo-900-width,
+	@search-filter-label-font-size: 12px,
+	@search-card-price-label-font-size: 12px,
+	@search-reset-button: 10px
+);
+
+.build-search-controls (
+	@max-width: @imigo-800-width,
+	@search-filter-label-font-size: 11px,
+	@search-card-price-label-font-size: 11px,
+	@search-reset-button: 9px
+);

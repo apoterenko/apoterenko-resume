@@ -1,0 +1,219 @@
+<table>
+	<name>
+		lotusd_org_employee
+	</name>
+	<description>
+		организации - совмещение
+	</description>
+	<path>
+		ОРГ_СТРУКТУРА/Совмещения
+	</path>
+	<comment>Сущность может быть только дочерней.</comment>
+	<columns>
+		<column>
+			<name>ld_org_em_id</name>
+			<primary>true</primary>
+			<notNull>true</notNull>
+			<type>integer</type>
+			<description>первичный ключ (создан при импорте внешней БД)</description>
+		</column>
+		<column>
+			<name>ld_org_em_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<description>предыдущий первичный ключ</description>
+		</column>
+		<column>
+			<name>ld_org_em_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_org_em_type</name>
+			<type>text</type>
+			<sql>{form}</sql>
+			<typeId>true</typeId>
+			<comment>
+				Form: "ld_person". Только дочерняя форма. Без физического присутствия «родителя» смысла не имеет.
+				Form: "ld_post". Только дочерняя форма. Без физического присутствия «родителя» смысла не имеет. По
+				функциональному смыслу сущность аналогична «сотруднику».
+			</comment>
+		</column>
+		<column>
+			<name>ld_org_em_org_str_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_org_structure</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>null</sql>
+			<description>внешний ключ на таблицу lotusd_org_structure (ОРГ_СТРУКТУРА/Организации)</description>
+		</column>
+		<column>
+			<name>ld_org_em_org_str_unid</name>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{parent}</sql>
+			<description>внешний уникальный ключ на таблицу lotusd_org_structure (ОРГ_СТРУКТУРА/Организации)</description>
+		</column>
+		<column>
+			<name>ld_org_em_org_str_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>ld_org_em_org_str_path</name>
+			<type>text</type>
+			<sql>{path}</sql>
+			<description>абсолютный путь к файлу</description>
+		</column>
+		<column>
+			<name>Person_Title</name>
+			<type>text</type>
+			<comment>Звание</comment>
+		</column>
+		<column>
+			<name>Person_Post</name>
+			<type>text</type>
+			<comment>Должность</comment>
+		</column>
+		<column>
+			<name>Person_Job</name>
+			<type>text</type>
+			<comment>Круг обязанностей</comment>
+		</column>
+		<column>
+			<name>Person_AlternatePost</name>
+			<type>integer</type>
+			<comment>
+				Системный администратор СЭД-Регион: 1. Информационный администратор СЭД-Регион: 2. Администратор
+				безопасности: 3.
+			</comment>
+		</column>
+		<column>
+			<name>User_staff</name>
+			<type>boolean</type>
+			<comment>Флаг: штатный сотрудник. «1», если да</comment>
+		</column>
+		<column>
+			<name>Comm_Phone</name>
+			<type>text</type>
+			<comment>Рабочий телефон</comment>
+		</column>
+		<column>
+			<name>Comm_Location</name>
+			<type>text</type>
+			<comment>Местоположение</comment>
+		</column>
+		<column>
+			<name>Comm_Ext</name>
+			<type>text</type>
+			<comment>Добавочный номер</comment>
+		</column>
+		<column>
+			<name>Comm_Fax</name>
+			<type>text</type>
+			<comment>Номер факса</comment>
+		</column>
+		<column>
+			<name>Comm_Home</name>
+			<type>text</type>
+			<comment>Домашний телефон</comment>
+		</column>
+		<column>
+			<name>Comm_Pager</name>
+			<type>text</type>
+			<comment>Номер пейджера</comment>
+		</column>
+		<column>
+			<name>Comm_Mobile</name>
+			<type>text</type>
+			<comment>Мобильный телефон</comment>
+		</column>
+		<column>
+			<name>Comm_Email</name>
+			<type>text</type>
+			<comment>Личный емейл</comment>
+		</column>
+		<column>
+			<name>Comm_Salutation</name>
+			<type>text</type>
+			<comment>Обращение</comment>
+		</column>
+		<column>
+			<name>User_IsAvailable</name>
+			<type>boolean</type>
+			<comment>Флаг: сотрудник включен в СЭД (является пользователем СЭД). «1», если да</comment>
+		</column>
+		<column>
+			<name>User_Collaborators</name>
+			<type>text[]</type>
+			<multi>true</multi>
+			<comment>ФИО сотрудников из ближайшего окружения</comment>
+		</column>
+		<column>
+			<name>User_Proxy</name>
+			<type>text</type>
+			<comment>ФИО исполняющего обязанности данного сотрудника</comment>
+		</column>
+		<column>
+			<name>User_Friends</name>
+			<type>text[]</type>
+			<multi>true</multi>
+			<comment>ФИО доверенных лиц</comment>
+		</column>
+		<column>
+			<name>Person_LastName</name>
+			<type>text</type>
+			<comment>ФИО, фамилия</comment>
+		</column>
+		<column>
+			<name>Person_FirstName</name>
+			<type>text</type>
+			<comment>ФИО, имя</comment>
+		</column>
+		<column>
+			<name>Person_MiddleName</name>
+			<type>text</type>
+			<comment>ФИО, отчество</comment>
+		</column>
+		<column>
+			<name>Person_ShortName</name>
+			<type>text</type>
+			<comment>ФИО в кратком виде (фамилия + инициалы)</comment>
+		</column>
+		<column>
+			<name>Person_FullName</name>
+			<type>text</type>
+			<comment>ФИО в полном виде</comment>
+		</column>
+		<column>
+			<name>Person_Name</name>
+			<type>text</type>
+			<comment>ФИО уникальное</comment>
+		</column>
+		<column>
+			<name>Post_Owner</name>
+			<type>text</type>
+			<comment>ФИО сотрудника, занимающего совмещаемую должность</comment>
+		</column>
+		<column>
+			<name>Post_Name</name>
+			<type>text</type>
+			<comment>Наименование должности совмещения</comment>
+		</column>
+	</columns>
+</table>

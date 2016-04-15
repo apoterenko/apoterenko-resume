@@ -1,0 +1,80 @@
+@import "imigo-constant";
+@import "imigo-profile-component";
+
+.imigo-profile-graphic-level-left-image {
+	left: -25px; bottom: 25px;
+	&.imigo-profile-graphic-level-left-romance-image {bottom: 15px;}
+}
+.imigo-profile-graphic-level-right-image {
+	right: -25px; bottom: 25px;
+	&.imigo-profile-graphic-level-right-work-image {bottom: 15px;}
+}
+.imigo-profile-about-zone-wrapper {padding-left: 20px; padding-right: 20px;}
+.imigo-profile-about-zone {padding-left: 20px; padding-right: 14px;}
+.imigo-profile-nickname-label {margin-right: 22px; max-width: 70%;}
+.imigo-profile-overlay {top: 0;}
+.imigo-profile-account-type-zone, .imigo-profile-about-zone-wrapper {
+	.imigo-bank-apply-button, .imigo-profile-return-button {margin-right: -2px; margin-top: 6px;}
+}
+
+/** Media queries: media-profile-zone **/
+.imigo-profile-about-zone-wrapper-content, .imigo-profile-account-type-zone, .imigo-profile-upload-zone {height: 240px;}
+.imigo-profile-account-type-zone {width: 240px;}
+.imigo-profile-upload-zone {max-width: 476px;}
+.imigo-profile-photo-upload-image, .imigo-profile-photo-preview-image {width: 113px; height: 113px; margin-top: 5px; margin-left: 5px;}
+.imigo-profile-graphic-level-top-image {height: 50px;}
+
+.build-media-profile-zone (@max-width, @profile-zone-height, @profile-image-zone-size, @profile-graphic-level-image-scale) {
+	@media (max-width: @max-width) {
+		.imigo-view {
+			.imigo-profile-about-zone-wrapper-content, .imigo-profile-account-type-zone, .imigo-profile-upload-zone {
+				height: @profile-zone-height;
+			}
+			.imigo-profile-account-type-zone {
+				width: @profile-zone-height;
+			}
+			.imigo-profile-photo-preview-image, .imigo-profile-photo-upload-image {
+				width: @profile-image-zone-size;
+				height: @profile-image-zone-size;
+			}
+			.imigo-profile-graphic-level-top-image, .imigo-profile-graphic-level-right-image, .imigo-profile-graphic-level-left-image {
+				transform: scale(@profile-graphic-level-image-scale);
+			}
+		}
+	}
+}
+.build-media-profile-zone(
+	@max-width: @imigo-1280-width,
+	@profile-zone-height: 230px,
+	@profile-image-zone-size: 106px,
+	@profile-graphic-level-image-scale: .9
+);
+.build-media-profile-zone(
+	@max-width: @imigo-1024-width,
+	@profile-zone-height: 210px,
+	@profile-image-zone-size: 96px,
+	@profile-graphic-level-image-scale: .8
+);
+.build-media-profile-zone(
+	@max-width: @imigo-800-width,
+	@profile-zone-height: 190px,
+	@profile-image-zone-size: 86px,
+	@profile-graphic-level-image-scale: .7
+);
+
+/** Media queries: media-profile-graphic-image **/
+.imigo-profile-graphic-image {max-width: 228px; max-height: 228px;}
+
+.build-media-profile-graphic-image (@max-width, @profile-graphic-image-size) {
+	@media (max-width: @max-width) {
+		.imigo-view {
+			.imigo-profile-graphic-image {
+				max-width: @profile-graphic-image-size;
+				max-height: @profile-graphic-image-size;
+			}
+		}
+	}
+}
+.build-media-profile-graphic-image (@max-width: @imigo-1280-width, @profile-graphic-image-size: 198px);
+.build-media-profile-graphic-image (@max-width: @imigo-1024-width, @profile-graphic-image-size: 188px);
+.build-media-profile-graphic-image (@max-width: @imigo-800-width, @profile-graphic-image-size: 178px);

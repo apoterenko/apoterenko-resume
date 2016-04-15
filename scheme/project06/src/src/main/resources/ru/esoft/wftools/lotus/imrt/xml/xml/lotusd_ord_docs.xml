@@ -1,0 +1,830 @@
+<table>
+	<name>
+		lotusd_ord_docs
+	</name>
+	<entity>
+		ld_document:280
+	</entity>
+	<form>
+		640
+	</form>
+	<view>
+		ld_document:878
+	</view>
+	<description>
+		ОРД - Документы
+	</description>
+	<path>
+		ОРД/Документы
+	</path>
+	<comment>
+		К документу могут крепиться документы из баз согласования (СОГЛАСОВАНИЯ/Согласования: lotusd_agreement),
+		поручений (ПОРУЧЕНИЯ/Поручения: lotusd_procuratory), и тип документа «задача» (ОРД/Задачи: lotusd_ord_tasks)
+		из этой же базы «ОРД».
+		Сущность может быть только родительской (ссылки на родителя иметь не может вообще).
+	</comment>
+	<columns>
+		<column>
+			<name>ld_ord_ds_id</name>
+			<primary>true</primary>
+			<notNull>true</notNull>
+			<type>integer</type>
+			<description>первичный ключ (создан при импорте внешней БД)</description>
+			<shortName>ID</shortName>
+			<visibility>true</visibility>
+		</column>
+		<column>
+			<name>ld_ord_ds_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<description>предыдущий первичный ключ</description>
+			<excludeFromView>true</excludeFromView>
+		</column>
+		<column>
+			<name>ld_ord_ds_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<excludeFromView>true</excludeFromView>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_type</name>
+			<type>text</type>
+			<typeId>true</typeId>
+			<sql>{form}</sql>
+			<excludeFromView>true</excludeFromView>
+			<description>
+				Form: "ld_документ". Форма может быть только родительской (ссылки на родителя иметь не может вообще).
+				К документу могут крепиться документы из баз согласования, поручений, и тип документа «задача» из этой
+				же базы «орд».
+			</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_path</name>
+			<type>text</type>
+			<sql>{path}</sql>
+			<description>абсолютный путь к файлу</description>
+		</column>
+		<column>
+			<name>ReqFullName</name>
+			<type>text</type>
+			<comment>Кем был зарегистрирован документ, ФИО</comment>
+			<shortName>кем зарегистрирован</shortName>
+			<visibility>true</visibility>
+			<quickSearch>true</quickSearch>
+		</column>
+		<column>
+			<name>DocTheme</name>
+			<type>text</type>
+			<comment>Тематика документа, выбирается из словарика «тематика орд документов»</comment>
+			<shortName>тематика</shortName>
+			<visibility>true</visibility>
+			<quickSearch>true</quickSearch>
+		</column>
+		<column>
+			<name>Body</name>
+			<type>text</type>
+			<comment>Краткое содержание документа</comment>
+			<visibility>true</visibility>
+			<quickSearch>true</quickSearch>
+		</column>
+		<column>
+			<name>Status</name>
+			<type>text</type>
+			<nativeColumnType>varchar(10)</nativeColumnType>
+			<comment>
+				Статус документа:
+				"D" =проект.
+				"S" = на согласовании.
+				"SX" = согласован.
+				"Q" = на утверждении.
+				"A" = утвержден.
+				"R" = на регистрации.
+				"X" = зарегистрирован.
+				"W" = выполняется.
+				"C" = завершен.
+				"Send" = отправлен.
+			</comment>
+			<shortName>Статус</shortName>
+			<visibility>true</visibility>
+		</column>
+		<column>
+			<name>DocTom</name>
+			<type>text</type>
+			<comment>Том номенклатуры дел</comment>
+			<visibility>true</visibility>
+		</column>
+		<column>
+			<name>Creator_Person</name>
+			<type>text</type>
+			<comment>ФИО составителя документа</comment>
+		</column>
+		<column>
+			<name>Creator_DepName</name>
+			<type>text</type>
+			<comment>Подразделение составителя документа</comment>
+		</column>
+		<column>
+			<name>IsConfirmed</name>
+			<type>boolean</type>
+			<comment>Флаг: подписание документа. Равно «1», если док подписан</comment>
+		</column>
+		<column>
+			<name>ConfDate</name>
+			<type>date</type>
+			<comment>Дата подписания документа</comment>
+		</column>
+		<column>
+			<name>ld_responsible_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_org_employee</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<comment>ID сотрудника, ответственного за исполнение (ссылка на словарик орг.структуры). Ссылка на
+				lotusd_org_employee (ОРГ_СТРУКТУРА/Сотрудники)
+			</comment>
+		</column>
+		<column>
+			<name>ResponsibleUNID</name>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<comment>UNID сотрудника, ответственного за исполнение (ссылка на словарик орг.структуры). Ссылка на
+				lotusd_org_employee (ОРГ_СТРУКТУРА/Сотрудники)
+			</comment>
+		</column>
+		<column>
+			<name>ResponsibleDep</name>
+			<type>text</type>
+			<comment>Название подразделения ответственного за исполнение дока</comment>
+		</column>
+		<column>
+			<name>ResponsibleFullName</name>
+			<type>text</type>
+			<comment>ФИО ответственного за исполнение документа</comment>
+		</column>
+		<column>
+			<name>ResponsiblePhone</name>
+			<type>text</type>
+			<comment>Телефон ответственного за исполнение дока</comment>
+		</column>
+		<column>
+			<name>DocList</name>
+			<type>text[]</type>
+			<multi>true</multi>
+			<comment>Список основополагающих документов в свободном формате</comment>
+		</column>
+		<column>
+			<name>OutSend_WithoutBody</name>
+			<type>boolean</type>
+			<comment>Флаг: нужно ли посылать документ в бумажном виде. Равно «1», если нужно</comment>
+		</column>
+		<column>
+			<name>dsp</name>
+			<type>boolean</type>
+			<comment>Флаг: дсп-документ. Равно «1», если документ - дсп</comment>
+		</column>
+		<!--БЛОК ОТПРАВЛЕНО НА УТВЕРЖДЕНИЕ-->
+		<column>
+			<name>ld_ord_ds_sc_ord_ds_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_ord_docs</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_ord_docs_send_confirm</group>
+			<description>внешний ключ на таблицу lotusd_ord_docs</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_sc_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_ord_docs_send_confirm</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_sc_ord_ds_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<group>lotusd_ord_docs_send_confirm</group>
+			<description>внешний уникальный ключ на таблицу lotusd_ord_docs</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_sc_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_ord_docs_send_confirm</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>Ex_ToExam</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_ord_docs_send_confirm</group>
+			<comment>Кому документ был отправлен на утверждение, ФИО</comment>
+		</column>
+		<column>
+			<name>Ex_ToExamRus</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_ord_docs_send_confirm</group>
+			<comment>Кому документ был отправлен на утверждение, название подразделения</comment>
+		</column>
+		<column>
+			<name>Ex_ToExamDate</name>
+			<type>date[]</type>
+			<columnType>date</columnType>
+			<multi>true</multi>
+			<group>lotusd_ord_docs_send_confirm</group>
+			<comment>Когда было отправлено на утверждение</comment>
+		</column>
+		<!---->
+		<column>
+			<name>Ex_ApproveName</name>
+			<type>text</type>
+			<comment>ФИО утвердившего документ</comment>
+		</column>
+		<column>
+			<name>Ex_ApproveDate</name>
+			<type>date</type>
+			<comment>Дата утверждения документа</comment>
+		</column>
+		<!--БЛОК СТРУКТУРНОЕ ПОДРАЗДЕЛЕНИЕ-->
+		<column>
+			<name>ld_ord_ds_su_ord_ds_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_ord_docs</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_ord_docs_structural_unit</group>
+			<description>внешний ключ на таблицу lotusd_ord_docs</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_su_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_ord_docs_structural_unit</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_su_ord_ds_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<group>lotusd_ord_docs_structural_unit</group>
+			<description>внешний уникальный ключ на таблицу lotusd_ord_docs</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_su_ord_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_ord_docs_structural_unit</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>AList_ListStruct</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_ord_docs_structural_unit</group>
+			<comment>Структурное подразделение, куда отправлено на рассмотрение</comment>
+		</column>
+		<column>
+			<name>ld_ord_ds_su_be_sent_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_org_structure</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<group>lotusd_ord_docs_structural_unit</group>
+			<comment>ID внутреннего структурного подразделения. Ссылка на ОРГ_СТРУКТУРА/Организации
+				(lotusd_org_structure)
+			</comment>
+		</column>
+		<column>
+			<name>AList_ListStructID</name>
+			<columnName>ld_ord_ds_su_be_sent_unid</columnName>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<multi>true</multi>
+			<group>lotusd_ord_docs_structural_unit</group>
+			<comment>UNID внутреннего структурного подразделения. Ссылка на ОРГ_СТРУКТУРА/Организации
+				(lotusd_org_structure)
+			</comment>
+		</column>
+		<!---->
+		<column>
+			<name>AList_ListStruct_Pers</name>
+			<type>text[]</type>
+			<multi>true</multi>
+			<comment>
+				Раскрытый список сотрудников подразделений, указанных в поле AList_ListStruct, кому нужно отправить
+				документ на ознакомление
+			</comment>
+		</column>
+		<column>
+			<name>AList_ListPers</name>
+			<type>text[]</type>
+			<multi>true</multi>
+			<comment>
+				Список отдельных сотрудников (обычно не входящих в AList_ListStruct_Pers, хотя повторения возможны),
+				кому нужно отправить документ на ознакомление
+			</comment>
+		</column>
+		<column>
+			<name>AList_CheckDate</name>
+			<type>timestamp with time zone</type>
+			<comment>Контрольная дата ознакомления (т.е. до какой даты все должны ознакомиться)</comment>
+		</column>
+		<!--БЛОК ОЗНАКОМЛЕНИЯ С ДОКУМЕНТОМ-->
+		<column>
+			<name>ld_ord_ds_ad_ord_ds_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_ord_docs</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_ord_docs_access_documents</group>
+			<description>внешний ключ на таблицу lotusd_ord_docs</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_ad_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_ord_docs_access_documents</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_ad_ord_ds_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<group>lotusd_ord_docs_access_documents</group>
+			<description>внешний уникальный ключ на таблицу lotusd_ord_docs</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_ad_ord_ds_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_ord_docs_access_documents</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>AList_ListRead</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_ord_docs_access_documents</group>
+			<comment>Сотрудники, ознакомившиеся с документом (ФИО)</comment>
+		</column>
+		<column>
+			<name>AList_ListRead_Date</name>
+			<type>date[]</type>
+			<columnType>date</columnType>
+			<multi>true</multi>
+			<group>lotusd_ord_docs_access_documents</group>
+			<comment>Дата, когда сотрудник ознакомился с документом</comment>
+		</column>
+		<!--БЛОК ВНЕШНИЙ АДРЕСАТ-->
+		<column>
+			<name>ld_ord_ds_fd_ord_ds_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_ord_docs</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_ord_docs_foreign_destination</group>
+			<description>внешний ключ на таблицу lotusd_ord_docs</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_fd_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_ord_docs_foreign_destination</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_fd_ord_ds_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<group>lotusd_ord_docs_foreign_destination</group>
+			<description>внешний уникальный ключ на таблицу lotusd_ord_docs</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_fd_org_dest_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_ed_organizations</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<group>lotusd_ord_docs_foreign_destination</group>
+			<comment>ID внешней организации-адресата. Ссылка на ВНЕШНИЕ_АДРЕСАТЫ/Организации (lotusd_ed_organizations)
+			</comment>
+		</column>
+		<column>
+			<name>ld_ord_ds_fd_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_ord_docs_foreign_destination</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>IO_OrgID</name>
+			<columnName>ld_ord_ds_fd_org_dest_unid</columnName>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<multi>true</multi>
+			<group>lotusd_ord_docs_foreign_destination</group>
+			<comment>UNID внешней организации-адресата. Ссылка на ВНЕШНИЕ_АДРЕСАТЫ/Организации
+				(lotusd_ed_organizations)
+			</comment>
+		</column>
+		<column>
+			<name>IO_OutP</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_ord_docs_foreign_destination</group>
+			<comment>ФИО представителя внешней орг-адресата, на имя которого отправляется документ</comment>
+		</column>
+		<column>
+			<name>IO_OrgName</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_ord_docs_foreign_destination</group>
+			<comment>Имя внешней организации-адресата</comment>
+		</column>
+		<!--БЛОК ВНУТРЕННИЙ АДРЕСАТ-->
+		<column>
+			<name>ld_ord_ds_id_ord_ds_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_ord_docs</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_ord_docs_internal_destination</group>
+			<description>внешний ключ на таблицу lotusd_ord_docs</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_id_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_ord_docs_internal_destination</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_id_ord_ds_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<group>lotusd_ord_docs_internal_destination</group>
+			<description>внешний уникальный ключ на таблицу lotusd_ord_docs</description>
+		</column>
+		<column>
+			<name>ld_ord_ds_id_dt_org_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_org_structure</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<group>lotusd_ord_docs_internal_destination</group>
+			<comment>ID внутреннего структурного подразделения. Ссылка на ОРГ_СТРУКТУРА/Организации
+				(lotusd_org_structure)
+			</comment>
+		</column>
+		<column>
+			<name>ld_ord_ds_id_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_ord_docs_internal_destination</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>IO_IntCorrID</name>
+			<columnName>ld_ord_ds_fd_dt_org_unid</columnName>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<multi>true</multi>
+			<group>lotusd_ord_docs_internal_destination</group>
+			<comment>UNID внутреннего структурного подразделения. Ссылка на ОРГ_СТРУКТУРА/Организации
+				(lotusd_org_structure)
+			</comment>
+		</column>
+		<column>
+			<name>IO_IntCorr</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_ord_docs_internal_destination</group>
+			<comment>Имя внутреннего подразделения-адресата</comment>
+		</column>
+		<column>
+			<name>IO_IntCorrPers</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_ord_docs_internal_destination</group>
+			<comment>ФИО человека в подразделении-адресате, на имя которого отправляется документ</comment>
+		</column>
+		<!---->
+		<column>
+			<name>IO_Spec</name>
+			<type>text</type>
+			<comment>Специализация (вид) адресатов документа</comment>
+		</column>
+		<column>
+			<name>InRS_Pages</name>
+			<type>text</type>
+			<comment>Количество страниц документа</comment>
+		</column>
+		<column>
+			<name>InRS_Appl</name>
+			<type>text</type>
+			<comment>Количество приложений к документу</comment>
+		</column>
+		<column>
+			<name>InRS_ApType</name>
+			<type>text</type>
+			<comment>Тип приложений к документу (бумага, диски, кассеты, бутылки коньяка и прочее)</comment>
+		</column>
+		<column>
+			<name>InRS_ApPg</name>
+			<type>text</type>
+			<comment>Общее количество листов приложений</comment>
+		</column>
+		<column>
+			<name>InRS_NCopy</name>
+			<type>text</type>
+			<comment>Номер экземпляра (копии) документа</comment>
+		</column>
+		<column>
+			<name>DopInfo_Comments</name>
+			<type>text</type>
+			<comment>Комментарии к документу</comment>
+		</column>
+		<!--БЛОК ФАЙЛОВ-->
+		<column>
+			<name>id</name>
+			<primary>true</primary>
+			<type>integer</type>
+			<nativeColumnType>numeric</nativeColumnType>
+			<notNull>true</notNull>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_doc_files</group>
+			<groupName>lotusd_files</groupName>
+			<description>первичный ключ (создан при импорте внешней БД)</description>
+		</column>
+		<column>
+			<name>version_id</name>
+			<type>integer</type>
+			<nativeColumnType>numeric</nativeColumnType>
+			<empty>true</empty>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_doc_files</group>
+			<groupName>lotusd_files</groupName>
+		</column>
+		<column>
+			<name>version_date</name>
+			<type>timestamp with time zone</type>
+			<empty>true</empty>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_doc_files</group>
+			<groupName>lotusd_files</groupName>
+		</column>
+		<column>
+			<name>dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_doc_files</group>
+			<groupName>lotusd_files</groupName>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>file_entity_unid</name>
+			<notNull>true</notNull>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<type>text</type>
+			<sql>{unid}</sql>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_doc_files</group>
+			<groupName>lotusd_files</groupName>
+		</column>
+		<column>
+			<name>DocBody</name>
+			<notNull>true</notNull>
+			<type>xml</type>
+			<originalFileName>true</originalFileName>
+			<columnName>file_name</columnName>
+			<columnType>text</columnType>
+			<group>lotusd_doc_files</group>
+			<groupName>lotusd_files</groupName>
+			<comment>название оригинального файла</comment>
+		</column>
+		<column>
+			<name>file_path</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_doc_files</group>
+			<groupName>lotusd_files</groupName>
+		</column>
+		<column>
+			<name>hash</name>
+			<type>text</type>
+			<originalFileName>true</originalFileName>
+			<empty>true</empty>
+			<group>lotusd_doc_files</group>
+			<groupName>lotusd_files</groupName>
+		</column>
+		<column>
+			<name>is_actual</name>
+			<type>boolean</type>
+			<originalFileName>true</originalFileName>
+			<empty>true</empty>
+			<group>lotusd_doc_files</group>
+			<groupName>lotusd_files</groupName>
+		</column>
+		<column>
+			<name>type_id</name>
+			<type>text</type>
+			<empty>true</empty>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_doc_files</group>
+			<groupName>lotusd_files</groupName>
+		</column>
+		<column>
+			<name>size</name>
+			<type>integer</type>
+			<originalFileName>true</originalFileName>
+			<nativeColumnType>numeric</nativeColumnType>
+			<empty>true</empty>
+			<group>lotusd_doc_files</group>
+			<groupName>lotusd_files</groupName>
+		</column>
+		<column>
+			<name>level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_doc_files</group>
+			<groupName>lotusd_files</groupName>
+		</column>
+		<!---->
+		<column>
+			<name>ReqNumber</name>
+			<type>text</type>
+			<comment>Регистрационный номер документа</comment>
+		</column>
+		<column>
+			<name>ReqDate</name>
+			<type>timestamp with time zone</type>
+			<comment>Дата регистрации документа</comment>
+		</column>
+		<column>
+			<name>DocType</name>
+			<type>text</type>
+			<comment>Вид документа, выбирается из словарика «типы документов»</comment>
+		</column>
+		<column>
+			<name>DocFile</name>
+			<type>text[]</type>
+			<multi>true</multi>
+			<separator>\|</separator>
+			<comment>Название номенклатуры дел документа</comment>
+		</column>
+		<column>
+			<name>ConfFullName</name>
+			<type>text</type>
+			<comment>ФИО подписавшего документ</comment>
+		</column>
+		<column>
+			<name>CheckInDate</name>
+			<type>date</type>
+			<comment>Дата постановка на контроль</comment>
+		</column>
+		<column>
+			<name>CheckInName</name>
+			<type>text</type>
+			<comment>ФИО поставившего на контроль</comment>
+		</column>
+		<column>
+			<name>CheckOutDate</name>
+			<type>date</type>
+			<comment>Дата снятия с контроля</comment>
+		</column>
+		<column>
+			<name>CheckOutName</name>
+			<type>text</type>
+			<comment>ФИО снявшего с контроля</comment>
+		</column>
+		<column>
+			<name>AList_IsSend</name>
+			<type>integer</type>
+			<comment>Флаг, отправлен ли документ на ознакомление. Равно “1”, если отправлен</comment>
+		</column>
+	</columns>
+</table>

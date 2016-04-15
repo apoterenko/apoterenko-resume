@@ -1,0 +1,71 @@
+@import "imigo-utils";
+@import "imigo-constant";
+
+.build-label(
+	@name: 'help-title',
+	@color: @imigo-basic-bright-color,
+	@font-size: 22
+);
+.imigo-help-title-label {
+	border-bottom: 1px solid @imigo-basic-brown-color;
+}
+
+.build-label(
+	@name: 'help-faq',
+	@color: @imigo-basic-bright-color,
+	@font-size: 22
+);
+
+.build-label(
+	@name: 'help-question',
+	@color: @imigo-basic-bright-color,
+	@font-size: 16,
+	@cursor: pointer
+);
+.imigo-help-question-label {
+	&.selected {
+		text-decoration: none;
+		color: @imigo-basic-turquoise-color;
+	}
+}
+
+.build-label(
+	@name: 'help-answer',
+	@color: @imigo-basic-bright-color,
+	@font-size: 16
+);
+.imigo-help-answer-label {
+	line-height: 24px;
+}
+
+// Media queries
+.build-help-controls (@max-width, @help-question-font-size, @help-title-font-size) {
+	@media (max-width: @max-width) {
+		.imigo-view {
+			.imigo-help-question-label, .imigo-help-answer-label {
+				font-size: @help-question-font-size;
+			}
+			.imigo-help-title-label, .imigo-help-faq-label {
+				font-size: @help-title-font-size;
+			}
+		}
+	}
+}
+
+.build-help-controls (
+	@max-width: @imigo-1280-width,
+	@help-question-font-size: 14px,
+	@help-title-font-size: 20
+);
+
+.build-help-controls (
+	@max-width: @imigo-1024-width,
+	@help-question-font-size: 12px,
+	@help-title-font-size: 18
+);
+
+.build-help-controls (
+	@max-width: @imigo-800-width,
+	@help-question-font-size: 11px,
+	@help-title-font-size: 16
+);

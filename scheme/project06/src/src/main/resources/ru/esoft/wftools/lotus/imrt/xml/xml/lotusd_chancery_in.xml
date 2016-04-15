@@ -1,0 +1,1208 @@
+<table>
+	<name>
+		lotusd_chancery_in
+	</name>
+	<entity>
+		ld_in:285;ld_in_resp:286
+	</entity>
+	<form>
+		641
+	</form>
+	<view>
+		ld_in:879
+	</view>
+	<description>
+		Входящие - Канцелярии
+	</description>
+	<path>
+		КАНЦЕЛЯРИЯ/Входящие
+	</path>
+	<comment>
+		К документу могут крепиться документы из базы поручений (lotusd_procuratory).
+		Сущность может быть родительской и дочерней.
+	</comment>
+	<columns>
+		<column>
+			<name>ld_ch_in_id</name>
+			<primary>true</primary>
+			<notNull>true</notNull>
+			<type>integer</type>
+			<shortName>ID</shortName>
+			<visibility>true</visibility>
+			<description>первичный ключ (создан при импорте внешней БД)</description>
+		</column>
+		<column>
+			<name>ld_ch_in_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<description>предыдущий первичный ключ</description>
+		</column>
+		<column>
+			<name>ld_ch_in_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ch_in_parent_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_chancery_in</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>null</sql>
+			<description>внешний ключ на саму себя (на таблицу lotusd_chancery_in)</description>
+		</column>
+		<column>
+			<name>ld_ch_in_parent_unid</name>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{parent}</sql>
+			<description>внешний уникальный ключ на саму себя (на таблицу lotusd_chancery_in)</description>
+		</column>
+		<column>
+			<name>ld_ch_in_type</name>
+			<type>text</type>
+			<sql>{form}</sql>
+			<typeId>true</typeId>
+			<description>название формы lotusd_chancery_in</description>
+			<comment>
+				Форма "ld_in" может быть только родительской (ссылки на родителя иметь не должна, но может!),
+				форма "ld_in_resp" может быть только дочерней (т.е. имеет ссылку на родителя в атрибутах всегда).
+				Обе формы могут существовать вне зависимости от наличия связей и физического наличия родительских
+				документов (если есть ссылка на родителя).
+			</comment>
+		</column>
+		<column>
+			<name>ld_ch_in_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>ld_ch_in_path</name>
+			<type>text</type>
+			<sql>{path}</sql>
+			<description>абсолютный путь к файлу</description>
+		</column>
+		<column>
+			<name>dsp</name>
+			<type>boolean</type>
+			<comment>Флаг ДСП-документа</comment>
+		</column>
+		<!--БЛОК ФАЙЛОВ-->
+		<column>
+			<name>id</name>
+			<primary>true</primary>
+			<type>integer</type>
+			<nativeColumnType>numeric</nativeColumnType>
+			<notNull>true</notNull>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+			<description>первичный ключ (создан при импорте внешней БД)</description>
+		</column>
+		<column>
+			<name>version_id</name>
+			<type>integer</type>
+			<nativeColumnType>numeric</nativeColumnType>
+			<empty>true</empty>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<column>
+			<name>version_date</name>
+			<type>timestamp with time zone</type>
+			<empty>true</empty>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<column>
+			<name>dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<originalFileName>true</originalFileName>
+			<sql>{district}</sql>
+			<group>lotusd_files</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>file_entity_unid</name>
+			<notNull>true</notNull>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<type>text</type>
+			<sql>{unid}</sql>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<column>
+			<name>Body</name>
+			<type>xml</type>
+			<notNull>true</notNull>
+			<columnName>file_name</columnName>
+			<columnType>text</columnType>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+			<comment>название оригинального файла</comment>
+		</column>
+		<column>
+			<name>file_path</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<column>
+			<name>hash</name>
+			<type>text</type>
+			<empty>true</empty>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<column>
+			<name>is_actual</name>
+			<type>boolean</type>
+			<empty>true</empty>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<column>
+			<name>type_id</name>
+			<type>text</type>
+			<empty>true</empty>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<column>
+			<name>size</name>
+			<type>integer</type>
+			<nativeColumnType>numeric</nativeColumnType>
+			<empty>true</empty>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<column>
+			<name>level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<originalFileName>true</originalFileName>
+			<group>lotusd_files</group>
+		</column>
+		<!---->
+		<column>
+			<name>IO_Specialisation</name>
+			<type>text[]</type>
+			<multi>true</multi>
+			<separator>\|</separator>
+			<comment>Тип специализации адресата, от кого пришло письмо.</comment>
+		</column>
+		<column>
+			<name>IO_PersonSwitch</name>
+			<type>boolean</type>
+			<comment>Если равно 1, то входящий поступил от физ.лица, иначе – от организации</comment>
+		</column>
+		<column>
+			<name>IO_PersonData</name>
+			<type>text</type>
+			<comment>
+				Если входящий от физ. лица, то в этом поле будут данные этого физ. лица в произвольном формате
+				(фио, адрес, прочее).
+			</comment>
+		</column>
+		<!--БЛОК "ОРГАНИЗАЦИИ ОТ КОГО"-->
+		<column>
+			<name>ld_ch_in_org_from_ch_in_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_chancery_in</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_chancery_in_org_from</group>
+			<description>внешний ключ на таблицу lotusd_chancery_in</description>
+		</column>
+		<column>
+			<name>ld_ch_in_org_from_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_chancery_in_org_from</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ch_in_org_from_ch_in_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<sql>{unid}</sql>
+			<group>lotusd_chancery_in_org_from</group>
+			<description>внешний уникальный ключ на таблицу lotusd_chancery_in</description>
+		</column>
+		<column>
+			<name>ld_ch_in_io_org_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_ed_organizations</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<group>lotusd_chancery_in_org_from</group>
+			<comment>ID внешней организации-адресата ("от кого"). Ссылка на ВНЕШНИЕ_АДРЕСАТЫ/Организации (lotusd_ed_organizations)</comment>
+		</column>
+		<column>
+			<name>ld_ch_in_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_chancery_in_org_from</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>IO_OrgID</name>
+			<columnName>ld_ch_in_io_org_unid</columnName>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<multi>true</multi>
+			<group>lotusd_chancery_in_org_from</group>
+			<comment>UNID внешней организации-адресата ("от кого"). Ссылка на ВНЕШНИЕ_АДРЕСАТЫ/Организации (lotusd_ed_organizations)</comment>
+		</column>
+		<column>
+			<name>IO_OrgName</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_chancery_in_org_from</group>
+			<comment>Названия организаций "от кого"</comment>
+		</column>
+		<column>
+			<name>IO_OutP</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_chancery_in_org_from</group>
+			<comment>ФИО представителей "от кого"</comment>
+		</column>
+		<!--БЛОК "ВНУТРЕННИЕ АДРЕСАТЫ ОТ КОГО"-->
+		<column>
+			<name>ld_ch_in_dd_from_ch_in_id</name>
+			<columnType>integer</columnType>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_chancery_in</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_chancery_in_inner_destinations_from</group>
+			<description>внешний ключ на таблицу lotusd_chancery_in</description>
+		</column>
+		<column>
+			<name>ld_ch_in_dd_from_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_chancery_in_inner_destinations_from</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ch_in_dd_from_ch_in_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<sql>{unid}</sql>
+			<group>lotusd_chancery_in_inner_destinations_from</group>
+			<description>внешний уникальный ключ на таблицу lotusd_chancery_in</description>
+		</column>
+		<column>
+			<name>ld_ch_in_io_int_corr_org_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_org_structure</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<group>lotusd_chancery_in_inner_destinations_from</group>
+			<comment>ID внутреннего структурного подразделения («От кого»). Ссылка на ОРГ_СТРУКТУРА/Организации (lotusd_org_structure)</comment>
+		</column>
+		<column>
+			<name>ld_ch_in_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_chancery_in_inner_destinations_from</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>IO_IntCorrID</name>
+			<columnName>ld_ch_in_io_int_corr_org_unid</columnName>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<multi>true</multi>
+			<group>lotusd_chancery_in_inner_destinations_from</group>
+			<comment>UNID внутреннего структурного подразделения («От кого»). Ссылка на ОРГ_СТРУКТУРА/Организации (lotusd_org_structure)</comment>
+		</column>
+		<column>
+			<name>IO_IntCorr</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_chancery_in_inner_destinations_from</group>
+			<comment>Названия подразделений внутренних адресатов "от кого"</comment>
+		</column>
+		<column>
+			<name>IO_IntCorrPers</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_chancery_in_inner_destinations_from</group>
+			<comment>ФИО сотрудников подразделений внутр. адресатов "от кого"</comment>
+		</column>
+		<!---->
+		<column>
+			<name>forwardFrom</name>
+			<type>text[]</type>
+			<multi>true</multi>
+			<comment>Из каких баз или пользователей письмо попало в текущую бд (цепочка внутренней пересылки по разным базам)</comment>
+		</column>
+		<column>
+			<name>CommType</name>
+			<type>text[]</type>
+			<multi>true</multi>
+			<separator>\|</separator>
+			<comment>Вид доставки документа (электронная почта, бумажная почта, почтовые совы и прочее)</comment>
+		</column>
+		<!--БЛОК "АДРЕСАТЫ КОМУ"-->
+		<column>
+			<name>ld_ch_in_rec_who_ch_in_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_chancery_in</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_chancery_in_recipients_who</group>
+			<description>внешний ключ на таблицу lotusd_chancery_in</description>
+		</column>
+		<column>
+			<name>ld_ch_in_rec_who_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_chancery_in_recipients_who</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ch_in_rec_who_ch_in_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<sql>{unid}</sql>
+			<group>lotusd_chancery_in_recipients_who</group>
+			<description>внешний уникальный ключ на таблицу lotusd_chancery_in</description>
+		</column>
+		<column>
+			<name>ld_ch_in_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_chancery_in_recipients_who</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>IO_InP</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<comment>Адресаты "Кому" из словаря организационной структуры текущей организации</comment>
+			<group>lotusd_chancery_in_recipients_who</group>
+		</column>
+		<column>
+			<name>IO_InDep</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<comment>Адресаты "Кому" - название департамента</comment>
+			<group>lotusd_chancery_in_recipients_who</group>
+		</column>
+		<column>
+			<name>ld_ch_in_io_in_org_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_org_structure</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<group>lotusd_chancery_in_recipients_who</group>
+			<comment>ID внутреннего структурного подразделения («Кому»). Ссылка на ОРГ_СТРУКТУРА/Организации (lotusd_org_structure)</comment>
+		</column>
+		<column>
+			<name>IO_InDepID</name>
+			<columnName>ld_ch_in_io_in_org_unid</columnName>
+			<type>text[]</type>
+			<nativeColumnType>varchar(80)</nativeColumnType>
+			<multi>true</multi>
+			<group>lotusd_chancery_in_recipients_who</group>
+			<comment>UNID внутреннего структурного подразделения («Кому»). Ссылка на ОРГ_СТРУКТУРА/Организации (lotusd_org_structure)</comment>
+		</column>
+		<!---->
+		<column>
+			<name>InCard_OutNum</name>
+			<type>text</type>
+			<comment>Номер исходящего документа</comment>
+		</column>
+		<column>
+			<name>InCard_DI</name>
+			<type>date</type>
+			<comment>Дата исходящего документа</comment>
+		</column>
+		<column>
+			<name>InCard_Type</name>
+			<type>text[]</type>
+			<multi>true</multi>
+			<separator>\|</separator>
+			<comment>Тип исходящего документа (приказ, письмо, еще что)</comment>
+		</column>
+		<!--БЛОК "ПЕРЕСЛАННОГО ДОКУМЕНТА"-->
+		<column>
+			<name>ld_ch_in_for_doc_ch_in_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_chancery_in</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_chancery_in_forward_document</group>
+			<description>внешний ключ на таблицу lotusd_chancery_in</description>
+		</column>
+		<column>
+			<name>ld_ch_in_for_doc_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_chancery_in_forward_document</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ch_in_for_doc_ch_in_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<sql>{unid}</sql>
+			<group>lotusd_chancery_in_forward_document</group>
+			<description>внешний уникальный ключ на таблицу lotusd_chancery_in</description>
+		</column>
+		<column>
+			<name>ld_ch_in_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_chancery_in_forward_document</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>InCard_WhereWasSend</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_chancery_in_forward_document</group>
+			<comment>Куда данный входящий документ был переслан (название подразделения и ФИО адресата)</comment>
+		</column>
+		<column>
+			<name>InCard_WhereSendDate</name>
+			<type>date[]</type>
+			<columnType>date</columnType>
+			<multi>true</multi>
+			<group>lotusd_chancery_in_forward_document</group>
+			<comment>Когда был переслан</comment>
+		</column>
+		<column>
+			<name>InCard_ExNumber</name>
+			<type>integer[]</type>
+			<columnType>integer</columnType>
+			<multi>true</multi>
+			<group>lotusd_chancery_in_forward_document</group>
+			<comment>Номер экземпляра пересланного документа</comment>
+		</column>
+		<column>
+			<name>InCard_Return_Date</name>
+			<type>date[]</type>
+			<columnType>date</columnType>
+			<multi>true</multi>
+			<group>lotusd_chancery_in_forward_document</group>
+			<comment>Когда был возвращен в отдел</comment>
+		</column>
+		<!---->
+		<column>
+			<name>IO_InExec</name>
+			<type>text</type>
+			<comment>ФИО исполнителя из исходящего документа</comment>
+		</column>
+		<column>
+			<name>InCard_IsSend</name>
+			<type>boolean</type>
+			<comment>
+				Флаг: признак поступившего документа. Равно «1», если да. Имеет отношение к определению фактического
+				статуса документа, в поле Ex_Status.
+			</comment>
+		</column>
+		<column>
+			<name>ld_linked_orig_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_chancery_in</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<comment>
+				ID документа-оригинала (т.е. документа, изначально поступившего и зарегистрированного документа,
+				до того, как он был разослан по другим базам). Ссылка lotusd_chancery_in
+			</comment>
+		</column>
+		<column>
+			<name>OrigUNID</name>
+			<columnName>ld_linked_orig_unid</columnName>
+			<type>text</type>
+			<comment>
+				UNID документа-оригинала (т.е. документа, изначально поступившего и зарегистрированного документа,
+				до того, как он был разослан по другим базам). Ссылка на lotusd_chancery_in (КАНЦЕЛЯРИЯ/Входящие)
+			</comment>
+		</column>
+		<column>
+			<name>InCard_Subj</name>
+			<type>text</type>
+			<comment>Краткое содержание документа</comment>
+			<visibility>true</visibility>
+			<quickSearch>true</quickSearch>
+		</column>
+		<column>
+			<name>InCard_InRes</name>
+			<type>text</type>
+			<comment>Резолюция из исходящего письма</comment>
+			<visibility>true</visibility>
+			<quickSearch>true</quickSearch>
+		</column>
+		<column>
+			<name>InCard_File</name>
+			<type>text[]</type>
+			<multi>true</multi>
+			<separator>\|</separator>
+			<comment>Пункт номенклатуры дел, по которому отнесен данный документ.</comment>
+		</column>
+		<column>
+			<name>Ex_ImportantFlag</name>
+			<type>boolean</type>
+			<comment>Флаг: «очень важный документ». Равно «1», если да</comment>
+		</column>
+		<column>
+			<name>Ex_ExecutionFlag</name>
+			<type>integer</type>
+			<comment>
+				Флаг: признак исполнения документа. «1» = требует исполнения. «2» = документ для ознакомления.
+				«3» = исполнение документа продлено
+			</comment>
+		</column>
+		<column>
+			<name>InCard_DA</name>
+			<type>date</type>
+			<comment>Срок исполнения документа</comment>
+		</column>
+		<column>
+			<name>Ex_ToFileDate</name>
+			<type>timestamp with time zone</type>
+			<comment>Когда документ снят с контроля</comment>
+		</column>
+		<column>
+			<name>Ex_ExecDirect_Dept</name>
+			<type>text</type>
+			<comment>Департамент ответственного исполнителя документа</comment>
+		</column>
+		<column>
+			<name>Ex_Status</name>
+			<type>text</type>
+			<nativeColumnType>varchar(50)</nativeColumnType>
+			<comment>
+				СТАТУС ДОКУМЕНТА (в кавычках – код статуса в этом поле):
+				1. "Exam" = На рассмотрении.
+				2. "Exec" = На исполнении.
+				3. "X" = ЕСЛИ ПОЛЕ Ex_Status_Add = “1”, то док считается «Снятым с контроля», если нет – то «списанным в дело».
+				4. "D" = Черновик.
+				5. ЕСЛИ ПОЛЕ InCard_IsSend = “1”, то док считается «Поступившим», при чем если к нему приложены файлы, то «Поступившие\\с вложением», если файлы не приложены, то «Поступившие\\без вложений» (небольшая под-категоризация для пользователей, функционального смысла не несет).
+				6. “Reg” = Документ зарегистрирован.
+				7. Во всех остальных случаях считается, что «статус документа не определен».
+			</comment>
+		</column>
+		<column>
+			<name>Ex_Status_Add</name>
+			<type>text</type>
+			<comment>
+				Отдельного смысла не имеет, используется только для уточнения фактического статуса документа, в поле Ex_Status.
+			</comment>
+		</column>
+		<!--БЛОК РЕЗОЛЮЦИИ-->
+		<column>
+			<name>ld_ch_in_res_ch_in_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_chancery_in</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_chancery_in_resolution</group>
+			<description>внешний ключ на таблицу lotusd_chancery_in</description>
+		</column>
+		<column>
+			<name>ld_ch_in_res_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_chancery_in_resolution</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ch_in_res_ch_in_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<sql>{unid}</sql>
+			<group>lotusd_chancery_in_resolution</group>
+			<description>внешний уникальный ключ на таблицу lotusd_chancery_in</description>
+		</column>
+		<column>
+			<name>ld_ch_in_res_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_chancery_in_resolution</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>Ex_Executors</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<separator>¡</separator>
+			<group>lotusd_chancery_in_resolution</group>
+			<comment>список исполнителей по пункту резолюции первый исполнитель из списка считается ответственным за
+				исполнение пункта резолюции
+			</comment>
+		</column>
+		<column>
+			<name>Ex_Executors_Out</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<separator>¡</separator>
+			<group>lotusd_chancery_in_resolution</group>
+			<comment>Название внешних адресатов-исполнителей (т.е. исполнителей из словарика внешних адресатов).
+				Тут может быть как ФИО исполнителя, так и имя организации-исполнителя, так и ФИО + имя
+				организации-исполнителя
+			</comment>
+		</column>
+		<column>
+			<name>Ex_ToDo</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<separator>¡</separator>
+			<group>lotusd_chancery_in_resolution</group>
+			<comment>Текстовка пункта резолюции (что конкретно делать)</comment>
+		</column>
+		<column>
+			<name>Ex_Date</name>
+			<type>date[]</type>
+			<columnType>date</columnType>
+			<multi>true</multi>
+			<separator>¡</separator>
+			<group>lotusd_chancery_in_resolution</group>
+			<comment>Срок исполнения пункта резолюции</comment>
+		</column>
+		<column>
+			<name>Ex_Controller</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<separator>¡</separator>
+			<group>lotusd_chancery_in_resolution</group>
+			<comment>Контролер пункта резолюции</comment>
+		</column>
+		<column>
+			<name>Ex_SignDate</name>
+			<type>date[]</type>
+			<columnType>date</columnType>
+			<multi>true</multi>
+			<separator>¡</separator>
+			<group>lotusd_chancery_in_resolution</group>
+			<comment>Дата подписания пункта резолюции</comment>
+		</column>
+		<column>
+			<name>Ex_Sign</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<separator>¡</separator>
+			<group>lotusd_chancery_in_resolution</group>
+			<comment>Кто подписал на исполнение данный пункт резолюции</comment>
+		</column>
+		<column>
+			<name>Ex_Zam</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<separator>¡</separator>
+			<group>lotusd_chancery_in_resolution</group>
+			<comment>Список «для сведения» по данному пункту резолюции</comment>
+		</column>
+		<!---->
+		<column>
+			<name>Ex_ToExam</name>
+			<type>text</type>
+			<comment>Кому отправлено на рассмотрение, ФИО</comment>
+		</column>
+		<column>
+			<name>Ex_ToDepRus</name>
+			<type>text</type>
+			<comment>Кому отправлено на рассмотрение, название департамента</comment>
+		</column>
+		<column>
+			<name>Ex_ToExamDate</name>
+			<type>text</type>
+			<comment>Когда отправлено на рассмотрение</comment>
+		</column>
+		<column>
+			<name>Ex_ToExec</name>
+			<type>text</type>
+			<comment>Кем отправлено на исполнение, ФИО</comment>
+		</column>
+		<column>
+			<name>Ex_ToExecDate</name>
+			<type>timestamp with time zone</type>
+			<comment>Когда отправлено на исполнение</comment>
+		</column>
+		<column>
+			<name>Ex_ToFile</name>
+			<type>text</type>
+			<comment>Кем док снят с контроля, ФИО</comment>
+		</column>
+		<column>
+			<name>Ex_ExecutionMarks</name>
+			<type>text</type>
+			<comment>Отметки об исполнении (ход исполнения документа)</comment>
+		</column>
+		<column>
+			<name>ControlLevel</name>
+			<type>text</type>
+			<comment>
+				Уровень контролёра документа (значения из словарика «уровни контроля») – департамент, управление, министерство и так далее
+			</comment>
+		</column>
+		<!--БЛОК "НА ОЗНАКОМЛЕНИЕ"-->
+		<column>
+			<name>ld_ch_in_ab_ch_in_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_chancery_in</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_chancery_in_about</group>
+			<description>внешний ключ на таблицу lotusd_chancery_in</description>
+		</column>
+		<column>
+			<name>ld_ch_in_ab_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_chancery_in_about</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ch_in_ab_ch_in_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<sql>{unid}</sql>
+			<group>lotusd_chancery_in_about</group>
+			<description>внешний уникальный ключ на таблицу lotusd_chancery_in</description>
+		</column>
+		<column>
+			<name>ld_ch_in_ab_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_chancery_in_about</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>AList_ListStruct</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_chancery_in_about</group>
+			<comment>Структурное подразделение, куда отправлено на рассмотрение</comment>
+		</column>
+		<column>
+			<name>ld_alist_list_struct_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_org_structure</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<group>lotusd_chancery_in_about</group>
+			<comment>ID внутреннего структурного подразделения. Ссылка на ОРГ_СТРУКТУРА/Организации (lotusd_org_structure)</comment>
+		</column>
+		<column>
+			<name>AList_ListStructID</name>
+			<columnName>ld_alist_list_struct_unid</columnName>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_chancery_in_about</group>
+			<comment>UNID внутреннего структурного подразделения. Ссылка на ОРГ_СТРУКТУРА/Организации (lotusd_org_structure)</comment>
+		</column>
+		<!---->
+		<column>
+			<name>AList_ListStruct_Pers</name>
+			<type>text[]</type>
+			<multi>true</multi>
+			<comment>
+				Раскрытый список сотрудников подразделений, указанных в поле AList_ListStruct, кому нужно отправить документ на ознакомление.
+				Список отдельных сотрудников (обычно не входящих в AList_ListStruct_Pers, хотя повторения возможны), кому нужно отправить документ на ознакомление.
+			</comment>
+		</column>
+		<column>
+			<name>AList_ListPers</name>
+			<type>text[]</type>
+			<multi>true</multi>
+			<comment>
+				Список отдельных сотрудников (обычно не входящих в AList_ListStruct_Pers, хотя повторения возможны), кому нужно отправить документ на ознакомление
+			</comment>
+		</column>
+		<column>
+			<name>AList_CheckDate</name>
+			<type>timestamp with time zone</type>
+			<comment>
+				Контрольная дата ознакомления (т.е. до какой даты все должны ознакомиться).
+			</comment>
+		</column>
+		<!--БЛОК "УЖЕ ОЗНАКОМИЛИСЬ"-->
+		<column>
+			<name>ld_ch_in_ar_ch_in_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_chancery_in</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_chancery_in_already_read</group>
+			<description>внешний ключ на таблицу lotusd_chancery_in</description>
+		</column>
+		<column>
+			<name>ld_ch_in_ar_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_chancery_in_already_read</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ch_in_ar_ch_in_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<sql>{unid}</sql>
+			<group>lotusd_chancery_in_already_read</group>
+			<description>внешний уникальный ключ на таблицу lotusd_chancery_in</description>
+		</column>
+		<column>
+			<name>ld_ch_in_ar_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_chancery_in_already_read</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>AList_ListRead</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_chancery_in_already_read</group>
+			<comment>Сотрудники, ознакомившиеся с документом (ФИО)</comment>
+		</column>
+		<column>
+			<name>AList_ListRead_Date</name>
+			<type>timestamp with time zone[]</type>
+			<columnType>timestamp with time zone</columnType>
+			<multi>true</multi>
+			<group>lotusd_chancery_in_already_read</group>
+			<comment>Дата, когда сотрудник ознакомился с документом</comment>
+		</column>
+		<!---->
+		<column>
+			<name>InRS_Pages</name>
+			<type>text</type>
+			<comment>Количество страниц документа</comment>
+		</column>
+		<column>
+			<name>InRS_Appl</name>
+			<type>text</type>
+			<comment>Количество приложений к документу</comment>
+		</column>
+		<column>
+			<name>InRS_ApType</name>
+			<type>text</type>
+			<comment>Тип приложений к документу (бумага, диски, кассеты, бутылки коньяка и прочее)</comment>
+		</column>
+		<column>
+			<name>InRS_ApPg</name>
+			<type>text</type>
+			<comment>Общее количество листов приложений</comment>
+		</column>
+		<column>
+			<name>InRS_NCopy</name>
+			<type>text</type>
+			<comment>Номер экземпляра (копии) документа</comment>
+		</column>
+		<column>
+			<name>InCard_RgDate</name>
+			<type>date</type>
+			<comment>Дата регистрации документа</comment>
+		</column>
+		<column>
+			<name>InCard_RgAuthRus</name>
+			<type>text</type>
+			<comment>Кем был зарегистрирован документ</comment>
+		</column>
+		<column>
+			<name>InCard_Index</name>
+			<type>text</type>
+			<comment>Регистрационный номер документа</comment>
+		</column>
+		<column>
+			<name>InCard_FileNumber</name>
+			<type>text</type>
+			<comment>Название текущей номенклатуры дел для документа</comment>
+		</column>
+		<column>
+			<name>InCard_FileTom</name>
+			<type>text</type>
+			<comment>Том номенклатуры дела для документа</comment>
+		</column>
+		<column>
+			<name>InCard_Location</name>
+			<type>text</type>
+			<comment>Где находится бумажная копия документа</comment>
+		</column>
+		<column>
+			<name>InCard_Comment</name>
+			<type>text</type>
+			<comment>Примечания к документу</comment>
+		</column>
+		<column>
+			<name>ReferenceURL</name>
+			<columnName>ld_linked_unid</columnName>
+			<type>text[]</type>
+			<pattern>(.+)?\/0\/(.+)\?OpenDocument(.+)?</pattern>
+			<patternGroupIndex>2</patternGroupIndex>
+			<multi>true</multi>
+			<comment>
+				Список связанных с входящим документов UNID. Связки могут создаваться только в рамках текущей базы –
+				но с любым типом документа.
+			</comment>
+		</column>
+		<column>
+			<name>Ex_ControlFlag</name>
+			<type>boolean</type>
+			<comment>Флаг: документ поставлен на контроль. Равно «1», если да</comment>
+		</column>
+		<column>
+			<name>Ex_ExecDirect</name>
+			<type>text</type>
+			<comment>Ответственный исполнитель документа</comment>
+		</column>
+		<column>
+			<name>ControlManager</name>
+			<type>text</type>
+			<comment>Контролёр документа, ФИО</comment>
+		</column>
+		<column>
+			<name>IO_multi</name>
+			<type>boolean</type>
+			<comment>Флаг: коллективное обращение. «1», если да</comment>
+		</column>
+		<column>
+			<name>AList_IsSend</name>
+			<type>boolean</type>
+			<comment>Флаг, отправлен ли документ на ознакомление. “1”, если отправлен</comment>
+		</column>
+		<column>
+			<name>SubjectRF</name>
+			<type>text</type>
+			<comment>Субъект РФ, к которому принадлежит заявитель ОГ</comment>
+		</column>
+		<column>
+			<name>Privilege</name>
+			<type>text</type>
+			<comment>Льготная категория граждан, к которой относится заявитель ОГ</comment>
+		</column>
+		<column>
+			<name>ControlDate</name>
+			<type>timestamp with time zone</type>
+			<comment>Дата постановки документа на контроль</comment>
+		</column>
+		<column>
+			<name>InCard_Theme</name>
+			<type>text</type>
+			<comment>Тематика входящего документа (ОГ)</comment>
+		</column>
+		<column>
+			<name>InCard_Results</name>
+			<type>text</type>
+			<comment>Результат рассмотрения обращения (ОГ)</comment>
+		</column>
+		<column>
+			<name>InCard_Action</name>
+			<type>text</type>
+			<comment>Предпринятые действия по обращению (ОГ)</comment>
+		</column>
+		<!--БЛОК "СНЯТО С КОНТРОЛЯ"-->
+		<column>
+			<name>ld_ch_in_ds_ch_in_id</name>
+			<type>integer</type>
+			<relations>
+				<table>
+					<name>lotusd_chancery_in</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<empty>true</empty>
+			<sql>null</sql>
+			<group>lotusd_chancery_in_discontinue_supervision</group>
+			<description>внешний ключ на таблицу lotusd_chancery_in</description>
+		</column>
+		<column>
+			<name>ld_ch_in_ds_dstr_id</name>
+			<type>integer</type>
+			<notNull>true</notNull>
+			<relations>
+				<table>
+					<name>lotusd_districts</name>
+					<type>master</type>
+				</table>
+			</relations>
+			<sql>{district}</sql>
+			<group>lotusd_chancery_in_discontinue_supervision</group>
+			<description>внешний ключ на таблицу lotusd_districts</description>
+		</column>
+		<column>
+			<name>ld_ch_in_ds_ch_in_unid</name>
+			<notNull>true</notNull>
+			<type>text</type>
+			<sql>{unid}</sql>
+			<group>lotusd_chancery_in_discontinue_supervision</group>
+			<description>внешний уникальный ключ на таблицу lotusd_chancery_in</description>
+		</column>
+		<column>
+			<name>ld_ch_in_ds_level</name>
+			<type>integer</type>
+			<sql>{level}</sql>
+			<group>lotusd_chancery_in_discontinue_supervision</group>
+			<description>уровень при импорте (искусственный)</description>
+		</column>
+		<column>
+			<name>Responsibles</name>
+			<type>text[]</type>
+			<columnType>text</columnType>
+			<multi>true</multi>
+			<group>lotusd_chancery_in_discontinue_supervision</group>
+			<comment>Снято с контроля, ФИО</comment>
+		</column>
+		<column>
+			<name>ResponsiblesDate</name>
+			<type>timestamp with time zone[]</type>
+			<columnType>timestamp with time zone</columnType>
+			<multi>true</multi>
+			<group>lotusd_chancery_in_discontinue_supervision</group>
+			<comment>Снято с контроля, дата</comment>
+		</column>
+		<!---->
+	</columns>
+</table>

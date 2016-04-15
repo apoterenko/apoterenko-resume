@@ -1,0 +1,12 @@
+/node_modules
+/archive
+/dist
+/.idea
+/.DS_STORE
+/jspm_packages
+/index.html
+/src/**/*.css
+**/*-compiled.js
+**/*-compiled.js.map
+/npm-debug.log
+/examples

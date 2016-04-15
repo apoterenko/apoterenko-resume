@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MVDData version="1.3">
+    <DesignDocument designVersion="MIDP-2" uidCounter="32">
+        <DesignComponent id="$MobileDevice" typeid="MIDP:$MobileDevice" uid="0"/>
+        <DesignComponent id="$StartPoint" typeid="MIDP:$StartPoint" uid="1">
+            <Property name="targetDisplayable" value="form1"/>
+            <Property name="targetForwardDisplayable"/>
+        </DesignComponent>
+        <DesignComponent id="form1" typeid="MIDP:javax.microedition.lcdui.Form" uid="8">
+            <ContainerProperty name="commands">
+                <ContainerPropertyItem value="$CommandAction2"/>
+                <ContainerPropertyItem value="$CommandAction5"/>
+            </ContainerProperty>
+            <ContainerProperty name="items">
+                <ContainerPropertyItem value="stringItem1"/>
+            </ContainerProperty>
+        </DesignComponent>
+        <DesignComponent id="okCommand1" typeid="MIDP:javax.microedition.lcdui.Command" uid="9">
+            <Property name="label" value="STRING:Ok"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="okCommand2" typeid="MIDP:javax.microedition.lcdui.Command" uid="10">
+            <Property name="label" value="STRING:\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u0438"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="component1" typeid="MIDP:javax.microedition.lcdui.Command" uid="13">
+            <Property name="label" value="STRING:\u0417\u0430\u043A\u0430\u0437\u044B"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction2" typeid="MIDP:CommandAction" uid="14">
+            <Property name="targetDisplayable" value="form2"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="component1"/>
+            <Property name="actionOrigin" value="form1"/>
+        </DesignComponent>
+        <DesignComponent id="form2" typeid="MIDP:javax.microedition.lcdui.Form" uid="15">
+            <ContainerProperty name="commands">
+                <ContainerPropertyItem value="$CommandAction3"/>
+            </ContainerProperty>
+            <ContainerProperty name="items">
+                <ContainerPropertyItem value="textField2"/>
+                <ContainerPropertyItem value="textField3"/>
+                <ContainerPropertyItem value="textField4"/>
+            </ContainerProperty>
+        </DesignComponent>
+        <DesignComponent id="okCommand4" typeid="MIDP:javax.microedition.lcdui.Command" uid="16">
+            <Property name="label" value="STRING:\u041D\u0430\u0437\u0430\u0434"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction3" typeid="MIDP:CommandAction" uid="17">
+            <Property name="targetDisplayable" value="form1"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="okCommand4"/>
+            <Property name="actionOrigin" value="form2"/>
+        </DesignComponent>
+        <DesignComponent id="textField2" typeid="MIDP:javax.microedition.lcdui.TextField" uid="19">
+            <Property name="label" value="STRING:\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043D\u044B\u0445 \u0437\u0430\u043A\u0430\u0437\u043E\u0432"/>
+            <Property name="maxSize" value="120"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="textField3" typeid="MIDP:javax.microedition.lcdui.TextField" uid="21">
+            <Property name="label" value="STRING:\u041E\u0431\u0449\u0430\u044F \u0441\u0443\u043C\u043C\u0430"/>
+            <Property name="maxSize" value="120"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="textField4" typeid="MIDP:javax.microedition.lcdui.TextField" uid="22">
+            <Property name="label" value="STRING:\u0412\u044B\u0440\u0443\u0447\u043A\u0430"/>
+            <Property name="maxSize" value="120"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="stringItem1" typeid="MIDP:javax.microedition.lcdui.StringItem" uid="23">
+            <Property name="label" value="STRING:\n"/>
+            <Property name="text" value="STRING:\u041C\u0438\u0434\u043B\u0435\u0442 \u0434\u043E\u0441\u0442\u0443\u043F\u0430 \u043A \u0444\u0443\u043D\u043A\u0446\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u0438 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0430 \u201C\u0421\u0410\u041B\u042E\u0422-\u0410\u0412\u0422\u041E\u201D \u0447\u0435\u0440\u0435\u0437 \u0432\u0435\u0431-\u0441\u0435\u0440\u0432\u0438\u0441"/>
+            <Property name="font" value="font1"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="font1" typeid="MIDP:javax.microedition.lcdui.Font" uid="24">
+            <Property name="face" value="FACE_SYSTEM"/>
+            <Property name="style" value="1"/>
+            <Property name="size" value="SIZE_MEDIUM"/>
+        </DesignComponent>
+        <DesignComponent id="okCommand3" typeid="MIDP:javax.microedition.lcdui.Command" uid="27">
+            <Property name="label" value="STRING:\u041D\u0430\u0437\u0430\u0434"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="okCommand5" typeid="MIDP:javax.microedition.lcdui.Command" uid="29">
+            <Property name="label" value="STRING:\u0412\u044B\u0445\u043E\u0434"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction5" typeid="MIDP:CommandAction" uid="30">
+            <Property name="targetDisplayable" value="$MobileDevice"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="okCommand5"/>
+            <Property name="actionOrigin" value="form1"/>
+        </DesignComponent>
+    </DesignDocument>
+    <FlowDocument version="1.1">
+        <Node id="$MobileDevice" location="136,224" order=",$StartPoint,,,,,,,,,$ExitPoint,,,,,"/>
+        <Node id="form1" location="360,288" order=",$CommandAction2,$CommandAction5,,,,,,,,$Default,,,,,"/>
+        <Node id="form2" location="112,336" order="$CommandAction3,,,,,,,,,,$Default,,,,,"/>
+        <Link id="$StartPoint$ActionLink" path="176,200,277,200,277,264,320,264"/>
+        <Link id="$CommandAction2$ActionLink" path="400,264,461,264,461,373,53,373,53,312,72,312"/>
+        <Link id="$CommandAction3$ActionLink" path="152,328,254,328,254,264,320,264"/>
+        <Link id="$CommandAction5$ActionLink" path="400,248,461,248,461,144,23,144,23,200,96,200"/>
+    </FlowDocument>
+</MVDData>

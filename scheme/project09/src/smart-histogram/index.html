@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="viewport" content="width = device-width, minimal-ui, initial-scale = 1, user-scalable = no"/>
+	<meta name="apple-mobile-web-app-title" content="Smart histogram">
+	<title>Smart histogram</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.string/3.2.2/underscore.string.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.18.4/system.js"></script>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-72031769-3', 'auto');
+		ga('send', 'pageview');
+
+	</script>
+	<style>
+		.histogram-unit {
+			height: 10px;
+			display: inline-block;
+			border: 1px solid #000;
+		}
+
+		.histogram {
+			border: 2px solid red;
+			padding: 5px;
+			white-space: nowrap;
+			color: red;
+			font-weight: bold;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		System.config({
+			defaultJSExtensions: true,
+
+			paths: {
+				"app/*": "dist/app/*"
+			}
+		});
+		System.import('app/HistogramGenerator');
+	</script>
+</body>
+</html>

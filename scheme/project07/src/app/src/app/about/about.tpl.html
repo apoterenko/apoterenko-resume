@@ -1,0 +1,68 @@
+<div ui-column ui-full-w ui-h-10p ng-include="'app/logo.tpl.html'" class="imigo-mini-logo-wrapper"></div>
+<div ui-rel class="imigo-center-panel imigo-panel">
+	<div ui-column ui-w-85p ui-full-h>
+		<div><div ui-w-92></div></div>
+		<div ui-full>
+			<div ui-rel ui-full>
+				<div ui-full ui-abs>
+					<perfect-scrollbar id="imigo-chat-scroller"
+					                   ui-full
+					                   class="imigo-scroller"
+					                   wheel-propagation="true"
+					                   wheel-speed="10"
+					                   min-scrollbar-length="20">
+						<div class="imigo-about-content-wrapper">
+							<div ui-row ui-full>
+								<div ui-full-w>
+									<div class="imigo-about-title-label">{{'ABOUT' | translate}}</div>
+									<div class="imigo-about-text-label" ng-if="user_lang == 'en'">
+										<p>Time and relations are the most valuable things in life. IMIGO.ME is a relationship market, the first website to allow you to trade your personal time.</p>
+										<p>Choose a person you like, make a virtual appointment or meet in person. Or sell your own time, earn IMI (IMIGO.ME virtual currency) and exchange it for real money.</p>
+										<p>It’s easy to find a reliable partner. Karma and level will show how many successful deals were completed by a person, and the impression he or she made.</p>
+										<p>Are you looking for an opportunity to capitalize on your natural charm? Submit an online dating offer and maybe it will turn into something bigger.</p>
+										<p>Do you want a master of calligraphy to give you a lesson? Perhaps there is a suitable offer in the "Job" category?</p>
+										<p>Your opportunities are endless. Meet new people, communicate and make money with IMIGO.ME!</p>
+									</div>
+
+									<div class="imigo-about-text-label" ng-if="user_lang == 'ru'">
+										<p>Самое ценное в жизни - время и общение. IMIGO.ME - рынок взаимоотношений, первая площадка, которая позволяет торговать своим личным временем. </p>
+
+										<p>Выбирайте понравившегося человека и договаривайтесь о виртуальном свидании или личной встрече. Либо продавайте собственное время, зарабатывайте виртуальную валюту IMI и обменивайте ее на реальные деньги!</p>
+
+										<p>Выбрать надежного партнера помогут Карма и Уровень, которые показывают, как много успешных сделок провел пользователь, и какое впечатление он произвел.</p>
+
+										<p>Вы ищете возможность заработать на своем природном обаянии? Разместите предложение о виртуальном свидании, и, возможно, оно превратится во что-то большее.</p>
+
+										<p>Хотите взять урок у мастера каллиграфии? Может быть, подходящее предложение уже есть в категории “Работа”.</p>
+
+										<p>Ваши возможности безграничны. Общайтесь и зарабатывайте вместе с IMIGO.ME!</p>
+									</div>
+									
+									<div class="imigo-about-text-label" ng-if="user_lang == 'jp'">
+										<p>人生において一番大切なモノは時間と人との繋がりです。IMIGO.MEは人の相互関係を扱う市場で、自由時間の販売というシステムを取った世界初のサイトです。</p>
+										<p>気に入った人を選択して、サイト上で仲良くなったり実際に会う事も可能です。</p>
+										<p>または自由時間を販売して、IMIというサイト内通貨を稼いで、実際にお金と引き換えることまでできます。</p>
+										<p>成功した取引やどんな印象を与えるなどが表示する「カルマ」と「レベル」というパラメーターを元に真面目なパートナーを見つける事が出来ます。</p>
+										<p>例えば、書道のレッスンを受けたいのであれば、募集広告を「プロフェッショナル」のカテゴリーで探してみましょう。</p>
+										<p>貴方の可能性は無限大です。IMIGO.MEで人と出会い、関係を築きながらお金を稼ぎましょう。</p>
+									</div>
+								</div>
+								<div ui-full-w class="imigo-about-text-label">
+									<div class="imigo-about-contacts-label">{{'CONTACTS' | translate}}</div>
+									<div class="imigo-about-text-label">
+										<p translate>Feel free to contact us by email: support@imigo.me</p>
+										<div translate>Our Address: 3rd Floor, C &amp; H Towers Corner of Great Marlborough and Greate George Streets Roseau, 00152 Commonwealth of Dominica; +852 8193 1313</div>
+									</div>
+								</div>
+								<div ui-full></div>
+							</div>
+						</div>
+					</perfect-scrollbar>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div ui-column ui-full-w class="imigo-bottom-panel">
+	<div ui-vb-align ng-include="'app/post-footer.tpl.html'"></div>
+</div>

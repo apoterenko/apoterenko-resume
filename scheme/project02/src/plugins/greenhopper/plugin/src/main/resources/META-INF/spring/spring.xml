@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+">
+
+	<context:annotation-config/>
+	<context:component-scan base-package="qiwi.jira.plugins.greenhopper,com.atlassian.greenhopper,com.pyxis.greenhopper" />
+
+	<bean class="com.atlassian.greenhopper.jira.JIRAResourceAnnotationBeanPostProcessor"/>
+
+	<bean id="greenhopper-rank-service-internal"
+		  class="com.atlassian.greenhopper.service.rank.RankServiceImpl"
+		  autowire-candidate="false"/>
+
+	<bean id="qiwi-slave-issue-ranking-permission-service"
+		  class="qiwi.jira.plugins.greenhopper.SlaveIssueRankingPermissionService"
+		  autowire-candidate="false"/>
+
+	<!-- bean id="qiwi-greenhopper-rank-service"
+		  class="qiwi.jira.plugins.greenhopper.QiwiRankServiceImpl"
+		  autowire-candidate="true">
+	</bean-->
+
+	<bean id="qiwi-greenhopper-rank-service-override-security"
+		  class="qiwi.jira.plugins.greenhopper.QiwiRankServiceImpl"
+		  autowire-candidate="false">
+		<property name="permissionService" ref="qiwi-slave-issue-ranking-permission-service"/>
+	</bean>
+
+	<bean id="qiwi-slave-issue-ranking"
+		  class="qiwi.jira.plugins.greenhopper.SlaveIssueRanking">
+		<property name="rankService" ref="qiwi-greenhopper-rank-service-override-security"/>
+	</bean>
+</beans>

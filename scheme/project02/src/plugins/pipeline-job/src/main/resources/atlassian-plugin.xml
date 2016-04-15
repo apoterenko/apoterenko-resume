@@ -1,0 +1,17 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="QIWI Pipeline Job Plugin" plugins-version="2">
+	<plugin-info>
+		<description>QIWI Pipeline Job Plugin</description>
+		<version>${project.version}</version>
+		<vendor name="${project.organization.name}" url="${project.organization.url}"/>
+	</plugin-info>
+
+	<component-import key="qiwi-easy-scheduler" interface="qiwi.jira.plugins.scheduler.EasyScheduler"/>
+
+	<component key="qiwi-pipeline-speed-wrapper" class="qiwi.jira.plugins.job.pipeline.PipelineSpeedWrapper" public="true">
+		<interface>qiwi.jira.plugins.job.pipeline.PipelineSpeed</interface>
+	</component>
+	<component key="qiwi-pipeline-processor" class="qiwi.jira.plugins.job.pipeline.PipelineProcessorImpl" public="true">
+		<interface>qiwi.jira.plugins.job.pipeline.PipelineProcessor</interface>
+	</component>
+
+</atlassian-plugin>

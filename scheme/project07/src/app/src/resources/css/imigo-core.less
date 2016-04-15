@@ -1,0 +1,39 @@
+@import "imigo-utils";
+@import "imigo-constant";
+
+.build-common();
+.build-input();
+.build-textarea();
+.build-imigo-placeholder(@font-style: italic, @color: @imigo-basic-lite-brown-color);
+.build-zone(@name: 'basic', @border-color: @imigo-basic-turquoise-color);
+.build-zone(@name: 'premium', @border-color: @imigo-basic-gold-color);
+.build-zone(@name: 'form-premium', @border-color: @imigo-basic-gold-color, @border-size: 2);
+.build-counters();
+.build-logo();
+.build-buttons();
+.build-card();
+.build-slider();
+.build-images();
+.build-footer();
+.build-report();
+
+@import "imigo-fonts";
+@import "imigo-main";
+@import "imigo-search";
+@import "imigo-profile";
+@import "imigo-chat";
+@import "imigo-registration";
+@import "imigo-login";
+@import "imigo-bank";
+@import "imigo-help";
+@import "imigo-about";
+@import "imigo-landing";
+@import "imigo-error-email";
+
+@import "../vendor/brianreavis/selectize.js@0.12.1/less/selectize";
+@import (inline) "../../../jspm_packages/github/itsdrewmiller/angular-perfect-scrollbar@0.0.3/bower_components/perfect-scrollbar/min/perfect-scrollbar.min.css";
+@import (inline) "../../../jspm_packages/github/likeastore/ngDialog@0.5.6/css/ngDialog.min.css";
+@import (inline) "../../../jspm_packages/github/likeastore/ngDialog@0.5.6/css/ngDialog-theme-default.min.css";
+@import (inline) "../../../jspm_packages/github/apoterenko/uiLayout@0.0.3/dist/min/ui-layout.css";
+
+@import "../vendor/imigo-vendor-override";

@@ -1,0 +1,563 @@
+<div ui-column ui-full-w ui-h-10p ng-include="'app/logo.tpl.html'" class="imigo-mini-logo-wrapper"></div>
+<div ui-rel class="imigo-center-panel imigo-panel">
+	<div ui-column ui-full ng-show="user">
+		<div>
+			<div ui-w-92></div>
+		</div>
+		<div class="imigo-bank-payment-zone imigo-bank-payment-zone-original" ui-full-h ui-vt-align>
+			<div ui-row ui-full>
+				<div>
+					<div class="imigo-bank-payment-title-label">
+						{{'PURCHASE IMI' | translate}}
+					</div>
+				</div>
+				<div>
+					<div class="imigo-bank-payment-common-label imigo-bank-payment-replenish-label">
+						{{'Amount of IMI you would like to buy:' | translate}}
+					</div>
+				</div>
+				<div>
+					<div ui-column ui-full-w>
+						<div ui-w-50p>
+							<div ui-row ui-full>
+								<div>
+									<input ui-full-w
+									       ui-hc-align
+									       type="number"
+									       ng-digit-filter
+									       ng-maxlength="3"
+									       ng-model="payment.replenish"
+									       placeholder="{{'Enter the amount' | translate}}"
+									       data-tip="{{'Enter the amount' | translate}}">
+								</div>
+							</div>
+						</div>
+						<div><div ui-w-8></div></div>
+						<div ui-w-50p ui-vt-align>
+							<div ui-hc-align
+							     ng-class="{disabled: !canReplenishBalance()}"
+							     ng-click="onReplenishBalance()"
+							     data-tip="{{'Purchase' | translate}}"
+							     class="imigo-bank-balance-button">
+								{{'Purchase' | translate}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div>
+					<div ui-full-w class="imigo-bank-payment-rate-label imigo-nowrap">
+						<span>1 IMI = 1 EUR</span>&nbsp;&nbsp;<span ng-if="canShowMinPaymentSum()">{{'minimal sum' | translate}}: 10 IMI</span>
+					</div>
+				</div>
+				<div>
+					<div ui-full-w ui-column
+					     ng-class="{selected: payment.type === 'paypal'}"
+					     ng-click="onChangePaymentType('paypal')"
+					     class="imigo-bank-payment-type-wrapper">
+						<div ui-w-10p ui-vc-align>
+							<input ng-model="payment.type"
+							       class="imigo-bank-payment-checkbox"
+							       type="radio"
+							       value="paypal">
+						</div>
+						<div ui-vc-align>
+							<div ui-inline-block ui-vc-align class="imigo-bank-paypal-image"></div>
+						</div>
+						<div ui-w-90p ui-vc-align class="imigo-bank-payment-type-label imigo-nowrap">
+							The safer, easier way to pay.
+						</div>
+					</div>
+				</div>
+				<div>
+					<div ui-full-w ui-column
+					     ng-class="{selected: payment.type === 'card'}"
+					     ng-click="onChangePaymentType('card')"
+					     class="imigo-bank-payment-type-wrapper">
+						<div ui-w-10p ui-vc-align>
+							<input ng-model="payment.type"
+							       class="imigo-bank-payment-checkbox"
+							       type="radio"
+							       value="card">
+						</div>
+						<div ui-vc-align>
+							<div ui-inline-block ui-vc-align class="imigo-bank-visa-image"></div>
+						</div>
+						<div ui-w-90p ui-vc-align class="imigo-bank-payment-type-label">
+							{{'Credit/Debet card' | translate}}
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="imigo-bank-payment-title-label imigo-bank-payment-title-label2">
+						{{'IMI WITHDRAWAL' | translate}}
+					</div>
+				</div>
+				<div>
+					<div class="imigo-bank-payment-common-label imigo-bank-payment-replenish-label">
+						{{'Amount of IMI you would like to withdraw:' | translate}}
+					</div>
+				</div>
+				<div>
+					<div ui-column ui-full-w>
+						<div ui-w-50p>
+							<div ui-row ui-full>
+								<div>
+									<input ui-full-w
+									       ui-hc-align
+									       type="number"
+									       ng-digit-filter
+									       maxlength="3"
+									       ng-maxlength="3"
+									       ng-model="withdrawal.amount"
+									       placeholder="{{'Enter the amount' | translate}}"
+									       data-tip="{{'Enter the amount' | translate}}">
+								</div>
+							</div>
+						</div>
+						<div><div ui-w-8></div></div>
+						<div ui-w-50p ui-vt-align>
+							<div ui-hc-align
+							     ng-click="onWithdrawalBalance()"
+							     ng-class="{disabled: !canWithdrawalBalance()}"
+							     data-tip="{{'Withdraw' | translate}}"
+							     class="imigo-bank-balance-button">
+								{{'Withdraw' | translate}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div ng-if="canShowMinWithdrawalSum()">
+					<div ui-full-w class="imigo-bank-payment-rate-label imigo-nowrap">
+						{{'minimal sum' | translate}}: {{MINIMAL_WITHDRAWAL_SUM}} IMI
+					</div>
+				</div>
+				<div ui-full-w ui-h-12 ui-vb-align>
+				</div>
+				<div ui-full-w ui-h-20 ui-vb-align>
+					<div ui-full-w ui-vb-align class="imigo-bank-withdrawal-policy-label imigo-underline"
+					     ng-click="onWithdrawalPolicy()">
+						{{ 'Withdrawal policy' | translate }}
+					</div>
+				</div>
+				<div ui-h-100p ui-vb-align>
+					<div ui-column ui-full>
+						<div ui-full ui-vb-align>
+							<a ui-sref="bank-history"
+							   ui-inline-block
+							   class="imigo-bank-history-label imigo-underline">
+								{{ 'Payment history' | translate }}
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ng-if="credCard || withdrawalCard || credCardProgress || withdrawalPolicy" ui-w-5p></div>
+		<div ng-if="!credCard && !withdrawalCard && !credCardProgress && !withdrawalPolicy" ui-w-4p></div>
+		<div ui-w-85p ui-vt-align ui-full-h>
+			<div ui-rel ui-full>
+				<div ui-abs ui-full class="imigo-bank-premium-zone-wrapper imigo-bank-payment-zone">
+					<div ng-show="withdrawalCard" ui-row ui-full-h ui-w-100p class="imigo-bank-withdrawal-zone">
+						<div>
+							<div ui-full ui-row>
+								<div ui-full></div>
+								<div>
+									<div ui-column ui-full-w>
+										<div ui-full-w>
+											<div ui-inline-block class="imigo-bank-withdrawal-sum-label imigo-nowrap">
+												{{'Withdrawal amount' | translate}}:
+											</div>
+											<div ui-inline-block ui-w-12></div>
+											<div ui-inline-block class="imigo-bank-payment-sum-label imigo-nowrap">
+												{{withdrawal.amount || 0}} IMI
+											</div>
+											<div ui-inline-block ui-w-12></div>
+											<div ui-inline-block class="imigo-bank-withdrawal-actual-label imigo-nowrap">
+												{{getFinalWithdrawalSum()}} EUR*
+											</div>
+										</div>
+										<div>
+											<div ui-inline-block ng-click="onCloseWithdrawalCard()"
+											     class="imigo-chat-cross-image">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div>
+									<div class="imigo-bank-withdrawal-description-label">{{'*IMIGO.ME will charge a 20% commission for exchange services.' | translate}}</div>
+									<div class="imigo-bank-withdrawal-description-label">{{'It can take up to 15 days to process your withdrawal request.' | translate}}</div>
+								</div>
+								<div>
+									<ui-select ui-full-w
+									           ng-model="withdrawal.type"
+									           class="imigo-search-combo imigo-purchase-input"
+									           theme="selectize">
+										<ui-select-match placeholder="{{'Payment system' | translate}}">{{$select.selected.value}}</ui-select-match>
+										<ui-select-choices repeat="withdrawalType in withdrawalTypes" ui-full-w>
+											<span ng-bind-html="withdrawalType.value | translate | highlight: $select.search"></span>
+										</ui-select-choices>
+									</ui-select>
+								</div>
+								<div>
+									<input ui-full-w
+									       type="text"
+									       class="imigo-purchase-input"
+									       ng-model="withdrawal.id"
+									       placeholder="{{'Wallet ID or number' | translate}}">
+								</div>
+								<div>
+									<input ui-full-w
+									       type="text"
+									       class="imigo-purchase-input"
+									       ng-model="withdrawal.email"
+									       placeholder="{{'Email' | translate}}">
+								</div>
+								<div>
+									<div ui-hc-align
+									     ng-class="{disabled: !canProcessWithdrawal()}"
+									     ng-click="onWithdrawalImi()"
+									     class="imigo-bank-balance-button">
+										{{'Withdraw' | translate}}
+									</div>
+								</div>
+							</div>
+						</div>
+						<div ui-full-h></div>
+					</div>
+					<div ng-show="credCardProgress" ui-row ui-full-h ui-w-95p class="imigo-bank-premium-zone">
+						<div ui-column ui-full>
+							<div ui-vc-align ui-hc-align>
+								<div ui-auto class="imigo-loading-image"></div>
+							</div>
+						</div>
+					</div>
+					<div ng-show="withdrawalPolicy" ui-row ui-full-h ui-w-95p class="imigo-bank-premium-zone">
+						<div ui-h-20p>
+							<div ui-column ui-full class="imigo-bank-payment-sum-wrapper">
+								<div ui-vc-align ui-hc-align ui-w-90p>
+								</div>
+								<div ui-vc-align ui-hc-align ui-w-10p>
+									<div ng-click="onCloseWithdrawalPolicy()"
+									     class="imigo-chat-cross-image">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="imigo-bank-payment-common-label">
+							<translate>
+								To ensure the security of your payments and prevent any potential fraud the following rules are appied:<ol><li>Processing withdrawal requests takes up to 15 days.</li><li>A user requesting a withdrawal must present an ID to IMIGO.ME administration. The e-mail address specified in the withdrawal application will be used for communication.</li><li>If there is a good reason to believe that the money being withdrawn has illegal origin, IMIGO.ME shall be entitled to refuse to refuse the transaction.</li><li>Minimum withdrawal amount is 20 IMI.</li><li>A 20% commission is applied to all withdrawals.</li><li>Any other rules and restrictions imposed by your payment system remain applicable.</li></ol>
+							</translate>
+						</div>
+					</div>
+
+					<div ng-show="credCard" ui-row ui-full-h ui-w-95p class="imigo-bank-premium-zone">
+						<div ui-h-20p>
+							<div ui-column ui-full-h class="imigo-bank-payment-sum-wrapper">
+								<div ui-vc-align ui-hc-align ui-full-w>
+									<span class="imigo-bank-payment-common-label">{{'Payment sum' | translate}}:</span>
+									<span class="imigo-bank-payment-sum-label">{{payment.replenish || 0}} EUR</span>
+								</div>
+								<div ui-vc-align ui-hc-align ui-w-30>
+									<div ng-click="onCloseCredCard()"
+									     class="imigo-chat-cross-image">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div ui-rel ui-full-w class="imigo-bank-cred-card-holder">
+								<div ui-row ui-abs class="imigo-bank-cred-card imigo-bank-cred-card2">
+									<div ui-h-30p ui-full-w>
+										<div ui-row ui-full>
+											<div>
+												<div ui-h-20></div>
+											</div>
+											<div ui-full class="imigo-bank-card-empty-placeholder">&nbsp;</div>
+										</div>
+									</div>
+									<div ui-h-70p ui-full-w>
+										<div ui-column ui-full-w>
+											<div ui-w-100p></div>
+											<div>
+												<div ui-column class="imigo-bank-cvc-holder">
+													<div ui-hc-align>
+														<div ui-hc-align class="imigo-bank-card-label imigo-bank-cvc">CVC&nbsp;/&nbsp;CVV</div>
+														<input ui-w-80
+														       ui-hc-align
+														       type="text"
+														       ng-digit-filter
+														       maxlength="3"
+														       ng-maxlength="3"
+														       ng-model="card.cvv"
+														       placeholder="000">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div ui-abs ui-row class="imigo-bank-cred-card">
+									<div ui-full>
+										<div ui-column ui-full>
+											<div ui-w-50p ui-full-h>
+												<div class="imigo-bank-card-chip-image"></div>
+											</div>
+											<div ui-w-50p ui-full-h ui-vt-align>
+												<div class="imigo-bank-big-visa-image"></div>
+											</div>
+										</div>
+									</div>
+									<div>
+										<div class="imigo-bank-card-label">{{'Credit card number' | translate}}</div>
+										<input ui-full-w
+										       ui-hl-align
+										       type="number"
+										       ng-digit-filter
+										       maxlength="17"
+										       ng-maxlength="17"
+										       ng-model="card.id"
+										       placeholder="{{'XXXX-XXXX-XXXX-XXXXX'}}">
+									</div>
+									<div>
+										<div ui-column ui-full-w>
+											<div ui-w-50p></div>
+											<div ui-w-50p>
+												<div ui-row ui-full-w>
+													<div>
+														<div class="imigo-bank-card-label imigo-bank-validity">{{'Card expiration date' | translate}}</div>
+													</div>
+													<div ui-full-w>
+														<div ui-column ui-full-w>
+															<div ui-w-50p>
+																<ui-select ui-full-w
+																           ng-model="card.month"
+																           class="imigo-search-combo imigo-purchase-input"
+																           theme="selectize">
+																	<ui-select-match placeholder="{{'Month' | translate}}">{{$select.selected.value}}</ui-select-match>
+																	<ui-select-choices repeat="paymentMonth in months" ui-full-w>
+																		<span ng-bind-html="paymentMonth.value | translate | highlight: $select.search"></span>
+																	</ui-select-choices>
+																</ui-select>
+															</div>
+															<div><div ui-w-8></div></div>
+															<div ui-w-50p>
+																<ui-select ui-full-w
+																           ng-model="card.year"
+																           class="imigo-search-combo imigo-purchase-input"
+																           theme="selectize">
+																	<ui-select-match placeholder="{{'Year' | translate}}">{{$select.selected.value}}</ui-select-match>
+																	<ui-select-choices repeat="paymentYear in years" ui-full-w>
+																		<span ng-bind-html="paymentYear.value | translate | highlight: $select.search"></span>
+																	</ui-select-choices>
+																</ui-select>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div>
+										<div class="imigo-bank-card-label">{{'Name' | translate}}</div>
+										<input ui-full-w
+										       ui-hl-align
+										       type="text"
+										       ng-maxlength="30"
+										       ng-model="card.name"
+										       placeholder="{{'Enter the credit card holder\'s name' | translate}}"
+										       data-tip="{{'Enter the credit card holder\'s name' | translate}}">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div ui-h-80p>
+							<div ui-full ui-column>
+								<div ui-vt-align ui-hc-align ui-w-25p>
+									<ui-select ui-w-full
+									           ng-model="card.country"
+									           class="imigo-search-combo imigo-purchase-input"
+									           theme="selectize">
+										<ui-select-match placeholder="{{'Country' | translate}}">{{$select.selected.value}}</ui-select-match>
+										<ui-select-choices repeat="country in countries" ui-full-w>
+											<span ng-bind-html="country.value | translate | highlight: $select.search"></span>
+										</ui-select-choices>
+									</ui-select>
+								</div>
+								<div><div ui-w-20></div></div>
+								<div ui-vt-align ui-hc-align ui-w-15p>
+									<input ui-w-full
+									       type="text"
+									       maxlength="20"
+									       ng-maxlength="20"
+									       ng-model="card.postcode"
+									       placeholder="{{'Postcode'}}">
+								</div>
+								<div><div ui-w-20></div></div>
+								<div ui-vt-align ui-hl-align ui-w-60p>
+									<div ui-inline-block
+									     ui-w-160
+									     ui-hc-align
+									     ng-class="{disabled: !canProcessCard()}"
+									     ng-click="onBuyImi()"
+									     data-tip="{{'Purchase' | translate}}"
+									     class="imigo-bank-balance-button">
+										{{'Purchase' | translate}}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ng-show="!(credCard && withdrawalCard && credCardProgress)" ui-row ui-full-h ui-w-95p class="imigo-bank-premium-zone">
+						<div>
+							<div class="imigo-bank-premium-title-label">
+								{{'WHAT IS IMI?' | translate}}
+							</div>
+						</div>
+						<div>
+							<div ui-column ui-full-w class="imigo-bank-premium-offer-zone-wrapper imigo-bank-premium-offer-zone-wrapper2">
+								<div ui-vc-align>
+									<div ui-inline-block ui-h-44 class="imigo-imi-currency-image"></div>
+								</div>
+								<div class="imigo-bank-payment-common-label imigo-bank-about-imi-label">
+									{{'IMI is the virtual currency of IMIGO.ME. 1 IMI equals 1 Euro. Use IMI to purchase premium account and finance your deals.' | translate}}
+								</div>
+							</div>
+						</div>
+						<div ng-if="prePaid || postPaid">
+							<div ui-column ui-full-w>
+								<div ui-w-52>
+									<div ui-inline-block ui-h-28 ui-w-52></div>
+								</div>
+								<div ui-vt-align class="imigo-bank-paid-label" ng-if="prePaid && subscription.finishes">
+									{{'Premium account active until:' | translate}}&nbsp;{{subscription.finishes}}
+								</div>
+								<div ui-vt-align class="imigo-bank-paid-label" ng-if="postPaid && subscription.finishes">
+									{{'Premium account weekly payment plan active until:' | translate}}&nbsp;{{subscription.finishes}}
+								</div>
+							</div>
+						</div>
+						<div>
+							<div ui-row
+							     ui-full
+							     imi-form-premium-zone
+							     class="imigo-bank-premium-offer-zone-wrapper">
+								<div class="imigo-bank-premium-offer-zone">
+									<div ui-column ui-full>
+										<div ui-w-33p ui-vt-align>
+											<div ui-row ui-full ui-hc-align ng-if="!postPaid">
+												<div ui-h-20></div>
+												<div><div class="imigo-bank-premium-offer-period-label">{{'1 WEEK' | translate}}</div></div>
+												<div ui-h-8></div>
+												<div class="imigo-bank-premium-offer-imi-label">7<div ui-vt-align ui-inline-block class="imigo-imi-currency-image imigo-bank-imi-currency-image"></div></div>
+												<div ui-h-4></div>
+												<div class="imigo-bank-premium-count-at-period-label">&nbsp;</div>
+												<div ui-h-8></div>
+												<div class="imigo-bank-premium-saving-label">&nbsp;</div>
+												<div ui-h-8></div>
+												<div>
+													<div ui-inline-block
+													     ng-class="{disabled: transactionRunning}"
+													     ng-click="onApply('week')" class="imigo-bank-apply-button">{{'Activate' | translate}}</div>
+												</div>
+												<div ui-h-20></div>
+											</div>
+										</div>
+										<div ui-w-34p ui-vt-align ui-hc-align ng-if="!postPaid">
+											<div ui-row ui-full ui-hc-align>
+												<div ui-h-20></div>
+												<div><div class="imigo-bank-premium-offer-period-label">{{'1 MONTH' | translate}}</div></div>
+												<div ui-h-8></div>
+												<div class="imigo-bank-premium-offer-imi-label">20<div ui-vt-align ui-inline-block class="imigo-imi-currency-image imigo-bank-imi-currency-image"></div></div>
+												<div ui-h-4></div>
+												<div class="imigo-bank-premium-count-at-period-label"
+												     ng-repeat="imiAtWeek in [5]"
+												     translate>{{imiAtWeek}} IMI per week</div>
+												<div ui-h-8></div>
+												<div class="imigo-bank-premium-saving-label"
+												     ng-repeat="percentSaving in [30]"
+												     translate>{{percentSaving}}% off</div>
+												<div ui-h-8></div>
+												<div>
+													<div ui-inline-block
+													     ng-class="{disabled: transactionRunning}"
+													     ng-click="onApply('month')" class="imigo-bank-apply-button">{{'Activate' | translate}}</div>
+												</div>
+												<div ui-h-20></div>
+											</div>
+										</div>
+										<div ui-w-33p ui-vt-align ui-hc-align>
+											<div ui-row ui-full ui-hc-align>
+												<div ui-h-20></div>
+												<div><div class="imigo-bank-premium-offer-period-label">{{'1 YEAR' | translate}}</div></div>
+												<div ui-h-8></div>
+												<div class="imigo-bank-premium-offer-imi-label">144<div ui-vt-align ui-inline-block class="imigo-imi-currency-image imigo-bank-imi-currency-image"></div></div>
+												<div ui-h-4></div>
+												<div class="imigo-bank-premium-count-at-period-label"
+												     ng-repeat="imiAtWeek in [3]"
+												     translate>{{imiAtWeek}} IMI per week</div>
+												<div ui-h-8></div>
+												<div class="imigo-bank-premium-saving-label"
+												     ng-repeat="percentSaving in [60]"
+												     translate>{{percentSaving}}% off</div>
+												<div ui-h-8></div>
+												<div>
+													<div ui-inline-block
+													     ng-class="{disabled: transactionRunning}"
+													     ng-click="onApply('year')" class="imigo-bank-apply-button">{{'Activate' | translate}}</div>
+												</div>
+												<div ui-h-20></div>
+											</div>
+										</div>
+										<div ui-w-34p ng-if="postPaid"></div>
+									</div>
+								</div>
+								<div class="imigo-bank-premium-special-offer-zone" ng-if="false && !postPaid">
+									<div ui-row ui-full class="imigo-bank-premium-special-offer-inner-zone imigo-premium-shadow">
+										<div><div ui-h-8></div></div>
+										<div>
+											<div ui-hc-align
+											     class="imigo-bank-premium-special-label">
+												{{'SPECIAL OFFER' | translate}}
+											</div>
+										</div>
+										<div><div ui-h-8></div></div>
+										<div>
+											<div ui-column ui-full-w>
+												<div ui-vc-align
+												     ui-hr-align
+												     ui-w-67p>
+													<div ui-inline-block
+													     ui-hl-align
+													     class="imigo-bank-premium-subscription-label"
+													     translate>ACTIVATE <span class="imigo-bank-premium-account-label">PREMIUM ACCOUNT</span><br>WITH NO DOWN PAYMENT*</div>
+												</div>
+												<div ui-w-33p ui-vc-align ui-hc-align>
+													<div ui-inline-block
+													     ng-click="onApply('recurring')"
+													     ng-class="{disabled: transactionRunning}"
+													     class="imigo-bank-apply-button">{{'Activate' | translate}}</div>
+												</div>
+											</div>
+										</div>
+										<div><div ui-h-8></div></div>
+										<div>
+											<div class="imigo-bank-premium-description-label">
+												{{ 'You will not be charged for the first transaction. All subsequent transactions will have the charge rate of 4 IMI per week for 1 year.' | translate}}
+											</div>
+										</div>
+										<div><div ui-h-8></div></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div ui-h-100p></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ng-if="credCard || withdrawalCard || credCardProgress || withdrawalPolicy" ui-w-5p></div>
+		<div ng-if="!credCard && !credCardProgress" ui-w-16p></div>
+	</div>
+	<div ui-abs ui-full ng-if="alertObject" ng-include="'app/popup.tpl.html'" class="imigo-alert-dialog-wrapper imigo-panel"></div>
+</div>
+<div ui-column ui-full-w class="imigo-bottom-panel" ng-include="'app/footer.tpl.html'"></div>

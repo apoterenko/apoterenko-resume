@@ -1,0 +1,12 @@
+#parse("/templates/qiwi/jira/plugins/pipeline/header.vm")
+
+#parse("/templates/qiwi/jira/plugins/pipeline/title.vm")
+Вычисление скорости закрытия тикетов в конвейере
+#parse("/templates/qiwi/jira/plugins/pipeline/footer.vm")
+
+<br>
+<a href="$req.contextPath/secure/pipelineattr!default.jspa">редактирование атрибутов проекта</a>
+<br><br>
+<a href="$req.contextPath/secure/pipelinestat!default.jspa">просмотр скорости закрытия тикетов в конвейере</a>
+
+#parse("/templates/qiwi/jira/plugins/pipeline/footer.vm")
